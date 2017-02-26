@@ -35,9 +35,26 @@ module.exports = {
       {
         test: /\.css$/, //файлы, которые лоэдер будет искать. Будет грузить все файлы, подключенные в ./src/app.js
         use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader", publicPath: './dist'})  //название лоэдера. Используем плагин для создания отдельного общего файла стилей
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader?presets[]=es2015'
       }
     ]
   },
+
+  // resolve: {
+  //   modules: [path.resolve(__dirname, "src"), "node_modules"],
+  //   extensions: [
+  //     '',
+  //     '.js',
+  //     '.jsx',
+  //     '.ts',
+  //     '.tsx',
+  //     '.react.js',
+  //   ],
+  // },
   /**Будут содержаться все наши плагины*/
   plugins: [
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
