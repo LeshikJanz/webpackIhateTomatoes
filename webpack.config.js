@@ -29,6 +29,13 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),  //dist - папка, где будут лежать бандлы
     filename: 'app.bundle.js'  //Файл, в которым будем бандлить
   },
+
+  devtool: "source-map",
+
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+
   /** Модули содержат в себе различные лоудеры, если не указан путь. Которые будут преобразовывать современный код в старый, для поддержки всеми браузерами*/
   module: {
     rules: [
@@ -40,6 +47,18 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader?presets[]=es2015'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        }
+      },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre"
       }
     ]
   },
