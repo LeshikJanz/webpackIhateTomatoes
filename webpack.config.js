@@ -40,8 +40,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/, //файлы, которые лоэдер будет искать. Будет грузить все файлы, подключенные в ./src/app.js
-        use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader", publicPath: './dist'})  //название лоэдера. Используем плагин для создания отдельного общего файла стилей
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.js$/,
@@ -63,17 +67,6 @@ module.exports = {
     ]
   },
 
-  // resolve: {
-  //   modules: [path.resolve(__dirname, "src"), "node_modules"],
-  //   extensions: [
-  //     '',
-  //     '.js',
-  //     '.jsx',
-  //     '.ts',
-  //     '.tsx',
-  //     '.react.js',
-  //   ],
-  // },
   /**Будут содержаться все наши плагины*/
   plugins: [
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
