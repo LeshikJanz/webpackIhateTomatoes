@@ -6,7 +6,7 @@ require("../../../assets/js/tagcanvas.min.js");
 import { tagList } from '../../../../mocks/tagList.ts';
 import { ReactIgnore } from "./ReactIgnore";
 
-const tagCloudHtml = `
+const tagCloudInitial = `
   <div id="cloud">
     <div className="container">
       <div className="row">
@@ -55,20 +55,28 @@ function tagCloudController() {
   };
 }
 
-function generateTags() {
-  tagList.forEach((elem) => tagCloudHtml += `<li><a id="go" href="${elem.source}" target="_blank">${elem.value}</a></li>`);
-  return tagCloudHtml + `</ul></div></div></div></div></div>`;
+function generateTags(tags: Array) {
+  let tagCloud = `${tagCloudInitial}`;
+  tags.forEach((elem, index) => tagCloud += `<li><a id="tag${index}" href="${elem.source}" target="_blank">${elem.value}</a></li>`);
+  return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
-function tagCloudCreator(parent) {
+function setNewTag(tag) {
+  $('#tags ul').append(`<li><a id="123" href="12345" target="_blank">12</a></li>`);
+  TagCanvas.Reload('myCanvas', `tags`);
+}
+
+function tagCloudCreator(parent, tags) {
   var $parent = $(parent);
-  const $editor = $(generateTags());
+  let $editor = $(generateTags(tags));
+  console.log("$editor");
+  console.log($editor);
   $parent.find('textarea').replaceWith($editor);
   tagCloudController();
 
-  // /*...*/
+  /*...*/
   // return {
-  //   setText: function (text) {
+  //   newTag: function (text) {
   //     $editor.html(text);
   //   },
   //   /*...*/
@@ -77,12 +85,14 @@ function tagCloudCreator(parent) {
 
 export class TagCloud extends React.Component {
   componentDidMount = () => {
-    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this));
+    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
     // this.editor.setText(this.props.contents);
   };
 
   componentDidUpdate = () => {
-    // this.editor.setText(this.props.contents);
+    console.log("componentDidUpdate");
+    //this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
+    setNewTag();
   };
 
   render = () => {

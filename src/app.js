@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './modules/main/containers/App.js';
+import reducer from '../reducers';
 
 const initialState = {
   trackNumber: 0
@@ -18,7 +19,7 @@ function playlist(state = initialState, action){
   return state;
 }
 
-const store = createStore(playlist, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());//внутрь передаем редюсеры
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());//внутрь передаем редюсеры
 
 ReactDOM.render(
   <Provider store={store}><App/></Provider>,
