@@ -1,6 +1,6 @@
 export function createAction(type:string, payloadMapper:any) {
   const scopedName = this.scope ? `${this.scope}/` : '';
-  const name = `mercparts/${scopedName}${type}`;
+  const name = `big-head/${scopedName}${type}`;
 
   function actionCreator(...args:any[]) {
     return {
