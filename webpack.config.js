@@ -22,6 +22,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 /** Плагин достает css(или какие мы укажем файлы) в отдельный(не bundle.js) файл. Т.е. теперь стили содержаться в отдельном app.css, который подключен в bundle.js */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');  //используется для указания полных путей и для resolve путей
+var helpers = require('./helpers');
 
 module.exports = {
   entry: './src/app.js', //Исходный файл
@@ -34,6 +35,9 @@ module.exports = {
 
   resolve: {
     modules: ['node_modules', 'src'],
+    alias: {
+      mocks: helpers.root('mocks')
+    },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 

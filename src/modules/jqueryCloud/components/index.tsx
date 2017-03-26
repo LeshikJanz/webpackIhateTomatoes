@@ -2,85 +2,87 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import style from "../styles/style.css";
+require("../../../assets/js/tagcanvas.min.js");
+import { tagList } from '../../../../mocks/tagList.ts';
+import { ReactIgnore } from "./ReactIgnore";
 
-function textarea2editor(parent) {
-  console.log("parent");
-  console.log(parent);
-  var $parent = $(parent);
-  var $editor = $('<div contenteditable/>');
-  $editor.css('background', "#333");
-  $editor.css("color", "#efefef");
-  $parent.find('textarea').replaceWith($editor);
-  /*...*/
-  return {
-    setText: function (text) {
-      $editor.html(text);
-    },
-    /*...*/
-  }
-}
-
-export class Cloud extends React.Component {
-
-
-  componentDidUpdate = () => {
-
-  }
-
-  render() {
-    return (
-    <div id="cloud">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-lg-offset-2 centered center-tag-cloud">
-            <div id="myCanvasContainer">
-              <canvas width="600" height="600" id="myCanvas">
-                <p>Anything in here will be replaced on browsers that support the canvas element</p>
-              </canvas>
-            </div>
-            <div id="tags">
-              <ul>
-                <li><a id="go" href="http://www.google.com" target="_blank">Google</a></li>
-                <li><a id="go" href="/fish">Fish</a></li>
-                <li><a id="go" href="/chips">Lorem ipsum </a></li>
-                <li><a id="go" href="http://www.google.com" target="_blank">Google</a></li>
-                <li><a id="go" href="/fish">Fish</a></li>
-                <li><a id="go" href="/chips">Lorem ipsum </a></li>
-                <li><a id="go" href="http://www.google.com" target="_blank">Google</a></li>
-                <li><a id="go" href="/fish">Fish</a></li>
-                <li><a id="go" href="/chips">Lorem ipsum </a></li>
-                <li><a id="go" href="http://www.google.com" target="_blank">Google</a></li>
-                <li><a id="go" href="/fish">Fish</a></li>
-                <li><a id="go" href="/chips">Lorem ipsum </a></li>
-              </ul>
-            </div>
+const tagCloudHtml = `
+  <div id="cloud">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-8 col-lg-offset-2 centered center-tag-cloud">
+          <div id="myCanvasContainer">
+            <canvas width="600" height="600" id="myCanvas">
+              <p>Anything in here will be replaced on browsers that support the canvas element</p>
+            </canvas>
           </div>
-        </div>
-      </div>
-      <button type="button" className="btn btn-success">Success</button>
+          <div id="tags">
+            <ul>`;
 
-    </div>
-    )
-  }
-}
-
-class ReactIgnore extends React.Component {
-  shouldComponentUpdate = () =>{
-    return false;
+function tagCloudController() {
+  window.onload = function () {
+    try {
+      TagCanvas.Start('myCanvas', 'tags', {
+        // textColour: '#337ab7',
+        // outlineColour: '#ff00ff',
+        // reverse: true,
+        // depth: 0.8,
+        // maxSpeed: 0.04
+        textFont: 'Trebuchet MS, Helvetica, sans-serif',
+        textColour: '#337ab7',
+        textHeight: 25,
+        outlineMethod: 'block',
+        outlineColour: '#acf',
+        maxSpeed: 0.015,
+        minBrightness: 0.2,
+        depth: 0.92,
+        pulsateTo: 0.6,
+        initial: [0.2, -0.2],
+        decel: 1,
+        reverse: true,
+        // hideTags: false,
+        shadow: '#ccf',
+        shadowBlur: 3,
+        weight: false,
+        imageScale: null,
+        fadeIn: 1000,
+        clickToFront: 600
+      });
+    } catch (e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
   };
-
-  render = () => React.Children.only(this.props.children);
 }
 
-export class JQueryCloud extends React.Component {
+function generateTags() {
+  tagList.forEach((elem) => tagCloudHtml += `<li><a id="go" href="${elem.source}" target="_blank">${elem.value}</a></li>`);
+  return tagCloudHtml + `</ul></div></div></div></div></div>`;
+}
 
+function tagCloudCreator(parent) {
+  var $parent = $(parent);
+  const $editor = $(generateTags());
+  $parent.find('textarea').replaceWith($editor);
+  tagCloudController();
+
+  // /*...*/
+  // return {
+  //   setText: function (text) {
+  //     $editor.html(text);
+  //   },
+  //   /*...*/
+  // }
+}
+
+export class TagCloud extends React.Component {
   componentDidMount = () => {
-    this.editor = textarea2editor(ReactDOM.findDOMNode(this));
-    this.editor.setText(this.props.contents);
+    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this));
+    // this.editor.setText(this.props.contents);
   };
 
   componentDidUpdate = () => {
-    this.editor.setText(this.props.contents);
+    // this.editor.setText(this.props.contents);
   };
 
   render = () => {
@@ -88,8 +90,8 @@ export class JQueryCloud extends React.Component {
       <div>
         <ReactIgnore>
           <textarea value={this.props.contents}/>
-    </ReactIgnore>
-    </div>
+        </ReactIgnore>
+      </div>
     )
   }
 };
