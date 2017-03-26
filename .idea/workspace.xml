@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reducers.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/actions.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createAction.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createAction.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createAction.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createReducer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createReducer.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/createReducer.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.js" afterPath="$PROJECT_DIR$/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/ReactIgnore.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/ReactIgnore.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/main/components/App.js" afterPath="$PROJECT_DIR$/src/modules/main/components/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/main/containers/App.js" afterPath="$PROJECT_DIR$/src/modules/main/containers/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="webpackEgghead.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,21 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-587">
-              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/main/styles/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="328">
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -88,7 +65,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1490545264000" expanded="true" signature="82:244" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +99,8 @@
       <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -129,35 +108,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cloudReducer.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.ts">
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#180#224#0" expanded="true" />
+                <marker date="1490548205000" expanded="true" signature="2134:2242" ph="..." />
+                <marker date="1490548205000" expanded="true" signature="2156:2229" ph="..." />
+                <marker date="1490548205000" expanded="true" signature="2206:2215" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+            <state relative-caret-position="0">
+              <caret line="0" column="28" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="28" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#189#244#0" expanded="true" />
-                <marker date="1490547733000" expanded="true" signature="366:752" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="394:752" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="471:752" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="510:708" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="570:691" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="734:751" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="734:752" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="751:752" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="2920:3028" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="2942:3015" ph="..." />
-                <marker date="1490547733000" expanded="true" signature="2992:3001" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="50:467" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="82:467" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="110:467" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="187:467" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="226:424" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="286:407" ph="..." />
+                <marker date="1490548097000" expanded="true" signature="450:467" ph="..." />
               </folding>
             </state>
           </provider>
@@ -199,7 +178,6 @@
         <option value="$PROJECT_DIR$/mocks/big-head/index.html" />
         <option value="$PROJECT_DIR$/mocks/tagList.json" />
         <option value="$PROJECT_DIR$/mocks/tagList.ts" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/modules/actions.ts" />
         <option value="$PROJECT_DIR$/src/app.js" />
         <option value="$PROJECT_DIR$/reducers.ts" />
@@ -208,7 +186,9 @@
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.ts" />
         <option value="$PROJECT_DIR$/src/modules/main/components/App.js" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/ReactIgnore.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -472,6 +452,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="constants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackEgghead" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackEgghead" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jqueryCloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -600,7 +606,7 @@
       <workItem from="1488981725924" duration="1932000" />
       <workItem from="1489317359537" duration="2828000" />
       <workItem from="1489343895043" duration="1410000" />
-      <workItem from="1490529726589" duration="16016000" />
+      <workItem from="1490529726589" duration="16520000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -623,11 +629,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490541227033</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Feat: connected store to clouds">
+      <created>1490547756575</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1490547756575</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39957000" />
+    <option name="totallyTimeSpent" value="40461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -686,21 +699,14 @@
     <MESSAGE value="Feat: created simple jquery wrapper for textEditor" />
     <MESSAGE value="Feat: connected bootstrap to the project" />
     <MESSAGE value="Feat: added mocks data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: added mocks data" />
+    <MESSAGE value="Feat: connected store to clouds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: connected store to clouds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1026,14 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-587">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1074,7 +1072,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1490545264000" expanded="true" signature="82:244" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1096,35 +1096,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="28" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="28" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1490548097000" expanded="true" signature="50:467" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="82:467" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="110:467" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="187:467" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="226:424" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="286:407" ph="..." />
+            <marker date="1490548097000" expanded="true" signature="450:467" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="255">
+          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#189#244#0" expanded="true" />
-            <marker date="1490547733000" expanded="true" signature="366:752" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="394:752" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="471:752" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="510:708" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="570:691" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="734:751" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="734:752" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="751:752" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="2920:3028" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="2942:3015" ph="..." />
-            <marker date="1490547733000" expanded="true" signature="2992:3001" ph="..." />
+            <element signature="e#180#224#0" expanded="true" />
+            <marker date="1490548205000" expanded="true" signature="2134:2242" ph="..." />
+            <marker date="1490548205000" expanded="true" signature="2156:2229" ph="..." />
+            <marker date="1490548205000" expanded="true" signature="2206:2215" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

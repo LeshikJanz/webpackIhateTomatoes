@@ -2,22 +2,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import style from "../styles/style.css";
-require("../../../assets/js/tagcanvas.min.js");
-import { tagList } from '../../../../mocks/tagList.ts';
+require("assets/js/tagcanvas.min.js");
 import { ReactIgnore } from "./ReactIgnore";
-
-const tagCloudInitial = `
-  <div id="cloud">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-8 col-lg-offset-2 centered center-tag-cloud">
-          <div id="myCanvasContainer">
-            <canvas width="600" height="600" id="myCanvas">
-              <p>Anything in here will be replaced on browsers that support the canvas element</p>
-            </canvas>
-          </div>
-          <div id="tags">
-            <ul>`;
+import { tagCloudInitial } from "../constants/index";
 
 function tagCloudController() {
   window.onload = function () {
@@ -49,7 +36,6 @@ function tagCloudController() {
         clickToFront: 600
       });
     } catch (e) {
-      // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
     }
   };
@@ -61,41 +47,23 @@ function generateTags(tags: Array) {
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
-function setNewTag(tag) {
-  $('#tags ul').append(`<li><a id="123" href="12345" target="_blank">12</a></li>`);
+function setNewTag(tag, number) {
+  $('#tags ul').append(`<li><a id="tag${number}" href="${tag.source}" target="_blank">${tag.value}${number}</a></li>`);
   TagCanvas.Reload('myCanvas', `tags`);
 }
 
 function tagCloudCreator(parent, tags) {
   var $parent = $(parent);
   let $editor = $(generateTags(tags));
-  console.log("$editor");
-  console.log($editor);
   $parent.find('textarea').replaceWith($editor);
   tagCloudController();
-
-  /*...*/
-  // return {
-  //   newTag: function (text) {
-  //     $editor.html(text);
-  //   },
-  //   /*...*/
-  // }
 }
 
 export class TagCloud extends React.Component {
-  componentDidMount = () => {
-    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    // this.editor.setText(this.props.contents);
-  };
+  componentDidMount = () => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
+  componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length-1], this.props.clouds.length-1);
 
-  componentDidUpdate = () => {
-    console.log("componentDidUpdate");
-    //this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    setNewTag();
-  };
-
-  render = () => {
+  render() {
     return (
       <div>
         <ReactIgnore>
