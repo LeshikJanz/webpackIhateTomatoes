@@ -29,11 +29,6 @@ ReactDOM.render(
 
 console.log("Hello from debug and app.js and from webpack");
 
-
-
-
-
-
 store.subscribe(() => {
   console.log("subscribe: ", store.getState());
 })

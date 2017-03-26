@@ -1,4 +1,4 @@
 "use strict";
-const React = require("react");
-exports.Hello = (props) => React.createElement("h1", null, "Hello from ", props.compiler, " and ", props.framework, "!");
+var React = require("react");
+exports.Hello = function (props) { return React.createElement("h1", null, "Hello from ", props.compiler, " and ", props.framework, "!"); };
 //# sourceMappingURL=index.js.map
