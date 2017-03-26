@@ -1,11 +1,11 @@
 "use strict";
 function createAction(type, payloadMapper) {
     var scopedName = this.scope ? this.scope + "/" : '';
-    var name = "mercparts/" + scopedName + type;
+    var name = "big-head/" + scopedName + type;
     function actionCreator() {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
+            args[_i - 0] = arguments[_i];
         }
         return {
             type: name,

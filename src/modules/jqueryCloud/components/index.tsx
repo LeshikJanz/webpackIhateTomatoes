@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
-import style from "../styles/style.css";
-require("assets/js/tagcanvas.min.js");
+import "assets/js/tagcanvas.min.js";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
 
@@ -52,10 +51,20 @@ function setNewTag(tag, number) {
   TagCanvas.Reload('myCanvas', `tags`);
 }
 
+function setCloudStyles($parent) {
+  $parent.css('text-align', 'center');
+  // $('#myCanvas').css('width', '1000px');
+  // $('#myCanvas').css('width', '1000px');
+  var e = document.getElementById('myCanvas')
+  e.width = "1000px";
+  e.height = "1000px";
+}
+
 function tagCloudCreator(parent, tags) {
   var $parent = $(parent);
   let $editor = $(generateTags(tags));
   $parent.find('textarea').replaceWith($editor);
+  //setCloudStyles($parent);
   tagCloudController();
 }
 

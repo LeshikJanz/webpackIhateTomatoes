@@ -1,4 +1,5 @@
 "use strict";
 var React = require("react");
-exports.Hello = function (props) { return React.createElement("h1", null, "Hello from ", props.compiler, " and ", props.framework, "!"); };
+require("../styles/main.css");
+exports.Header = function () { return (React.createElement("div", {className: "navbar navbar-default navbar-fixed-top"}, React.createElement("div", {className: "container"}, React.createElement("div", {className: "navbar-header"}, React.createElement("button", {type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-collapse"}, React.createElement("span", {className: "icon-bar"}), React.createElement("span", {className: "icon-bar"}), React.createElement("span", {className: "icon-bar"})), React.createElement("a", {className: "navbar-brand", href: "#"}, React.createElement("i", {className: "fa fa-bolt"}))), React.createElement("div", {id: "hello"}, React.createElement("div", {className: "col-lg-8 col-lg-offset-2 centered"}, React.createElement("h1", null, "Ваши знания в одном месте"))), React.createElement("div", {className: "navbar-collapse collapse"}, React.createElement("ul", {className: "nav navbar-nav navbar-right"}, React.createElement("li", {className: "active"}, React.createElement("a", {href: "#contact"}, "Contact"))))))); };
 //# sourceMappingURL=index.js.map
