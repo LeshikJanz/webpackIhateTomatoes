@@ -33,6 +33,7 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
+    modules: ['node_modules', 'src'],
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
@@ -63,7 +64,8 @@ module.exports = {
         test: /\.js$/,
         use: ["source-map-loader"],
         enforce: "pre"
-      }
+      },
+      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'}
     ]
   },
 

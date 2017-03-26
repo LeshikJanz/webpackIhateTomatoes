@@ -1,6 +1,8 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.css";
+
 import {Hello} from '../../header/components/index';
-import {JQueryTest} from '../../jqueryCloud/index';
+import { JQueryCloud, Cloud } from '../../jqueryCloud/components/index';
 
 export const App = (props) => {
   return (
@@ -9,11 +11,8 @@ export const App = (props) => {
       <button onClick={props.onClick}>Click me</button>
       <h2>{props.trackNumber}</h2>
       <Hello compiler="TypeScript" framework="React"/>
-      <JQueryTest contents={props.trackNumber}/>
+      <JQueryCloud contents={props.trackNumber}/>
+      <Cloud contents={props.trackNumber}/>
     </div>
   )
-}
-
-const getRandomCombination = (prop) => {
-  return prop;
-}
+};
