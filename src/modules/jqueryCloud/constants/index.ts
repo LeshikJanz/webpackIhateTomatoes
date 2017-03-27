@@ -1,4 +1,4 @@
-const cloudWidth = window.innerWidth;
+const cloudWidth = window.innerWidth / 2;
 const cloudHeight = window.innerHeight;
 
 export const tagCloudInitial = `
