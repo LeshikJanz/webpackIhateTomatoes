@@ -11,7 +11,6 @@ export default class ExampleEditor extends React.Component {
     super(props)
     const INITIAL_STATE = editorStateFromRaw(raw)
     this.state = {value: INITIAL_STATE}
-    this.state = {value: ""}
   }
 
   onChange = (editorState) => {
