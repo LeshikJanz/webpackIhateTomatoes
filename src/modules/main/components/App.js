@@ -6,7 +6,8 @@ import "../styles/main.css";
 import { Header } from '../../header/components/index';
 import TagCloud from '../../jqueryCloud/containers/index';
 import DraftEditor from '../../draftEditor/containers/index';
-import ExampleEditor from '../../lastdraftEditor/containers/index';
+// import ExampleEditor from '../../lastdraftEditor/containers/index';
+import ExampleEditor from '../../draft-example/Example';
 
 export const App = (props) => {
   function addNewTag(){
