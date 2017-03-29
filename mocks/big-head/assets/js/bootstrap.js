@@ -828,7 +828,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.0.2
+ * Bootstrap: Modal.js v3.0.2
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
@@ -883,7 +883,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
 
     this.escape()
 
-    this.$element.on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
+    this.$element.on('click.dismiss.modal', '[data-dismiss="popUpModal"]', $.proxy(this.hide, this))
 
     this.backdrop(function () {
       var transition = $.support.transition && that.$element.hasClass('fade')
@@ -907,7 +907,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        that.$element.find('.popUpModal-dialog') // wait for popUpModal to slide in
           .one($.support.transition.end, function () {
             that.$element.focus().trigger(e)
           })
@@ -984,7 +984,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     if (this.isShown && this.options.backdrop) {
       var doAnimate = $.support.transition && animate
 
-      this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+      this.$backdrop = $('<div class="popUpModal-backdrop ' + animate + '" />')
         .appendTo(document.body)
 
       this.$element.on('click.dismiss.modal', $.proxy(function (e) {
@@ -1053,7 +1053,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   // MODAL DATA-API
   // ==============
 
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.bs.modal.data-api', '[data-toggle="popUpModal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
     var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7

@@ -8,6 +8,7 @@ import TagCloud from '../../jqueryCloud/containers/index';
 import DraftEditor from '../../draftEditor/containers/index';
 // import ExampleEditor from '../../lastdraftEditor/containers/index';
 import ExampleEditor from '../../draft-example/Example';
+import PopUpModal from '../../popUpModal/containers/index';
 
 export const App = (props) => {
   function addNewTag(){
@@ -30,7 +31,8 @@ export const App = (props) => {
       {/*<br/>*/}
       {/*<br/>*/}
       {/*<br/>*/}
-      <ExampleEditor/>
+      {/*<ExampleEditor/>*/}
+      <PopUpModal/>
     </div>
   )
 };

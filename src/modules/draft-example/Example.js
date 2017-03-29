@@ -1,6 +1,13 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
-import {Editor, editorStateFromHtml, editorStateToHtml, editorStateFromRaw, editorStateToJSON, editorStateFromText} from 'last-draft';
+import React, {Component} from 'react'
+import {render} from 'react-dom'
+import {
+  Editor,
+  editorStateFromHtml,
+  editorStateToHtml,
+  editorStateFromRaw,
+  editorStateToJSON,
+  editorStateFromText
+} from 'last-draft';
 
 /* init the state, either from raw or html */
 import RAW from './initialState/raw'
@@ -15,7 +22,7 @@ import audio from 'ld-audio'
 import sticker from 'ld-sticker'
 import html from 'ld-html'
 import todo from 'ld-todo'
-let plugins = [video, color, emoji, gif, mention]
+let plugins = [video, color, emoji, gif, mention, sticker, todo];
 
 export default class ExampleEditor extends Component {
   constructor(props) {
@@ -27,11 +34,11 @@ export default class ExampleEditor extends Component {
     //const INITIAL_STATE = editorStateFromText('this is a cooel editor... 🏄🌠🏀')
     //const INITIAL_STATE = editorStateFromText('xyz')
     //const INITIAL_STATE = editorStateFromHtml('<div />')
-    this.state = { value: INITIAL_STATE }
+    this.state = {value: INITIAL_STATE}
   }
 
-  change(editorState){
-    this.setState({ value: editorState })
+  change(editorState) {
+    this.setState({value: editorState})
     /* You would normally save this to your database here instead of logging it */
     console.log(editorStateToHtml(editorState))
     //console.log(editorStateToJSON(editorState))
@@ -39,19 +46,21 @@ export default class ExampleEditor extends Component {
 
   render() {
     return (
-      <Editor
-        theme={this.props.theme}
-        plugins={plugins}
-        sidebarVisibleOn='newline'
-        inline={['bold', 'italic', 'dropcap']}
-        blocks={['h3', 'quote']}
-        mentionUsers={mentionUsers}
-        autofocus={true}
-        separators={false}
-        editorState={this.state.value}
-        placeholder='Text'
-        uploadImageAsync={uploadImageAsync}
-        onChange={this.change.bind(this)} />
+      <div style={{ width: '1000px', marginLeft: '200px', marginRight: '200px' }}>
+        <Editor
+          theme={this.props.theme}
+          plugins={plugins}
+          sidebarVisibleOn='newline'
+          inline={['bold', 'italic', 'dropcap']}
+          blocks={['h3', 'quote']}
+          mentionUsers={mentionUsers}
+          autofocus={true}
+          separators={false}
+          editorState={this.state.value}
+          placeholder='Text'
+          uploadImageAsync={uploadImageAsync}
+          onChange={this.change.bind(this)}/>
+      </div>
     )
   }
 }
@@ -60,11 +69,11 @@ function uploadImageAsync(file) {
   return new Promise(
     (resolve, reject) => {
       /* simulate a 2 second call to parse file and return an img src... */
-      setTimeout( () => {
+      setTimeout(() => {
         /* the image src would be a url from an S3 or database resouse */
         const src = window.URL.createObjectURL(file)
         //const src = 'http://imgur.com/yrwFoXT.jpg'
-        resolve({ src: src });
+        resolve({src: src});
       }, 2000)
     }
   )
@@ -91,17 +100,17 @@ const mentionUsers = [
 /* mentionUsersAsync example using github search api */
 
 /*
-const mentionUsersAsync = function (searchValue, cb) {
-  return new Promise(
-    (resolve, reject) => {
-      let url = `https://api.github.com/search/users?q=${searchValue}`
-      fetch(url)
-      .then( (response) => { return response.json() })
-      .then((data) => {
-        let users = data.items.map( (u, i) => { return { name: u.login, link: u.html_url, avatar: u.avatar_url } })
-        resolve({ mentionUsers: users })
-      })
-    }
-  )
-}
-*/
+ const mentionUsersAsync = function (searchValue, cb) {
+ return new Promise(
+ (resolve, reject) => {
+ let url = `https://api.github.com/search/users?q=${searchValue}`
+ fetch(url)
+ .then( (response) => { return response.json() })
+ .then((data) => {
+ let users = data.items.map( (u, i) => { return { name: u.login, link: u.html_url, avatar: u.avatar_url } })
+ resolve({ mentionUsers: users })
+ })
+ }
+ )
+ }
+ */
