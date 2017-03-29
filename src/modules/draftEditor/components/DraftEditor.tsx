@@ -1,8 +1,19 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { Editor, EditorState, RichUtils, getDefaultKeyBinding, KeyBindingUtil } from 'draft-js';
+import { EditorState, RichUtils, getDefaultKeyBinding, KeyBindingUtil } from 'draft-js';
+import { Editor } from 'draft-js-plugins-editor';
+import "../styles/style.css";
+import createHashtagPlugin from 'draft-js-hashtag-plugin';
+import createLinkifyPlugin from 'draft-js-linkify-plugin';
+const hashtagPlugin = createHashtagPlugin();
+const linkifyPlugin = createLinkifyPlugin();
 const {hasCommandModifier} = KeyBindingUtil;
 
+
+const plugins = [
+  hashtagPlugin,
+  linkifyPlugin,
+];
 /**
  * обработчик клавиш, здесь стоит написать switch, т.е. при наборе какого-то сочетания клавиш, он будте возвращать событие(имя команды)
  * которое будет обрабатываться функциями из handleKeyCommand
@@ -12,6 +23,13 @@ function myKeyBindingFn(e: SyntheticKeyboardEvent): string {
     return 'myeditor-save';
   }
   return getDefaultKeyBinding(e);
+}
+
+function myBlockStyleFn(contentBlock) {
+  const type = contentBlock.getType();
+  if (type === 'blockquote') {
+    return 'superFancyBlockquote';
+  }
 }
 
 export class DraftEditor extends React.Component {
@@ -41,7 +59,9 @@ export class DraftEditor extends React.Component {
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           keyBindingFn={myKeyBindingFn}
+          blockStyleFn={myBlockStyleFn}
           onChange={this.onChange}
+          plugins={plugins}
         />
       </div>
     );

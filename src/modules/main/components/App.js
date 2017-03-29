@@ -6,6 +6,7 @@ import "../styles/main.css";
 import { Header } from '../../header/components/index';
 import TagCloud from '../../jqueryCloud/containers/index';
 import DraftEditor from '../../draftEditor/containers/index';
+import ExampleEditor from '../../lastdraftEditor/containers/index';
 
 export const App = (props) => {
   function addNewTag(){
@@ -18,12 +19,17 @@ export const App = (props) => {
 
   return (
     <div>
-      <Header/>
-      {/*<Hello compiler="TypeScript" framework="React"/>*/}
-      <TagCloud contents={props.trackNumber}/>
+      {/*<Header/>*/}
+      {/*/!*<Hello compiler="TypeScript" framework="React"/>*!/*/}
+      {/*<TagCloud contents={props.trackNumber}/>*/}
       {/*<button onClick={addNewTag}>Add new tag</button>*/}
 
-      <DraftEditor/>
+      {/*<DraftEditor/>*/}
+      {/*<br/>*/}
+      {/*<br/>*/}
+      {/*<br/>*/}
+      {/*<br/>*/}
+      <ExampleEditor/>
     </div>
   )
 };
