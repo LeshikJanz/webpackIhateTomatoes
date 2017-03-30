@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import * as Modal from 'react-modal';
+import LastDraft from '../../DraftEditor/LastDraft';
 
 const customStyles = {
   content : {
@@ -9,7 +10,10 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    height: '95%',
+    width: '80%',
+    overflow: 'scroll' // <-- This tells the modal to scrol
   }
 };
 
@@ -51,17 +55,7 @@ export default class PopUpModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-
-          <h2 ref="subtitle">Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-           <form>
-             <input />
-             <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+        <LastDraft/>
         </Modal>
       </div>
     );

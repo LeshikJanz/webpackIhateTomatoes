@@ -5,9 +5,6 @@ import "../styles/main.css";
 
 import { Header } from '../../header/components/index';
 import TagCloud from '../../jqueryCloud/containers/index';
-import DraftEditor from '../../draftEditor/containers/index';
-// import ExampleEditor from '../../lastdraftEditor/containers/index';
-import ExampleEditor from '../../draft-example/Example';
 import PopUpModal from '../../popUpModal/containers/index';
 
 export const App = (props) => {
@@ -21,17 +18,8 @@ export const App = (props) => {
 
   return (
     <div>
-      {/*<Header/>*/}
-      {/*/!*<Hello compiler="TypeScript" framework="React"/>*!/*/}
-      {/*<TagCloud contents={props.trackNumber}/>*/}
-      {/*<button onClick={addNewTag}>Add new tag</button>*/}
-
-      {/*<DraftEditor/>*/}
-      {/*<br/>*/}
-      {/*<br/>*/}
-      {/*<br/>*/}
-      {/*<br/>*/}
-      {/*<ExampleEditor/>*/}
+      <Header/>
+      <TagCloud contents={props.trackNumber}/>
       <PopUpModal/>
     </div>
   )

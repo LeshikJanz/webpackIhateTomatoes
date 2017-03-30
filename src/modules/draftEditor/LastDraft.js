@@ -24,7 +24,7 @@ import html from 'ld-html'
 import todo from 'ld-todo'
 let plugins = [video, color, emoji, gif, mention, sticker, todo];
 
-export default class ExampleEditor extends Component {
+export default class LastDraft extends Component {
   constructor(props) {
     super(props)
     /* examples of initial state */
@@ -46,7 +46,7 @@ export default class ExampleEditor extends Component {
 
   render() {
     return (
-      <div style={{ width: '1000px', marginLeft: '200px', marginRight: '200px' }}>
+      <div style={{ margin: '50px' }}>
         <Editor
           theme={this.props.theme}
           plugins={plugins}
