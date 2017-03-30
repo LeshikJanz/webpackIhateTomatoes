@@ -6,8 +6,8 @@ export const tagCloudInitial = `
     <div className="container">
       <div className="row">
         <div className="col-lg-8 col-lg-offset-2 centered center-tag-cloud">
-          <div id="myCanvasContainer">
-            <canvas width="${cloudWidth}px" height="${cloudHeight}px" id="myCanvas">
+          <div id="CanvasContainer">
+            <canvas width="${cloudWidth}px" height="${cloudHeight}px" id="Canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
           </div>

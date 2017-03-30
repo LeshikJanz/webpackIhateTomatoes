@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles/main.css";
 
-export const Header = () => (
+export const Header = (props) => (
   <div className="navbar navbar-default navbar-fixed-top">
     <div className="container">
       <div className="navbar-header">

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { addTag } from "../../actions";
 
 const mapStateToProps = (state) => ({
-  trackNumber: state.trackNumber
+  trackNumber: state.trackNumber,
+  isModalOpen: state.Modal.isModalOpen
 });
 
 const mapDispatchToProps = (dispatch) => {

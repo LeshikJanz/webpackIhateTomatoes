@@ -3,7 +3,8 @@ import { TagCloud } from "../components/index";
 import { addTag } from "../../actions";
 
 const mapStateToProps = (state) => ({
-  clouds: state.Cloud
+  clouds: state.Cloud,
+  isModalOpen: state.Modal.isModalOpen
 });
 
 const mapDispatchToProps: any = dispatch => ({

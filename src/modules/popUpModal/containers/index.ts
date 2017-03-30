@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
-import PopUpModal from "../components/PopUpModal";
+import { PopUpModal } from "../components/PopUpModal";
+import { changeModalStatus } from "../../actions";
 
 const mapStateToProps = (state) => ({
-  //clouds: state.Cloud
+  isModalOpen: state.Modal.isModalOpen
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  //addTag: (tag) => dispatch(addTag(tag)),
+  changeModalStatus: () => dispatch(changeModalStatus())
 });
 
 export default connect(

@@ -9,7 +9,7 @@ import { tagCloudInitial } from "../constants/index";
 function tagCloudController() {
   window.onload = function () {
     try {
-      TagCanvas.Start('myCanvas', 'tags', {
+      TagCanvas.Start('Canvas', 'tags', {
         // textColour: '#337ab7',
         // outlineColour: '#ff00ff',
         // reverse: true,
@@ -36,7 +36,7 @@ function tagCloudController() {
         clickToFront: 600
       });
     } catch (e) {
-      document.getElementById('myCanvasContainer').style.display = 'none';
+      document.getElementById('CanvasContainer').style.display = 'none';
     }
   };
 }
@@ -49,7 +49,15 @@ function generateTags(tags: Array) {
 
 function setNewTag(tag, number) {
   $('#tags ul').append(`<li><a id="tag${number}" href="${tag.source}" target="_blank">${tag.value}${number}</a></li>`);
-  TagCanvas.Reload('myCanvas', `tags`);
+  TagCanvas.Reload('Canvas', `tags`);
+}
+
+function startCloud() {
+  TagCanvas.Resume('Canvas', `tags`);
+}
+
+function stopCloud() {
+  TagCanvas.Pause('Canvas', `tags`);
 }
 
 function tagCloudCreator(parent, tags) {
@@ -65,6 +73,8 @@ export class TagCloud extends React.Component {
   componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length-1], this.props.clouds.length-1);
 
   render() {
+    if(!this.props.isModalOpen) startCloud();
+    else stopCloud();
     return (
       <div>
         <ReactIgnore>
