@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongodbDs": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "url": "",
+    "database": "BigHead",
+    "password": "",
+    "name": "mongodbDs",
+    "user": "",
+    "connector": "mongodb"
   }
 }
