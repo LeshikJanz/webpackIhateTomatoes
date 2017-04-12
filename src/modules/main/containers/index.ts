@@ -1,10 +1,11 @@
 import { App } from '../components/App';
 import { connect } from 'react-redux';
-import { addTag } from "../../actions";
+import { addTag, fetchCloud } from "../../actions";
 
 const mapStateToProps = (state) => ({
   trackNumber: state.trackNumber,
-  isModalOpen: state.Modal.isModalOpen
+  isModalOpen: state.Modal.isModalOpen,
+  clouds: state.Cloud
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -18,7 +19,7 @@ const mergeProps = ({ trackNumber }, { dispatch }) => ({
   onClick: () => { dispatch({
     type: "ADD_TRACK",
     payload: trackNumber+1
-  }) },
+  }) }
 });
 
 export default connect(

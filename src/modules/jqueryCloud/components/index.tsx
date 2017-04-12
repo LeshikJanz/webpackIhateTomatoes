@@ -5,9 +5,9 @@ import "assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
+import { fetchClouds, fetchKnowledges } from "../../../api/cloud";
 
 function tagCloudController() {
-  window.onload = function () {
     try {
       TagCanvas.Start('Canvas', 'tags', {
         // textColour: '#337ab7',
@@ -38,22 +38,21 @@ function tagCloudController() {
     } catch (e) {
       document.getElementById('CanvasContainer').style.display = 'none';
     }
-  };
 }
 
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${elem.value}' }}); this.dispatchEvent(myEvent); return false;}">
-        ${elem.value}</a></li>`);
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${elem.Name}' }}); this.dispatchEvent(myEvent); return false;}">
+        ${elem.Name}</a></li>`);
 
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
 const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
-                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${tag.value}' }}); this.dispatchEvent(myEvent); return false;}">
-                        ${tag.value}${number}</a></li>`);
+                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${tag.Name}' }}); this.dispatchEvent(myEvent); return false;}">
+                        ${tag.Name}${number}</a></li>`);
   TagCanvas.Reload('Canvas', `tags`);
 }
 
@@ -69,10 +68,27 @@ const tagCloudCreator = (parent, tags) => {
 
 export class TagCloud extends React.Component {
   componentDidMount = () => {
+    this.fetchData()
+      .then((elem: any) => {
+        console.log("this.props.clouds");
+        console.log(this.props.clouds);
+        this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
+    });
     document.addEventListener('tagclick', this.handleTagClick);
-    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
   }
-  componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+  componentDidUpdate = () => {
+
+    //setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+  }
+
+  fetchData = () => fetchKnowledges()
+    .then((knowledges: any) => {
+      console.log("knowledges");
+      console.log(knowledges);
+
+      this.props.fetchCloud(knowledges);
+    });
+
 
   handleTagClick = (e: Event) => {
     console.log("e.detail");
@@ -91,4 +107,5 @@ export class TagCloud extends React.Component {
       </div>
     )
   }
-};
+}
+;
