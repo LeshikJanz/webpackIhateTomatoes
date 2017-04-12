@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -55,18 +52,18 @@
       <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-313">
-              <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            <state relative-caret-position="285">
+              <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1491998261000" expanded="true" signature="1277:1482" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="1289:1477" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="1611:1863" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="1632:1858" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="1855:1858" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="2905:3013" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="2927:3000" ph="..." />
-                <marker date="1491998261000" expanded="true" signature="2977:2986" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="1280:1485" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="1292:1480" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="1617:1869" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="1638:1864" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="1861:1864" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="2807:2915" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="2829:2902" ph="..." />
+                <marker date="1491998455000" expanded="true" signature="2879:2888" ph="..." />
               </folding>
             </state>
           </provider>
@@ -394,7 +391,7 @@
       <workItem from="1489317359537" duration="2828000" />
       <workItem from="1489343895043" duration="1410000" />
       <workItem from="1490529726589" duration="16520000" />
-      <workItem from="1491993552112" duration="4584000" />
+      <workItem from="1491993552112" duration="4784000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -424,11 +421,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490547756575</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Feat: made opening modal Window on Clicking to flying tag">
+      <created>1491998312668</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1491998312668</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45086000" />
+    <option name="totallyTimeSpent" value="45286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="52" width="1920" height="977" extended-state="0" />
@@ -529,7 +533,8 @@
     <MESSAGE value="Feat: connected bootstrap to the project" />
     <MESSAGE value="Feat: added mocks data" />
     <MESSAGE value="Feat: connected store to clouds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: connected store to clouds" />
+    <MESSAGE value="Feat: made opening modal Window on Clicking to flying tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: made opening modal Window on Clicking to flying tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -889,18 +894,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state relative-caret-position="285">
+          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1491998261000" expanded="true" signature="1277:1482" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="1289:1477" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="1611:1863" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="1632:1858" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="1855:1858" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="2905:3013" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="2927:3000" ph="..." />
-            <marker date="1491998261000" expanded="true" signature="2977:2986" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="1280:1485" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="1292:1480" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="1617:1869" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="1638:1864" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="1861:1864" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="2807:2915" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="2829:2902" ph="..." />
+            <marker date="1491998455000" expanded="true" signature="2879:2888" ph="..." />
           </folding>
         </state>
       </provider>

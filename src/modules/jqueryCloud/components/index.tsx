@@ -41,7 +41,7 @@ function tagCloudController() {
   };
 }
 
-function generateTags(tags: Array) {
+const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${elem.value}' }}); this.dispatchEvent(myEvent); return false;}">
@@ -50,26 +50,20 @@ function generateTags(tags: Array) {
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
-function setNewTag(tag, number) {
+const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
                         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${tag.value}' }}); this.dispatchEvent(myEvent); return false;}">
                         ${tag.value}${number}</a></li>`);
   TagCanvas.Reload('Canvas', `tags`);
 }
 
-function startCloud() {
-  TagCanvas.Resume('Canvas', `tags`);
-}
+const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
+const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
 
-function stopCloud() {
-  TagCanvas.Pause('Canvas', `tags`);
-}
-
-function tagCloudCreator(parent, tags) {
+const tagCloudCreator = (parent, tags) => {
   var $parent = $(parent);
   let $editor = $(generateTags(tags));
   $parent.find('textarea').replaceWith($editor);
-  //setCloudStyles($parent);
   tagCloudController();
 }
 
@@ -79,10 +73,6 @@ export class TagCloud extends React.Component {
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
   }
   componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
-
-  handleClick = (e: Event) => {
-    console.log("handleClick", e)
-  }
 
   handleTagClick = (e: Event) => {
     console.log("e.detail");
@@ -101,5 +91,4 @@ export class TagCloud extends React.Component {
       </div>
     )
   }
-}
-;
+};
