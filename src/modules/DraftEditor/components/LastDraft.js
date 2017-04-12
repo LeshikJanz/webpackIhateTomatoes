@@ -10,8 +10,8 @@ import {
 } from 'last-draft';
 
 /* init the state, either from raw or html */
-import RAW from './initialState/raw'
-import HTML from './initialState/html'
+import RAW from '../initialState/raw'
+import HTML from '../initialState/html'
 
 import video from 'ld-video'
 import color from 'ld-color-picker'
@@ -28,7 +28,7 @@ export default class LastDraft extends Component {
   constructor(props) {
     super(props)
     /* examples of initial state */
-    const INITIAL_STATE = editorStateFromRaw(RAW)
+    const INITIAL_STATE = editorStateFromRaw(this.props.knowledge.Text)
     //const INITIAL_STATE = editorStateFromHtml(HTML)
     //const INITIAL_STATE = editorStateFromRaw({})
     //const INITIAL_STATE = editorStateFromText('this is a cooel editor... 🏄🌠🏀')

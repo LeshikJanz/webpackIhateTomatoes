@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import * as Modal from 'react-modal';
-import LastDraft from '../../DraftEditor/LastDraft';
+import LastDraft from '../../DraftEditor/containers';
 import { customStyles } from '../styles/style';
 
 export const PopUpModal = (props) => {

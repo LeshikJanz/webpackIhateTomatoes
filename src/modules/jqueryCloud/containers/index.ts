@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
-import { addTag, changeModalStatus, fetchCloud } from "../../actions";
+import { addTag, changeModalStatus, fetchCloud, openKnowledge } from "../../actions";
 import { IKnowledge } from "../../../interfaces/index";
 
 const mapStateToProps = (state) => ({
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps: any = dispatch => ({
   addTag: (tag) => dispatch(addTag(tag)),
   changeModalStatus: () => dispatch(changeModalStatus()),
-  fetchCloud: (cloud: IKnowledge[]) => dispatch(fetchCloud(cloud))
+  fetchCloud: (cloud: IKnowledge[]) => dispatch(fetchCloud(cloud)),
+  openKnowledge: (id: string) => dispatch(openKnowledge(id))
 });
 
 export default connect(

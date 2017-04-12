@@ -43,7 +43,7 @@ function tagCloudController() {
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${elem.Name}' }}); this.dispatchEvent(myEvent); return false;}">
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">
         ${elem.Name}</a></li>`);
 
   return tagCloud + `</ul></div></div></div></div></div>`;
@@ -51,7 +51,7 @@ const generateTags = (tags: Array) => {
 
 const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
-                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${tag.Name}' }}); this.dispatchEvent(myEvent); return false;}">
+                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">
                         ${tag.Name}${number}</a></li>`);
   TagCanvas.Reload('Canvas', `tags`);
 }
@@ -69,30 +69,19 @@ const tagCloudCreator = (parent, tags) => {
 export class TagCloud extends React.Component {
   componentDidMount = () => {
     this.fetchData()
-      .then((elem: any) => {
-        console.log("this.props.clouds");
-        console.log(this.props.clouds);
-        this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    });
+      .then((elem: any) => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds));
     document.addEventListener('tagclick', this.handleTagClick);
-  }
-  componentDidUpdate = () => {
+  };
 
+  componentDidUpdate = () => {
     //setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
   }
 
   fetchData = () => fetchKnowledges()
-    .then((knowledges: any) => {
-      console.log("knowledges");
-      console.log(knowledges);
-
-      this.props.fetchCloud(knowledges);
-    });
-
+    .then((knowledges: any) => this.props.fetchCloud(knowledges));
 
   handleTagClick = (e: Event) => {
-    console.log("e.detail");
-    console.log(e.detail);
+    this.props.openKnowledge(this.props.clouds.find((elem: any) => elem.id === e.detail.tagId));
     this.props.changeModalStatus();
   }
 
