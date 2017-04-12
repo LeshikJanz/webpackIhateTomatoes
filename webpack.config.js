@@ -22,6 +22,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 /** Плагин достает css(или какие мы укажем файлы) в отдельный(не bundle.js) файл. Т.е. теперь стили содержаться в отдельном app.css, который подключен в bundle.js */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');  //используется для указания полных путей и для resolve путей
+var helpers = require('./helpers');
 
 module.exports = {
   entry: './src/app.js', //Исходный файл
@@ -29,15 +30,51 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),  //dist - папка, где будут лежать бандлы
     filename: 'app.bundle.js'  //Файл, в которым будем бандлить
   },
+
+  devtool: "source-map",
+
+  resolve: {
+    modules: ['node_modules', 'src'],
+    alias: {
+      mocks: helpers.root('mocks'),
+      // assets: helpers.root('src/assets'),
+      // modules: helpers.root('src/modules')
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+
   /** Модули содержат в себе различные лоудеры, если не указан путь. Которые будут преобразовывать современный код в старый, для поддержки всеми браузерами*/
   module: {
     rules: [
       {
-        test: /\.css$/, //файлы, которые лоэдер будет искать. Будет грузить все файлы, подключенные в ./src/app.js
-        use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader", publicPath: './dist'})  //название лоэдера. Используем плагин для создания отдельного общего файла стилей
-      }
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader?presets[]=es2015'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        }
+      },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre"
+      },
+      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'}
     ]
   },
+
   /**Будут содержаться все наши плагины*/
   plugins: [
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
