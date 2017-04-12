@@ -43,12 +43,17 @@ function tagCloudController() {
 
 function generateTags(tags: Array) {
   let tagCloud = `${tagCloudInitial}`;
-  tags.forEach((elem, index) => tagCloud += `<li><a id="tag${index}" href="${elem.source}" target="_blank">${elem.value}</a></li>`);
+  tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${elem.value}' }}); this.dispatchEvent(myEvent); return false;}">
+        ${elem.value}</a></li>`);
+
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
 function setNewTag(tag, number) {
-  $('#tags ul').append(`<li><a id="tag${number}" href="${tag.source}" target="_blank">${tag.value}${number}</a></li>`);
+  $('#tags ul').append(`<li><a id="tag${number}"
+                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagName: '${tag.value}' }}); this.dispatchEvent(myEvent); return false;}">
+                        ${tag.value}${number}</a></li>`);
   TagCanvas.Reload('Canvas', `tags`);
 }
 
@@ -69,11 +74,24 @@ function tagCloudCreator(parent, tags) {
 }
 
 export class TagCloud extends React.Component {
-  componentDidMount = () => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-  componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length-1], this.props.clouds.length-1);
+  componentDidMount = () => {
+    document.addEventListener('tagclick', this.handleTagClick);
+    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
+  }
+  componentDidUpdate = () => setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+
+  handleClick = (e: Event) => {
+    console.log("handleClick", e)
+  }
+
+  handleTagClick = (e: Event) => {
+    console.log("e.detail");
+    console.log(e.detail);
+    this.props.changeModalStatus();
+  }
 
   render() {
-    if(!this.props.isModalOpen) startCloud();
+    if (!this.props.isModalOpen) startCloud();
     else stopCloud();
     return (
       <div>
@@ -83,4 +101,5 @@ export class TagCloud extends React.Component {
       </div>
     )
   }
-};
+}
+;

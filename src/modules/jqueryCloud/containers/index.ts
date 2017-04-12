@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
-import { addTag } from "../../actions";
+import { addTag, changeModalStatus } from "../../actions";
 
 const mapStateToProps = (state) => ({
   clouds: state.Cloud,
@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  //addTag: (tag) => dispatch(addTag(tag)),
+  addTag: (tag) => dispatch(addTag(tag)),
+  changeModalStatus: () => dispatch(changeModalStatus())
 });
 
 export default connect(
