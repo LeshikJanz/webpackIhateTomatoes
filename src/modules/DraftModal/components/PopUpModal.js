@@ -1,14 +1,10 @@
 "use strict";
-const React = require('react');
-const Modal = require('react-modal');
-const containers_1 = require('../../DraftEditor/containers');
-const style_1 = require('../styles/style');
-exports.PopUpModal = (props) => {
-    const closeModal = () => {
-        props.changeModalStatus();
-        props.updateKnowledge();
-    };
-    const afterOpenModal = () => { };
-    return (React.createElement("div", null, React.createElement(Modal, {isOpen: props.isModalOpen, onAfterOpen: afterOpenModal, onRequestClose: closeModal, style: style_1.customStyles, contentLabel: "Example Modal"}, React.createElement(containers_1.default, null))));
+var _this = this;
+var React = require('react');
+var Modal = require('react-modal');
+var LastDraft_1 = require('../../DraftEditor/components/LastDraft');
+var style_1 = require('../styles/style');
+exports.PopUpModal = function (props) {
+    return (React.createElement("div", null, React.createElement("button", {onClick: props.changeModalStatus}, "Open Modal"), React.createElement(Modal, {isOpen: props.isModalOpen, onAfterOpen: _this.afterOpenModal, onRequestClose: props.changeModalStatus, style: style_1.customStyles, contentLabel: "Example Modal"}, React.createElement(LastDraft_1.default, null))));
 };
 //# sourceMappingURL=PopUpModal.js.map
