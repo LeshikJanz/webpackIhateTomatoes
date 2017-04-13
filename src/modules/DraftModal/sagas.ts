@@ -3,7 +3,7 @@ import { fetchCloud, updateKnowledgeById } from "../../api/cloud";
 import {
   fetchCloudInit, fetchCloudDone, fetchCloudError, updateKnowledge, updateKnowledgeError, saveKnowledge
 } from "../actions";
-const currentCloudId = "58ee2eb68859711d95b30194";
+import { currentCloudId } from "../jqueryCloud/constants/index";
 
 const getFromState = (state: any) => state.Knowledge;
 
@@ -17,7 +17,6 @@ export function* fetchCloudSaga() {
 }
 
 export function* updateKnowledgeSaga() {
-  console.log("updateKnowledgeSaga");
   try {
     const knowledge = yield select(getFromState);
     yield updateKnowledgeById(knowledge.id, knowledge);

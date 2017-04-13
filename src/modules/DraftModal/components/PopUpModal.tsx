@@ -12,8 +12,7 @@ export const PopUpModal = (props) => {
   const afterOpenModal = () => {}
 
   return (
-    <div>
-      <button onClick={props.changeModalStatus}>Open Modal</button>
+    <div style={{ width: "1000px"}}>
       <Modal
         isOpen={props.isModalOpen}
         onAfterOpen={afterOpenModal}

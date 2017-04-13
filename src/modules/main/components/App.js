@@ -1,15 +1,15 @@
 "use strict";
-var React = require('react');
+const React = require('react');
 require("bootstrap/dist/css/bootstrap.css");
 require("../styles/font-awesome.min.css");
 require("../styles/main.css");
-var index_1 = require('../../header/containers/index');
-var index_2 = require('../../jqueryCloud/containers/index');
-var index_3 = require('../../popUpModal/containers/index');
-exports.App = function (props) {
-    var isModalOpen = props.isModalOpen;
+const index_1 = require('../../header/containers/index');
+const index_2 = require('../../jqueryCloud/containers/index');
+const index_3 = require('../../DraftModal/containers/index');
+exports.App = (props) => {
+    const { isModalOpen } = props;
     function addNewTag() {
-        var tag = {
+        const tag = {
             source: "12345",
             value: "Tag №"
         };

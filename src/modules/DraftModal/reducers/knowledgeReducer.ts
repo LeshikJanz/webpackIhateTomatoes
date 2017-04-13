@@ -1,5 +1,5 @@
 import { createReducer } from 'utils/createReducer';
-import { openKnowledge, editKnowledge } from "../../actions";
+import { openKnowledge, editKnowledge, changeKnowledgeName } from "../../actions";
 
 const initialState = {
   Name: "",
@@ -17,5 +17,9 @@ export default createReducer({
   [editKnowledge]: (state: any, payload: string) => ({
     ...state,
     Text: JSON.parse(payload)
+  }),
+  [changeKnowledgeName]: (state: any, payload: string) => ({
+    ...state,
+    Name: payload
   })
 }, initialState);

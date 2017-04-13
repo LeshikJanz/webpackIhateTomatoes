@@ -5,7 +5,7 @@ import "../styles/main.css";
 
 import Header from '../../header/containers/index';
 import TagCloud from '../../jqueryCloud/containers/index';
-import PopUpModal from '../../popUpModal/containers/index';
+import PopUpModal from '../../DraftModal/containers/index';
 
 export const App = (props) => {
   const { isModalOpen } = props;
