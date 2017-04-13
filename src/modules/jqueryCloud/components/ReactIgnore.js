@@ -10,8 +10,7 @@ var ReactIgnore = (function (_super) {
     function ReactIgnore() {
         var _this = this;
         _super.apply(this, arguments);
-        this.shouldComponentUpdate = function () {
-            console.log("shouldComponentUpdate");
+        this.shouldComponentUpdate = function () {∂
             return false;
         };
         this.render = function () { return React.Children.only(_this.props.children); };

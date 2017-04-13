@@ -59,6 +59,7 @@
     "ld-sticker": "^2.0.0",
     "ld-todo": "^2.0.0",
     "ld-video": "^2.0.0",
+    "moment": "^2.18.1",
     "nsp": "^2.1.0",
     "postcss-loader": "^1.3.2",
     "react-dom": "^15.4.2",
