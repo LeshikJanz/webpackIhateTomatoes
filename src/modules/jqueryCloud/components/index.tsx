@@ -53,7 +53,7 @@ const setNewTag = (tag, number) => {
                         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">
                         ${tag.Name}${number}</a></li>`);
   TagCanvas.Reload('Canvas', `tags`);
-}
+};
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
