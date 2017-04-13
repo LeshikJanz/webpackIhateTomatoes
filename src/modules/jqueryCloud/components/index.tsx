@@ -47,17 +47,22 @@ const generateTags = (tags: Array) => {
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
 
+const removeTagCloud = () => {
+  TagCanvas.Delete('Canvas', `tags`);
+  $('#cloud').replaceWith('<textarea value={this.props.contents}/>');
+}
+
 const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
                         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.Name}</a></li>`);
-  TagCanvas.Reload('Canvas', `tags`);
+  removeTagCloud();
 };
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
 
 const tagCloudCreator = (parent, tags) => {
-  var $parent = $(parent);
+  let $parent = $(parent);
   let $editor = $(generateTags(tags));
   $parent.find('textarea').replaceWith($editor);
   tagCloudController();
@@ -72,15 +77,17 @@ export class TagCloud extends React.Component {
   };
 
   componentDidUpdate = () => {
-    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    if(TagCloud.tagNumber != this.props.clouds.length) {
-      if(TagCloud.tagNumber) setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
-      TagCloud.tagNumber = this.props.clouds.length;
+    console.log("Component did update");
+    if(TagCloud.tagNumber != this.props.tags.length) {
+      if(TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+      TagCloud.tagNumber = this.props.tags.length;
     }
+    removeTagCloud();
+    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags);
   }
 
   handleTagClick = (e: Event) => {
-    this.props.openKnowledge(this.props.clouds.find((elem: any) => elem.id === e.detail.tagId));
+    this.props.openKnowledge(this.props.tags.find((elem: any) => elem.id === e.detail.tagId));
     this.props.changeModalStatus();
   };
 

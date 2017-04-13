@@ -1,21 +1,17 @@
 "use strict";
 function createAction(type, payloadMapper) {
-    var scopedName = this.scope ? this.scope + "/" : '';
-    var name = "big-head/" + scopedName + type;
-    function actionCreator() {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i - 0] = arguments[_i];
-        }
+    const scopedName = this.scope ? `${this.scope}/` : '';
+    const name = `big-head/${scopedName}${type}`;
+    function actionCreator(...args) {
         return {
             type: name,
-            payload: payloadMapper ? payloadMapper.apply(void 0, args) : args[0],
+            payload: payloadMapper ? payloadMapper(...args) : args[0],
         };
     }
-    actionCreator.toString = function () { return name; };
+    actionCreator.toString = () => name;
     actionCreator.bind({ displayName: name });
     return actionCreator;
 }
 exports.createAction = createAction;
-exports.scopedCreator = function (scopeName) { return createAction.bind({ scope: scopeName }); };
+exports.scopedCreator = (scopeName) => createAction.bind({ scope: scopeName });
 //# sourceMappingURL=createAction.js.map
