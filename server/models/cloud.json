@@ -1,0 +1,34 @@
+{
+  "name": "Cloud",
+  "plural": "Clouds",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "CreateDate": {
+      "type": "date"
+    },
+    "UpdateDate": {
+      "type": "date"
+    },
+    "UserId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "knowledge": {
+      "type": "hasMany",
+      "model": "Knowledge",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

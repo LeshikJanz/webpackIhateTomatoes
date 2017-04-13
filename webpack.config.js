@@ -25,7 +25,7 @@ const path = require('path');  //используется для указани�
 var helpers = require('./helpers');
 
 module.exports = {
-  entry: './src/app.js', //Исходный файл
+  entry: ['babel-polyfill','./src/app.js'], //Исходный файл
   output: {
     path: path.resolve(__dirname, "dist"),  //dist - папка, где будут лежать бандлы
     filename: 'app.bundle.js'  //Файл, в которым будем бандлить

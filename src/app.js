@@ -1,36 +1,19 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import App from './modules/main/containers/index.ts';
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './modules/sagas';
 import reducer from '../reducers';
 
-const initialState = {
-  trackNumber: 0
-}
+const sagaMiddleware = createSagaMiddleware()
 
-function playlist(state = initialState, action){
-  if(action.type === 'ADD_TRACK'){
-    return {
-      ...state,
-      trackNumber: action.payload
-    }
-  }
-  return state;
-}
-
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());//внутрь передаем редюсеры
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}><App/></Provider>,
   document.getElementById('root')
-)
-
-
-console.log("Hello from debug and app.js and from webpack");
-
-store.subscribe(() => {
-  console.log("subscribe: ", store.getState());
-})
-
-store.dispatch({ type: "ADD_TRACK", payload: 1 })
+);

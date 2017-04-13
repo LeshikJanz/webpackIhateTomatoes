@@ -34,5 +34,13 @@
   },
   "Message": {
     "dataSource": null
+  },
+  "Knowledge": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "Cloud": {
+    "dataSource": "mongodbDs",
+    "public": true
   }
 }

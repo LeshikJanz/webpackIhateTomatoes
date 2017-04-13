@@ -1,0 +1,31 @@
+{
+  "name": "Knowledge",
+  "plural": "Knowledges",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Text": {
+      "type": "object"
+    },
+    "UserId": {
+      "type": "string"
+    },
+    "CreateDate": {
+      "type": "date"
+    },
+    "UpdateDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

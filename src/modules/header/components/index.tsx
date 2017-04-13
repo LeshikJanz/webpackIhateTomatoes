@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../styles/main.css";
+import initialState from 'modules/DraftEditor/initialState/raw';
 
 export const Header = (props) => (
   <div className="navbar navbar-default navbar-fixed-top">
@@ -10,7 +11,7 @@ export const Header = (props) => (
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a onClick={() => { props.addTag("111")}}  className="navbar-brand" href="#"><i className="fa fa-bolt"></i></a>
+        <a onClick={() => { props.addTag(initialState)}}  className="navbar-brand" href="#"><i className="fa fa-bolt"></i></a>
       </div>
       <div id="hello">
         <div className="col-lg-8 col-lg-offset-2 centered">
