@@ -9,7 +9,8 @@ export const PopUpModal = (props) => {
     props.changeModalStatus();
     props.updateKnowledge();
   }
-  const afterOpenModal = () => {}
+  const afterOpenModal = () => {
+  }
 
   return (
     <div style={{ width: "1000px"}}>

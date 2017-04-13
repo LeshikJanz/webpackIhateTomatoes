@@ -10,10 +10,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps: any = dispatch => ({
   changeModalStatus: () => dispatch(changeModalStatus()),
   editKnowledge: (text: {}) => dispatch(editKnowledge(text)),
-  handleNameChange: (e) => {
-    console.log(e.target.value);
-    dispatch(changeKnowledgeName(e.target.value))
-  }
+  handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value))
 });
 
 export default connect(

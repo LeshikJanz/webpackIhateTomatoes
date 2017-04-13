@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
-import '../styles/style.css';
 import {
   Editor,
   editorStateFromHtml,
@@ -9,8 +8,11 @@ import {
   editorStateToJSON,
   editorStateFromText
 } from 'last-draft';
+import "../styles/style.css";
 
 /* init the state, either from raw or html */
+import RAW from '../initialState/raw'
+import HTML from '../initialState/html'
 
 import video from 'ld-video'
 import color from 'ld-color-picker'
@@ -37,7 +39,7 @@ export default class LastDraft extends Component {
 
   render() {
     return (
-      <div style={{margin: '50px', marginTop: '10px', maxWidth: '90%'}}>
+      <div className="container">
         <div className="name-input">
           <input className="name" type="text" placeholder="Enter the knowledge name"
                  value={this.props.knowledge.Name} onChange={this.props.handleNameChange}/>
