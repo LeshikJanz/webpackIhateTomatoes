@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="Feat: connected store data with draftJs">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/popUpModal/reducers/knowledgeReducer.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/LastDraft.js" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js" />
+    <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reducers.ts" afterPath="$PROJECT_DIR$/reducers.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/actions.ts" afterPath="$PROJECT_DIR$/src/modules/actions.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/popUpModal/components/PopUpModal.js" afterPath="$PROJECT_DIR$/src/modules/popUpModal/components/PopUpModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/popUpModal/components/PopUpModal.tsx" afterPath="$PROJECT_DIR$/src/modules/popUpModal/components/PopUpModal.tsx" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -38,8 +29,8 @@
       <file leaf-file-name="LastDraft.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+            <state relative-caret-position="465">
+              <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <element signature="e#268#305#0" expanded="true" />
@@ -686,11 +677,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492008809517</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Feat: connected store data with draftJs">
+      <created>1492011304736</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1492011304736</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54273000" />
+    <option name="totallyTimeSpent" value="54298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -841,7 +839,8 @@
     <MESSAGE value="Feat: created knowledge and cloud models" />
     <MESSAGE value="Feat: added fetch functions for clouds and knowledges" />
     <MESSAGE value="Feat: connected fetching data with cloud" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: connected fetching data with cloud" />
+    <MESSAGE value="Feat: connected store data with draftJs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: connected store data with draftJs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1166,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        <state relative-caret-position="465">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#268#305#0" expanded="true" />
