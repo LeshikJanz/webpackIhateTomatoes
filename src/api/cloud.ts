@@ -1,14 +1,14 @@
 import { request } from "./base";
 import { ICloud, IKnowledge } from "../interfaces/index";
 
-export const fetchClouds = (params: any = {}) => {
+export const fetchCloud = (id: string, params: any = {}) => {
   return request
-    .get('Clouds', params)
+    .get(`Clouds/${id}/knowledge`, params)
     .then((content: ICloud[]) => content.map( ( c ) => <ICloud> c) );
 };
 
-export const fetchKnowledges = (params: any = {}) => {
+export const fetchKnowledge = (id: string, params: any = {}) => {
   return request
-    .get('Knowledges', params)
+    .get(`Knowledges/${id}`, params)
     .then((content: IKnowledge[]) => content.map( ( c ) => <IKnowledge> c) );
 };

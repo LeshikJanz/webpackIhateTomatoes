@@ -68,17 +68,19 @@ const tagCloudCreator = (parent, tags) => {
 
 export class TagCloud extends React.Component {
   componentDidMount = () => {
-    this.fetchData()
-      .then((elem: any) => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds));
+    this.props.fetchCloudInit();
+    // this.fetchData()
+    //   .then((elem: any) => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds));
     document.addEventListener('tagclick', this.handleTagClick);
   };
 
   componentDidUpdate = () => {
-    //setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+    this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
+    setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
   }
 
   fetchData = () => fetchKnowledges()
-    .then((knowledges: any) => this.props.fetchCloud(knowledges));
+    .then((knowledges: any) => this.props.fetchCloudInit(knowledges));
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.clouds.find((elem: any) => elem.id === e.detail.tagId));
