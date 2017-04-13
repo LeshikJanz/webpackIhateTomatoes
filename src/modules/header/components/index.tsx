@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../styles/main.css";
-import initialState from 'modules/DraftEditor/initialState/raw';
 import { currentCloudId } from "../../jqueryCloud/constants/index";
 const moment = require('moment');
 
@@ -9,9 +8,9 @@ export const Header = (props) => {
     return {
       Name: "New knowledge",
       UserId: "string",
-      CreateDate: moment().format("DD/MM/YYYY HH:mm:ss"),
-      UpdateDate: moment().format("DD/MM/YYYY HH:mm:ss"),
-      Text: initialState,
+      CreateDate: moment(),
+      UpdateDate: moment(),
+      Text: "",
       cloudId: currentCloudId
     }
   }

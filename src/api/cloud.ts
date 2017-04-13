@@ -13,6 +13,12 @@ export const fetchKnowledge = (id: string, params: any = {}) => {
     .then((content: IKnowledge[]) => content.map( ( c ) => <IKnowledge> c) );
 };
 
+export const addNewKnowledge = (params: any = {}) => {
+  return request
+    .post(`Knowledges`, params)
+    .then((c: IKnowledge) => <IKnowledge> c);
+};
+
 export const updateKnowledgeById = (id: any, params: any = {}) => {
   return request
     .put(`Knowledges/${id}`, params)
