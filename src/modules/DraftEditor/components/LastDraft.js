@@ -27,21 +27,13 @@ let plugins = [video, color, emoji, gif, mention, sticker, todo];
 export default class LastDraft extends Component {
   constructor(props) {
     super(props)
-    /* examples of initial state */
     const INITIAL_STATE = editorStateFromRaw(this.props.knowledge.Text)
-    //const INITIAL_STATE = editorStateFromHtml(HTML)
-    //const INITIAL_STATE = editorStateFromRaw({})
-    //const INITIAL_STATE = editorStateFromText('this is a cooel editor... 🏄🌠🏀')
-    //const INITIAL_STATE = editorStateFromText('xyz')
-    //const INITIAL_STATE = editorStateFromHtml('<div />')
     this.state = {value: INITIAL_STATE}
   }
 
   change(editorState) {
-    this.setState({value: editorState})
-    /* You would normally save this to your database here instead of logging it */
-    console.log(editorStateToHtml(editorState))
-    //console.log(editorStateToJSON(editorState))
+    this.setState({value: editorState});
+    this.props.editKnowledge(editorStateToJSON(editorState));
   }
 
   render() {
@@ -68,7 +60,6 @@ export default class LastDraft extends Component {
 function uploadImageAsync(file) {
   return new Promise(
     (resolve, reject) => {
-      /* simulate a 2 second call to parse file and return an img src... */
       setTimeout(() => {
         /* the image src would be a url from an S3 or database resouse */
         const src = window.URL.createObjectURL(file)

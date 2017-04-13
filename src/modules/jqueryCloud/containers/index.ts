@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
 import { addTag, changeModalStatus, openKnowledge, fetchCloudInit } from "../../actions";
-import { IKnowledge } from "../../../interfaces/index";
 
 const mapStateToProps = (state: any) => ({
   clouds: state.Cloud,

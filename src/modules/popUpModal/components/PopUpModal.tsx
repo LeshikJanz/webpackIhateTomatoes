@@ -5,13 +5,19 @@ import LastDraft from '../../DraftEditor/containers';
 import { customStyles } from '../styles/style';
 
 export const PopUpModal = (props) => {
+  const closeModal = () => {
+    props.changeModalStatus();
+    props.updateKnowledge();
+  }
+  const afterOpenModal = () => {}
+
   return (
     <div>
       <button onClick={props.changeModalStatus}>Open Modal</button>
       <Modal
         isOpen={props.isModalOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={props.changeModalStatus}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
