@@ -10,7 +10,7 @@ export const Header = (props) => {
       UserId: "string",
       CreateDate: moment(),
       UpdateDate: moment(),
-      Text: "",
+      Text: {},
       cloudId: currentCloudId
     }
   }
