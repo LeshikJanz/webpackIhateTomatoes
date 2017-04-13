@@ -5,39 +5,38 @@ import "assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
-import { fetchClouds, fetchKnowledges } from "../../../api/cloud";
 
 function tagCloudController() {
-    try {
-      TagCanvas.Start('Canvas', 'tags', {
-        // textColour: '#337ab7',
-        // outlineColour: '#ff00ff',
-        // reverse: true,
-        // depth: 0.8,
-        // maxSpeed: 0.04
-        textFont: 'Trebuchet MS, Helvetica, sans-serif',
-        textColour: '#337ab7',
-        textHeight: 25,
-        outlineMethod: 'block',
-        outlineColour: '#acf',
-        maxSpeed: 0.015,
-        minBrightness: 0.2,
-        depth: 0.92,
-        pulsateTo: 0.6,
-        initial: [0.2, -0.2],
-        decel: 1,
-        reverse: true,
-        // hideTags: false,
-        shadow: '#ccf',
-        shadowBlur: 3,
-        weight: false,
-        imageScale: null,
-        fadeIn: 1000,
-        clickToFront: 600
-      });
-    } catch (e) {
-      document.getElementById('CanvasContainer').style.display = 'none';
-    }
+  try {
+    TagCanvas.Start('Canvas', 'tags', {
+      // textColour: '#337ab7',
+      // outlineColour: '#ff00ff',
+      // reverse: true,
+      // depth: 0.8,
+      // maxSpeed: 0.04
+      textFont: 'Trebuchet MS, Helvetica, sans-serif',
+      textColour: '#337ab7',
+      textHeight: 25,
+      outlineMethod: 'block',
+      outlineColour: '#acf',
+      maxSpeed: 0.015,
+      minBrightness: 0.2,
+      depth: 0.92,
+      pulsateTo: 0.6,
+      initial: [0.2, -0.2],
+      decel: 1,
+      reverse: true,
+      // hideTags: false,
+      shadow: '#ccf',
+      shadowBlur: 3,
+      weight: false,
+      imageScale: null,
+      fadeIn: 1000,
+      clickToFront: 600
+    });
+  } catch (e) {
+    document.getElementById('CanvasContainer').style.display = 'none';
+  }
 }
 
 const generateTags = (tags: Array) => {
@@ -69,18 +68,13 @@ const tagCloudCreator = (parent, tags) => {
 export class TagCloud extends React.Component {
   componentDidMount = () => {
     this.props.fetchCloudInit();
-    // this.fetchData()
-    //   .then((elem: any) => this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds));
     document.addEventListener('tagclick', this.handleTagClick);
   };
 
   componentDidUpdate = () => {
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+    //setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
   }
-
-  fetchData = () => fetchKnowledges()
-    .then((knowledges: any) => this.props.fetchCloudInit(knowledges));
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.clouds.find((elem: any) => elem.id === e.detail.tagId));

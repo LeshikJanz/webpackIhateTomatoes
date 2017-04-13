@@ -37,6 +37,6 @@ export default createReducer({
 ]),
   [fetchCloudError]: (state: any, error: Error) => ([
     ...state,
-    error
+    error.message
 ]),
 }, initialState);
