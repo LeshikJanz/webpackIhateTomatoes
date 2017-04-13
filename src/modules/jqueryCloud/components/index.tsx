@@ -66,6 +66,8 @@ const tagCloudCreator = (parent, tags) => {
 }
 
 export class TagCloud extends React.Component {
+  static tagNumber = 0;
+
   componentDidMount = () => {
     this.props.fetchCloudInit();
     document.addEventListener('tagclick', this.handleTagClick);
@@ -73,13 +75,16 @@ export class TagCloud extends React.Component {
 
   componentDidUpdate = () => {
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.clouds);
-    //setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+    if(TagCloud.tagNumber != this.props.clouds.length) {
+      if(TagCloud.tagNumber) setNewTag(this.props.clouds[this.props.clouds.length - 1], this.props.clouds.length - 1);
+      TagCloud.tagNumber = this.props.clouds.length;
+    }
   }
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.clouds.find((elem: any) => elem.id === e.detail.tagId));
     this.props.changeModalStatus();
-  }
+  };
 
   render() {
     if (!this.props.isModalOpen) startCloud();
