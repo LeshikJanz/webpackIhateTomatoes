@@ -22,4 +22,5 @@ export default createReducer({
     ...state,
     Name: payload
   })
+
 }, initialState);
