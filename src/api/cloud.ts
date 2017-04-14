@@ -24,3 +24,4 @@ export const updateKnowledgeById = (id: any, params: any = {}) => {
     .put(`Knowledges/${id}`, params)
     .then((c: IKnowledge) => <IKnowledge> c);
 };
+

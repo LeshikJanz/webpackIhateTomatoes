@@ -8,6 +8,7 @@ import {
   editorStateToJSON,
   editorStateFromText
 } from 'last-draft';
+import '../styles/style.css';
 
 /* init the state, either from raw or html */
 import RAW from '../initialState/raw'
@@ -38,7 +39,11 @@ export default class LastDraft extends Component {
 
   render() {
     return (
-      <div style={{ margin: '50px' }}>
+      <div style={{margin: '50px', marginTop: '10px', maxWidth: '90%'}}>
+        <div className="name-input">
+          <input className="name" type="text" placeholder="Enter the knowledge name"
+                 value={this.props.knowledge.Name} onChange={this.props.handleNameChange}/>
+        </div>
         <Editor
           theme={this.props.theme}
           plugins={plugins}

@@ -9,8 +9,6 @@ const getFromState = (state: any) => state.Knowledge;
 export function* createNewKnowledgeSaga({payload}: any) {
   try {
     const knowledge = yield addNewKnowledge(payload);
-    console.log("knowledge");
-    console.log(knowledge);
     yield put(addTag(knowledge));
   } catch (e) {
     yield put(updateKnowledgeError(e));

@@ -1,4 +1,4 @@
-import { popUpSaga } from './popUpModal/sagas';
+import { popUpSaga } from './DraftModal/sagas';
 import { cloudSaga } from "./jqueryCloud/sagas";
 import { headerSaga } from "./header/sagas";
 

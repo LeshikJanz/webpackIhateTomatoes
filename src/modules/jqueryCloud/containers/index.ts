@@ -3,7 +3,7 @@ import { TagCloud } from "../components/index";
 import { addTag, changeModalStatus, openKnowledge, fetchCloudInit } from "../../actions";
 
 const mapStateToProps = (state: any) => ({
-  clouds: state.Cloud,
+  tags: state.Cloud,
   isModalOpen: state.Modal.isModalOpen
 });
 
