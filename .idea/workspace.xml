@@ -4,8 +4,6 @@
     <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.js" afterPath="$PROJECT_DIR$/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -98,11 +96,11 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <marker date="1492868445000" expanded="true" signature="908:995" ph="&lt;Provider/&gt;" />
+                <marker date="1492868582000" expanded="true" signature="811:898" ph="&lt;Provider/&gt;" />
               </folding>
             </state>
           </provider>
@@ -490,7 +488,7 @@
       <workItem from="1492860899397" duration="4573000" />
       <workItem from="1492865929556" duration="17000" />
       <workItem from="1492865985538" duration="97000" />
-      <workItem from="1492866126006" duration="2305000" />
+      <workItem from="1492866126006" duration="2451000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -625,11 +623,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492867788089</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Feat: added router middleware&#10;">
+      <created>1492868479128</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1492868479128</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80259000" />
+    <option name="totallyTimeSpent" value="80405000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -791,7 +796,8 @@
     <MESSAGE value="Feat: added simple router-redux&#10;" />
     <MESSAGE value="Feat: added simple routes&#10;" />
     <MESSAGE value="Feat: added urls file&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: added urls file&#10;" />
+    <MESSAGE value="Feat: added router middleware&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: added router middleware&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1158,11 +1164,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <marker date="1492868445000" expanded="true" signature="908:995" ph="&lt;Provider/&gt;" />
+            <marker date="1492868582000" expanded="true" signature="811:898" ph="&lt;Provider/&gt;" />
           </folding>
         </state>
       </provider>
