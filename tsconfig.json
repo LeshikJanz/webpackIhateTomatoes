@@ -1,38 +1,17 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "target": "es6",
     "module": "commonjs",
-    "noImplicitAny": false,
-    "sourceMap": true,
-    "inlineSourceMap": false,
-    "inlineSources": false,
-    "preserveConstEnums": true,
     "moduleResolution": "node",
-    "strictNullChecks": true,
-    "skipLibCheck": true,
+    "noResolve": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true,
     "allowJs": false,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "lib": ["dom","es5","es6","es7","es2017.object"],
-    "baseUrl": "./app",
-    "types": [
-      "node"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "jsx": "react"
   },
-  "filesGlob": [
-    "./**/*.tsx?",
-    "!./**/tests/*"
-  ],
   "exclude": [
-    "node_modules",
-    "build",
-    "typings",
-    "**/tests/*"
+    "./node_modules/**/*"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
