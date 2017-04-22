@@ -9,7 +9,7 @@ import rootSaga from './modules/sagas';
 import reducer from '../reducers';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { routes } from './routes';
+import { routes } from 'modules/routes';
 
 const sagaMiddleware = createSagaMiddleware();
 

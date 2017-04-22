@@ -5,6 +5,8 @@ import "assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
+import { Link } from 'react-router';
+import { urls }  from '../../urls';
 
 function tagCloudController() {
   try {
@@ -77,8 +79,8 @@ export class TagCloud extends React.Component {
   };
 
   componentDidUpdate = () => {
-    if(TagCloud.tagNumber != this.props.tags.length) {
-      if(TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+    if (TagCloud.tagNumber != this.props.tags.length) {
+      if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
@@ -91,6 +93,8 @@ export class TagCloud extends React.Component {
   };
 
   render() {
+    // console.log("urls");
+    // console.log(urls);
     if (!this.props.isModalOpen) startCloud();
     else stopCloud();
     return (
@@ -98,6 +102,10 @@ export class TagCloud extends React.Component {
         <ReactIgnore>
           <textarea value={this.props.contents}/>
         </ReactIgnore>
+        <button >Go to</button>
+        <ul>
+          <li><Link to={ urls.header }> Go to header</Link></li>
+        </ul>
       </div>
     )
   }

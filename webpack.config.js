@@ -37,8 +37,9 @@ module.exports = {
     modules: ['node_modules', 'src'],
     alias: {
       mocks: helpers.root('mocks'),
+      src: helpers.root('src'),
       // assets: helpers.root('src/assets'),
-      // modules: helpers.root('src/modules')
+      //modules: helpers.root('src/modules')
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
