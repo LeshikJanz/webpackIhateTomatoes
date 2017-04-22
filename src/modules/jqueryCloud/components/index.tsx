@@ -102,9 +102,10 @@ export class TagCloud extends React.Component {
         <ReactIgnore>
           <textarea value={props.contents}/>
         </ReactIgnore>
-        <button onClick={this.props.goToHeader}>Go to</button>
+        <button onClick={this.props.goToHeader}>Go to board through props</button>
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
+          <li><Link to={ urls.board }> Go to board</Link></li>
         </ul>
       </div>
     )

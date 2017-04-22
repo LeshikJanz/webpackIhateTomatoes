@@ -14,7 +14,7 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   changeModalStatus: () => dispatch(changeModalStatus()),
   fetchCloudInit: () => dispatch(fetchCloudInit()),
   openKnowledge: (id: string) => dispatch(openKnowledge(id)),
-  goToHeader: () => dispatch(push('/header'))
+  goToHeader: () => dispatch(push('/board'))
 });
 
 export default connect(
