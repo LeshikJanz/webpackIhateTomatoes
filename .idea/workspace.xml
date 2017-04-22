@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="Feat: updated router middleware&#10;">
+    <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Trello/assets/temp.styl" afterPath="$PROJECT_DIR$/src/modules/Trello/assets/temp.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -46,10 +44,28 @@
         </entry>
       </file>
       <file leaf-file-name="index.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <marker date="1492891944000" expanded="true" signature="252:690" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="284:690" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="312:690" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="389:690" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="426:647" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="509:630" ph="..." />
+                <marker date="1492891944000" expanded="true" signature="673:690" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -71,7 +87,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/router-redux" />
       </map>
     </option>
   </component>
@@ -102,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/modules/main/components/Base/Base.js" />
@@ -129,6 +144,7 @@
         <option value="$PROJECT_DIR$/src/modules/Trello/assets/temp.styl" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
       </list>
     </option>
   </component>
@@ -302,8 +318,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="constants" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index.ts" />
+              <option name="myItemType" value="com.intellij.lang.typescript.compiler.ui.projectView.TypeScriptNestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -451,7 +471,7 @@
       <workItem from="1492865929556" duration="17000" />
       <workItem from="1492865985538" duration="97000" />
       <workItem from="1492866126006" duration="8552000" />
-      <workItem from="1492889393850" duration="699000" />
+      <workItem from="1492889393850" duration="1997000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -600,11 +620,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492868619796</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Feat: hiden blue trello background&#10;">
+      <created>1492890181231</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1492890181233</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87205000" />
+    <option name="totallyTimeSpent" value="88503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -768,7 +795,8 @@
     <MESSAGE value="Feat: added urls file&#10;" />
     <MESSAGE value="Feat: added router middleware&#10;" />
     <MESSAGE value="Feat: updated router middleware&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: updated router middleware&#10;" />
+    <MESSAGE value="Feat: hiden blue trello background&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: hiden blue trello background&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -934,6 +955,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,7 +1077,7 @@
         <state relative-caret-position="240">
           <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1065,7 +1087,7 @@
         <state relative-caret-position="466">
           <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1075,7 +1097,7 @@
         <state relative-caret-position="151">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,7 +1125,7 @@
         <state relative-caret-position="915">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1121,7 +1143,7 @@
         <state relative-caret-position="690">
           <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1150,6 +1172,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1164,11 +1194,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1492891944000" expanded="true" signature="252:690" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="284:690" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="312:690" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="389:690" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="426:647" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="509:630" ph="..." />
+            <marker date="1492891944000" expanded="true" signature="673:690" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
