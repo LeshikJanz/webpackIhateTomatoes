@@ -10,13 +10,13 @@ import PopUpModal from '../../DraftModal/containers/index';
 export const App = (props) => {
   const { isModalOpen } = props;
 
-  function addNewTag(){
-    const tag = {
-      source: "12345",
-      value: "Tag №"
-    }
-    props.addTag(tag);
-  }
+  // function addNewTag(){
+  //   const tag = {
+  //     source: "12345",
+  //     value: "Tag №"
+  //   }
+  //   props.addTag(tag);
+  // }
 
   return (
     <div>
