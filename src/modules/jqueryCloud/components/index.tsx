@@ -93,12 +93,14 @@ export class TagCloud extends React.Component {
   };
 
   render() {
-    if (!this.props.isModalOpen) startCloud();
+    const { props } = this;
+
+    if (!props.isModalOpen) startCloud();
     else stopCloud();
     return (
       <div>
         <ReactIgnore>
-          <textarea value={this.props.contents}/>
+          <textarea value={props.contents}/>
         </ReactIgnore>
         <button onClick={this.props.goToHeader}>Go to</button>
         <ul>
