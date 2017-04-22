@@ -9,12 +9,13 @@ import reducer from '../reducers';
 import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import { routes } from 'modules/routes';
+import thunk from 'redux-thunk';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(sagaMiddleware, routerMiddleware(hashHistory))
+  applyMiddleware(sagaMiddleware, routerMiddleware(hashHistory), thunk)
 );
 const history = syncHistoryWithStore(hashHistory, store);
 

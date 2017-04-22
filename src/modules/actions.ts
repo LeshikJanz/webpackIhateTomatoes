@@ -13,5 +13,11 @@ export const editKnowledge = createAction('EDIT_KNOWLEDGE');
 export const saveKnowledge = createAction('SAVE_KNOWLEDGE');
 export const updateCloudKnowledges = createAction('UPDATE_CLOUD');
 
+// export const getListsStart = createAction('GET_LISTS_START');
+// export const getListsAction = createAction('GET_LISTS');
+// export const moveCardAction = createAction('MOVE_CARD');
+// export const moveListAction = createAction('MOVE_LIST');
+// export const toggleDraggingAction = createAction('TOGGLE_DRAGGING');
+
 export const changeKnowledgeName = createAction("CHANGE_KNOWLEDGE_NAME");
 
