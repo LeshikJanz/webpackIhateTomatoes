@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import * as React from 'react'
 import {render} from 'react-dom'
 import {
   Editor,
@@ -25,7 +25,7 @@ import html from 'ld-html'
 import todo from 'ld-todo'
 let plugins = [video, color, emoji, gif, mention, sticker, todo];
 
-export default class LastDraft extends Component {
+export default class LastDraft extends React.Component {
   constructor(props) {
     super(props)
     const INITIAL_STATE = editorStateFromRaw(this.props.knowledge.Text)
