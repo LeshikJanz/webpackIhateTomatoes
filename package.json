@@ -31,7 +31,8 @@
     "redux-saga": "^0.14.6",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.0.1",
-    "style-loader": "^0.16.1"
+    "style-loader": "^0.16.1",
+    "webpack-combine-loaders": "^2.0.3"
   },
   "devDependencies": {
     "@types/react-router": "^4.0.4",
@@ -46,6 +47,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "babelify": "^7.3.0",
     "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
     "dante": "^1.0.2",
     "draft-js-hashtag-plugin": "^2.0.0-beta1",
     "draft-js-linkify-plugin": "^2.0.0-beta1",

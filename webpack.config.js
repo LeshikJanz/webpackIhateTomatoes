@@ -46,14 +46,10 @@ module.exports = {
 
   /** Модули содержат в себе различные лоудеры, если не указан путь. Которые будут преобразовывать современный код в старый, для поддержки всеми браузерами*/
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader?importLoaders=1',
-          'postcss-loader'
-        ]
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
       },
       {
         test: /\.js$/,

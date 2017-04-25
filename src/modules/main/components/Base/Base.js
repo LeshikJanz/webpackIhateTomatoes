@@ -6,9 +6,9 @@ const propTypes = {
 
 
 const BaseContainer = (props) => (
-  <main>
+  <div>
     {props.children}
-  </main>
+  </div>
 );
 
 BaseContainer.propTypes = propTypes;

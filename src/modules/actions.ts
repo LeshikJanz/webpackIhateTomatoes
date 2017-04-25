@@ -13,6 +13,8 @@ export const editKnowledge = createAction('EDIT_KNOWLEDGE');
 export const saveKnowledge = createAction('SAVE_KNOWLEDGE');
 export const updateCloudKnowledges = createAction('UPDATE_CLOUD');
 
+export const setAuthMethod = createAction('SET_AUTH_METHOD');
+
 // export const getListsStart = createAction('GET_LISTS_START');
 // export const getListsAction = createAction('GET_LISTS');
 // export const moveCardAction = createAction('MOVE_CARD');
