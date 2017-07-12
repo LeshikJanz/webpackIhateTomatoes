@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import * as React from 'react'
 import {
   Editor,
   editorStateFromHtml,
@@ -8,28 +7,31 @@ import {
   editorStateToJSON,
   editorStateFromText
 } from 'last-draft';
+import video from 'ld-video';
+import color from 'ld-color-picker';
+import emoji from 'ld-emoji';
+import gif from 'ld-gif';
+import mention from 'ld-mention';
+import audio from 'ld-audio';
+import sticker from 'ld-sticker';
+import html from 'ld-html';
+import todo from 'ld-todo';
 import '../styles/style.css';
 
-/* init the state, either from raw or html */
-import RAW from '../initialState/raw'
-import HTML from '../initialState/html'
+// import cloudinary from 'cloudinary';
 
-import video from 'ld-video'
-import color from 'ld-color-picker'
-import emoji from 'ld-emoji'
-import gif from 'ld-gif'
-import mention from 'ld-mention'
-import audio from 'ld-audio'
-import sticker from 'ld-sticker'
-import html from 'ld-html'
-import todo from 'ld-todo'
 let plugins = [video, color, emoji, gif, mention, sticker, todo];
 
-export default class LastDraft extends Component {
+// cloudinary.config({
+//   cloud_name: 'dqw7mxpr9',
+//   api_key: '999933393793165',
+//   api_secret: 'Ts8soyG7XeyXsp3x47XYjQm2GbY'
+// });
+
+export default class LastDraft extends React.Component {
   constructor(props) {
-    super(props)
-    const INITIAL_STATE = editorStateFromRaw(this.props.knowledge.Text)
-    this.state = {value: INITIAL_STATE}
+    super(props);
+    this.state = {value: editorStateFromRaw(this.props.knowledge.Text)}
   }
 
   change(editorState) {
@@ -63,16 +65,30 @@ export default class LastDraft extends Component {
 }
 
 function uploadImageAsync(file) {
+  const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
+  const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
+
+  var formData = new FormData();
+
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
   return new Promise(
     (resolve, reject) => {
-      setTimeout(() => {
-        /* the image src would be a url from an S3 or database resouse */
-        const src = window.URL.createObjectURL(file)
-        //const src = 'http://imgur.com/yrwFoXT.jpg'
-        resolve({src: src});
-      }, 2000)
-    }
-  )
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function(res) {
+        resolve({src: res.data.secure_url});
+      }).catch(function (err) {
+        console.error(err);
+      })
+    })
+  // )
 }
 
 const mentionUsers = [
@@ -92,21 +108,3 @@ const mentionUsers = [
     avatar: 'https://avatars1.githubusercontent.com/u/6695114?v=3&s=400',
   },
 ]
-
-/* mentionUsersAsync example using github search api */
-
-/*
- const mentionUsersAsync = function (searchValue, cb) {
- return new Promise(
- (resolve, reject) => {
- let url = `https://api.github.com/search/users?q=${searchValue}`
- fetch(url)
- .then( (response) => { return response.json() })
- .then((data) => {
- let users = data.items.map( (u, i) => { return { name: u.login, link: u.html_url, avatar: u.avatar_url } })
- resolve({ mentionUsers: users })
- })
- }
- )
- }
- */

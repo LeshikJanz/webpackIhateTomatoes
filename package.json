@@ -7,8 +7,42 @@
     "start": "node .",
     "posttest": "npm run lint && nsp check"
   },
+  "babel": {
+    "presets": [
+      [
+        "latest",
+        {
+          "es2015": {
+            "modules": false
+          }
+        }
+      ],
+      "react",
+      "stage-0"
+    ],
+    "env": {
+      "production": {
+        "only": [
+          "app"
+        ],
+        "plugins": [
+          "transform-react-remove-prop-types",
+          "transform-react-constant-elements",
+          "transform-react-inline-elements"
+        ]
+      },
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs",
+          "istanbul"
+        ]
+      }
+    }
+  },
   "dependencies": {
+    "@types/draft-js": "^0.10.5",
     "@types/node": "^7.0.13",
+    "@types/react-dom": "^15.5.1",
     "babel-polyfill": "^6.23.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
@@ -31,7 +65,8 @@
     "redux-saga": "^0.14.6",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.0.1",
-    "style-loader": "^0.16.1"
+    "style-loader": "^0.16.1",
+    "typescript": "^2.5.0-dev.20170707"
   },
   "devDependencies": {
     "@types/react-router": "^4.0.4",
@@ -46,6 +81,8 @@
     "babel-preset-stage-2": "^6.22.0",
     "babelify": "^7.3.0",
     "bootstrap": "^3.3.7",
+    "cloudinary": "^1.9.0",
+    "cloudinary-react": "^1.0.4",
     "dante": "^1.0.2",
     "draft-js-hashtag-plugin": "^2.0.0-beta1",
     "draft-js-linkify-plugin": "^2.0.0-beta1",
@@ -53,6 +90,8 @@
     "eslint-config-loopback": "^4.0.0",
     "faker": "^4.1.0",
     "file-loader": "^0.10.1",
+    "fs": "0.0.1-security",
+    "imgur": "^0.2.1",
     "immutable": "^3.8.1",
     "jquery": "^3.2.1",
     "last-draft": "^2.0.1",
@@ -79,7 +118,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "ts-loader": "^2.0.1",
-    "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1"

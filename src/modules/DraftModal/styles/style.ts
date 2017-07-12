@@ -1,5 +1,5 @@
 "use strict";
-exports.customStyles = {
+const customStyles = {
     overlay: {
         position: 'fixed',
         top: 0,
@@ -19,4 +19,5 @@ exports.customStyles = {
         overflow: 'scroll'
     }
 };
-//# sourceMappingURL=style.js.map
+
+export default customStyles;

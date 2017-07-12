@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { render } from 'react-dom';
 import * as Modal from 'react-modal';
 import LastDraft from '../../DraftEditor/containers';
-import { customStyles } from '../styles/style';
+import customStyles from "../styles/style";
 
 export const PopUpModal = (props) => {
   const closeModal = () => {
     props.changeModalStatus();
     props.updateKnowledge();
   }
-  const afterOpenModal = () => {}
+  const afterOpenModal = () => {
+  }
 
   return (
     <div>

@@ -25,7 +25,7 @@ const path = require('path');  //используется для указани�
 var helpers = require('./helpers');
 
 module.exports = {
-  entry: ['babel-polyfill','./src/app.js'], //Исходный файл
+  entry: ['babel-polyfill', './src/app.js'], //Исходный файл
   output: {
     path: path.resolve(__dirname, "dist"),  //dist - папка, где будут лежать бандлы
     filename: 'app.bundle.js'  //Файл, в которым будем бандлить
@@ -54,11 +54,10 @@ module.exports = {
           'css-loader?importLoaders=1',
           'postcss-loader'
         ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader?presets[]=es2015'
+      }, {
+        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.tsx?$/,
@@ -70,11 +69,6 @@ module.exports = {
       {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader'
-      },
-      {
-        test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre"
       },
       {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'}
     ]
