@@ -18,27 +18,43 @@ import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
 
-// import cloudinary from 'cloudinary';
-
-let plugins = [video, color, emoji, gif, mention, sticker, todo];
-
-// cloudinary.config({
-//   cloud_name: 'dqw7mxpr9',
-//   api_key: '999933393793165',
-//   api_secret: 'Ts8soyG7XeyXsp3x47XYjQm2GbY'
-// });
-
 export default class LastDraft extends React.Component {
+
+  /**
+   * Last Draft plugins
+   *
+   * @type {any[]}
+   */
+  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
+
+  /**
+   * Constructor
+   *
+   * @param {props} props - external props
+   * @returns {void}
+   */
   constructor(props) {
     super(props);
-    this.state = {value: editorStateFromRaw(this.props.knowledge.Text)}
+    this.state = { value: editorStateFromRaw(this.props.knowledge.Text) }
   }
 
-  change(editorState) {
-    this.setState({value: editorState});
+  /**
+   * On change editor text
+   *
+   * @param {string} editorState - editor state
+   * @returns {void}
+   */
+  change(editorState: string) {
+    this.setState({ value: editorState });
     this.props.editKnowledge(editorStateToJSON(editorState));
   }
 
+  /**
+   * Renders the component.
+   *
+   * @memberof LastDraft
+   * @return {string} - HTML markup for the component
+   */
   render() {
     return (
       <div style={{margin: '50px', marginTop: '10px', maxWidth: '90%'}}>
@@ -48,11 +64,10 @@ export default class LastDraft extends React.Component {
         </div>
         <Editor
           theme={this.props.theme}
-          plugins={plugins}
+          plugins={this.plugins}
           sidebarVisibleOn='newline'
           inline={['bold', 'italic', 'dropcap']}
           blocks={['h3', 'quote']}
-          mentionUsers={mentionUsers}
           autofocus={true}
           separators={false}
           editorState={this.state.value}
@@ -64,7 +79,15 @@ export default class LastDraft extends React.Component {
   }
 }
 
-function uploadImageAsync(file) {
+/**
+ * Async uploading images to Cloudinary
+ *
+ * See: https://www.youtube.com/watch?v=6uHfIv4981U
+ *
+ * @param {File} file - uploading file
+ * @returns {Promise}
+ */
+function uploadImageAsync(file: File): Promise {
   const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
   const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
 
@@ -82,29 +105,10 @@ function uploadImageAsync(file) {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: formData
-      }).then(function(res) {
-        resolve({src: res.data.secure_url});
+      }).then(function (res) {
+        resolve({ src: res.data.secure_url });
       }).catch(function (err) {
         console.error(err);
       })
-    })
-  // )
+    });
 }
-
-const mentionUsers = [
-  {
-    name: 'Max Stoiber',
-    link: 'https://github.com/mxstbr',
-    avatar: 'https://avatars0.githubusercontent.com/u/7525670?v=3&s=400',
-  },
-  {
-    name: 'Nik Graf',
-    link: 'https://github.com/nikgraf',
-    avatar: 'https://avatars2.githubusercontent.com/u/223045?v=3&s=400',
-  },
-  {
-    name: 'Steven Iseki',
-    link: 'https://github.com/steveniseki',
-    avatar: 'https://avatars1.githubusercontent.com/u/6695114?v=3&s=400',
-  },
-]

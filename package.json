@@ -5,7 +5,9 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
+    "typedoc": "typedoc"
   },
   "babel": {
     "presets": [
@@ -118,6 +120,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "ts-loader": "^2.0.1",
+    "typedoc": "^0.7.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1"
