@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "lint": "eslint .",
+    "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc",
+    "tslint": "tslint"
   },
   "babel": {
     "presets": [
@@ -39,6 +40,32 @@
           "istanbul"
         ]
       }
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "block-no-empty": null,
+      "color-hex-case": "upper",
+      "string-quotes": "single",
+      "font-family-name-quotes": "always-where-recommended",
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ],
+      "property-no-unknown": [
+        true,
+        {
+          "ignoreProperties": [
+            "composes"
+          ]
+        }
+      ],
+      "indentation": 2
     }
   },
   "dependencies": {
@@ -89,7 +116,17 @@
     "draft-js-hashtag-plugin": "^2.0.0-beta1",
     "draft-js-linkify-plugin": "^2.0.0-beta1",
     "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^15.0.2",
     "eslint-config-loopback": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-standard": "^3.0.1",
     "faker": "^4.1.0",
     "file-loader": "^0.10.1",
     "fs": "0.0.1-security",

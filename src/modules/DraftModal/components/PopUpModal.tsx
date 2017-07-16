@@ -7,9 +7,10 @@ export const PopUpModal = (props) => {
   const closeModal = () => {
     props.changeModalStatus();
     props.updateKnowledge();
-  }
+  };
+
   const afterOpenModal = () => {
-  }
+  };
 
   return (
     <div>
@@ -24,4 +25,4 @@ export const PopUpModal = (props) => {
       </Modal>
     </div>
   );
-}
+};

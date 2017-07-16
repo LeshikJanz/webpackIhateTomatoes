@@ -50,6 +50,37 @@ export default class LastDraft extends React.Component {
   }
 
   /**
+   * Async uploading images to Cloudinary
+   *
+   * See: https://www.youtube.com/watch?v=6uHfIv4981U
+   *
+   * @param {File} file - uploading file
+   * @returns {Promise}
+   */
+  uploadImageAsync(file: File): Promise {
+    const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
+    const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
+
+    const formData = new FormData();
+
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    return new Promise(
+      (resolve, reject) =>
+        axios({
+          url: CLOUDINARY_URL,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          data: formData
+        }).then((res) => resolve({ src: res.data.secure_url }))
+          .catch((err) => reject(err))
+    )
+  }
+
+  /**
    * Renders the component.
    *
    * @memberof LastDraft
@@ -72,43 +103,9 @@ export default class LastDraft extends React.Component {
           separators={false}
           editorState={this.state.value}
           placeholder='Text'
-          uploadImageAsync={uploadImageAsync}
+          uploadImageAsync={this.uploadImageAsync}
           onChange={this.change.bind(this)}/>
       </div>
     )
   }
-}
-
-/**
- * Async uploading images to Cloudinary
- *
- * See: https://www.youtube.com/watch?v=6uHfIv4981U
- *
- * @param {File} file - uploading file
- * @returns {Promise}
- */
-function uploadImageAsync(file: File): Promise {
-  const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
-  const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
-
-  var formData = new FormData();
-
-  formData.append('file', file);
-  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-  return new Promise(
-    (resolve, reject) => {
-      axios({
-        url: CLOUDINARY_URL,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: formData
-      }).then(function (res) {
-        resolve({ src: res.data.secure_url });
-      }).catch(function (err) {
-        console.error(err);
-      })
-    });
 }
