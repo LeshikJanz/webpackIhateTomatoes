@@ -1,6 +1,6 @@
 import { App } from '../components/App';
 import { connect } from 'react-redux';
-import { addTag, fetchCloud } from "../../actions";
+import { addTag } from "../../actions";
 
 const mapStateToProps = (state) => ({
   trackNumber: state.trackNumber,
