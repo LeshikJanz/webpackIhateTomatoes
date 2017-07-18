@@ -1,5 +1,7 @@
 import * as React from "react";
-import "../styles/main.css";
+import styles = require("../styles/main.css");
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 import { currentCloudId } from "../../jqueryCloud/constants/index";
 const moment = require('moment');
 

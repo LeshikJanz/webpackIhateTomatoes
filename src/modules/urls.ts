@@ -1,5 +1,6 @@
 export const urls = {
   index: '/',
   header: 'header',
-  board: 'board'
+  board: 'board',
+  login: 'login',
 };
