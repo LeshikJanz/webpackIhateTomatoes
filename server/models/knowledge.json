@@ -7,20 +7,21 @@
     "validateUpsert": true
   },
   "properties": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Text": {
+    "text": {
       "type": "object"
     },
-    "UserId": {
-      "type": "string"
+    "userId": {
+      "type": "string",
+      "required": true
     },
-    "CreateDate": {
+    "createDate": {
       "type": "date"
     },
-    "UpdateDate": {
+    "updateDate": {
       "type": "date"
     }
   },

@@ -105,10 +105,10 @@ export class TagCloud extends React.Component {
         <button onClick={this.props.goToHeader}>Go to board through props</button>
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
+          <li><Link to={ urls.cloudBoard }> Go to cloud board</Link></li>
           <li><Link to={ urls.board }> Go to board</Link></li>
         </ul>
       </div>
     )
   }
 }
-;

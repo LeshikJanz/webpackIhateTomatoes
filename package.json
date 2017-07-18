@@ -5,6 +5,7 @@
   "scripts": {
     "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
     "start": "node .",
+    "dev": "nodemon server/server.js --watch common --watch server --watch --content-base src/",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
     "typedoc": "typedoc",
@@ -90,6 +91,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "loopback-connector-mongodb": "^1.18.1",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-modal": "^1.7.3",
     "react-router": "^3.0.2",
