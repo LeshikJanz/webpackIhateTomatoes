@@ -28,7 +28,7 @@ export const Header = (props) => {
         </div>
         <div id="hello">
           <div className="col-lg-8 col-lg-offset-2 centered">
-            <h1>Ваши знания в одном месте</h1>
+            <h1>Ваши знания здесь</h1>
           </div>
         </div>
         <div className="navbar-collapse collapse">

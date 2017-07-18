@@ -18,7 +18,7 @@ import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
 
-export default class LastDraft extends React.Component {
+export default class LastDraft extends React.Component<any, any> {
 
   /**
    * Last Draft plugins
@@ -57,7 +57,7 @@ export default class LastDraft extends React.Component {
    * @param {File} file - uploading file
    * @returns {Promise}
    */
-  uploadImageAsync(file: File): Promise {
+  uploadImageAsync(file: File): Promise<any> {
     const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
     const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
 
