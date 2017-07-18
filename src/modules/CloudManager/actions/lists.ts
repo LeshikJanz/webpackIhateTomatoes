@@ -1,3 +1,4 @@
+import { fetchCloudsInit } from "../../actions";
 const faker = require('faker');
 
 export const GET_LISTS_START = 'GET_LISTS_START';
@@ -8,7 +9,7 @@ export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
 export function getLists(quantity) {
   return dispatch => {
-    dispatch({ type: GET_LISTS_START, quantity });
+    dispatch(fetchCloudsInit());
     setTimeout(() => {
       const lists = [];
       let count = 0;

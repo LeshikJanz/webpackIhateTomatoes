@@ -4,8 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
-    "start": "node .",
-    "dev": "nodemon server/server.js --watch common --watch server --watch --content-base src/",
+    "start": "nodemon server/server.js --watch common --watch server --watch --content-base src/",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
     "typedoc": "typedoc",

@@ -13,7 +13,7 @@ export function* saveKnowledgeSaga() {
   }
 }
 
-export function* cloudSaga() {
+export function* knowledgeSaga() {
   yield takeEvery(saveKnowledge().type, saveKnowledgeSaga);
 }
 

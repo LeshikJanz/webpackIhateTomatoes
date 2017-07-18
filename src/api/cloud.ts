@@ -1,10 +1,22 @@
 import { request } from "./base";
 import { ICloud, IKnowledge } from "../interfaces/index";
 
+export const fetchClouds = (params: any = {}) => {
+  return request
+    .get(`Clouds`, params)
+    .then((clouds: ICloud[]) => clouds );
+};
+
 export const fetchCloud = (id: string, params: any = {}) => {
   return request
     .get(`Clouds/${id}/knowledge`, params)
     .then((content: ICloud[]) => content.map( ( c ) => <ICloud> c) );
+};
+
+export const addNewCloud = (params: any = {}) => {
+  return request
+    .post(`Clouds`, params)
+    .then((c: ICloud) => <ICloud> c);
 };
 
 export const fetchKnowledge = (id: string, params: any = {}) => {

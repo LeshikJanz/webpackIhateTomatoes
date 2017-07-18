@@ -5,18 +5,19 @@ declare interface Identifiable {
 
 export
 declare interface ICloud extends Identifiable {
-  Name: string,
-  CreateDate: Date,
-  UpdateDate: Date,
-  UserId: string
+  name: string,
+  createDate: Date,
+  updateDate: Date,
+  userId: string,
+  text: string
 }
 
 export
 declare interface IKnowledge extends Identifiable {
-  Name: string,
-  Text: {},
-  UserId: string,
-  CreateDate: Date,
-  UpdateDate: Date,
+  name: string,
+  text: {},
+  userId: string,
+  createDate: Date,
+  updateDate: Date,
   cloudId: string
 }
