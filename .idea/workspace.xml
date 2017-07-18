@@ -2,34 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/b.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/del.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/dots.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/gal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/images/noavatar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/actions/lists.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/assets/temp.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/constants.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/Board.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/CardDragPreview.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/Cards/Card.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/Cards/Cards.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/Cards/CardsContainer.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/Cards/DraggableCard.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/CustomDragLayer.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/containers/Board/snapToGrid.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/interfaces/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/CloudManager/reducers/lists.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/Trello/interfaces/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/cloud.json" afterPath="$PROJECT_DIR$/server/models/cloud.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/knowledge.json" afterPath="$PROJECT_DIR$/server/models/knowledge.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Card.tsx" afterPath="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Card.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/routes.js" afterPath="$PROJECT_DIR$/src/modules/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/urls.ts" afterPath="$PROJECT_DIR$/src/modules/urls.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -50,11 +26,73 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+      <file leaf-file-name="cloud.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="210">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding>
+                <marker date="1500384736000" expanded="true" signature="314:752" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="346:752" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="374:752" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="451:752" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="488:709" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="571:692" ph="..." />
+                <marker date="1500384736000" expanded="true" signature="735:752" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,81 +101,14 @@
       <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="99" column="12" lean-forward="true" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CardsContainer.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/CardsContainer.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="74" column="11" lean-forward="true" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+            <state relative-caret-position="357">
+              <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <marker date="1500385090000" expanded="true" signature="1256:1446" ph="..." />
+                <marker date="1500385090000" expanded="true" signature="1268:1441" ph="..." />
+                <marker date="1500385090000" expanded="true" signature="1720:1932" ph="..." />
+                <marker date="1500385090000" expanded="true" signature="1741:1927" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cards.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Cards.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="124" column="14" lean-forward="true" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DraggableCard.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Card.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Card.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Trello/interfaces/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloud.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/cloud.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +122,7 @@
       <find>fetchClouds</find>
       <find>typedoc</find>
       <find>react</find>
+      <find>name</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/server</dir>
@@ -167,13 +139,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/modules/popUpModal/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/modules/sagas.ts" />
         <option value="$PROJECT_DIR$/src/api/cloud.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/styles/style.css" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" />
-        <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
         <option value="$PROJECT_DIR$/src/router.js" />
@@ -206,7 +175,6 @@
         <option value="$PROJECT_DIR$/.eslintrc.js" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx" />
         <option value="$PROJECT_DIR$/src/modules/Trello/interfaces/ICard.ts" />
         <option value="$PROJECT_DIR$/src/modules/Trello/interfaces/IBoard.ts" />
@@ -217,6 +185,10 @@
         <option value="$PROJECT_DIR$/server/models/knowledge.json" />
         <option value="$PROJECT_DIR$/src/modules/routes.js" />
         <option value="$PROJECT_DIR$/src/modules/urls.ts" />
+        <option value="$PROJECT_DIR$/src/modules/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
       </list>
     </option>
@@ -320,7 +292,103 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CloudManager" />
+              <option name="myItemId" value="jqueryCloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jqueryCloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="constants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jqueryCloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DraftModal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -470,7 +538,7 @@
       <workItem from="1500284721409" duration="1922000" />
       <workItem from="1500370390742" duration="223000" />
       <workItem from="1500370695816" duration="755000" />
-      <workItem from="1500378854438" duration="2802000" />
+      <workItem from="1500378854438" duration="3772000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -640,11 +708,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499979493839</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Feat: created copy of trello board&#10;">
+      <created>1500384046335</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1500384046335</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113153000" />
+    <option name="totallyTimeSpent" value="114123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
@@ -793,7 +868,8 @@
     <MESSAGE value="Feat: hiden blue trello background&#10;" />
     <MESSAGE value="Feat: implemented image uploading though axios to cloudinary" />
     <MESSAGE value="Feat: added typeDoc to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: added typeDoc to project" />
+    <MESSAGE value="Feat: created copy of trello board&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: created copy of trello board&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -802,28 +878,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/main/components/Base/Base.js" />
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/reducers/lists.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/constants.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/CardDragPreview.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -852,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-router/es/IndexRoute.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-router/es/Router.js" />
     <entry file="file://$PROJECT_DIR$/reducers.ts">
@@ -872,13 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1003,22 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Trello/actions/lists.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1035,36 +1059,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/CardsContainer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="74" column="11" lean-forward="true" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Cards.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="124" column="14" lean-forward="true" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1109,14 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/cloud.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -1124,14 +1114,6 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1143,11 +1125,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/CardsContainer.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="74" column="11" lean-forward="true" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/cloud.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <marker date="1500384736000" expanded="true" signature="314:752" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="346:752" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="374:752" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="451:752" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="488:709" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="571:692" ph="..." />
+            <marker date="1500384736000" expanded="true" signature="735:752" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="99" column="12" lean-forward="true" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="357">
+          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+          <folding>
+            <marker date="1500385090000" expanded="true" signature="1256:1446" ph="..." />
+            <marker date="1500385090000" expanded="true" signature="1268:1441" ph="..." />
+            <marker date="1500385090000" expanded="true" signature="1720:1932" ph="..." />
+            <marker date="1500385090000" expanded="true" signature="1741:1927" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

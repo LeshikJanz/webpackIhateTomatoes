@@ -44,7 +44,7 @@ function tagCloudController() {
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.Name}</a></li>`);
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.name}</a></li>`);
 
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
@@ -56,7 +56,7 @@ const removeTagCloud = () => {
 
 const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
-                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.Name}</a></li>`);
+                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.name}</a></li>`);
   removeTagCloud();
 };
 

@@ -8,14 +8,14 @@ const moment = require('moment');
 export const Header = (props) => {
   const getEmptyKnowledge = () => {
     return {
-      Name: "New knowledge",
-      UserId: "string",
-      CreateDate: moment(),
-      UpdateDate: moment(),
-      Text: {},
+      name: "New knowledge",
+      userId: "string",
+      createDate: moment(),
+      updateDate: moment(),
+      text: {},
       cloudId: currentCloudId
     }
-  }
+  };
 
   return(
     <div className="navbar navbar-default navbar-fixed-top">
