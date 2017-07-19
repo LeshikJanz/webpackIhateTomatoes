@@ -7,9 +7,12 @@ import { currentCloudId } from "../jqueryCloud/constants/index";
 
 const getFromState = (state: any) => state.Knowledge;
 
-export function* fetchCloudSaga() {
+export function* fetchCloudSaga({ payload } : string) {
   try {
-    const cloudListKnowledges = yield fetchCloud(currentCloudId);
+    const cloudListKnowledges = yield fetchCloud(payload);
+    console.log('cloudListKnowledges');
+    console.log(cloudListKnowledges);
+
     yield put(fetchCloudDone(cloudListKnowledges));
   } catch (e) {
     yield put(fetchCloudError(e));

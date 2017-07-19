@@ -5,14 +5,14 @@ import { push } from "react-router-redux";
 import { urls } from "../../urls";
 
 const mapStateToProps = (state: any) => ({
-  tags: state.Cloud,
+  tags: state.Cloud.knowledge,
   isModalOpen: state.Modal.isModalOpen
 });
 
 const mapDispatchToProps: any = (dispatch: any) => ({
   addTag: (tag: any) => dispatch(addTag(tag)),
   changeModalStatus: () => dispatch(changeModalStatus()),
-  fetchCloudInit: () => dispatch(fetchCloudInit()),
+  fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
   openKnowledge: (id: string) => dispatch(openKnowledge(id)),
   goToHeader: () => dispatch(push('/board'))
 });

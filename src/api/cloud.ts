@@ -21,10 +21,9 @@ export const fetchClouds = (params: any = {}) => {
 
 export const fetchCloud = (id: string, params: any = {}) => {
   return request
-    .get(`Clouds/${id}/knowledge`, params)
-    .then((clouds: ICloud[]) => clouds.map( ( c ) => <ICloud> c) );
+    .get(`Clouds/${id}?filter={"include": ["knowledge"]}`, params)
+    .then((cloud: ICloud) => <ICloud> cloud);
 };
-
 
 export const addNewCloud = (params: any = {}) => {
   return request
@@ -40,7 +39,7 @@ export const fetchKnowledge = (id: string, params: any = {}) => {
 
 export const addNewKnowledge = (params: any = {}) => {
   return request
-    .post(`Knowledges`, params)
+    .post(`Clouds/${params.cloudId}/Knowledge`, params)
     .then((c: IKnowledge) => <IKnowledge> c);
 };
 

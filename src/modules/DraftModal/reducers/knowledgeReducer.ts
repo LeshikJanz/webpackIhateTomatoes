@@ -1,5 +1,5 @@
 import { createReducer } from 'utils/createReducer';
-import { openKnowledge, editKnowledge, changeKnowledgeName } from "../../actions";
+import { openKnowledge, editKnowledge, changeKnowledgeName, viewCloud } from "../../actions";
 
 const initialState = {
   name: "",

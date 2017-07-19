@@ -14,6 +14,7 @@ import App from './main/containers';
 export default (
   <Route path={urls.index}>
     <IndexRoute component={App} />
+    <Route path={urls.cloud + `/:id`} component={App}></Route>
     <Route path={urls.oldBoard} component={OldBoard}></Route>
     <Route path={urls.cloudBoard} component={CloudBoard}></Route>
     <Route path={urls.login} component={LoginPageRoot}></Route>

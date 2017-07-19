@@ -2,7 +2,6 @@ import * as React from "react";
 import styles = require("../styles/main.css");
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
-import { currentCloudId } from "../../jqueryCloud/constants/index";
 const moment = require('moment');
 
 export const Header = (props) => {
@@ -13,7 +12,7 @@ export const Header = (props) => {
       createDate: moment(),
       updateDate: moment(),
       text: {},
-      cloudId: currentCloudId
+      cloudId: props.cloudId
     }
   };
 
@@ -26,7 +25,7 @@ export const Header = (props) => {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a onClick={() => { props.addTag(getEmptyKnowledge())}}  className="navbar-brand" href="#"><i className="fa fa-bolt"></i></a>
+          <a onClick={() => { props.addTag(getEmptyKnowledge())}}  className="navbar-brand" href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
         </div>
         <div id="hello">
           <div className="col-lg-8 col-lg-offset-2 centered">

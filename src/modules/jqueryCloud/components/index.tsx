@@ -75,7 +75,7 @@ export class TagCloud extends React.Component {
   static tagNumber = 0;
 
   componentDidMount = () => {
-    this.props.fetchCloudInit();
+    this.props.fetchCloudInit(this.props.cloudId);
     document.addEventListener('tagclick', this.handleTagClick);
   };
 

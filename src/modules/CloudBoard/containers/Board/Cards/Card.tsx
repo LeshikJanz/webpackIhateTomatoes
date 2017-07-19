@@ -1,5 +1,7 @@
 import * as React from 'react';
 import PropTypes = React.PropTypes;
+import { urls } from "../../../../urls";
+import { Link } from 'react-router';
 
 const propTypes = {
   item: PropTypes.object.isRequired,
@@ -20,6 +22,9 @@ const Card = (props) => {
           <div className="item-author" title={item.accountId}>ID: {item.accountId}</div>
           <p>{item.goal}</p>
         </div>
+      </div>
+      <div className="actions">
+        <li><Link to={ urls.cloud + '/' + item.id }>Go to cloud</Link></li>
       </div>
     </div>
   );
