@@ -102,6 +102,9 @@ export default class Board extends React.Component {
   render() {
     const { lists } = this.props;
 
+    console.log('lists');
+    console.log(lists);
+
     return (
       <div style={{ height: '100%' }}>
         <CustomDragLayer snapToGrid={false} />

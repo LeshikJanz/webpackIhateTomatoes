@@ -106,7 +106,7 @@ export class TagCloud extends React.Component {
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
           <li><Link to={ urls.cloudBoard }> Go to cloud board</Link></li>
-          <li><Link to={ urls.board }> Go to board</Link></li>
+          <li><Link to={ urls.oldBoard }> Go to old board</Link></li>
         </ul>
       </div>
     )

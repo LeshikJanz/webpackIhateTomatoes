@@ -13,9 +13,6 @@ const delPng = require('../../../assets/images/del.png');
 const Card = (props) => {
   const { style, item } = props;
 
-  console.log('item');
-  console.log(item);
-
   return (
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">{item.title}</div>

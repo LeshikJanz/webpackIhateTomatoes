@@ -65,6 +65,9 @@ export default class CardsContainer extends React.Component {
 
   render() {
     const { connectDropTarget, connectDragSource, item, x, moveCard, isDragging } = this.props;
+    console.log('item');
+    console.log(item);
+
     const opacity = isDragging ? 0.5 : 1;
 
     return connectDragSource(connectDropTarget(

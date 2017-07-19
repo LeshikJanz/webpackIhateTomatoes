@@ -13,7 +13,7 @@ import PropTypes = React.PropTypes;
 
 function mapStateToProps(state) {
   return {
-    lists: state.Clouds
+    lists: state.Trello.lists
   };
 }
 
@@ -23,7 +23,7 @@ function mapDispatchToProps(dispatch) {
 
 @connect(mapStateToProps, mapDispatchToProps)
 @DragDropContext(HTML5Backend)
-export default class Board extends React.Component {
+export default class CloudBoard extends React.Component {
   static propTypes = {
     getLists: PropTypes.func.isRequired,
     moveCard: PropTypes.func.isRequired,

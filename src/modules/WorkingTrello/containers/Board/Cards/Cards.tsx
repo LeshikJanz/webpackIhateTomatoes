@@ -107,8 +107,6 @@ export default class Cards extends React.Component {
 
   render() {
     const { connectDropTarget, x, cards, isOver, canDrop } = this.props;
-    console.log('cards');
-    console.log(cards);
     const { placeholderIndex } = this.state;
 
     let isPlaceHold = false;

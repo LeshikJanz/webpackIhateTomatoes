@@ -24,9 +24,10 @@ export default function lists(state = initialState, action) {
       return state.set('isFetching', true);
     case GET_LISTS:
       return state.withMutations((ctx) => {
+        console.log('action');
+        console.log(action);
 
         ctx.set('isFetching', false)
-            // .set('lists', action.lists);
             .set('lists', action.lists);
       });
     case MOVE_CARD: {

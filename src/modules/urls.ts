@@ -1,7 +1,7 @@
 export const urls = {
   index: '/',
   header: 'header',
-  board: 'board',
+  oldBoard: 'oldBoard',
   cloudBoard: 'cloudBoard',
   login: 'login',
 };

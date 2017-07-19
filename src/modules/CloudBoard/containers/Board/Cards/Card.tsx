@@ -13,12 +13,9 @@ const delPng = require('../../../assets/images/del.png');
 const Card = (props) => {
   const { style, item } = props;
 
-  console.log('item');
-  console.log(item);
-
   return (
     <div style={style} className="item" id={style ? item.id : null}>
-      <div className="item-name">{item.title}</div>
+      <div className="item-name">{item.name}</div>
       <div className="item-container">
         <div className="item-avatar-wrap">
           <img src={`https://randomuser.me/api/portraits/med/men/${item.id}.jpg`} alt="" />
