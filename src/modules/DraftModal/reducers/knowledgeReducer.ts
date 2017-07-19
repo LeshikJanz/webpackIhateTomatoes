@@ -2,10 +2,10 @@ import { createReducer } from 'utils/createReducer';
 import { openKnowledge, editKnowledge, changeKnowledgeName } from "../../actions";
 
 const initialState = {
-  Name: "",
-  Text: {},
-  CreateDate: "",
-  UpdateDate: "",
+  name: "",
+  text: {},
+  createDate: "",
+  updateDate: "",
   cloudId: ""
 };
 
@@ -16,11 +16,11 @@ export default createReducer({
   }),
   [editKnowledge]: (state: any, payload: string) => ({
     ...state,
-    Text: JSON.parse(payload)
+    text: JSON.parse(payload)
   }),
   [changeKnowledgeName]: (state: any, payload: string) => ({
     ...state,
-    Name: payload
+    name: payload
   })
 
 }, initialState);

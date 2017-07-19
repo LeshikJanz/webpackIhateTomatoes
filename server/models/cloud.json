@@ -19,9 +19,6 @@
     },
     "updateDate": {
       "type": "date"
-    },
-    "userId": {
-      "type": "string"
     }
   },
   "validations": [],

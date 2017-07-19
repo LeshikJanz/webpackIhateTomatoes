@@ -78,7 +78,7 @@ export default class CardsContainer extends React.Component {
         <Cards
           moveCard={moveCard}
           x={x}
-          cards={item.cards}
+          cards={item.clouds}
           startScrolling={this.props.startScrolling}
           stopScrolling={this.props.stopScrolling}
           isScrolling={this.props.isScrolling}

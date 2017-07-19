@@ -32,9 +32,6 @@
     "dataSource": "db",
     "public": false
   },
-  "Message": {
-    "dataSource": null
-  },
   "Knowledge": {
     "dataSource": "mongodbDs",
     "public": true

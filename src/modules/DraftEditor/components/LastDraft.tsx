@@ -35,7 +35,7 @@ export default class LastDraft extends React.Component<any, any> {
    */
   constructor(props) {
     super(props);
-    this.state = { value: editorStateFromRaw(this.props.knowledge.Text) }
+    this.state = { value: editorStateFromRaw(this.props.knowledge.text) }
   }
 
   /**
@@ -91,7 +91,7 @@ export default class LastDraft extends React.Component<any, any> {
       <div style={{margin: '50px', marginTop: '10px', maxWidth: '90%'}}>
         <div className="name-input">
           <input className="name" type="text" placeholder="Enter the knowledge name"
-                 value={this.props.knowledge.Name} onChange={this.props.handleNameChange}/>
+                 value={this.props.knowledge.name} onChange={this.props.handleNameChange}/>
         </div>
         <Editor
           theme={this.props.theme}

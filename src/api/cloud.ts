@@ -1,5 +1,11 @@
 import { request } from "./base";
-import { ICloud, IKnowledge } from "../interfaces/index";
+import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
+
+export const fetchCloudGroups = (params: any = {}) => {
+  return request
+    .get(`CloudGroups?filter={"include": ["clouds"]}`, params)
+    .then((cloudGroups: ICloudGroup[]) => cloudGroups );
+};
 
 export const fetchClouds = (params: any = {}) => {
   return request
