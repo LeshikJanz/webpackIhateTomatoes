@@ -26,7 +26,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Cloud",
+      "foreignKey": "id",
+      "required": true
+    }
+  },
   "acls": [],
   "methods": {}
 }

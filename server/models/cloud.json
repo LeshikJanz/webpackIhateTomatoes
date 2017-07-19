@@ -27,9 +27,9 @@
   "validations": [],
   "relations": {
     "knowledge": {
-      "type": "hasMany",
+      "type": "hasAndBelongsToMany",
       "model": "Knowledge",
-      "foreignKey": ""
+      "foreignKey": "knowledgeCloudId"
     }
   },
   "acls": [],
