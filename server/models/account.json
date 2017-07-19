@@ -1,0 +1,25 @@
+{
+  "name": "Account",
+  "plural": "Accounts",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "sessions": {
+      "type": "hasMany",
+      "model": "Session",
+      "foreignKey": "sessionId"
+    },
+    "cloudGroups": {
+      "type": "hasMany",
+      "model": "CloudGroup",
+      "foreignKey": "cloudGroupId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

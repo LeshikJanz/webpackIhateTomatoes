@@ -1,0 +1,25 @@
+{
+  "name": "Session",
+  "plural": "Sessions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "histories": {
+      "type": "hasMany",
+      "model": "History",
+      "foreignKey": "historyId"
+    },
+    "clouds": {
+      "type": "hasOne",
+      "model": "Cloud",
+      "foreignKey": "lastOpenedCloudId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
