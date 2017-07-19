@@ -87,7 +87,7 @@ export default class Cards extends React.Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     moveCard: PropTypes.func.isRequired,
-    cards: PropTypes.array.isRequired,
+    // cards: PropTypes.array.isRequired,
     x: PropTypes.number.isRequired,
     isOver: PropTypes.bool,
     item: PropTypes.object,
@@ -108,6 +108,9 @@ export default class Cards extends React.Component {
   render() {
     const { connectDropTarget, x, cards, isOver, canDrop } = this.props;
     const { placeholderIndex } = this.state;
+
+    console.log('cards');
+    console.log(cards);
 
     let isPlaceHold = false;
     let cardList = [];

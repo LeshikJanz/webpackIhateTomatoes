@@ -9,7 +9,7 @@ export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
 export function getLists(quantity) {
   return dispatch => {
-    dispatch(fetchCloudsInit());
+    dispatch({ type: GET_LISTS_START, isFetching: false });
     setTimeout(() => {
       const lists = [];
       let count = 0;

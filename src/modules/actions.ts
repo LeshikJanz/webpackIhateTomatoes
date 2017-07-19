@@ -3,6 +3,7 @@ import { createAction } from "../utils/createAction";
 export const addTag = createAction('ADD_TAG');
 export const createNewKnowledge = createAction('CREATE_NEW_KNOWLEDGE');
 export const changeModalStatus = createAction('CHANGE_MODAL_STATUS');
+export const getCloudList = createAction('GET_LISTS');
 export const fetchCloudsInit = createAction('FETCH_CLOUDS_INIT');
 export const fetchCloudsDone = createAction('FETCH_CLOUDS_DONE');
 export const fetchCloudsError = createAction('FETCH_CLOUDS_ERROR');

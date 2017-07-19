@@ -5,14 +5,16 @@ import { ICloud } from "../../interfaces/index";
 
 export function* fetchCloudsSaga() {
   try {
-    const cloudList: ICloud[] = yield fetchClouds();
+    const lists: ICloud[] = yield fetchClouds();
+    console.log('lists');
+    console.log(lists);
     //     dispatch({ type: GET_LISTS, lists, isFetching: true });
-    yield put({ type: 'GET_LISTS', cloudList, isFetching: true });
+    yield put({ type: 'GET_LISTS', lists, isFetching: true });
     } catch (e) {
       yield put(fetchCloudsError(e));
     }
 }
 
-export function* cloudSaga() {
+export function* trelloSaga() {
   yield takeEvery('GET_LISTS_START', fetchCloudsSaga);
 }

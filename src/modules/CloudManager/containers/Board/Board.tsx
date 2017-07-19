@@ -13,7 +13,7 @@ import PropTypes = React.PropTypes;
 
 function mapStateToProps(state) {
   return {
-    lists: state.Trello.lists
+    lists: state.Clouds
   };
 }
 
