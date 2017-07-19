@@ -6,7 +6,14 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "avatar": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  },
   "validations": [],
   "relations": {
     "sessions": {
@@ -18,6 +25,11 @@
       "type": "hasMany",
       "model": "CloudGroup",
       "foreignKey": "cloudGroupId"
+    },
+    "clouds": {
+      "type": "hasMany",
+      "model": "Cloud",
+      "foreignKey": "cloudId"
     }
   },
   "acls": [],

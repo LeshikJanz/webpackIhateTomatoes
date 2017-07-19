@@ -18,7 +18,7 @@ const Card = (props) => {
       <div className="item-name">{item.name}</div>
       <div className="item-container">
         <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/${item.id}.jpg`} alt="" />
+          <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt="" />
         </div>
         <div className="item-content">
           <div className="item-author">{`${item.firstName} ${item.lastName}`}</div>
