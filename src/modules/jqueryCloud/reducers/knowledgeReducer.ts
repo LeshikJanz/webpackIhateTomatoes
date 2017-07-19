@@ -7,7 +7,7 @@ const initialState: any = [];
 export default createReducer({
   [addTag]: (state: any, payload: any) => ({
     ...state,
-    knowledge: [ ...state.knowledge, payload ]
+    knowledge: [...state.knowledge, payload]
   }),
   [fetchCloudDone]: (state: any, payload: IKnowledge[]) => ({
     ...state,
@@ -17,8 +17,11 @@ export default createReducer({
     ...state,
     error.message
   ]),
-  [updateCloudKnowledges]: (state: any, payload: any) => ([
-    ...state.knowledge.filter((elem: any) => payload.id != elem.id),
-    payload
-  ]),
+  [updateCloudKnowledges]: (state: any, payload: any) => ({
+    ...state,
+    knowledge: [
+      ...state.knowledge.filter((elem: any) => payload.id != elem.id),
+      payload
+    ]
+  }),
 }, initialState);

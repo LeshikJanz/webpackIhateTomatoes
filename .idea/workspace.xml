@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="Feat: connected &#10;">
+    <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/cloud.ts" afterPath="$PROJECT_DIR$/src/api/cloud.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/Card.tsx" afterPath="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/Card.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" afterPath="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/actions.ts" afterPath="$PROJECT_DIR$/src/modules/actions.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/main/components/App.tsx" afterPath="$PROJECT_DIR$/src/modules/main/components/App.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/routes.js" afterPath="$PROJECT_DIR$/src/modules/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/urls.ts" afterPath="$PROJECT_DIR$/src/modules/urls.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -36,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="knowledgeReducer.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="knowledgeReducer.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="345">
+              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -86,12 +75,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cloud.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cloud.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
               <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="82" column="33" lean-forward="false" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <marker date="1500491097000" expanded="true" signature="1256:1452" ph="..." />
+                <marker date="1500491097000" expanded="true" signature="1256:1465" ph="..." />
+                <marker date="1500491097000" expanded="true" signature="1268:1452" ph="..." />
+                <marker date="1500491097000" expanded="true" signature="1739:1951" ph="..." />
+                <marker date="1500491097000" expanded="true" signature="1760:1946" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,17 +190,17 @@
         <option value="$PROJECT_DIR$/src/modules/urls.ts" />
         <option value="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/Card.tsx" />
         <option value="$PROJECT_DIR$/src/modules/main/components/App.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/actions.ts" />
         <option value="$PROJECT_DIR$/src/modules/main/reducers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" />
         <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
         <option value="$PROJECT_DIR$/src/api/cloud.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" />
       </list>
     </option>
   </component>
@@ -310,80 +326,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jqueryCloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -591,7 +533,7 @@
       <workItem from="1500370390742" duration="223000" />
       <workItem from="1500370695816" duration="755000" />
       <workItem from="1500378854438" duration="8708000" />
-      <workItem from="1500452851568" duration="25282000" />
+      <workItem from="1500452851568" duration="25704000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -831,11 +773,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500487824884</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Feat: implemented adding tags &#10;">
+      <created>1500490916708</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1500490916708</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144341000" />
+    <option name="totallyTimeSpent" value="144763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
@@ -960,7 +909,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: connected fetching cloud" />
     <MESSAGE value="Feat: created root saga" />
     <MESSAGE value="Feat: implemented saving tags" />
     <MESSAGE value="Feat: implemented adding new tags" />
@@ -985,7 +933,8 @@
     <MESSAGE value="Feat: created new account&#10;" />
     <MESSAGE value="Feat: connected clouds with server&#10;" />
     <MESSAGE value="Feat: implemented drag n drop items in board&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented drag n drop items in board&#10;" />
+    <MESSAGE value="Feat: implemented adding tags &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented adding tags &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1334,14 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1368,21 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1500489001000" expanded="true" signature="1256:1452" ph="..." />
-            <marker date="1500489001000" expanded="true" signature="1256:1465" ph="..." />
-            <marker date="1500489001000" expanded="true" signature="1268:1452" ph="..." />
-            <marker date="1500489001000" expanded="true" signature="1739:1951" ph="..." />
-            <marker date="1500489001000" expanded="true" signature="1760:1946" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1395,14 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1435,6 +1353,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="82" column="33" lean-forward="false" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1500491097000" expanded="true" signature="1256:1452" ph="..." />
+            <marker date="1500491097000" expanded="true" signature="1256:1465" ph="..." />
+            <marker date="1500491097000" expanded="true" signature="1268:1452" ph="..." />
+            <marker date="1500491097000" expanded="true" signature="1739:1951" ph="..." />
+            <marker date="1500491097000" expanded="true" signature="1760:1946" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
         </state>
       </provider>
