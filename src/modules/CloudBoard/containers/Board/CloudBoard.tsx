@@ -10,6 +10,7 @@ import * as ListsActions from '../../actions/lists';
 import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
+import { ICloud, ICloudGroup } from "../../../../interfaces/index";
 
 function mapStateToProps(state) {
   return {
@@ -34,6 +35,7 @@ export default class CloudBoard extends React.Component {
   constructor(props) {
     super(props);
     this.moveCard = this.moveCard.bind(this);
+    this.update = this.update.bind(this);
     this.moveList = this.moveList.bind(this);
     this.findList = this.findList.bind(this);
     this.scrollRight = this.scrollRight.bind(this);
@@ -66,6 +68,7 @@ export default class CloudBoard extends React.Component {
     function scroll() {
       document.getElementsByTagName('main')[0].scrollLeft += 10;
     }
+
     this.scrollInterval = setInterval(scroll, 10);
   }
 
@@ -73,6 +76,7 @@ export default class CloudBoard extends React.Component {
     function scroll() {
       document.getElementsByTagName('main')[0].scrollLeft -= 10;
     }
+
     this.scrollInterval = setInterval(scroll, 10);
   }
 
@@ -82,6 +86,13 @@ export default class CloudBoard extends React.Component {
 
   moveCard(lastX, lastY, nextX, nextY) {
     this.props.moveCard(lastX, lastY, nextX, nextY);
+  }
+
+  update(cloud: ICloud) {
+    setTimeout(() => {
+      cloud.cloudGroupId = this.props.lists.find((cg: ICloudGroup) => cg.clouds.find((c: ICloud) => c === cloud)).id;
+      this.props.update(cloud);
+    }, 1000)
   }
 
   moveList(listId, nextX) {
@@ -104,13 +115,14 @@ export default class CloudBoard extends React.Component {
 
     return (
       <div style={{ height: '100%' }}>
-        <CustomDragLayer snapToGrid={false} />
+        <CustomDragLayer snapToGrid={false}/>
         {lists.length > 0 && lists.map((item, i) =>
           <CardsContainer
             key={item.id}
             id={item.id}
             item={item}
             moveCard={this.moveCard}
+            update={this.update}
             moveList={this.moveList}
             startScrolling={this.startScrolling}
             stopScrolling={this.stopScrolling}

@@ -8,8 +8,7 @@
   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "goal": {
       "type": "string"

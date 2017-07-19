@@ -3,6 +3,7 @@ import { DropTarget, DragSource } from 'react-dnd';
 
 import Cards from './Cards';
 import PropTypes = React.PropTypes;
+import { ICloud } from "../../../../../interfaces/index";
 
 const listSource = {
   beginDrag(props) {
@@ -50,6 +51,10 @@ const listTarget = {
   isDragging: monitor.isDragging()
 }))
 export default class CardsContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     connectDragSource: PropTypes.func.isRequired,
@@ -64,7 +69,7 @@ export default class CardsContainer extends React.Component {
   }
 
   render() {
-    const { connectDropTarget, connectDragSource, item, x, moveCard, isDragging } = this.props;
+    const { connectDropTarget, connectDragSource, item, x, moveCard, update, isDragging } = this.props;
     item.cards = item.clouds;
 
     const opacity = isDragging ? 0.5 : 1;
@@ -76,6 +81,7 @@ export default class CardsContainer extends React.Component {
         </div>
         <Cards
           moveCard={moveCard}
+          update={update}
           x={x}
           cards={item.cards}
           startScrolling={this.props.startScrolling}

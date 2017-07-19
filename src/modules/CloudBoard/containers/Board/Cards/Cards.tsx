@@ -5,6 +5,7 @@ import { findDOMNode } from 'react-dom';
 import Card from './DraggableCard';
 import { CARD_HEIGHT, CARD_MARGIN, OFFSET_HEIGHT } from '../../../constants';
 import PropTypes = React.PropTypes;
+import { ICloudGroup, ICloud } from "../../../../../interfaces/index";
 
 
 function getPlaceholderIndex(y, scrollY) {
@@ -22,6 +23,9 @@ function getPlaceholderIndex(y, scrollY) {
 const specs = {
   drop(props, monitor, component) {
     document.getElementById(monitor.getItem().id).style.display = 'block';
+    const updatedCloud = monitor.getItem().item;
+    props.update(updatedCloud);
+
     const { placeholderIndex } = component.state;
     const lastX = monitor.getItem().x;
     const lastY = monitor.getItem().y;
@@ -56,7 +60,7 @@ const specs = {
       }
     } else {
       if (window.innerWidth - monitor.getClientOffset().x > 200 &&
-          monitor.getClientOffset().x > 200
+        monitor.getClientOffset().x > 200
       ) {
         props.stopScrolling();
       }
@@ -109,16 +113,13 @@ export default class Cards extends React.Component {
     const { connectDropTarget, x, cards, isOver, canDrop } = this.props;
     const { placeholderIndex } = this.state;
 
-    console.log('cards');
-    console.log(cards);
-
     let isPlaceHold = false;
     let cardList = [];
     cards.forEach((item, i) => {
       if (isOver && canDrop) {
         isPlaceHold = false;
         if (i === 0 && placeholderIndex === -1) {
-          cardList.push(<div key="placeholder" className="item placeholder" />);
+          cardList.push(<div key="placeholder" className="item placeholder"/>);
         } else if (placeholderIndex > i) {
           isPlaceHold = true;
         }
@@ -126,25 +127,25 @@ export default class Cards extends React.Component {
       if (item !== undefined) {
         cardList.push(
           <Card x={x} y={i}
-            item={item}
-            key={item.id}
-            stopScrolling={this.props.stopScrolling}
+                item={item}
+                key={item.id}
+                stopScrolling={this.props.stopScrolling}
           />
         );
       }
       if (isOver && canDrop && placeholderIndex === i) {
-        cardList.push(<div key="placeholder" className="item placeholder" />);
+        cardList.push(<div key="placeholder" className="item placeholder"/>);
       }
     });
 
     // if placeholder index is greater than array.length, display placeholder as last
     if (isPlaceHold) {
-      cardList.push(<div key="placeholder" className="item placeholder" />);
+      cardList.push(<div key="placeholder" className="item placeholder"/>);
     }
 
     // if there is no items in cards currently, display a placeholder anyway
     if (isOver && canDrop && cards.length === 0) {
-      cardList.push(<div key="placeholder" className="item placeholder" />);
+      cardList.push(<div key="placeholder" className="item placeholder"/>);
     }
 
     return connectDropTarget(

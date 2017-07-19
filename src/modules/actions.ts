@@ -10,6 +10,7 @@ export const fetchCloudsError = createAction('FETCH_CLOUDS_ERROR');
 export const fetchCloudInit = createAction('FETCH_CLOUD_INIT');
 export const fetchCloudDone = createAction('FETCH_CLOUD_DONE');
 export const fetchCloudError = createAction('FETCH_CLOUD_ERROR');
+export const updateCloud = createAction('UPDATE_CLOUD');
 export const openKnowledge = createAction('OPEN_KNOWLEDGE');
 export const updateKnowledge = createAction('UPDATE_KNOWLEDGE');
 export const updateKnowledgeError = createAction('UPDATE_KNOWLEDGE_ERROR');

@@ -7,6 +7,12 @@ export const fetchCloudGroups = (params: any = {}) => {
     .then((cloudGroups: ICloudGroup[]) => cloudGroups );
 };
 
+export const updateCloudById = (id: string, cloud: ICloud) => {
+  return request
+    .put(`Clouds/${id}`, cloud)
+    .then((cloud: ICloud) => <ICloud> cloud);
+};
+
 export const fetchClouds = (params: any = {}) => {
   return request
     .get(`Clouds`, params)
@@ -16,8 +22,9 @@ export const fetchClouds = (params: any = {}) => {
 export const fetchCloud = (id: string, params: any = {}) => {
   return request
     .get(`Clouds/${id}/knowledge`, params)
-    .then((content: ICloud[]) => content.map( ( c ) => <ICloud> c) );
+    .then((clouds: ICloud[]) => clouds.map( ( c ) => <ICloud> c) );
 };
+
 
 export const addNewCloud = (params: any = {}) => {
   return request
