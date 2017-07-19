@@ -65,8 +65,7 @@ export default class CardsContainer extends React.Component {
 
   render() {
     const { connectDropTarget, connectDragSource, item, x, moveCard, isDragging } = this.props;
-    console.log('item');
-    console.log(item);
+    item.cards = item.clouds;
 
     const opacity = isDragging ? 0.5 : 1;
 
@@ -78,7 +77,7 @@ export default class CardsContainer extends React.Component {
         <Cards
           moveCard={moveCard}
           x={x}
-          cards={item.clouds}
+          cards={item.cards}
           startScrolling={this.props.startScrolling}
           stopScrolling={this.props.stopScrolling}
           isScrolling={this.props.isScrolling}

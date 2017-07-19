@@ -14,10 +14,6 @@
     "text": {
       "type": "object"
     },
-    "userId": {
-      "type": "string",
-      "required": true
-    },
     "createDate": {
       "type": "date"
     },
@@ -30,7 +26,7 @@
     "cloud": {
       "type": "belongsTo",
       "model": "Cloud",
-      "foreignKey": "id",
+      "foreignKey": "cloudId",
       "required": true
     }
   },

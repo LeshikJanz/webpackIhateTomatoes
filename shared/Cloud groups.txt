@@ -1,0 +1,15 @@
+Cloud groups
+[
+  {
+    "name": "Main",
+    "title": "Here's the main required cloud group",
+    "createDate": "2017-07-19T10:57:52.236Z",
+    "id": "596f3b5679d224063374757d"
+  },
+  {
+    "name": "Javascript group",
+    "title": "Here's all your Javascript clouds",
+    "createDate": "2017-07-19T11:09:42.639Z",
+    "id": "596f3e6f27700c064d798ce3"
+  }
+]

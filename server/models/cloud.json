@@ -27,6 +27,21 @@
       "type": "hasAndBelongsToMany",
       "model": "Knowledge",
       "foreignKey": "knowledgeCloudId"
+    },
+    "account": {
+      "type": "hasOne",
+      "model": "Account",
+      "foreignKey": "accountId"
+    },
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId"
+    },
+    "sessions": {
+      "type": "hasOne",
+      "model": "Session",
+      "foreignKey": "lastOpenedCloudId"
     }
   },
   "acls": [],

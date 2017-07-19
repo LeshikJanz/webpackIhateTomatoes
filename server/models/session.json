@@ -13,11 +13,6 @@
       "type": "hasMany",
       "model": "History",
       "foreignKey": "historyId"
-    },
-    "clouds": {
-      "type": "hasOne",
-      "model": "Cloud",
-      "foreignKey": "lastOpenedCloudId"
     }
   },
   "acls": [],
