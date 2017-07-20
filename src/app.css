@@ -1,3 +1,58 @@
 body {
   background-color: antiquewhite;
 }
+
+@font-face {
+  font-family: WorkSans;
+  src: url(/assets/fonts/WorkSans/WorkSans-Regular.otf);
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(/assets/fonts/Avenir/AvenirNextLTPro-Regular.otf);
+}
+
+@font-face {
+  font-family: Avenir-Light;
+  src: url(./assets/fonts/Avenir/AvenirNextLTPro-It.otf);
+}
+
+@font-face {
+  font-family: Avenir-Book;
+  src: url(./assets/fonts/Avenir/AvenirNextLTPro-Regular.otf);
+}
+
+@font-face {
+  font-family: Avenir-Bold;
+  src: url(./assets/fonts/Avenir/AvenirNextLTPro-Bold.otf);
+}
+
+@font-face {
+  font-family: Avenir-Medium;
+  src: url(./assets/fonts/Avenir/AvenirNextLTPro-MediumCn.otf);
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(./assets/fonts/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: OpenSans-Bold;
+  src: url(./assets/fonts/OpenSans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: WorkSans;
+  src: url(./assets/fonts/WorkSans/WorkSans-Regular.otf);
+}
+
+@font-face {
+  font-family: WorkSans-Bold;
+  src: url(./assets/fonts/WorkSans/WorkSans-Bold.otf);
+}
+
+@font-face {
+  font-family: WorkSans-Medium;
+  src: url(./assets/fonts/WorkSans/WorkSans-Medium.otf);
+}

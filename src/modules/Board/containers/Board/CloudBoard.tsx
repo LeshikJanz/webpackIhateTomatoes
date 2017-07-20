@@ -11,6 +11,7 @@ import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
 import { ICloud, ICloudGroup } from "../../../../interfaces/index";
+import { Button } from "components/button/index";
 
 function mapStateToProps(state) {
   return {
@@ -114,22 +115,25 @@ export default class CloudBoard extends React.Component {
     const { lists } = this.props;
 
     return (
-      <div style={{ height: '100%' }}>
-        <CustomDragLayer snapToGrid={false}/>
-        {lists.length > 0 && lists.map((item, i) =>
-          <CardsContainer
-            key={item.id}
-            id={item.id}
-            item={item}
-            moveCard={this.moveCard}
-            update={this.update}
-            moveList={this.moveList}
-            startScrolling={this.startScrolling}
-            stopScrolling={this.stopScrolling}
-            isScrolling={this.state.isScrolling}
-            x={i}
-          />
-        )}
+      <div>
+        <Button title="Create Cloud"/>
+        <div style={{ height: '100%' }}>
+          <CustomDragLayer snapToGrid={false}/>
+          {lists.length > 0 && lists.map((item, i) =>
+            <CardsContainer
+              key={item.id}
+              id={item.id}
+              item={item}
+              moveCard={this.moveCard}
+              update={this.update}
+              moveList={this.moveList}
+              startScrolling={this.startScrolling}
+              stopScrolling={this.stopScrolling}
+              isScrolling={this.state.isScrolling}
+              x={i}
+            />
+          )}
+        </div>
       </div>
     );
   }
