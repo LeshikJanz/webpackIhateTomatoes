@@ -17,6 +17,7 @@ import sticker from 'ld-sticker';
 import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
+import { changeModalStatus } from "../../actions";
 
 export default class LastDraft extends React.Component<any, any> {
 
@@ -92,6 +93,9 @@ export default class LastDraft extends React.Component<any, any> {
         <div className="name-input">
           <input className="name" type="text" placeholder="Enter the knowledge name"
                  value={this.props.knowledge.name} onChange={this.props.handleNameChange}/>
+          <button type="button" className="close" onClick={this.props.changeModalStatus} aria-label="Close">
+            <img src="assets/icons/close.svg"/>
+          </button>
         </div>
         <Editor
           theme={this.props.theme}

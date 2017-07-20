@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
-import "assets/js/tagcanvas.min.js";
+import "../../../assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
@@ -80,9 +80,6 @@ export class TagCloud extends React.Component {
   };
 
   componentDidUpdate = () => {
-    console.log('this.props.tags');
-    console.log(this.props.tags);
-
     if (TagCloud.tagNumber != this.props.tags.length) {
       if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;

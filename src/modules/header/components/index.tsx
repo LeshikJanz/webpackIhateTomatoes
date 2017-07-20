@@ -1,23 +1,23 @@
 import * as React from "react";
-import styles = require("../styles/main.css");
+import styles = require("../styles/main.scss");
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 const moment = require('moment');
 
 export const Header = (props) => {
-  const getEmptyKnowledge = () => {
-    return {
-      name: "New knowledge",
-      userId: "string",
-      createDate: moment(),
-      updateDate: moment(),
-      text: {},
-      cloudId: props.cloudId
-    }
-  };
+  const getEmptyKnowledge = () => ({
+    name: "New knowledge",
+    userId: "string",
+    createDate: moment(),
+    updateDate: moment(),
+    text: {},
+    cloudId: props.cloudId
+  });
+
+  const blur = { filter: 'blur(2px)' };
 
   return (
-    <div>
+    <div style={ props.isModalOpen ? blur : {} }>
       <div className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">

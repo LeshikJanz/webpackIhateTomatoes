@@ -1,12 +1,11 @@
-@import "../../styles/mixins.scss";
+@import "mixins.scss";
 
 button {
-  width: inherit;
-  height: inherit;
   font-size: inherit;
   background-color: white;
   border: transparent;
   margin: inherit;
+  outline: none;
 
   &:disabled {
     background-color: #919191;
@@ -22,6 +21,14 @@ button {
 
   &.big {
     @include big-button;
+  }
+
+  &.medium {
+    @include medium-button;
+  }
+
+  &.small {
+    @include small-button;
   }
 
   &.add {

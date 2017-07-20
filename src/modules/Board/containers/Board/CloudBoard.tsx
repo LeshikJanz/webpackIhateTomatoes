@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import '../../assets/temp.styl';
+const SVG = require('react-svg');
+require('../../styles/board.scss');
 
 import * as ListsActions from '../../actions/lists';
 
@@ -11,11 +13,13 @@ import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
 import { ICloud, ICloudGroup } from "../../../../interfaces/index";
-import { Button } from "components/button/index";
+import ConfirmModal from "../../../../components/CustomModal/containers/index";
+import CloudForm from "./form/cloudForm";
 
 function mapStateToProps(state) {
   return {
-    lists: state.Trello.lists
+    lists: state.Trello.lists,
+    isModalOpen: state.Modal.isModalOpen
   };
 }
 
@@ -37,6 +41,7 @@ export default class CloudBoard extends React.Component {
     super(props);
     this.moveCard = this.moveCard.bind(this);
     this.update = this.update.bind(this);
+    this.openModal = this.openModal.bind(this);
     this.moveList = this.moveList.bind(this);
     this.findList = this.findList.bind(this);
     this.scrollRight = this.scrollRight.bind(this);
@@ -45,6 +50,8 @@ export default class CloudBoard extends React.Component {
     this.startScrolling = this.startScrolling.bind(this);
     this.state = { isScrolling: false };
   }
+
+  public isModalOpen: boolean = false;
 
   componentWillMount() {
     this.props.getLists(10);
@@ -101,6 +108,11 @@ export default class CloudBoard extends React.Component {
     this.props.moveList(lastX, nextX);
   }
 
+  openModal() {
+    console.log("this.openModal")
+    this.props.openModal();
+  }
+
   findList(id) {
     const { lists } = this.props;
     const list = lists.filter(l => l.id === id)[0];
@@ -116,8 +128,12 @@ export default class CloudBoard extends React.Component {
 
     return (
       <div>
-        <Button title="Create Cloud"/>
-        <div style={{ height: '100%' }}>
+        <button onClick={ this.openModal } className="primary big add">
+          <SVG path="assets/icons/add-icon.svg"/>
+          Create Cloud
+        </button>
+
+        <div>
           <CustomDragLayer snapToGrid={false}/>
           {lists.length > 0 && lists.map((item, i) =>
             <CardsContainer
@@ -134,6 +150,14 @@ export default class CloudBoard extends React.Component {
             />
           )}
         </div>
+
+        <ConfirmModal
+          title="Adding new cloud"
+          isModalOpen={this.props.isModalOpen}
+        >
+
+          <CloudForm cloudGroups={lists} handleCloudFormSubmit={this.props.handleCloudFormSubmit}/>
+        </ConfirmModal>
       </div>
     );
   }

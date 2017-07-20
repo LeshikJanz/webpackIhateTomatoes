@@ -16,7 +16,7 @@ const Card = (props) => {
       <div className="item-name">{item.name}</div>
       <div className="item-container">
         <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt="" />
+          <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt=""/>
         </div>
         <div className="item-content">
           <div className="item-author" title={item.accountId}>ID: {item.accountId}</div>
@@ -24,7 +24,11 @@ const Card = (props) => {
         </div>
       </div>
       <div className="actions">
-        <li><Link to={ urls.cloud + '/' + item.id }>Go to cloud</Link></li>
+        <Link to={ urls.cloud + '/' + item.id }>
+          <button onClick={ this.openModal } className="tertiary small add">
+            Open Cloud
+          </button>
+        </Link>
       </div>
     </div>
   );

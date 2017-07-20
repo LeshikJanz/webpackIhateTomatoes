@@ -25,9 +25,9 @@ export const fetchCloud = (id: string, params: any = {}) => {
     .then((cloud: ICloud) => <ICloud> cloud);
 };
 
-export const addNewCloud = (params: any = {}) => {
+export const addNewCloud = (id: string, params: any = {}) => {
   return request
-    .post(`Clouds`, params)
+    .post(`CloudGroups/${id}/clouds`, params)
     .then((c: ICloud) => <ICloud> c);
 };
 

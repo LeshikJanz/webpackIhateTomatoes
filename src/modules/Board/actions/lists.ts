@@ -1,5 +1,5 @@
 import { ICloud } from "../../../interfaces/index";
-import { updateCloud } from "../../actions";
+import { updateCloud, changeModalStatus, createCloudInit } from "../../actions";
 const faker = require('faker');
 
 export const GET_LISTS_START = 'GET_LISTS_START';
@@ -36,4 +36,12 @@ export function toggleDragging(isDragging) {
   return (dispatch) => {
     dispatch({ type: TOGGLE_DRAGGING, isDragging });
   };
+}
+
+export function openModal() {
+  return (dispatch) => dispatch(changeModalStatus())
+}
+
+export function handleCloudFormSubmit(event) {
+  return (dispatch) => dispatch(createCloudInit(event))
 }

@@ -5,6 +5,7 @@ import Knowledge from "./src/modules/DraftModal/reducers/knowledgeReducer";
 import Trello from "./src/modules/Board/reducers/lists";
 import Authorisation from "./src/modules/Login/reducers/loginReducer";
 import { routerReducer } from "react-router-redux";
+import { reducer as formReducer } from 'redux-form'
 
 export default combineReducers({
   routing: routerReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   Modal,
   Knowledge,
   Trello,
-  Authorisation
+  Authorisation,
+  form: formReducer
 });
