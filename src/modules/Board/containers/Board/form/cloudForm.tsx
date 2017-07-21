@@ -1,16 +1,13 @@
 import * as React from 'react';
 
 import { Field, reduxForm } from 'redux-form'
-import { createCloudInit } from "../../../../actions";
 
 let CloudForm = props => {
 
-  const { cloudGroups } = props;
-  console.log('props.cloudGroups');
-  console.log(props.cloudGroups);
+  const { cloudGroups, changeModalStatus, handleCloudFormSubmit } = props;
 
   return (
-    <form onSubmit={ props.handleCloudFormSubmit }>
+    <form onSubmit={ handleCloudFormSubmit }>
       <div>
         <label htmlFor="name">Cloud Name</label>
         <div>
@@ -23,7 +20,7 @@ let CloudForm = props => {
           <Field name="cloudId" component="select">
             <option />
             {cloudGroups.length > 0 && cloudGroups.map((item, i) =>
-              <option value={item.id}>{item.name}</option>
+              <option key={i} value={item.id}>{item.name}</option>
             )}
           </Field>
         </div>
@@ -34,13 +31,16 @@ let CloudForm = props => {
           </div>
         </div>
       </div>
-      <button type="submit">Submit</button >
+      <div className="btn-actions">
+        <button className="primary" type="submit">Confirm</button>
+        <button className="secondary" onClick={changeModalStatus}>Cancel</button>
+      </div>
+      {/*<button type="submit">Submit</button >*/}
     </form>
   )
 }
 
 CloudForm = reduxForm({
-  // a unique name for the form
   form: 'cloudForm'
 })(CloudForm)
 

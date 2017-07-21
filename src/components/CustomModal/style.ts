@@ -1,5 +1,5 @@
 "use strict";
-const customStyles = {
+const Styles = {
   overlay: {
     position: 'fixed',
     top: 0,
@@ -15,7 +15,6 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    height: '400px',
     overflow: 'hidden',
     width: '573px',
     maxWidth: '573px',
@@ -25,4 +24,4 @@ const customStyles = {
   }
 };
 
-export default customStyles;
+export default Styles;

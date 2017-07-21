@@ -13,8 +13,9 @@ import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
 import { ICloud, ICloudGroup } from "../../../../interfaces/index";
-import ConfirmModal from "../../../../components/CustomModal/containers/index";
+import CustomModal from "../../../../components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
+import CloudGroupForm from "./form/cloudGroupForm";
 
 function mapStateToProps(state) {
   return {
@@ -36,6 +37,14 @@ export default class CloudBoard extends React.Component {
     moveList: PropTypes.func.isRequired,
     lists: PropTypes.array.isRequired,
   }
+
+  /**
+   * Modal type
+   *
+   * Accept values: Cloud, CloudGroup
+   * @type {string}
+   */
+  private modalType: string;
 
   constructor(props) {
     super(props);
@@ -108,9 +117,9 @@ export default class CloudBoard extends React.Component {
     this.props.moveList(lastX, nextX);
   }
 
-  openModal() {
-    console.log("this.openModal")
-    this.props.openModal();
+  openModal(type: string) {
+    this.modalType = type;
+    this.props.handleModal();
   }
 
   findList(id) {
@@ -128,11 +137,16 @@ export default class CloudBoard extends React.Component {
 
     return (
       <div>
-        <button onClick={ this.openModal } className="primary big add">
-          <SVG path="assets/icons/add-icon.svg"/>
-          Create Cloud
-        </button>
-
+        <div style={{ display: 'flex', width: '500px', justifyContent: 'space-between' }}>
+          <button onClick={() => this.openModal('CloudGroup') } className="primary big wider add">
+            <SVG path="assets/icons/add-icon.svg"/>
+            Create cloud group
+          </button>
+          <button onClick={() => this.openModal('Cloud') } className="primary big add">
+            <SVG path="assets/icons/add-icon.svg"/>
+            Create cloud
+          </button>
+        </div>
         <div>
           <CustomDragLayer snapToGrid={false}/>
           {lists.length > 0 && lists.map((item, i) =>
@@ -151,13 +165,30 @@ export default class CloudBoard extends React.Component {
           )}
         </div>
 
-        <ConfirmModal
+        { this.modalType === 'Cloud' &&
+        <CustomModal
           title="Adding new cloud"
+          customStyles={{ height: '700px' }}
           isModalOpen={this.props.isModalOpen}
         >
+          <CloudForm cloudGroups={lists}
+                     changeModalStatus={this.props.handleModal}
+                     handleCloudFormSubmit={this.props.handleCloudFormSubmit}
+          />
+        </CustomModal>}
 
-          <CloudForm cloudGroups={lists} handleCloudFormSubmit={this.props.handleCloudFormSubmit}/>
-        </ConfirmModal>
+
+        { this.modalType === 'CloudGroup' &&
+        <CustomModal
+          onSubmit={ this.props.onSubmit }
+          title="Adding new cloud group"
+          isModalOpen={this.props.isModalOpen}
+        >
+          <CloudGroupForm
+            changeModalStatus={this.props.handleModal}
+            handleCloudGroupFormSubmit={this.props.handleCloudGroupFormSubmit}
+          />
+        </CustomModal>}
       </div>
     );
   }

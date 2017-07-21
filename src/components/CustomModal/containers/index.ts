@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { ConfirmModal } from "../components/index";
+import { CustomModal } from "../components/index";
 import { changeModalStatus } from "../../../modules/actions";
 
 const mapStateToProps = (state) => ({
@@ -14,4 +14,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(ConfirmModal);
+)(CustomModal);

@@ -15,7 +15,7 @@ export default (
   <Route path={urls.index} component={Header} >
     <IndexRoute/>
     <Route path={urls.cloud + `/:id`} component={App}></Route>
-    <Route path={urls.cloudBoard} component={CloudBoard}></Route>
+    <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.login} component={LoginPageRoot}></Route>
   </Route>
 );

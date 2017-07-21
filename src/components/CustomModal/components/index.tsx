@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as Modal from 'react-modal';
-import customStyles from "../style";
+import Styles from "../style";
 require('../../../styles/modal.scss');
 
-export const ConfirmModal = (props) => {
-  const { title, changeModalStatus } = props;
+export const CustomModal = (props) => {
+  const { title, changeModalStatus, customStyles } = props;
 
   /**
    * Close Confirm Modal
@@ -23,27 +23,27 @@ export const ConfirmModal = (props) => {
     <Modal
       isOpen={props.isModalOpen}
       onRequestClose={closeModal}
-      style={customStyles}
+      style={Styles}
       contentLabel="Example Modal"
     >
-      <div>
-        <div className="modal-header">
-          <h1 className="modal-title">
-            { title }
-          </h1>
-          <button type="button" className="close" onClick={changeModalStatus} aria-label="Close">
-            <img src="assets/icons/close.svg"/>
-          </button>
-        </div>
-        <div className="modal-body">
-          {props.children}
-        </div>
-        <div className="modal-footer">
-          <div className="btn-actions">
-            <button className="primary">Confirm</button>
-            <button className="secondary" onClick={changeModalStatus}>Cancel</button>
-          </div>
-        </div>
+    <div>
+      <div className="modal-header">
+        <h1 className="modal-title">
+          { title }
+        </h1>
+        <button type="button" className="close" onClick={changeModalStatus} aria-label="Close">
+          <img src="assets/icons/close.svg"/>
+        </button>
       </div>
+      <div className="modal-body">
+        {props.children}
+      </div>
+      <div className="modal-footer">
+        {/*<div className="btn-actions">*/}
+          {/*<button className="primary" type="submit">Confirm</button>*/}
+          {/*<button className="secondary" onClick={changeModalStatus}>Cancel</button>*/}
+        {/*</div>*/}
+      </div>
+    </div>
     </Modal>  )
 }

@@ -31,6 +31,12 @@ export const addNewCloud = (id: string, params: any = {}) => {
     .then((c: ICloud) => <ICloud> c);
 };
 
+export const addNewCloudGroup = (params: any = {}) => {
+  return request
+    .post(`CloudGroups`, params)
+    .then((c: ICloudGroup) => <ICloudGroup> c);
+};
+
 export const fetchKnowledge = (id: string, params: any = {}) => {
   return request
     .get(`Knowledges/${id}`, params)

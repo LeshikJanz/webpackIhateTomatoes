@@ -3,10 +3,11 @@ import {
   updateKnowledgeError, saveKnowledge, updateCloudKnowledges, createNewKnowledge, addTag
 } from "../actions";
 import { addNewKnowledge } from "../../api/cloud";
+import { Task } from "redux-saga";
 
 const getFromState = (state: any) => state.Knowledge;
 
-export function* createNewKnowledgeSaga({payload}: any) {
+export function* createNewKnowledgeSaga({payload}: any): Iterator<Object | Task> {
   try {
     const knowledge = yield addNewKnowledge(payload);
     yield put(addTag(knowledge));

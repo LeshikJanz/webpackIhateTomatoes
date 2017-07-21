@@ -1,88 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="Feat: configured .sass files loading&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/icons/add-icon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/icons/close.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CustomModal/style.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/Board/styles/board.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/styles/buttons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/styles/mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/styles/modal.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/023dbcb0d721989fecdc69fbfa81539c03054545a952ff0c4f2c857cad379397bc2b56a5a0842f55e72bcfbce1617555ffa32db90c209e655d2d70161eee5dea.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/09f2dc4e0bea79bd5c322cb622709fc153c51f422feafbbd757fcde468dfff722e82e51973a3e5f51b50ad6d290ec24ca079d956c52ab23cb6f2ffc58553d2f6.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/0a5374f52b548f1624d3e2b143780a39ff2772494cc3de64c769e2c8c40453e2a2c63d8c17f05f225dc2f52b57f65fc7064807f0b645012d6ee3e667785997c6.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/11039701997ca80bd14c874b3e4d0b3a389650a15dee296b7b5441bcf8802ec12f73b3246824fe9b1d03cbf32a87c657d4245bf856c806c7e15b8be764d974a2.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/232df4a9b96d426ca47d0e94aac2e56fd4933612fca1e6ce06538f7b69ade5078d2e601d2de8af955e107eef93270281af37306d38e435567264cc6f80f66d3b.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/2860256bf2e543165536d1c36d55e423ffbd431b9816ffc281cfd2f217f590279d8e956b147278696efb58dfa209c83329c1b4f8bcd6899d3b5d88501a2faf66.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/3c003968cc09225a75418f18f71382c3288f8ec2b8624c1e8bd8b1841a533012e18f7b54d49372a54ef8fa300982b218192e0353289ab5132c612e77cc3c5e16.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/41d744ab0ad87d8575252ff9da28c3f6ce951c1f0762c211cedfb0dffe3f3eb27b733270c3dc5e09239010c4e6ab213bb95f67993be735f1f4101d59262e4f0e.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/4a083886931eed9b7d3eccd362495f04077d2366f5782e43b7b24a712a86a4b696fff2369dbf881ce33c0fbc9985950d1f00c3f5263c1b281e1c2c5c5d5bc6e1.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/577ea68ee9feade21bd4896b15a4137882da92f538f9563f4efa1791f657c3dd895171841725a00114b12b66bf5ff67b505b303f6144299615f3cbf612c6980a.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/5a37dd37e95278463cd84159a0f1c333415935368b1283befe9d94d0344db444d627e461ce188c5f895f61ac1ca5c821738d36537439ef6ce27339d7b0467cdf.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/728e188cf78b24e9857e464e0e5114b15524db08c4c82f39924d780c9397dfd0fe75e48349b0db969e46fb80475b01f82ad5fa6bda021316c23d01cd0cd1757c.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/74899a509e9a0b11b4cffb5e61974aaa2b58236a1cb121b9975714b94839bc278b4b7639d8dec6c219204e9c17f1ed00ecb57d41e7e1084d4f46d515f7c6d9d8.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/7a1faed09ed3e42a68a0c78e412ab5b96cf6b2f35eb266b5fb291a85cecf7518446ba01cf74b307df04f1ba1b97e6084aa1fb2cf1686b9d5461424ccccd8f0fb.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/7c7fea26a2772a9084f018462c2e2d090581630ee9e248fce8ba8f845ec2a17d139c9b9ee11ed3aad61366153b5ed1f31a53bd728e1ee7963cef325ba4990bbf.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/841a4d869f21fbc0a0a11641bebd5c8afb71999b91949edf306a5670acfc8e63893ac3e5e09d779e647c40c632618407e9a731854c2478d9aafce62a1aa81b4b.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/8b7ebb07abf419c82b2c0d0237cc09fabe2385e1db8e64392304a078d43bc8a56a8e8dc696bb23b32fee7aa790192ba1667f3a98b0d7f7c4dd5b70471dca255e.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/8fd39ab8693e3552fa4cc5656e1c97bb2622889e8915f35e84d15b78e26557f7364c62eebc73821aaba7357cfb3fd33366dbf8cdc90b849659a9da5097b504ca.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/9c78c454a5d7854e843c3802248a614d51e8cd3d922c2bb62447d70f57554011dd23b805a88427b39960e3a2f20d3dadcab65f1fb12454c53e07bbfa37cb54f6.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/b867f24c473362b64068183aa923061efa52cafcb624f4b822c705954d328e04d7381494d888b3a6bbb6432aa70afa32546b795484c6a6d479fb085e645abc37.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/bbb4f6d9d7277a946af82d3840df453314da3a13d519b3d7b27e6c6875d7a335a5620c2c03359e084c1e72bd5d616b5f5d358091b630fdab82218e427e2959cd.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/d4be7358b300c11fe0c7b3f0ad10c71f348a1f00a1c314e373805974ec4234f3fc67ffd0244d226f1d6d22a21d3ea1c9639eaa3601831c75096c185f48124c63.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/eebc42dad53519dfde2efb73d20d10a44174103a7efd2438ddaeef7b47f55d85c275eb65505019e17ebcf61e3b78896faa283eaf8bc57fecad8e6bf05fe6e036.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/f5d19bf82b51b090071e41ecaddafff64fd92dada16f6baa0360fbd97b8154c54f1050ac598ccaa48555b18cf1c96777933fe1aab649da6e4eaf0e18f7035a0e.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/f7471b44ca3f7081da1d7f55425ab3190e550c1d0c6588a614c06a72a2d1ac12576ba01e658d8ac474cd03850f1cfa02c01511dc0d23f353ab0d2cf5a07f6c2d.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.awcache/f7b828a4c6aa0c1442c8d14dd7dd4fd93f93cd77f06e76b163fd39a82b9fe6d6a3bc61d876c19ed6c3b25ded1810e6a751f7a0c5d9f836d8bfa2029142e605ea.json.gzip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/confirmModal/index.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/actions/lists.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/del.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/dots.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/gal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/images/noavatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/assets/temp.styl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/constants.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Board.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/CardDragPreview.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Cards/Card.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Cards/Cards.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Cards/CardsContainer.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Cards/DraggableCard.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/CustomDragLayer.tsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/snapToGrid.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/WorkingTrello/reducers/lists.ts" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app.css" afterPath="$PROJECT_DIR$/src/app.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/header/styles/main.css" afterPath="$PROJECT_DIR$/src/modules/header/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="Feat: implemented adding new clouds&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reducers.ts" afterPath="$PROJECT_DIR$/reducers.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/cloud-group.json" afterPath="$PROJECT_DIR$/server/models/cloud-group.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/cloud.ts" afterPath="$PROJECT_DIR$/src/api/cloud.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.js" afterPath="$PROJECT_DIR$/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/button/index.tsx" afterPath="$PROJECT_DIR$/src/components/button/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/button/style.scss" afterPath="$PROJECT_DIR$/src/components/button/style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" afterPath="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" afterPath="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CustomModal/style.ts" afterPath="$PROJECT_DIR$/src/components/CustomModal/style.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/actions/lists.ts" afterPath="$PROJECT_DIR$/src/modules/Board/actions/lists.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/Board/sagas.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/actions.ts" afterPath="$PROJECT_DIR$/src/modules/actions.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/header/sagas.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/main/components/App.tsx" afterPath="$PROJECT_DIR$/src/modules/main/components/App.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/main/styles/main.css" afterPath="$PROJECT_DIR$/src/modules/main/styles/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/routes.js" afterPath="$PROJECT_DIR$/src/modules/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/urls.ts" afterPath="$PROJECT_DIR$/src/modules/urls.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/buttons.scss" afterPath="$PROJECT_DIR$/src/styles/buttons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/modal.scss" afterPath="$PROJECT_DIR$/src/styles/modal.scss" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -103,55 +42,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cloudForm.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Board/sagas.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actions.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CloudBoard.tsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CloudBoard.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="150" column="12" lean-forward="true" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+            <state relative-caret-position="390">
+              <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
                 <element signature="e#316#368#0" expanded="true" />
@@ -164,20 +59,58 @@
       <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cloud.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
+      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="60">
+              <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cloud-group.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models/cloud-group.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cloud.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models/cloud.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lists.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Board/actions/lists.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -187,10 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dd</find>
-      <find>RAW</find>
-      <find>fetchClouds</find>
-      <find>typedoc</find>
       <find>react</find>
       <find>cards</find>
       <find>action</find>
@@ -217,6 +146,10 @@
       <find>before</find>
       <find>board.</find>
       <find>b</find>
+      <find>CloudGroupForm</find>
+      <find>changeModalStatus</find>
+      <find>handleCloudFormSubmit</find>
+      <find>updateCloudGroup</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -236,25 +169,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/modules/CloudBoard/reducers/lists.ts" />
-        <option value="$PROJECT_DIR$/src/modules/CloudBoard/actions/lists.ts" />
-        <option value="$PROJECT_DIR$/src/modules/WorkingTrello/containers/Board/Cards/CardsContainer.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/CardsContainer.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/CloudBoard/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/Cards.tsx" />
         <option value="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/CloudBoard.tsx" />
         <option value="$PROJECT_DIR$/src/modules/CloudBoard/containers/Board/Cards/Card.tsx" />
         <option value="$PROJECT_DIR$/src/modules/main/reducers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" />
         <option value="$PROJECT_DIR$/src/components/modal/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/Board/styles/style.scss" />
         <option value="$PROJECT_DIR$/src/app.css" />
         <option value="$PROJECT_DIR$/src/app.js" />
-        <option value="$PROJECT_DIR$/src/modules/urls.ts" />
         <option value="$PROJECT_DIR$/src/assets/icons/add-icon.svg" />
         <option value="$PROJECT_DIR$/src/components/button/style.scss" />
         <option value="$PROJECT_DIR$/src/modules/header/styles/main.css" />
@@ -268,25 +193,33 @@
         <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/components/confirmModal/style.ts" />
         <option value="$PROJECT_DIR$/src/components/confirmModal/components/index.tsx" />
-        <option value="$PROJECT_DIR$/src/styles/modal.scss" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
-        <option value="$PROJECT_DIR$/src/styles/buttons.scss" />
         <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx" />
         <option value="$PROJECT_DIR$/src/styles/mixins.scss" />
         <option value="$PROJECT_DIR$/src/modules/Board/styles/board.scss" />
-        <option value="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
+        <option value="$PROJECT_DIR$/reducers.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/modules/urls.ts" />
         <option value="$PROJECT_DIR$/src/modules/routes.js" />
         <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/CustomModal/style.ts" />
-        <option value="$PROJECT_DIR$/reducers.ts" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/actions.ts" />
+        <option value="$PROJECT_DIR$/src/styles/buttons.scss" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/style.ts" />
+        <option value="$PROJECT_DIR$/src/styles/modal.scss" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" />
         <option value="$PROJECT_DIR$/src/modules/Board/actions/lists.ts" />
         <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
         <option value="$PROJECT_DIR$/src/api/cloud.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" />
+        <option value="$PROJECT_DIR$/server/models/cloud.json" />
+        <option value="$PROJECT_DIR$/server/models/cloud-group.json" />
         <option value="$PROJECT_DIR$/src/modules/Board/sagas.ts" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx" />
       </list>
     </option>
   </component>
@@ -327,8 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -373,26 +304,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpackIhateTomatoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -536,7 +451,8 @@
       <workItem from="1500370695816" duration="755000" />
       <workItem from="1500378854438" duration="8708000" />
       <workItem from="1500452851568" duration="25730000" />
-      <workItem from="1500537399320" duration="20500000" />
+      <workItem from="1500537399320" duration="20552000" />
+      <workItem from="1500624097629" duration="5883000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -797,17 +713,24 @@
       <option name="project" value="LOCAL" />
       <updated>1500544651110</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Feat: implemented adding new clouds&#10;">
+      <created>1500568048956</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1500568048956</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165289000" />
+    <option name="totallyTimeSpent" value="171224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15478535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -926,7 +849,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: implemented adding new tags" />
     <MESSAGE value="Feat: fixed empty spacing in tags" />
     <MESSAGE value="Feat: added saving new knowledges to the server" />
     <MESSAGE value="Feat: added simple router-redux&#10;" />
@@ -951,7 +873,8 @@
     <MESSAGE value="Feat: implemented adding tags &#10;" />
     <MESSAGE value="Feat: implemented updating tags &#10;" />
     <MESSAGE value="Feat: configured .sass files loading&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: configured .sass files loading&#10;" />
+    <MESSAGE value="Feat: implemented adding new clouds&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented adding new clouds&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -960,62 +883,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modal/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Login/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/components/Base/Base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/assets/temp.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="105" column="25" lean-forward="true" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1026,21 +893,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/urls.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/classnames/bind.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1048,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="4" column="106599" lean-forward="false" selection-start-line="4" selection-start-column="106599" selection-end-line="4" selection-end-column="106599" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="91" column="19" lean-forward="true" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,7 +972,7 @@
         <state relative-caret-position="90">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1130,7 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,16 +989,8 @@
         <state relative-caret-position="150">
           <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="19" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/modal.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,86 +1009,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/mixins.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="14" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="47" lean-forward="true" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="76" lean-forward="false" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Login/containers/LoginPageRoot.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-          <folding>
-            <marker date="1500563255000" expanded="true" signature="1265:1474" ph="..." />
-            <marker date="1500563255000" expanded="true" signature="1277:1469" ph="..." />
-            <marker date="1500563255000" expanded="true" signature="1748:1960" ph="..." />
-            <marker date="1500563255000" expanded="true" signature="1769:1955" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1255,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1290,7 +1054,7 @@
         <state relative-caret-position="435">
           <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1303,14 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/style.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/CardsContainer.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-345">
@@ -1319,18 +1075,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/actions/lists.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="44" column="46" lean-forward="false" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/Accounts.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/base.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1500625490000" expanded="true" signature="1265:1455" ph="..." />
+            <marker date="1500625490000" expanded="true" signature="1277:1450" ph="..." />
+            <marker date="1500625490000" expanded="true" signature="1729:1941" ph="..." />
+            <marker date="1500625490000" expanded="true" signature="1750:1936" ph="..." />
+            <marker date="1500625490000" expanded="true" signature="1774:1936" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/urls.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/mixins.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/style.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1338,66 +1182,130 @@
     <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="28" />
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
+    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/components/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="34" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="24" />
+        <state relative-caret-position="515">
+          <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/actions/lists.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="150" column="12" lean-forward="true" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#316#368#0" expanded="true" />
-            <element signature="e#508#575#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="590">
+          <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx">
+    <entry file="file://$PROJECT_DIR$/server/models/cloud.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/knowledge.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/cloud-group.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Board/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="255">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#316#368#0" expanded="true" />
+            <element signature="e#508#575#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

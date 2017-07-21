@@ -15,8 +15,7 @@
       "type": "string"
     },
     "createDate": {
-      "type": "date",
-      "required": true
+      "type": "date"
     }
   },
   "validations": [],
@@ -25,6 +24,12 @@
       "type": "hasMany",
       "model": "Cloud",
       "foreignKey": "cloudGroupId"
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId",
+      "required": true
     }
   },
   "acls": [],

@@ -44,8 +44,7 @@ function tagCloudController() {
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">
-                  ${elem.name}</a></li>`);
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.name}</a></li>`);
 
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
@@ -106,8 +105,7 @@ export class TagCloud extends React.Component {
         <button onClick={this.props.goToHeader}>Go to board through props</button>
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
-          <li><Link to={ urls.cloudBoard }> Go to cloud board</Link></li>
-          <li><Link to={ urls.oldBoard }> Go to old board</Link></li>
+          <li><Link to={ urls.board }> Go to cloud board</Link></li>
         </ul>
       </div>
     )

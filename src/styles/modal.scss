@@ -20,6 +20,10 @@ button.close {
   align-items: center;
 }
 
+.modal-footer {
+  padding: 25px 15px 0 15px !important;
+}
+
 .modal-body {
   position: relative;
   display: flex;
@@ -51,6 +55,7 @@ h1 {
     height: 55px;
     width: 180px;
     font-size: 16px;
+    margin: 0 15px;
   }
 
   .cancel {
