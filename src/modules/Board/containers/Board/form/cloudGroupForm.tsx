@@ -4,23 +4,25 @@ import { Field, reduxForm } from 'redux-form'
 
 let CloudGroupForm = props => (
   <form onSubmit={ props.handleCloudGroupFormSubmit }>
-    <div>
-      <label htmlFor="name">Cloud Group Name</label>
-      <div>
-        <Field name="name" component="input" type="text"/>
-      </div>
-    </div>
-    <div>
-      <div>
-        <label htmlFor="title">What type of content are you going to save here?</label>
+    <div className="modal-body">
+      <div className="form-element">
+        <label htmlFor="name">Cloud Group Name</label>
         <div>
-          <Field name="title" component="textarea" type="text"/>
+          <Field placeholder="Enter group name..." name="name" className="input-container input-modal" component="input" type="text"/>
         </div>
       </div>
-    </div>
-    <div className="btn-actions">
-      <button className="primary" type="submit">Confirm</button>
-      <button className="secondary" type="button" onClick={props.changeModalStatus}>Cancel</button>
+      <div>
+        <div className="form-element">
+          <label htmlFor="title">What type of content are you going to save here?</label>
+          <div>
+            <Field placeholder="Enter short explanation..." name="title" className="input-container input-modal" style={{ height: '100px' }} component="textarea" type="text"/>
+          </div>
+        </div>
+      </div>
+      <div className="modal-footer btn-actions">
+        <button className="primary" type="submit">Confirm</button>
+        <button className="secondary" onClick={props.changeModalStatus}>Cancel</button>
+      </div>
     </div>
   </form>
 )

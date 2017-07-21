@@ -1,0 +1,28 @@
+@import "mixins";
+
+.input-container {
+  padding: 6px 22px;
+  @include input-container;
+  @include input-placeholder;
+  @include input-text;
+
+  &.input-modal {
+    width: 460px;
+  }
+}
+
+.input-label {
+  @include input-label;
+}
+
+.form-element {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-top: 15px;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+}

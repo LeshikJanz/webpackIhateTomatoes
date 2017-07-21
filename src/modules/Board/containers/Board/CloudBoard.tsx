@@ -83,7 +83,7 @@ export default class CloudBoard extends React.Component {
 
   scrollRight() {
     function scroll() {
-      document.getElementsByTagName('main')[0].scrollLeft += 10;
+      // document.getElementsByTagName('main')[0].scrollLeft += 10;
     }
 
     this.scrollInterval = setInterval(scroll, 10);
@@ -91,7 +91,7 @@ export default class CloudBoard extends React.Component {
 
   scrollLeft() {
     function scroll() {
-      document.getElementsByTagName('main')[0].scrollLeft -= 10;
+      // document.getElementsByTagName('main')[0].scrollLeft -= 10;
     }
 
     this.scrollInterval = setInterval(scroll, 10);

@@ -16,12 +16,5 @@ export default createReducer({
   [fetchCloudError]: (state: any, error: Error) => ([
     ...state,
     error.message
-  ]),
-  [updateCloudKnowledges]: (state: any, payload: any) => ({
-    ...state,
-    knowledge: [
-      ...state.knowledge.filter((elem: any) => payload.id != elem.id),
-      payload
-    ]
-  }),
+  ])
 }, initialState);

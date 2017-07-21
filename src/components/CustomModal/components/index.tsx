@@ -26,24 +26,16 @@ export const CustomModal = (props) => {
       style={Styles}
       contentLabel="Example Modal"
     >
-    <div>
-      <div className="modal-header">
-        <h1 className="modal-title">
-          { title }
-        </h1>
-        <button type="button" className="close" onClick={changeModalStatus} aria-label="Close">
-          <img src="assets/icons/close.svg"/>
-        </button>
-      </div>
-      <div className="modal-body">
+      <div>
+        <div className="modal-header">
+          <h1 className="modal-title">
+            { title }
+          </h1>
+          <button type="button" className="close" onClick={changeModalStatus} aria-label="Close">
+            <img src="assets/icons/close.svg"/>
+          </button>
+        </div>
         {props.children}
       </div>
-      <div className="modal-footer">
-        {/*<div className="btn-actions">*/}
-          {/*<button className="primary" type="submit">Confirm</button>*/}
-          {/*<button className="secondary" onClick={changeModalStatus}>Cancel</button>*/}
-        {/*</div>*/}
-      </div>
-    </div>
     </Modal>  )
 }

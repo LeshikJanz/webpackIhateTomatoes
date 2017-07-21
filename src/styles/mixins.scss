@@ -52,3 +52,32 @@
   letter-spacing: 0.5px;
   color: #626d78;
 }
+
+@mixin input-label {
+  font-family: Avenir-DemiBold;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: #4b535c;
+  margin-bottom: 10px;
+}
+
+@mixin input-container {
+  width: inherit;
+  height: 65px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #3d3d3d;
+}
+
+@mixin input-text {
+  font-family: WorkSans;
+  font-size: 16px;
+  color: #3d3d3d;
+}
+
+@mixin input-placeholder {
+  font-family: WorkSans;
+  font-size: 16px;
+  color: #b2bac4;
+}

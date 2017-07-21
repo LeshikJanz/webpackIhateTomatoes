@@ -19,8 +19,12 @@ h1 {
   color: #74cfae;
 }
 
+h2 {
+  @include heading-2;
+}
+
 /* Titles */
-h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
   font-family: "Raleway";
   font-weight: 300;
   color: #333;
@@ -133,11 +137,6 @@ hr {
   padding-right: 10px;
   /*padding-top: 20px;
   padding-bottom: 250px;*/
-}
-
-#hello h2 {
-  color: #c0c0c0;
-  font-weight: 400;
 }
 
 /* Green */
