@@ -55,9 +55,11 @@ const removeTagCloud = () => {
 }
 
 const setNewTag = (tag, number) => {
-  $('#tags ul').append(`<li><a id="tag${number}"
+  if (tag) {
+    $('#tags ul').append(`<li><a id="tag${number}"
                         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.name}</a></li>`);
-  removeTagCloud();
+    removeTagCloud();
+  }
 };
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
