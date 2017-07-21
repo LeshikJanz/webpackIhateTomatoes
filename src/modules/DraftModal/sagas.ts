@@ -5,14 +5,23 @@ import {
 } from "../actions";
 import { currentCloudId } from "../jqueryCloud/constants/index";
 import { Task } from "redux-saga";
+import { addUserSession } from "../../api/session";
+import { ICloud, ISession } from "../../interfaces/index";
 
 const getFromState = (state: any) => state.Knowledge;
 
+const createUserSession = (cloud: ICloud): ISession => ({
+  lastOpenedCloudId: cloud.id,
+  accountId: cloud.accountId
+})
+
+
 export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
   try {
-    const cloudListKnowledges = yield fetchCloud(payload);
+    const cloud: ICloud = yield fetchCloud(payload);
+    yield addUserSession(cloud.accountId, createUserSession(cloud));
 
-    yield put(fetchCloudDone(cloudListKnowledges));
+    yield put(fetchCloudDone(cloud));
   } catch (e) {
     yield put(fetchCloudError(e));
   }

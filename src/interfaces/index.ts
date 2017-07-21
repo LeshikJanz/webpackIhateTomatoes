@@ -1,6 +1,6 @@
 export
 declare interface Identifiable {
-  id: any;
+  id?: any;
 }
 
 export
@@ -16,7 +16,8 @@ declare interface ICloud extends Identifiable {
   createDate: Date,
   updateDate: Date,
   text: string,
-  cloudGroupId: string
+  cloudGroupId: string,
+  accountId: string
 }
 
 export
@@ -26,4 +27,10 @@ declare interface IKnowledge extends Identifiable {
   createDate: Date,
   updateDate: Date,
   cloudId: string
+}
+
+export
+declare interface ISession extends Identifiable {
+  lastOpenedCloudId: string,
+  accountId: string
 }

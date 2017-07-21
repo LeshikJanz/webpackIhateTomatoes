@@ -30,7 +30,8 @@ const request: any = new Object({
           body: JSON.stringify(params),
           headers: {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "authorisation": "spoyfIohfIXtc5lSBsTnQBixhyFM5oICnC46UUJMjpjrUDPfTEJAJWf82R5UB2s5"
           }
     })
     .then(JSONResponse);
@@ -41,7 +42,8 @@ const request: any = new Object({
           body: JSON.stringify(params),
           headers: {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorisation": "spoyfIohfIXtc5lSBsTnQBixhyFM5oICnC46UUJMjpjrUDPfTEJAJWf82R5UB2s5"
           }
     })
     .then(JSONResponse);

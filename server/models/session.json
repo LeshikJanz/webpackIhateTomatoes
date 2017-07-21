@@ -13,6 +13,11 @@
       "type": "hasMany",
       "model": "History",
       "foreignKey": "historyId"
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId"
     }
   },
   "acls": [],
