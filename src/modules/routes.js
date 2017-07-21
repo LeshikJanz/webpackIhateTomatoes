@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import CloudBoard from "./Board/containers/Board/CloudBoard";
 import { LoginPageRoot } from "./Login/containers/LoginPageRoot";
+import Board from "../../workingTrello/containers/Board/Board";
 import { urls } from "./urls";
 import App from './main/containers';
 import Header from './header/containers';
@@ -12,10 +13,11 @@ import Header from './header/containers';
  * See: https://github.com/reactjs/react-router-redux
  */
 export default (
-  <Route path={urls.index} component={Header} >
+  <Route path={urls.index} component={Header}>
     <IndexRoute/>
     <Route path={urls.cloud + `/:id`} component={App}></Route>
     <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.login} component={LoginPageRoot}></Route>
+    <Route path={urls.trello} component={Board}></Route>
   </Route>
 );

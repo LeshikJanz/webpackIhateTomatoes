@@ -3,5 +3,6 @@ export const urls = {
   cloud: 'cloud',
   header: 'header',
   board: 'board',
+  trello: 'trello',
   login: 'login',
 };

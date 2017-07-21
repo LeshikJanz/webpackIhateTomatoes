@@ -80,6 +80,13 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css-loader!sass-loader')
       },
+      /*
+       * File loader for supporting images, for example, in CSS files.
+       */
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: 'file-loader'
+      },
       /* File loader for supporting fonts, for example, in CSS files.
        */
       {

@@ -1,5 +1,6 @@
 import * as React from "react";
 import styles = require("../styles/main.scss");
+import { CustomModal } from "../../../components/CustomModal/components/index";
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 const moment = require('moment');
@@ -26,13 +27,14 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a onClick={() => { props.addTag(getEmptyKnowledge())}} className="navbar-brand"
+            <a onClick={() => { props.addTag(getEmptyKnowledge()) }}
+               className="navbar-brand"
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
           <div id="hello">
             <div className="col-lg-8 col-lg-offset-2 centered">
               <h2>Hurry up to fill your big head up. <br/>
-               World's knowledge is here!</h2>
+                World's knowledge is here!</h2>
             </div>
           </div>
           <div className="navbar-collapse collapse">

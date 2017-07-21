@@ -46,6 +46,8 @@ export default class CloudBoard extends React.Component {
    */
   private modalType: string;
 
+  public isOptionsOpen: boolean = false;
+
   constructor(props) {
     super(props);
     this.moveCard = this.moveCard.bind(this);
@@ -57,10 +59,9 @@ export default class CloudBoard extends React.Component {
     this.scrollLeft = this.scrollLeft.bind(this);
     this.stopScrolling = this.stopScrolling.bind(this);
     this.startScrolling = this.startScrolling.bind(this);
-    this.state = { isScrolling: false };
+    this.state = { isScrolling: false, isOptionsOpen: false };
   }
 
-  public isModalOpen: boolean = false;
 
   componentWillMount() {
     this.props.getLists(10);
@@ -118,8 +119,13 @@ export default class CloudBoard extends React.Component {
   }
 
   openModal(type: string) {
+    this.setState({ isOptionsOpen: !this.state.isOptionsOpen })
     this.modalType = type;
     this.props.handleModal();
+  }
+
+  handleOptionMenu() {
+    this.setState({ isOptionsOpen: !this.state.isOptionsOpen })
   }
 
   findList(id) {
@@ -137,32 +143,39 @@ export default class CloudBoard extends React.Component {
 
     return (
       <div>
-        <div style={{ display: 'flex', width: '500px', justifyContent: 'space-between' }}>
-          <button onClick={() => this.openModal('CloudGroup') } className="primary big wider add">
-            <SVG path="assets/icons/add-icon.svg"/>
-            Create cloud group
-          </button>
-          <button onClick={() => this.openModal('Cloud') } className="primary big add">
-            <SVG path="assets/icons/add-icon.svg"/>
-            Create cloud
-          </button>
+        <div className="board-menu">
+          <div className="options-button" onClick={ this.handleOptionMenu.bind(this) }>
+            <SVG className="option-svg" path="assets/icons/settings.svg"/>
+          </div>
+          <div className="options" style={ this.state.isOptionsOpen ? { display: 'flex' } : { display: 'none' }}>
+            <button onClick={() => this.openModal('Cloud') } className="primary big add">
+              <SVG path="assets/icons/add-icon.svg"/>
+              Create cloud
+            </button>
+            <button onClick={() => this.openModal('CloudGroup') } className="primary big wider add">
+              <SVG path="assets/icons/add-icon.svg"/>
+              Create cloud group
+            </button>
+          </div>
         </div>
         <div>
           <CustomDragLayer snapToGrid={false}/>
-          {lists.length > 0 && lists.map((item, i) =>
-            <CardsContainer
-              key={item.id}
-              id={item.id}
-              item={item}
-              moveCard={this.moveCard}
-              update={this.update}
-              moveList={this.moveList}
-              startScrolling={this.startScrolling}
-              stopScrolling={this.stopScrolling}
-              isScrolling={this.state.isScrolling}
-              x={i}
-            />
-          )}
+          {
+            lists.length > 0 && lists.map((item, i) =>
+              <CardsContainer
+                key={item.id}
+                id={item.id}
+                item={item}
+                moveCard={this.moveCard}
+                update={this.update}
+                moveList={this.moveList}
+                startScrolling={this.startScrolling}
+                stopScrolling={this.stopScrolling}
+                isScrolling={this.state.isScrolling}
+                x={i}
+              />
+            )
+          }
         </div>
 
         { this.modalType === 'Cloud' &&
@@ -175,21 +188,24 @@ export default class CloudBoard extends React.Component {
                      changeModalStatus={this.props.handleModal}
                      handleCloudFormSubmit={this.props.handleCloudFormSubmit}
           />
-        </CustomModal>}
+        </CustomModal>
+        }
 
 
-        { this.modalType === 'CloudGroup' &&
-        <CustomModal
-          onSubmit={ this.props.onSubmit }
-          title="Adding new cloud group"
-          isModalOpen={this.props.isModalOpen}
-        >
-          <CloudGroupForm
-            changeModalStatus={this.props.handleModal}
-            handleCloudGroupFormSubmit={this.props.handleCloudGroupFormSubmit}
-          />
-        </CustomModal>}
+        {
+          this.modalType === 'CloudGroup' &&
+          <CustomModal
+            onSubmit={ this.props.onSubmit }
+            title="Adding new cloud group"
+            isModalOpen={this.props.isModalOpen}
+          >
+            <CloudGroupForm
+              changeModalStatus={this.props.handleModal}
+              handleCloudGroupFormSubmit={this.props.handleCloudGroupFormSubmit}
+            />
+          </CustomModal>
+        }
       </div>
-    );
+    )
   }
 }
