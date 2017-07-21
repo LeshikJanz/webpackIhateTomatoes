@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
-import "assets/js/tagcanvas.min.js";
+import "../../../assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
@@ -44,7 +44,7 @@ function tagCloudController() {
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
   tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.Name}</a></li>`);
+        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.name}</a></li>`);
 
   return tagCloud + `</ul></div></div></div></div></div>`;
 }
@@ -56,7 +56,7 @@ const removeTagCloud = () => {
 
 const setNewTag = (tag, number) => {
   $('#tags ul').append(`<li><a id="tag${number}"
-                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.Name}</a></li>`);
+                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.name}</a></li>`);
   removeTagCloud();
 };
 
@@ -74,7 +74,7 @@ export class TagCloud extends React.Component {
   static tagNumber = 0;
 
   componentDidMount = () => {
-    this.props.fetchCloudInit();
+    this.props.fetchCloudInit(this.props.cloudId);
     document.addEventListener('tagclick', this.handleTagClick);
   };
 
@@ -105,10 +105,9 @@ export class TagCloud extends React.Component {
         <button onClick={this.props.goToHeader}>Go to board through props</button>
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
-          <li><Link to={ urls.board }> Go to board</Link></li>
+          <li><Link to={ urls.board }> Go to cloud board</Link></li>
         </ul>
       </div>
     )
   }
 }
-;

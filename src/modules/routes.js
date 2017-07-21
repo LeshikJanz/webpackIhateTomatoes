@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Board from "./Trello/containers/Board/Board";
-import { LoginPageRoot } from "modules/Login/containers/LoginPageRoot";
+import CloudBoard from "./Board/containers/Board/CloudBoard";
+import { LoginPageRoot } from "./Login/containers/LoginPageRoot";
+import Board from "../../workingTrello/containers/Board/Board";
 import { urls } from "./urls";
 import App from './main/containers';
+import Header from './header/containers';
 
 /**
  * Routing between pages using React-Router-Redux
@@ -11,9 +13,11 @@ import App from './main/containers';
  * See: https://github.com/reactjs/react-router-redux
  */
 export default (
-  <Route path={urls.index}>
-    <IndexRoute component={App} />
-    <Route path={urls.board} component={Board}></Route>
+  <Route path={urls.index} component={Header}>
+    <IndexRoute/>
+    <Route path={urls.cloud + `/:id`} component={App}></Route>
+    <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.login} component={LoginPageRoot}></Route>
+    <Route path={urls.trello} component={Board}></Route>
   </Route>
 );

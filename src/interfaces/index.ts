@@ -1,22 +1,36 @@
 export
 declare interface Identifiable {
-  id: any;
+  id?: any;
+}
+
+export
+declare interface ICloudGroup extends Identifiable {
+  name: string,
+  createDate: Date,
+  title: string
 }
 
 export
 declare interface ICloud extends Identifiable {
-  Name: string,
-  CreateDate: Date,
-  UpdateDate: Date,
-  UserId: string
+  name: string,
+  createDate: Date,
+  updateDate: Date,
+  text: string,
+  cloudGroupId: string,
+  accountId: string
 }
 
 export
 declare interface IKnowledge extends Identifiable {
-  Name: string,
-  Text: {},
-  UserId: string,
-  CreateDate: Date,
-  UpdateDate: Date,
+  name: string,
+  text: {},
+  createDate: Date,
+  updateDate: Date,
   cloudId: string
+}
+
+export
+declare interface ISession extends Identifiable {
+  lastOpenedCloudId: string,
+  accountId: string
 }

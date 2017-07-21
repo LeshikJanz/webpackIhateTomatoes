@@ -1,0 +1,37 @@
+{
+  "name": "CloudGroup",
+  "plural": "CloudGroups",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "createDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "clouds": {
+      "type": "hasMany",
+      "model": "Cloud",
+      "foreignKey": "cloudGroupId"
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId",
+      "required": true
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

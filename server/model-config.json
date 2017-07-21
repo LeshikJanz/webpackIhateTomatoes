@@ -14,32 +14,46 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongodbDs",
+    "public": true
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodbDs",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodbDs",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodbDs",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodbDs",
     "public": false
-  },
-  "Message": {
-    "dataSource": null
   },
   "Knowledge": {
     "dataSource": "mongodbDs",
     "public": true
   },
   "Cloud": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "CloudGroup": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "Session": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "History": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "Account": {
     "dataSource": "mongodbDs",
     "public": true
   }

@@ -7,26 +7,40 @@
     "validateUpsert": true
   },
   "properties": {
-    "Name": {
-      "type": "string",
-      "required": true
-    },
-    "CreateDate": {
-      "type": "date"
-    },
-    "UpdateDate": {
-      "type": "date"
-    },
-    "UserId": {
+    "name": {
       "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "createDate": {
+      "type": "date"
+    },
+    "updateDate": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
     "knowledge": {
-      "type": "hasMany",
+      "type": "hasAndBelongsToMany",
       "model": "Knowledge",
-      "foreignKey": ""
+      "foreignKey": "knowledgeCloudId"
+    },
+    "account": {
+      "type": "hasOne",
+      "model": "Account",
+      "foreignKey": "accountId"
+    },
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId"
+    },
+    "sessions": {
+      "type": "hasOne",
+      "model": "Session",
+      "foreignKey": "lastOpenedCloudId"
     }
   },
   "acls": [],

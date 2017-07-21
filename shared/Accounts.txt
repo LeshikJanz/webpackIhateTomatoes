@@ -1,0 +1,13 @@
+username: leshikJanz
+password: 123
+email: treshaalesha@gmail.com
+accountId: 596f648587f78b0998c35c25  //userId - same shit
+key: spoyfIohfIXtc5lSBsTnQBixhyFM5oICnC46UUJMjpjrUDPfTEJAJWf82R5UB2s5
+loadSwaggerUI.js:122 added accessToken spoyfIohfIXtc5lSBsTnQBixhyFM5oICnC46UUJMjpjrUDPfTEJAJWf82R5UB2s5
+
+username: MaksDikun
+password: 123
+email: maks-dikun@gmail.com
+accountId: 596f6843ee847e09f541eb9a  //userId - same shit
+key: rA2bYMfNplsCUGzHdvcSftKNCJWAG7GY2veV30At26HJDCb7wMk3D0bLxfrh2rZx
+loadSwaggerUI.js:122 added accessToken rA2bYMfNplsCUGzHdvcSftKNCJWAG7GY2veV30At26HJDCb7wMk3D0bLxfrh2rZx

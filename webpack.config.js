@@ -21,6 +21,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /** Плагин достает css(или какие мы укажем файлы) в отдельный(не bundle.js) файл. Т.е. теперь стили содержаться в отдельном app.css, который подключен в bundle.js */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');  //используется для указания полных путей и для resolve путей
 var helpers = require('./helpers');
 
@@ -38,15 +39,16 @@ module.exports = {
     alias: {
       mocks: helpers.root('mocks'),
       src: helpers.root('src'),
-      // assets: helpers.root('src/assets'),
-      //modules: helpers.root('src/modules')
+      assets: helpers.root('src/assets'),
+      modules: helpers.root('src/modules'),
+      components: helpers.root('src/components')
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
   /** Модули содержат в себе различные лоудеры, если не указан путь. Которые будут преобразовывать современный код в старый, для поддержки всеми браузерами*/
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.css$/,
         use: [
@@ -70,12 +72,43 @@ module.exports = {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader'
       },
-      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'}
-    ]
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+      },
+      /*
+       * File loader for supporting images, for example, in CSS files.
+       */
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: 'file-loader'
+      },
+      /* File loader for supporting fonts, for example, in CSS files.
+       */
+      {
+        test: /\.(eot|woff2?|svg|ttf|otf)([\?]?.*)$/,
+        use: 'file-loader'
+      }]
   },
 
   /**Будут содержаться все наши плагины*/
   plugins: [
+
+    /*
+     * Plugin: CopyWebpackPlugin
+     * Description: Copy files and directories in webpack.
+     *
+     * Copies project static assets.
+     *
+     * See: https://www.npmjs.com/package/copy-webpack-plugin
+     */
+    new CopyWebpackPlugin([
+      { from: 'src/assets', to: 'assets' }
+    ]),
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
       title: 'Custom template',
       filename: 'index.html',  //Файл ./dist/index.html, сгенерированный плагином на основе template(ниже)

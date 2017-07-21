@@ -1,11 +1,13 @@
 import { popUpSaga } from './DraftModal/sagas';
-import { cloudSaga } from "./jqueryCloud/sagas";
+import { knowledgeSaga } from "./jqueryCloud/sagas";
 import { headerSaga } from "./header/sagas";
+import { trelloSaga } from "./Board/sagas";
 
 export default function* rootSaga() {
   yield [
     popUpSaga(),
-    cloudSaga(),
-    headerSaga()
+    knowledgeSaga(),
+    headerSaga(),
+    trelloSaga()
   ]
 }

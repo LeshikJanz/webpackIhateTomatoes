@@ -7,25 +7,29 @@
     "validateUpsert": true
   },
   "properties": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Text": {
+    "text": {
       "type": "object"
     },
-    "UserId": {
-      "type": "string"
-    },
-    "CreateDate": {
+    "createDate": {
       "type": "date"
     },
-    "UpdateDate": {
+    "updateDate": {
       "type": "date"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Cloud",
+      "foreignKey": "cloudId",
+      "required": true
+    }
+  },
   "acls": [],
   "methods": {}
 }

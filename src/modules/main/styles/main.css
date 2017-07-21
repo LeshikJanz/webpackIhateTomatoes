@@ -22,9 +22,8 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
-    
-    margin-top: 70px;
-    overflow-x:hidden;
+
+  overflow-x:hidden;
 }
 
 /* Titles */

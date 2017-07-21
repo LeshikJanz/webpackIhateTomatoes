@@ -1,13 +1,18 @@
 import { createReducer } from 'utils/createReducer';
-import { changeModalStatus } from "../../actions";
+import { changeModalStatus, changeOptionsStatus } from "../../actions";
 
 const initialState = {
-  isModalOpen: false
+  isModalOpen: false,
+  isOptionsOpen: false,
 }
 
 export default createReducer({
   [changeModalStatus]: (state: any) => ({
     ...state,
-    "isModalOpen": !state.isModalOpen
+    isModalOpen: !state.isModalOpen
+  }),
+  [changeOptionsStatus]: (state: any) => ({
+    ...state,
+    isOptionsOpen: !state.isOptionsOpen
   })
 }, initialState);

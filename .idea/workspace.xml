@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="">
-<<<<<<< Updated upstream
+    <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/b.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/b.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/del.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/dots.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/gal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/images/noavatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/icons/settings.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/header/components/knowledgeNamingForm.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/styles/animations.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/actions/lists.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/assets/temp.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/constants.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/Board.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/CardDragPreview.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/Cards/Card.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/Cards/Cards.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/Cards/CardsContainer.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/Cards/DraggableCard.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/CustomDragLayer.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/containers/Board/snapToGrid.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workingTrello/reducers/lists.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mocks/big-head/index.html" afterPath="$PROJECT_DIR$/mocks/big-head/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/snapToGrid.ts" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/snapToGrid.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/styles/board.scss" afterPath="$PROJECT_DIR$/src/modules/Board/styles/board.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.ts" afterPath="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
-=======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
->>>>>>> Stashed changes
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" afterPath="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/header/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/routes.js" afterPath="$PROJECT_DIR$/src/modules/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/urls.ts" afterPath="$PROJECT_DIR$/src/modules/urls.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -31,83 +51,35 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FavoritesManager">
-    <favorites_list name="webpackEgghead" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< Updated upstream
-      <file leaf-file-name="typedoc.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/typedoc.json">
+    <leaf>
+      <file leaf-file-name="cloudForm.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-=======
-      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
->>>>>>> Stashed changes
+            <state relative-caret-position="560">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< Updated upstream
-      <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+            <state relative-caret-position="428">
+              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <marker date="1500371946000" expanded="true" signature="82:261" ph="//..." />
-                <marker date="1500371946000" expanded="true" signature="314:752" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="346:752" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="374:752" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="451:752" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="488:709" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="571:692" ph="..." />
-                <marker date="1500371946000" expanded="true" signature="735:752" ph="..." />
-=======
-      <file leaf-file-name="index.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-              <folding>
-                <marker date="1500372147000" expanded="true" signature="252:690" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="284:690" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="312:690" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="389:690" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="426:647" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="509:630" ph="..." />
-                <marker date="1500372147000" expanded="true" signature="673:690" ph="..." />
->>>>>>> Stashed changes
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-<<<<<<< Updated upstream
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="87" column="11" lean-forward="false" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
-              <folding>
-                <marker date="1500371752000" expanded="true" signature="2510:4533" ph="{&quot;@types/react-router&quot;: &quot;^4.0.4&quot;...}" />
-                <marker date="1500371752000" expanded="true" signature="4551:4586" ph="{&quot;type&quot;: &quot;&quot;...}" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,46 +88,73 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="560">
+              <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
               <folding />
-=======
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-              <folding>
-                <marker date="1500372108000" expanded="true" signature="2491:2592" ph="{&quot;@types/react-router&quot;: &quot;^4.0.4&quot;...}" />
-              </folding>
->>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< Updated upstream
-=======
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.js">
+      <file leaf-file-name="CloudBoard.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
               <folding>
-                <marker date="1500372108000" expanded="true" signature="923:924" ph="&lt;Router/&gt;" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
->>>>>>> Stashed changes
+      <file leaf-file-name="board.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Board/styles/board.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dd</find>
-      <find>RAW</find>
-      <find>fetchClouds</find>
-      <find>typedoc</find>
-      <find>react</find>
+      <find>payload</find>
+      <find>require</find>
+      <find>for</find>
+      <find>render</find>
+      <find>name</find>
+      <find>moveCard</find>
+      <find>jquer</find>
+      <find>tagCloudInitial</find>
+      <find>generateTags</find>
+      <find>tagCloudCreator</find>
+      <find>D</find>
+      <find>ExtractTextPlugin</find>
+      <find>modal</find>
+      <find>lists</find>
+      <find>navbar</find>
+      <find>contain</find>
+      <find>navba</find>
+      <find>update</find>
+      <find>class</find>
+      <find>close</find>
+      <find>before</find>
+      <find>board.</find>
+      <find>b</find>
+      <find>CloudGroupForm</find>
+      <find>changeModalStatus</find>
+      <find>updateCloudGroup</find>
+      <find>handleCloudFormSubmit</find>
+      <find>h</find>
+      <find>modalType</find>
+      <find>isModalOpen</find>
     </findStrings>
+    <replaceStrings>
+      <replace>className</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/server</dir>
     </dirStrings>
@@ -164,83 +163,64 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/router-redux" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/modules/popUpModal/reducers/knowledgeReducer.ts" />
-        <option value="$PROJECT_DIR$/src/modules/popUpModal/components/PopUpModal.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.ts" />
-        <option value="$PROJECT_DIR$/src/modules/popUpModal/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/modules/popUpModal/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/modules/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/api/cloud.ts" />
-        <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftEditor/styles/style.css" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts" />
-        <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/router.js" />
-        <option value="$PROJECT_DIR$/src/routes.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/components/Base/Base.js" />
-        <option value="$PROJECT_DIR$/reducers.ts" />
-        <option value="$PROJECT_DIR$/src/modules/urls.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.js" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.ts" />
-        <option value="$PROJECT_DIR$/src/modules/actions.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/actions/lists.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/CardsContainer.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Cards.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Card.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/CardDragPreview.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/CustomDragLayer.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Trello/assets/temp.styl" />
-<<<<<<< Updated upstream
-        <option value="$PROJECT_DIR$/src/modules/routes.ts" />
-        <option value="$PROJECT_DIR$/src/modules/main/components/App.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/routes.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/main/containers/index.ts" />
-=======
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/urls.ts" />
-        <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
->>>>>>> Stashed changes
-        <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/.babelrc" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/routes.js" />
-        <option value="$PROJECT_DIR$/src/app.js" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/components/confirmModal/containers/index.ts" />
+        <option value="$PROJECT_DIR$/src/components/button/index.tsx" />
+        <option value="$PROJECT_DIR$/src/components/confirmModal/style.ts" />
+        <option value="$PROJECT_DIR$/src/components/confirmModal/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/components/PopUpModal.tsx" />
-        <option value="$PROJECT_DIR$/.eslintrc" />
-        <option value="$PROJECT_DIR$/.eslintrc.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
-<<<<<<< Updated upstream
-=======
-        <option value="$PROJECT_DIR$/src/modules/Login/containers/index.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Login/containers/index.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/routes.js" />
-        <option value="$PROJECT_DIR$/src/modules/actions.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Login/reducers/loginReducer.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/Card.tsx" />
         <option value="$PROJECT_DIR$/reducers.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Login/containers/LoginPageRoot.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Login/containers/Login.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Login/components/index.tsx" />
->>>>>>> Stashed changes
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/style.ts" />
+        <option value="$PROJECT_DIR$/src/api/cloud.ts" />
+        <option value="$PROJECT_DIR$/server/models/cloud.json" />
+        <option value="$PROJECT_DIR$/server/models/cloud-group.json" />
+        <option value="$PROJECT_DIR$/src/modules/Board/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/modules/header/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/styles/mixins.scss" />
+        <option value="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
+        <option value="$PROJECT_DIR$/src/styles/buttons.scss" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx" />
+        <option value="$PROJECT_DIR$/src/styles/modal.scss" />
+        <option value="$PROJECT_DIR$/src/styles/form.scss" />
+        <option value="$PROJECT_DIR$/src/app.scss" />
+        <option value="$PROJECT_DIR$/src/modules/header/styles/main.scss" />
+        <option value="$PROJECT_DIR$/mocks/big-head/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/src/modules/main/styles/main.css" />
+        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/CustomDragLayer.tsx" />
+        <option value="$PROJECT_DIR$/server/models/session.json" />
+        <option value="$PROJECT_DIR$/src/api/session.ts" />
+        <option value="$PROJECT_DIR$/src/interfaces/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
+        <option value="$PROJECT_DIR$/src/api/base.ts" />
+        <option value="$PROJECT_DIR$/server/boot/authentication.js" />
+        <option value="$PROJECT_DIR$/src/modules/urls.ts" />
+        <option value="$PROJECT_DIR$/src/modules/routes.js" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/snapToGrid.ts" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.ts" />
+        <option value="$PROJECT_DIR$/src/modules/actions.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Board/actions/lists.ts" />
+        <option value="$PROJECT_DIR$/src/styles/animations.scss" />
+        <option value="$PROJECT_DIR$/src/modules/Board/styles/board.scss" />
+        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/header/components/knowldgeNamingForm.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/header/components/knowledgeNamingForm.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/header/containers/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/header/components/index.tsx" />
       </list>
     </option>
   </component>
@@ -321,6 +301,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -343,14 +341,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DraftModal" />
+              <option name="myItemId" value="header" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,24 +415,23 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Examples/cloudinary-image-upload" />
     <property name="typescript-compiler-editor-notification" value="false" />
     <property name="js.eslint.eslintPackage" value="$PROJECT_DIR$/node_modules/eslint" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="javascript.nodejs.core.library.configured.version" value="7.5.0" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/node_modules/cloudinary/node_modules" />
-      <recent name="$PROJECT_DIR$/src/modules/Trello" />
-      <recent name="$PROJECT_DIR$/src/modules/Trello/containers" />
-      <recent name="$PROJECT_DIR$/src/modules/Trello/reducers" />
+      <recent name="$PROJECT_DIR$/src/modules/header/components" />
+      <recent name="$PROJECT_DIR$/src/assets/icons" />
+      <recent name="$PROJECT_DIR$/workingTrello" />
+      <recent name="$PROJECT_DIR$/src/modules/Board/containers/Board/form" />
+      <recent name="$PROJECT_DIR$/src/styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/confirmModal/components" />
+      <recent name="$PROJECT_DIR$/server/models" />
       <recent name="$PROJECT_DIR$/src/modules" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/modules/DraftEditor/components" />
-      <recent name="$PROJECT_DIR$/src/assets/js" />
-      <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -454,7 +503,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="305574e1-b6c1-4339-847c-e05fd5a494ee" name="Default" comment="" />
+      <changelist id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="" />
       <created>1488124484564</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -478,7 +527,6 @@
       <workItem from="1492865929556" duration="17000" />
       <workItem from="1492865985538" duration="97000" />
       <workItem from="1492866126006" duration="8552000" />
-<<<<<<< Updated upstream
       <workItem from="1492889393850" duration="1997000" />
       <workItem from="1499790035825" duration="1024000" />
       <workItem from="1499791269960" duration="1632000" />
@@ -494,12 +542,10 @@
       <workItem from="1500284721409" duration="1922000" />
       <workItem from="1500370390742" duration="223000" />
       <workItem from="1500370695816" duration="755000" />
-=======
-      <workItem from="1492889393850" duration="2471000" />
-      <workItem from="1492893884230" duration="2069000" />
-      <workItem from="1493133543549" duration="10588000" />
-      <workItem from="1500372138454" duration="16000" />
->>>>>>> Stashed changes
+      <workItem from="1500378854438" duration="8708000" />
+      <workItem from="1500452851568" duration="25730000" />
+      <workItem from="1500537399320" duration="20552000" />
+      <workItem from="1500624097629" duration="19568000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -669,61 +715,154 @@
       <option name="project" value="LOCAL" />
       <updated>1499979493839</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Feat: created copy of trello board&#10;">
+      <created>1500384046335</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1500384046335</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Feat: renamed cloud &amp; knowledge fields to the low register&#10;">
+      <created>1500385159025</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1500385159025</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Feat: added clouds reducer&#10;">
+      <created>1500391785643</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1500391785643</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Feat: refactoring cloud board&#10;">
+      <created>1500454514524</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1500454514524</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Feat: created not optimised version of cloud board&#10;">
+      <created>1500456833855</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1500456833855</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Feat: created CloudGroup API&#10;">
+      <created>1500461648241</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1500461648242</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Feat: connected cloudGroups with server&#10;">
+      <created>1500468456783</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1500468456784</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Feat: created new account&#10;">
+      <created>1500472903140</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1500472903140</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Feat: connected clouds with server&#10;">
+      <created>1500480250662</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1500480250662</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Feat: implemented drag n drop items in board&#10;">
+      <created>1500487824884</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1500487824884</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Feat: implemented adding tags &#10;">
+      <created>1500490916708</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1500490916708</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Feat: implemented updating tags &#10;">
+      <created>1500491370716</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1500491370716</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Feat: configured .sass files loading&#10;">
+      <created>1500544651110</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1500544651110</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Feat: implemented adding new clouds&#10;">
+      <created>1500568048956</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1500568048956</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Feat: implemented creating cloud groups&#10;">
+      <created>1500630670204</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1500630670204</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Feat: add form styles&#10;">
+      <created>1500635592394</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1500635592394</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Feat: implemented saving user sessions&#10;">
+      <created>1500638120223</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1500638120223</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="110340000" />
-=======
-    <option name="totallyTimeSpent" value="101670000" />
->>>>>>> Stashed changes
+    <option name="totallyTimeSpent" value="184909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-<<<<<<< Updated upstream
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32772276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
->>>>>>> Stashed changes
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2087436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15478535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30891088" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270809" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3634232" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20902778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270809" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26930693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -809,44 +948,6 @@
         <option value="$PROJECT_DIR$/../car-service/car-service-management/src/app/modules/Share/index.js.map" />
         <option value="$PROJECT_DIR$/../car-service/car-service-management/src/app/dashboard/dashboardPI-resolve.service.js" />
         <option value="$PROJECT_DIR$/../car-service/car-service-management/src/app/dashboard/dashboardPI-resolve.service.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/sagas.js" />
-        <option value="$PROJECT_DIR$/src/modules/actions.js" />
-        <option value="$PROJECT_DIR$/src/modules/sagas.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/actions.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/header/sagas.js" />
-        <option value="$PROJECT_DIR$/src/modules/header/sagas.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/sagas.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/main/components/App.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/main/components/App.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/containers/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/containers/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/header/components/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/header/components/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/header/containers/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/header/containers/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/components/PopUpModal.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/components/PopUpModal.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/containers/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftModal/containers/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/reducers/cloudReducer.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/ReactIgnore.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/ReactIgnore.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/components/index.js.map" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.js.map" />
       </list>
     </option>
   </component>
@@ -862,23 +963,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: created simple jquery wrapper for textEditor" />
-    <MESSAGE value="Feat: connected bootstrap to the project" />
-    <MESSAGE value="Feat: added mocks data" />
-    <MESSAGE value="Feat: connected store to clouds" />
-    <MESSAGE value="Feat: made opening modal Window on Clicking to flying tag" />
-    <MESSAGE value="Feat: created knowledge and cloud models" />
-    <MESSAGE value="Feat: added fetch functions for clouds and knowledges" />
-    <MESSAGE value="Feat: connected fetching data with cloud" />
-    <MESSAGE value="Feat: connected store data with draftJs" />
-    <MESSAGE value="Feat: connected Saga" />
-    <MESSAGE value="Feat: connected fetching cloud" />
-    <MESSAGE value="Feat: created root saga" />
-    <MESSAGE value="Feat: implemented saving tags" />
-    <MESSAGE value="Feat: implemented adding new tags" />
-    <MESSAGE value="Feat: fixed empty spacing in tags" />
-    <MESSAGE value="Feat: added saving new knowledges to the server" />
-    <MESSAGE value="Feat: added simple router-redux&#10;" />
     <MESSAGE value="Feat: added simple routes&#10;" />
     <MESSAGE value="Feat: added urls file&#10;" />
     <MESSAGE value="Feat: added router middleware&#10;" />
@@ -886,580 +970,450 @@
     <MESSAGE value="Feat: hiden blue trello background&#10;" />
     <MESSAGE value="Feat: implemented image uploading though axios to cloudinary" />
     <MESSAGE value="Feat: added typeDoc to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: added typeDoc to project" />
+    <MESSAGE value="Feat: created copy of trello board&#10;" />
+    <MESSAGE value="Feat: renamed cloud &amp; knowledge fields to the low register&#10;" />
+    <MESSAGE value="Feat: added clouds reducer&#10;" />
+    <MESSAGE value="Feat: refactoring cloud board&#10;" />
+    <MESSAGE value="Feat: created not optimesed version of cloud board&#10;" />
+    <MESSAGE value="Feat: created not optimised version of cloud board&#10;" />
+    <MESSAGE value="Feat: created CloudGroup API&#10;" />
+    <MESSAGE value="Feat: connected cloudGroups with server&#10;" />
+    <MESSAGE value="Feat: created new account&#10;" />
+    <MESSAGE value="Feat: connected clouds with server&#10;" />
+    <MESSAGE value="Feat: implemented drag n drop items in board&#10;" />
+    <MESSAGE value="Feat: implemented adding tags &#10;" />
+    <MESSAGE value="Feat: implemented updating tags &#10;" />
+    <MESSAGE value="Feat: configured .sass files loading&#10;" />
+    <MESSAGE value="Feat: implemented adding new clouds&#10;" />
+    <MESSAGE value="Feat: implemented creating cloud groups&#10;" />
+    <MESSAGE value="Feat: add form styles&#10;" />
+    <MESSAGE value="Feat: implemented saving user sessions&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented saving user sessions&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< Updated upstream
-=======
     <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> Stashed changes
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.js" />
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts" />
     <entry file="file://$PROJECT_DIR$/src/modules/header/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-<<<<<<< Updated upstream
-=======
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="2" lean-forward="false" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/modules/main/components/Base/Base.js" />
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/reducers/lists.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="75">
-          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-=======
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/constants.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-<<<<<<< Updated upstream
-=======
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <marker date="1500372108000" expanded="true" signature="923:924" ph="&lt;Router/&gt;" />
-          </folding>
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/actions/lists.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Cards.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/CardsContainer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/CardDragPreview.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/snapToGrid.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-<<<<<<< Updated upstream
-=======
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/DraggableCard.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/CustomDragLayer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Cards/Card.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/assets/temp.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="315">
-          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-=======
         <state relative-caret-position="60">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
           <folding />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Trello/containers/Board/Board.tsx">
+    <entry file="file://$PROJECT_DIR$/src/modules/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
         <state relative-caret-position="105">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-=======
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router/es/IndexRoute.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router/es/Router.js" />
-    <entry file="file://$PROJECT_DIR$/reducers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="105">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-=======
-        <state relative-caret-position="255">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <marker date="1500372147000" expanded="true" signature="252:690" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="284:690" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="312:690" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="389:690" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="426:647" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="509:630" ph="..." />
-            <marker date="1500372147000" expanded="true" signature="673:690" ph="..." />
-          </folding>
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/components/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="270">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-=======
-        <state relative-caret-position="466">
-          <caret line="104" column="43" lean-forward="false" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="165">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-=======
-        <state relative-caret-position="90">
-          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
+    <entry file="file://$PROJECT_DIR$/src/styles/buttons.scss">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="105">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-=======
-        <state relative-caret-position="330">
-          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <marker date="1500372108000" expanded="true" signature="2491:2592" ph="{&quot;@types/react-router&quot;: &quot;^4.0.4&quot;...}" />
-          </folding>
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="331">
-          <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-=======
-        <state relative-caret-position="165">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="-390">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="20" />
           <folding />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/containers/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="331">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-=======
-        <state relative-caret-position="255">
-          <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="466">
-          <caret line="113" column="1" lean-forward="false" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
-=======
-        <state relative-caret-position="148">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/urls.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="45">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-=======
-        <state relative-caret-position="241">
-          <caret line="126" column="12" lean-forward="false" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="210">
-          <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-=======
-        <state relative-caret-position="235">
-          <caret line="222" column="21" lean-forward="false" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-=======
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
+    <entry file="file://$PROJECT_DIR$/src/styles/mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="126">
-          <caret line="16120" column="1" lean-forward="false" selection-start-line="16120" selection-start-column="1" selection-end-line="16120" selection-end-column="1" />
-=======
-        <state relative-caret-position="330">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/cloudinary/node_modules/fs/README.md" />
-    <entry file="file://$PROJECT_DIR$/node_modules/cloudinary/package.json" />
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="240">
-          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state relative-caret-position="236">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
           <folding />
-=======
-        <state relative-caret-position="15">
-          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/header/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="120">
-          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-=======
-        <state relative-caret-position="135">
-          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
->>>>>>> Stashed changes
+        <state relative-caret-position="232">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="150">
-          <caret line="10" column="65" lean-forward="false" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-=======
-        <state relative-caret-position="120">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
->>>>>>> Stashed changes
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="150">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-=======
-        <state relative-caret-position="135">
-          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tslint.json" />
-    <entry file="file://$PROJECT_DIR$/.eslintrc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/components/PopUpModal.tsx">
+    <entry file="file://$PROJECT_DIR$/src/modules/main/components/App.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-<<<<<<< Updated upstream
-          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
-=======
-          <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/reducers/knowledgeReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="195">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-=======
-        <state relative-caret-position="225">
-          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="26" />
->>>>>>> Stashed changes
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/containers/index.ts">
+    <entry file="file://$PROJECT_DIR$/mocks/big-head/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="150">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-=======
-        <state relative-caret-position="210">
-          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-<<<<<<< Updated upstream
-          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="97">
+          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="155" selection-end-column="1" />
           <folding />
-=======
-          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/reducers/knowledgeReducer.ts">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="206">
-          <caret line="87" column="11" lean-forward="false" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
+        <state relative-caret-position="270">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/main/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudGroupForm.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="59" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="59" />
           <folding>
-            <marker date="1500371752000" expanded="true" signature="2510:4533" ph="{&quot;@types/react-router&quot;: &quot;^4.0.4&quot;...}" />
-            <marker date="1500371752000" expanded="true" signature="4551:4586" ph="{&quot;type&quot;: &quot;&quot;...}" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
-=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CustomDragLayer.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CardDragPreview.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/account.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/session.json">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
->>>>>>> Stashed changes
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx">
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/Cards/CardsContainer.tsx">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="810">
-          <caret line="54" column="43" lean-forward="true" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-=======
-        <state relative-caret-position="75">
-          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
->>>>>>> Stashed changes
+        <state relative-caret-position="236">
+          <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/typedoc.json">
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/interfaces/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/loopback/lib/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1879">
+          <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/cloud.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/session.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="63" lean-forward="false" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/boot/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/Accounts.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+        <state relative-caret-position="225">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding />
-=======
-        <state relative-caret-position="270">
-          <caret line="79" column="82" lean-forward="false" selection-start-line="79" selection-start-column="82" selection-end-line="79" selection-end-column="82" />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/jqueryCloud/constants/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/api/base.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workingTrello/actions/lists.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/urls.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workingTrello/containers/Board/Board.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/snapToGrid.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/icons/settings.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="48" lean-forward="true" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workingTrello/containers/Board/snapToGrid.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="63" lean-forward="false" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/actions/lists.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="42" column="1" lean-forward="false" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/animations.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/DraftModal/styles/style.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/styles/board.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/form/cloudForm.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/components/knowledgeNamingForm.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/containers/index.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <marker date="1500371946000" expanded="true" signature="82:261" ph="//..." />
-            <marker date="1500371946000" expanded="true" signature="314:752" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="346:752" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="374:752" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="451:752" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="488:709" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="571:692" ph="..." />
-            <marker date="1500371946000" expanded="true" signature="735:752" ph="..." />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/header/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,7 @@ import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import routes from './modules/routes';
 import thunk from 'redux-thunk';
+require('./app.scss');
 
 /**
  * Saga Middleware for Redux to Handle Side Effects
