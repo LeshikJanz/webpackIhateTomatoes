@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
-import { addTag, createNewKnowledge, changeModalStatus } from "../../actions";
+import { createNewKnowledge, changeModalStatus } from "../../../../actions";
 
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,

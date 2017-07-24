@@ -5,8 +5,6 @@ import { findDOMNode } from 'react-dom';
 import Card from './DraggableCard';
 import { CARD_HEIGHT, CARD_MARGIN, OFFSET_HEIGHT } from '../../../constants';
 import PropTypes = React.PropTypes;
-import { ICloudGroup, ICloud } from "../../../../../interfaces/index";
-
 
 function getPlaceholderIndex(y, scrollY) {
   // shift placeholder if y position more than card height / 2

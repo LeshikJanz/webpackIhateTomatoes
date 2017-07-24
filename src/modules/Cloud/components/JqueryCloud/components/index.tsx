@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
-import "../../../assets/js/tagcanvas.min.js";
+import "assets/js/tagcanvas.min.js";
 import "../style.css";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
 import { Link } from 'react-router';
-import { urls }  from '../../urls';
+import { urls }  from 'modules/urls';
 
 function tagCloudController() {
   try {

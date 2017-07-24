@@ -1,4 +1,4 @@
-import { App } from '../components/App';
+import { Cloud } from '../components/Cloud';
 import { connect } from 'react-redux';
 import { addTag } from "../../actions";
 
@@ -26,4 +26,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(App);
+)(Cloud);

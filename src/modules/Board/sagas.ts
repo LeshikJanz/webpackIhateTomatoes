@@ -4,7 +4,7 @@ import {
   fetchCloudsError, updateCloud, createCloudInit, createCloudError,
   createCloudGroupInit, createCloudGroupError
 } from "../actions";
-import { ICloudGroup, ICloud } from "../../interfaces/index";
+import { ICloudGroup, ICloud } from "interfaces/index";
 import { Task } from "redux-saga";
 import { getListsStart } from "./actions/lists";
 import { toastr } from 'react-redux-toastr'

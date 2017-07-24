@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
-import { addTag, changeModalStatus, openKnowledge, fetchCloudInit } from "../../actions";
 import { push } from "react-router-redux";
-import { urls } from "../../urls";
+import { addTag, changeModalStatus, fetchCloudInit, openKnowledge } from "../../../../actions";
 
 const mapStateToProps = (state: any) => ({
   tags: state.Cloud.knowledge,

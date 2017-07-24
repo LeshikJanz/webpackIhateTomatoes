@@ -1,8 +1,6 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import {
-  updateKnowledgeError, saveKnowledge, updateCloudKnowledges
-} from "../actions";
 import { Task } from "redux-saga";
+import { updateCloudKnowledges, updateKnowledgeError, saveKnowledge } from "../../../actions";
 
 const getFromState = (state: any) => state.Knowledge;
 export function* saveKnowledgeSaga(): Iterator<Object | Task> {

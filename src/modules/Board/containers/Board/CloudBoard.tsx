@@ -12,8 +12,8 @@ import * as ListsActions from '../../actions/lists';
 import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
-import { ICloud, ICloudGroup } from "../../../../interfaces/index";
-import CustomModal from "../../../../components/CustomModal/containers/index";
+import { ICloud, ICloudGroup } from "interfaces/index";
+import CustomModal from "components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
 import CloudGroupForm from "./form/cloudGroupForm";
 

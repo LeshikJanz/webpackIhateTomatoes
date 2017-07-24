@@ -1,6 +1,5 @@
 import * as React from "react";
 import styles = require("../styles/main.scss");
-import { CustomModal } from "../../../components/CustomModal/components/index";
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 const moment = require('moment');

@@ -1,6 +1,6 @@
-import { ICloud } from "../../../interfaces/index";
+import { ICloud } from "interfaces/index";
 import { updateCloud, changeModalStatus, createCloudInit, createCloudGroupInit } from "../../actions";
-import { createAction } from "../../../utils/createAction";
+import { createAction } from "utils/createAction";
 const faker = require('faker');
 
 export const getListsStart = createAction('GET_LISTS_START');

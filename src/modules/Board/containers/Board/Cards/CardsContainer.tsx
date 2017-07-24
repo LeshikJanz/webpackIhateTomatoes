@@ -3,7 +3,6 @@ import { DropTarget, DragSource } from 'react-dnd';
 
 import Cards from './Cards';
 import PropTypes = React.PropTypes;
-import { ICloud } from "../../../../../interfaces/index";
 
 const listSource = {
   beginDrag(props) {

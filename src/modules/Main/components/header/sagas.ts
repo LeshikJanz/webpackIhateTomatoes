@@ -1,9 +1,7 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import {
-  updateKnowledgeError, saveKnowledge, updateCloudKnowledges, createNewKnowledge, addTag
-} from "../actions";
-import { addNewKnowledge } from "../../api/cloud";
+import { addNewKnowledge } from "api/cloud";
 import { Task } from "redux-saga";
+import { addTag, updateKnowledgeError, createNewKnowledge } from "../../../actions";
 
 const getFromState = (state: any) => state.Knowledge;
 
