@@ -1,8 +1,9 @@
 import { ICloud } from "../../../interfaces/index";
 import { updateCloud, changeModalStatus, createCloudInit, createCloudGroupInit } from "../../actions";
+import { createAction } from "../../../utils/createAction";
 const faker = require('faker');
 
-export const GET_LISTS_START = 'GET_LISTS_START';
+export const getListsStart = createAction('GET_LISTS_START');
 export const GET_LISTS = 'GET_LISTS';
 export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
@@ -10,7 +11,7 @@ export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
 export function getLists(quantity) {
   return dispatch => {
-    dispatch({ type: GET_LISTS_START, isFetching: false });
+    dispatch(getListsStart({ isFetching: false }));
   };
 }
 
@@ -43,9 +44,15 @@ export function handleModal() {
 }
 
 export function handleCloudFormSubmit(event) {
-  return (dispatch) => dispatch(createCloudInit(event))
+  return (dispatch) => {
+    dispatch(changeModalStatus());
+    dispatch(createCloudInit(event));
+  }
 }
 
 export function handleCloudGroupFormSubmit(event) {
-  return (dispatch) => dispatch(createCloudGroupInit(event))
+  return (dispatch) => {
+    dispatch(changeModalStatus());
+    dispatch(createCloudGroupInit(event));
+  }
 }

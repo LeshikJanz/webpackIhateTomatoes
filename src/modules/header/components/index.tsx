@@ -33,7 +33,7 @@ export const Header = (props) => {
           </div>
           <div id="hello">
             <div className="col-lg-8 col-lg-offset-2 centered">
-              <h2>Hurry up to fill your big head up. <br/>
+              <h2>Hurry up to fill your Big Head up. <br/>
                 World's knowledge is here!</h2>
             </div>
           </div>

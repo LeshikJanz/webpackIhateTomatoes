@@ -186,11 +186,10 @@ export default class CloudBoard extends React.Component {
         >
           <CloudForm cloudGroups={lists}
                      changeModalStatus={this.props.handleModal}
-                     handleCloudFormSubmit={this.props.handleCloudFormSubmit}
+                     onSubmit={this.props.handleCloudFormSubmit}
           />
         </CustomModal>
         }
-
 
         {
           this.modalType === 'CloudGroup' &&
@@ -201,7 +200,7 @@ export default class CloudBoard extends React.Component {
           >
             <CloudGroupForm
               changeModalStatus={this.props.handleModal}
-              handleCloudGroupFormSubmit={this.props.handleCloudGroupFormSubmit}
+              onSubmit={this.props.handleCloudGroupFormSubmit}
             />
           </CustomModal>
         }
