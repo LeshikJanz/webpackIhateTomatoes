@@ -31,15 +31,23 @@ export const Header = (props) => {
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
           <div id="hello">
-            <div className="col-lg-8 col-lg-offset-2 centered">
+            <div className="col-lg-8 centered">
               <h2>Hurry up to fill your Big Head up. <br/>
                 World's knowledge is here!</h2>
             </div>
           </div>
           <div className="navbar-collapse collapse">
-            <ul className="nav navbar-nav navbar-right">
-              <li className="active"><a href="#contact">Contact</a></li>
-            </ul>
+            <button style={{ width: '90px', margin: '10px' }}
+              className="tertiary small add">
+              Log In
+            </button>
+            <button style={{ width: '190px' }}
+              className="secondary small add">
+              Create new account
+            </button>
+            {/*<ul className="nav navbar-nav navbar-right">*/}
+              {/*<li className="active"><a href="#contact">Contact</a></li>*/}
+            {/*</ul>*/}
           </div>
         </div>
       </div>
