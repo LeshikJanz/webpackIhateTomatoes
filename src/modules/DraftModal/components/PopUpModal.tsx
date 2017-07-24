@@ -5,7 +5,7 @@ import customStyles from "../styles/style";
 
 export const PopUpModal = (props) => {
   const closeModal = () => {
-    props.changeModalStatus();
+    props.closeEditor();
     props.updateKnowledge();
   };
 
@@ -15,7 +15,7 @@ export const PopUpModal = (props) => {
   return (
     <div>
       <Modal
-        isOpen={props.isModalOpen}
+        isOpen={props.isEditorOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}

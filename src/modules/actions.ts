@@ -2,7 +2,9 @@ import { createAction } from "../utils/createAction";
 
 export const addTag = createAction('ADD_TAG');
 export const createNewKnowledge = createAction('CREATE_NEW_KNOWLEDGE');
-export const changeModalStatus = createAction('CHANGE_MODAL_STATUS');
+export const openEditor = createAction('OPEN_EDITOR');
+export const closeEditor = createAction('CLOSE_EDITOR');
+export const handleModalAction = createAction('HANDLE_MODAL');
 export const getCloudList = createAction('GET_LISTS');
 export const viewCloud = createAction('VIEW_CLOUD');
 export const fetchCloudsInit = createAction('FETCH_CLOUDS_INIT');

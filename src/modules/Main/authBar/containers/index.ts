@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { Header } from "../components/index";
-import { createNewKnowledge, changeModalStatus } from "../../../../actions";
+import { AuthBar } from "../components/AuthBar";
+import { handleModalAction } from "../../../actions";
 
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
@@ -8,12 +8,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  addTag: (tag) => dispatch(createNewKnowledge(tag)),
-  changeModalStatus: (tag) => dispatch(changeModalStatus()),
+  handleModal: (tag) => dispatch(handleModalAction()),
+
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Header);
+)(AuthBar);

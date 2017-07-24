@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 require('styles/form.scss');
 
 let CloudForm = props => {
-  const { cloudGroups, changeModalStatus, handleSubmit } = props;
+  const { cloudGroups, handleModalAction, handleSubmit } = props;
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -38,7 +38,7 @@ let CloudForm = props => {
       </div>
       <div className="modal-footer btn-actions">
         <button className="primary" type="submit">Confirm</button>
-        <button className="secondary" onClick={changeModalStatus}>Cancel</button>
+        <button className="secondary" onClick={handleModalAction}>Cancel</button>
       </div>
     </form>
   )

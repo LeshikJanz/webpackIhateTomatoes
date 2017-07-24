@@ -23,7 +23,7 @@ let CloudGroupForm = props => (
       </div>
       <div className="modal-footer btn-actions">
         <button className="primary" type="submit">Confirm</button>
-        <button className="secondary" onClick={props.changeModalStatus}>Cancel</button>
+        <button className="secondary" onClick={props.handleModalAction}>Cancel</button>
       </div>
     </div>
   </form>

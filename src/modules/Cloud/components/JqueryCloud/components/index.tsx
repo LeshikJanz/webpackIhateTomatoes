@@ -91,13 +91,13 @@ export class TagCloud extends React.Component {
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.tags.find((elem: any) => elem.id === e.detail.tagId));
-    this.props.changeModalStatus();
+    this.props.openEditor();
   };
 
   render() {
     const { props } = this;
 
-    if (!props.isModalOpen) startCloud();
+    if (!props.isEditorOpen) startCloud();
     else stopCloud();
     return (
       <div>

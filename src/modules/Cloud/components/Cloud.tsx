@@ -6,7 +6,7 @@ import TagCloud from './JqueryCloud/containers/index';
 import PopUpModal from '../../DraftModal/containers/index';
 
 export const Cloud = (props) => {
-  const { isModalOpen, params } = props;
+  const { params } = props;
 
   return (
     <div>

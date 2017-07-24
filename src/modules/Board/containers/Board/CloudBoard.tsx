@@ -185,7 +185,7 @@ export default class CloudBoard extends React.Component {
           isModalOpen={this.props.isModalOpen}
         >
           <CloudForm cloudGroups={lists}
-                     changeModalStatus={this.props.handleModal}
+                     handleModalAction={this.props.handleModal}
                      onSubmit={this.props.handleCloudFormSubmit}
           />
         </CustomModal>
@@ -199,7 +199,7 @@ export default class CloudBoard extends React.Component {
             isModalOpen={this.props.isModalOpen}
           >
             <CloudGroupForm
-              changeModalStatus={this.props.handleModal}
+              handleModalAction={this.props.handleModal}
               onSubmit={this.props.handleCloudGroupFormSubmit}
             />
           </CustomModal>

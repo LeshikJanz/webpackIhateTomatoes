@@ -1,15 +1,27 @@
 import { createReducer } from 'utils/createReducer';
-import { changeModalStatus, changeOptionsStatus } from "../../actions";
+import {
+  handleModalAction, changeOptionsStatus, handleEditorAction, openModal, closeModal,
+  openEditor, closeEditor
+} from "../../actions";
 
 const initialState = {
   isModalOpen: false,
+  isEditorOpen: false,
   isOptionsOpen: false,
 }
 
 export default createReducer({
-  [changeModalStatus]: (state: any) => ({
+  [handleModalAction]: (state: any) => ({
     ...state,
     isModalOpen: !state.isModalOpen
+  }),
+  [openEditor]: (state: any) => ({
+    ...state,
+    isEditorOpen: true
+  }),
+  [closeEditor]: (state: any) => ({
+    ...state,
+    isEditorOpen: false
   }),
   [changeOptionsStatus]: (state: any) => ({
     ...state,
