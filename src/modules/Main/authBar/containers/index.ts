@@ -9,7 +9,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps: any = dispatch => ({
   handleModal: (tag) => dispatch(handleModalAction()),
-
 });
 
 export default connect(

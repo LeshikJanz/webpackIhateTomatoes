@@ -47,5 +47,6 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "replaceById": true
 }
