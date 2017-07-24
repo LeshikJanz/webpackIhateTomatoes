@@ -6,8 +6,8 @@ import {
 } from "../actions";
 import { ICloudGroup, ICloud } from "../../interfaces/index";
 import { Task } from "redux-saga";
-import { push, replace } from "react-router-redux";
 import { getListsStart } from "./actions/lists";
+import { toastr } from 'react-redux-toastr'
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
@@ -32,12 +32,13 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
 
 export function* createCloudSaga(event: Event): Iterator<Object | Task> {
   try {
-    debugger;
     const Cloud = yield select(getCloudFromState);
     Cloud.accountId = '596f648587f78b0998c35c25';
     yield addNewCloud(Cloud.cloudId, Cloud);
     yield put(getListsStart());
+    toastr.success('Success!', `The cloud ${Cloud.name} has been successfully created`);
   } catch (e) {
+    toastr.error('Error!', `The cloud has not been created! Connect to the administrator for more information, mail`);
     yield put(createCloudError(e));
   }
 }
@@ -48,7 +49,9 @@ export function* createCloudGroupSaga(event: Event): Iterator<Object | Task> {
     CloudGroup.accountId = '596f648587f78b0998c35c25';
     yield addNewCloudGroup(CloudGroup);
     yield put(getListsStart());
+    toastr.success('Success!', `The cloud group ${CloudGroup.name} has been successfully created`);
   } catch (e) {
+    toastr.error('Error!', `The cloud group has not been created! Connect to the administrator for more information, mail`);
     yield put(createCloudGroupError(e));
   }
 }
