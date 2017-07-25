@@ -11,3 +11,10 @@ email: maks-dikun@gmail.com
 accountId: 596f6843ee847e09f541eb9a  //userId - same shit
 key: rA2bYMfNplsCUGzHdvcSftKNCJWAG7GY2veV30At26HJDCb7wMk3D0bLxfrh2rZx
 loadSwaggerUI.js:122 added accessToken rA2bYMfNplsCUGzHdvcSftKNCJWAG7GY2veV30At26HJDCb7wMk3D0bLxfrh2rZx
+
+username: boris
+password: 123
+email: boris@tut.by
+accountId: 59775b13e42fc906cc8edd1e  //userId - same shit
+key: 62jrVodrctnIStUalWrYpAdjuUVLgRl3kxn1LJFcd3yBaowDnRhUiuY90IA5WAIp
+loadSwaggerUI.js:122 added accessToken 62jrVodrctnIStUalWrYpAdjuUVLgRl3kxn1LJFcd3yBaowDnRhUiuY90IA5WAIp

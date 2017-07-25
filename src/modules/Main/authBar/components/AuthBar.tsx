@@ -3,7 +3,7 @@ import CustomModal from "components/CustomModal/containers/index";
 import AuthForm from "./authForm";
 
 export const AuthBar = (props) => {
-  const { handleModal, isModalOpen, handleAuthFormSubmit } = props;
+  const { handleModal, isModalOpen, handleAuthFormSubmit, goRegistrationPage} = props;
 
   return (
     <div className="navbar-collapse collapse">
@@ -12,8 +12,10 @@ export const AuthBar = (props) => {
               className="tertiary small add">
         Log In
       </button>
-      <button style={{ width: '190px' }}
-              className="secondary small add">
+      <button
+        onClick={ goRegistrationPage }
+        style={{ width: '190px' }}
+        className="secondary small add">
         Create new account
       </button>
 

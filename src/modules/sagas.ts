@@ -3,6 +3,7 @@ import { knowledgeSaga } from "./Cloud/components/JqueryCloud/sagas";
 import { headerSaga } from "./Main/header/sagas";
 import { trelloSaga } from "./Board/sagas";
 import { loginSaga } from "./Main/sagas";
+import { registrationSaga } from "./Registration/sagas";
 
 export default function* rootSaga() {
   yield [
@@ -10,6 +11,7 @@ export default function* rootSaga() {
     knowledgeSaga(),
     headerSaga(),
     trelloSaga(),
-    loginSaga()
+    loginSaga(),
+    registrationSaga()
   ]
 }

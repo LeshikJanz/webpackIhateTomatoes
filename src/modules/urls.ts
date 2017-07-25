@@ -5,4 +5,5 @@ export const urls = {
   board: 'board',
   trello: 'trello',
   login: 'login',
+  registration: 'registration'
 };

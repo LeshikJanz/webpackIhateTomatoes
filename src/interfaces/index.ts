@@ -42,9 +42,19 @@ declare interface ILogin {
 }
 
 export
-declare interface IToken {
+declare interface IToken extends Identifiable {
   created: Date,
-  id: string,
   ttl: number,
   userId: string
+}
+
+export
+declare interface IUser extends Identifiable {
+  avatar: string,
+  address: string,
+  realm: string,
+  username: string,
+  email: string,
+  emailVerified: boolean,
+  accountId: string
 }
