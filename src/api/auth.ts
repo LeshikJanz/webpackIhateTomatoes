@@ -7,6 +7,13 @@ export const login = (params: ILogin) => {
     .then((token: any) => token);
 };
 
+export const logOut = () => {
+  return request
+    .post(`Accounts/logout`)
+    .then(() => "Success")
+    .catch(() => 'Logged out')
+};
+
 export const register = (params: ILogin) => {
   return request
     .post(`Accounts`, params)

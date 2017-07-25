@@ -2,8 +2,11 @@ import { put, takeEvery } from 'redux-saga/effects'
 import { loginInit, loginDone, loginError } from "../actions";
 import { Task } from "redux-saga";
 import { ILogin, IToken } from "../../interfaces/index";
-import { login } from "api/auth";
+import { login, logOut } from "api/auth";
 import { push, replace } from "react-router-redux";
+import { logOutInit, logOutError, logOutDone } from "./actions";
+import { toastr } from 'react-redux-toastr'
+import { urls } from "../urls";
 
 export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
   try {
@@ -17,8 +20,25 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     yield put(loginError());
   }
 }
+export function* logOutSaga(): Iterator<Object | Task> {
+  try {
+    yield logOut();
+    localStorage.removeItem('Token');
+    localStorage.removeItem('UserId');
+
+    yield put(logOutDone());
+    toastr.success('Success!', `You are successfully logged out`);
+    yield put(push(urls.index));
+  }catch (e) {
+    toastr.error('Error!', `You didn't log out`);
+    yield put(logOutError());
+  }
+}
 
 export function* loginSaga() {
-  yield takeEvery(loginInit().type, loginInitSaga);
+  yield [
+    takeEvery(loginInit().type, loginInitSaga),
+    takeEvery(logOutInit().type, logOutSaga)
+  ]
 }
 

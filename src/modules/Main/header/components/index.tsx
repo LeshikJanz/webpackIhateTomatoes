@@ -1,6 +1,7 @@
 import * as React from "react";
 import styles = require("../styles/main.scss");
-import AuthBar from "../../authBar/containers";
+import AuthBar from "../../auth/containers/AuthBar";
+import LogOutBar from "../../auth/containers/LogOutBar";
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 const moment = require('moment');
@@ -37,7 +38,11 @@ export const Header = (props) => {
                 World's knowledge is here!</h2>
             </div>
           </div>
-          <AuthBar/>
+          {
+            !localStorage.getItem('Token') ?
+              <AuthBar/> : <LogOutBar/>
+
+          }
         </div>
       </div>
       {props.children}
