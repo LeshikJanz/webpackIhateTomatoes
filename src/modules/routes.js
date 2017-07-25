@@ -1,11 +1,14 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import CloudBoard from "./Board/containers/Board/CloudBoard";
-import { LoginPageRoot } from "./Login/containers/LoginPageRoot";
+import { LoginPageRoot } from "./Login-Old/containers/LoginPageRoot";
 import Board from "../../workingTrello/containers/Board/Board";
 import { urls } from "./urls";
-import App from './main/containers';
-import Header from './header/containers';
+import Cloud from './Cloud/containers';
+import Header from './Main/header/containers';
+import { PageNotFound } from '../components/pageNotFound';
+import { Main } from './Main';
+import Registration from './Registration/containers';
 
 /**
  * Routing between pages using React-Router-Redux
@@ -14,10 +17,12 @@ import Header from './header/containers';
  */
 export default (
   <Route path={urls.index} component={Header}>
-    <IndexRoute/>
-    <Route path={urls.cloud + `/:id`} component={App}></Route>
+    <IndexRoute component={Main}/>
+    <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
     <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.login} component={LoginPageRoot}></Route>
     <Route path={urls.trello} component={Board}></Route>
+    <Route path={urls.registration} component={Registration}></Route>
+    <Route path='*' component={PageNotFound}/>
   </Route>
 );

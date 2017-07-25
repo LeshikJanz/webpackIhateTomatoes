@@ -1,4 +1,4 @@
-@import "../../../styles/buttons";
+@import "src/styles/buttons";
 
 .actions {
   display: flex;
@@ -8,6 +8,12 @@
 
 .options-button {
   cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s opacity ease-in;
+
+  &:hover {
+    opacity: 1;
+  }
 
   .option-svg {
     height: 50px;

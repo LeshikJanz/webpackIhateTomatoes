@@ -1,5 +1,4 @@
 'use strict';
 
-module.exports = function(Knowledges) {
-
+module.exports = function (Knowledges) {
 };

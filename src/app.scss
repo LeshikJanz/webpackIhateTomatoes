@@ -63,3 +63,9 @@ body {
   font-family: WorkSans-Medium;
   src: url(./assets/fonts/WorkSans/WorkSans-Medium.otf);
 }
+
+@media (min-width: 1400px) {
+  .container {
+    width: auto !important;
+  }
+}

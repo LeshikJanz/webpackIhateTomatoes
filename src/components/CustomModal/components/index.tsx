@@ -4,14 +4,14 @@ import Styles from "../style";
 require('../../../styles/modal.scss');
 
 export const CustomModal = (props) => {
-  const { title, changeModalStatus, customStyles } = props;
+  const { title, handleModal, customStyles } = props;
 
   /**
    * Close Confirm Modal
    *
    * @returns {void}
    * */
-  const closeModal = () => changeModalStatus();
+  const closeModal = () => handleModal();
 
   /**
    * Renders the component.
@@ -31,7 +31,7 @@ export const CustomModal = (props) => {
           <h1 className="modal-title">
             { title }
           </h1>
-          <button type="button" className="close" onClick={changeModalStatus} aria-label="Close">
+          <button type="button" className="close" onClick={handleModal} aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
         </div>

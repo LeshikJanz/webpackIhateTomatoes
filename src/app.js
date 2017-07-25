@@ -11,6 +11,8 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import routes from './modules/routes';
 import thunk from 'redux-thunk';
 require('./app.scss');
+import ReduxToastr from 'react-redux-toastr';
+require('react-redux-toastr/src/styles/index.scss');
 
 /**
  * Saga Middleware for Redux to Handle Side Effects
@@ -62,7 +64,17 @@ sagaMiddleware.run(rootSaga);
  */
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history} routes={routes}/>
+    <div>
+      <Router history={history} routes={routes}/>
+      <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates
+        position="top-center"
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar/>
+    </div>
   </Provider>,
   document.getElementById('root')
 );

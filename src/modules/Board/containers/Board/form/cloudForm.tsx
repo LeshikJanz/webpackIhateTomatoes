@@ -3,15 +3,16 @@ import { Field, reduxForm } from 'redux-form'
 require('styles/form.scss');
 
 let CloudForm = props => {
-  const { cloudGroups, changeModalStatus, handleCloudFormSubmit } = props;
+  const { cloudGroups, handleModalAction, handleSubmit } = props;
 
   return (
-    <form onSubmit={ handleCloudFormSubmit }>
+    <form onSubmit={ handleSubmit }>
       <div className="modal-body">
         <div className="form-element">
           <label className="input-label" htmlFor="name">Cloud Name</label>
           <div>
-            <Field placeholder="Enter cloud name..." name="name" className="input-container input-modal" component="input" type="text"/>
+            <Field placeholder="Enter cloud name..." name="name" className="input-container input-modal"
+                   component="input" type="text"/>
           </div>
         </div>
         <div className="form-element">
@@ -29,14 +30,15 @@ let CloudForm = props => {
           <div>
             <label className="input-label" htmlFor="goal">Why do you create this cloud?</label>
             <div>
-              <Field placeholder="Enter short explanation..." className="input-container input-modal" style={{ height: '100px' }} name="goal" component="textarea" type="text"/>
+              <Field placeholder="Enter short explanation..." className="input-container input-modal"
+                     style={{ height: '100px' }} name="goal" component="textarea" type="text"/>
             </div>
           </div>
         </div>
       </div>
       <div className="modal-footer btn-actions">
         <button className="primary" type="submit">Confirm</button>
-        <button className="secondary" onClick={changeModalStatus}>Cancel</button>
+        <button className="secondary" onClick={handleModalAction}>Cancel</button>
       </div>
     </form>
   )

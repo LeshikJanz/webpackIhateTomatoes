@@ -12,8 +12,8 @@ import * as ListsActions from '../../actions/lists';
 import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
-import { ICloud, ICloudGroup } from "../../../../interfaces/index";
-import CustomModal from "../../../../components/CustomModal/containers/index";
+import { ICloud, ICloudGroup } from "interfaces/index";
+import CustomModal from "components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
 import CloudGroupForm from "./form/cloudGroupForm";
 
@@ -185,12 +185,11 @@ export default class CloudBoard extends React.Component {
           isModalOpen={this.props.isModalOpen}
         >
           <CloudForm cloudGroups={lists}
-                     changeModalStatus={this.props.handleModal}
-                     handleCloudFormSubmit={this.props.handleCloudFormSubmit}
+                     handleModalAction={this.props.handleModal}
+                     onSubmit={this.props.handleCloudFormSubmit}
           />
         </CustomModal>
         }
-
 
         {
           this.modalType === 'CloudGroup' &&
@@ -200,8 +199,8 @@ export default class CloudBoard extends React.Component {
             isModalOpen={this.props.isModalOpen}
           >
             <CloudGroupForm
-              changeModalStatus={this.props.handleModal}
-              handleCloudGroupFormSubmit={this.props.handleCloudGroupFormSubmit}
+              handleModalAction={this.props.handleModal}
+              onSubmit={this.props.handleCloudGroupFormSubmit}
             />
           </CustomModal>
         }

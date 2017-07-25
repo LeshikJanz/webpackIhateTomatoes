@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes = React.PropTypes;
-import { urls } from "../../../../urls";
+import { urls } from "modules/urls";
 import { Link } from 'react-router';
 
 const propTypes = {

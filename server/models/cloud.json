@@ -13,6 +13,9 @@
     "goal": {
       "type": "string"
     },
+    "order": {
+      "type": "number"
+    },
     "createDate": {
       "type": "date"
     },
@@ -44,5 +47,6 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "replaceById": true
 }

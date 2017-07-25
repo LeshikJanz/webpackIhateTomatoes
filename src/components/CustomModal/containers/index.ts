@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { CustomModal } from "../components/index";
-import { changeModalStatus } from "../../../modules/actions";
+import { handleModalAction } from "../../../modules/actions";
 
 const mapStateToProps = (state) => ({
   isModalOpen: state.Modal.isModalOpen
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  changeModalStatus: () => dispatch(changeModalStatus()),
+  handleModal: () => dispatch(handleModalAction()),
 });
 
 export default connect(

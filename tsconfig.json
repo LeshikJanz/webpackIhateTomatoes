@@ -17,7 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "lib": ["dom","es5","es6","es7","es2017.object"],
-    "baseUrl": "./app",
+    "baseUrl": "./src",
     "types": [
       "node"
     ]

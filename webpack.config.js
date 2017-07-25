@@ -35,15 +35,16 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
-    modules: ['node_modules', 'src'],
+    modules: ['src', 'node_modules'],
     alias: {
-      mocks: helpers.root('mocks'),
-      src: helpers.root('src'),
-      assets: helpers.root('src/assets'),
-      modules: helpers.root('src/modules'),
-      components: helpers.root('src/components')
+      // mocks: helpers.root('mocks'),
+      // src: helpers.root('src'),
+      // assets: helpers.root('src/assets'),
+      modules: path.resolve('src/modules'),
+      styles: path.resolve('src/styles'),
+      // components: helpers.root('src/components')
     },
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
   },
 
   /** Модули содержат в себе различные лоудеры, если не указан путь. Которые будут преобразовывать современный код в старый, для поддержки всеми браузерами*/

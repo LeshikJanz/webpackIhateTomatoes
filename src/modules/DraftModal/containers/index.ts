@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { PopUpModal } from "../components/PopUpModal";
-import { changeModalStatus, updateKnowledge } from "../../actions";
+import { updateKnowledge, closeEditor } from "../../actions";
 
 const mapStateToProps = (state) => ({
-  isModalOpen: state.Modal.isModalOpen
+  isEditorOpen: state.Modal.isEditorOpen
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  changeModalStatus: () => dispatch(changeModalStatus()),
+  closeEditor: () => dispatch(closeEditor()),
   updateKnowledge: () => dispatch(updateKnowledge()),
 });
 

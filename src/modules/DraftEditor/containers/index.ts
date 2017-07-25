@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LastDraft from "../components/LastDraft";
-import { changeModalStatus, editKnowledge, changeKnowledgeName } from "../../actions";
+import { editKnowledge, changeKnowledgeName, closeEditor } from "../../actions";
 
 const mapStateToProps = (state) => ({
   isModalOpen: state.Modal.isModalOpen,
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps: any = dispatch => ({
-  changeModalStatus: () => dispatch(changeModalStatus()),
+  closeEditor: () => dispatch(closeEditor()),
   editKnowledge: (text: {}) => dispatch(editKnowledge(text)),
   handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value))
 });
