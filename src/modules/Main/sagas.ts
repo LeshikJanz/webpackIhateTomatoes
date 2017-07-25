@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { Task } from "redux-saga";
-import { ILogin, IToken } from "../../interfaces/index";
+import { ILogin, IToken } from "interfaces/index";
 import { login, logOut } from "api/auth";
 import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";

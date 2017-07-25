@@ -17,7 +17,7 @@ import sticker from 'ld-sticker';
 import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
-import { handleModalAction } from "../../actions";
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
 
 export default class LastDraft extends React.Component<any, any> {
 
@@ -26,7 +26,7 @@ export default class LastDraft extends React.Component<any, any> {
    *
    * @type {any[]}
    */
-  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
+  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
 
   /**
    * Constructor
@@ -34,7 +34,7 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {props} props - external props
    * @returns {void}
    */
-  constructor(props) {
+  constructor( props ) {
     super(props);
     this.state = { value: editorStateFromRaw(this.props.knowledge.text) }
   }
@@ -45,7 +45,7 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {string} editorState - editor state
    * @returns {void}
    */
-  change(editorState: string) {
+  change( editorState: string ) {
     this.setState({ value: editorState });
     this.props.editKnowledge(editorStateToJSON(editorState));
   }
@@ -58,17 +58,14 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {File} file - uploading file
    * @returns {Promise}
    */
-  uploadImageAsync(file: File): Promise<any> {
-    const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqw7mxpr9/upload';
-    const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
-
+  uploadImageAsync( file: File ): Promise<any> {
     const formData = new FormData();
 
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
     return new Promise(
-      (resolve, reject) =>
+      ( resolve, reject ) =>
         axios({
           url: CLOUDINARY_URL,
           method: 'POST',
@@ -76,8 +73,8 @@ export default class LastDraft extends React.Component<any, any> {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           data: formData
-        }).then((res) => resolve({ src: res.data.secure_url }))
-          .catch((err) => reject(err))
+        }).then(( res ) => resolve({ src: res.data.secure_url }))
+          .catch(( err ) => reject(err))
     )
   }
 
@@ -89,26 +86,32 @@ export default class LastDraft extends React.Component<any, any> {
    */
   render() {
     return (
-      <div style={{margin: '50px', marginTop: '10px', maxWidth: '90%'}}>
-        <div className="name-input">
-          <input className="name" type="text" placeholder="Enter the knowledge name"
-                 value={this.props.knowledge.name} onChange={this.props.handleNameChange}/>
+      <div>
+        <div className="modal-header" style={{ display: 'flex', justifyContent: 'center' }}>
+          <input className="input-container"
+                 style={{ width: '200px', textAlign: 'center' }}
+                 placeholder="Enter the name..."
+                 title="Knowledge name"
+                 value={this.props.knowledge.name}
+                 onChange={this.props.handleNameChange}/>
           <button type="button" className="close" onClick={this.props.closeEditor} aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-        <Editor
-          theme={this.props.theme}
-          plugins={this.plugins}
-          sidebarVisibleOn='newline'
-          inline={['bold', 'italic', 'dropcap']}
-          blocks={['h3', 'quote']}
-          autofocus={true}
-          separators={false}
-          editorState={this.state.value}
-          placeholder='Text'
-          uploadImageAsync={this.uploadImageAsync}
-          onChange={this.change.bind(this)}/>
+        <div style={{ margin: '20px 50px' }}>
+          <Editor
+            theme={this.props.theme}
+            plugins={this.plugins}
+            sidebarVisibleOn='newline'
+            inline={['bold', 'italic', 'dropcap']}
+            blocks={['h3', 'quote']}
+            autofocus={true}
+            separators={false}
+            editorState={this.state.value}
+            placeholder='Text'
+            uploadImageAsync={this.uploadImageAsync}
+            onChange={this.change.bind(this)}/>
+        </div>
       </div>
     )
   }

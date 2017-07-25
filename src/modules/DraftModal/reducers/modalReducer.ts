@@ -1,9 +1,11 @@
 import { createReducer } from 'utils/createReducer';
 import {
-  handleModalAction, changeOptionsStatus, handleEditorAction, openModal, closeModal,
-  openEditor, closeEditor
-} from "../../actions";
+  handleModalAction, openEditor, closeEditor
+} from "modules/actions";
 
+/**
+ * Initial state for modal reducer
+ */
 const initialState = {
   isModalOpen: false,
   isEditorOpen: false,
@@ -11,20 +13,16 @@ const initialState = {
 }
 
 export default createReducer({
-  [handleModalAction]: (state: any) => ({
+  [handleModalAction]: ( state: any ) => ({
     ...state,
     isModalOpen: !state.isModalOpen
   }),
-  [openEditor]: (state: any) => ({
+  [openEditor]: ( state: any ) => ({
     ...state,
     isEditorOpen: true
   }),
-  [closeEditor]: (state: any) => ({
+  [closeEditor]: ( state: any ) => ({
     ...state,
     isEditorOpen: false
-  }),
-  [changeOptionsStatus]: (state: any) => ({
-    ...state,
-    isOptionsOpen: !state.isOptionsOpen
   })
 }, initialState);

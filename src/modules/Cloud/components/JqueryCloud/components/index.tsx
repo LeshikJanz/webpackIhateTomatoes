@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import "assets/js/tagcanvas.min.js";
-import "../style.css";
+import "../style.scss";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
 import { Link } from 'react-router';

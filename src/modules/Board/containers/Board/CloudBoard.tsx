@@ -17,14 +17,14 @@ import CustomModal from "components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
 import CloudGroupForm from "./form/cloudGroupForm";
 
-function mapStateToProps(state) {
+function mapStateToProps( state ) {
   return {
     lists: state.Trello.lists,
     isModalOpen: state.Modal.isModalOpen
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps( dispatch ) {
   return bindActionCreators(ListsActions, dispatch);
 }
 
@@ -48,7 +48,7 @@ export default class CloudBoard extends React.Component {
 
   public isOptionsOpen: boolean = false;
 
-  constructor(props) {
+  constructor( props ) {
     super(props);
     this.moveCard = this.moveCard.bind(this);
     this.update = this.update.bind(this);
@@ -67,9 +67,9 @@ export default class CloudBoard extends React.Component {
     this.props.getLists(10);
   }
 
-  startScrolling(direction) {
+  startScrolling( direction ) {
     // if (!this.state.isScrolling) {
-    switch (direction) {
+    switch ( direction ) {
       case 'toLeft':
         this.setState({ isScrolling: true }, this.scrollLeft());
         break;
@@ -102,23 +102,23 @@ export default class CloudBoard extends React.Component {
     this.setState({ isScrolling: false }, clearInterval(this.scrollInterval));
   }
 
-  moveCard(lastX, lastY, nextX, nextY) {
+  moveCard( lastX, lastY, nextX, nextY ) {
     this.props.moveCard(lastX, lastY, nextX, nextY);
   }
 
-  update(cloud: ICloud) {
+  update( cloud: ICloud ) {
     setTimeout(() => {
-      cloud.cloudGroupId = this.props.lists.find((cg: ICloudGroup) => cg.clouds.find((c: ICloud) => c === cloud)).id;
+      cloud.cloudGroupId = this.props.lists.find(( cg: ICloudGroup ) => cg.clouds.find(( c: ICloud ) => c === cloud)).id;
       this.props.update(cloud);
     }, 1000)
   }
 
-  moveList(listId, nextX) {
+  moveList( listId, nextX ) {
     const { lastX } = this.findList(listId);
     this.props.moveList(lastX, nextX);
   }
 
-  openModal(type: string) {
+  openModal( type: string ) {
     this.setState({ isOptionsOpen: !this.state.isOptionsOpen })
     this.modalType = type;
     this.props.handleModal();
@@ -128,9 +128,9 @@ export default class CloudBoard extends React.Component {
     this.setState({ isOptionsOpen: !this.state.isOptionsOpen })
   }
 
-  findList(id) {
+  findList( id ) {
     const { lists } = this.props;
-    const list = lists.filter(l => l.id === id)[0];
+    const list = lists.filter(l => l.id === id)[ 0 ];
 
     return {
       list,
@@ -161,7 +161,7 @@ export default class CloudBoard extends React.Component {
         <div>
           <CustomDragLayer snapToGrid={false}/>
           {
-            lists.length > 0 && lists.map((item, i) =>
+            lists.length > 0 && lists.map(( item, i ) =>
               <CardsContainer
                 key={item.id}
                 id={item.id}

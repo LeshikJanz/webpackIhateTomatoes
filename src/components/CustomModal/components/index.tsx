@@ -4,7 +4,7 @@ import Styles from "../style";
 require('styles/modal.scss');
 
 export const CustomModal = (props) => {
-  const { title, handleModal, customStyles } = props;
+  const { title, handleModal } = props;
 
   /**
    * Close Confirm Modal

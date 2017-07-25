@@ -64,14 +64,14 @@ export default class Board extends React.Component {
 
   scrollRight() {
     function scroll() {
-      document.getElementsByTagName('main')[0].scrollLeft += 10;
+      document.getElementsByTagName('Main')[0].scrollLeft += 10;
     }
     this.scrollInterval = setInterval(scroll, 10);
   }
 
   scrollLeft() {
     function scroll() {
-      document.getElementsByTagName('main')[0].scrollLeft -= 10;
+      document.getElementsByTagName('Main')[0].scrollLeft -= 10;
     }
     this.scrollInterval = setInterval(scroll, 10);
   }

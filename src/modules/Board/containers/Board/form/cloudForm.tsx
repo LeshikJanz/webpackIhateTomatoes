@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-require('styles/form.scss');
+require('../../../../../styles/form.scss');
 
 let CloudForm = props => {
   const { cloudGroups, handleModalAction, handleSubmit } = props;

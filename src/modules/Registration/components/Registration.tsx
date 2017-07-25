@@ -4,8 +4,8 @@ import RegistrationForm from "./RegistrationForm";
 /**
  * Registration page
  */
-export const Registration = (props) => (
+export const Registration = ( props ) => (
   <RegistrationForm
-    onSubmit={props.handleRegistrationFormSubmit}
+    onSubmit={ props.handleRegistrationFormSubmit }
   />
 )
