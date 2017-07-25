@@ -34,3 +34,17 @@ declare interface ISession extends Identifiable {
   lastOpenedCloudId: string,
   accountId: string
 }
+
+export
+declare interface ILogin {
+  username: string,
+  password: string
+}
+
+export
+declare interface IToken {
+  created: Date,
+  id: string,
+  ttl: number,
+  userId: string
+}

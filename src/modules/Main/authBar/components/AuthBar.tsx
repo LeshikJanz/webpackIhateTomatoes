@@ -3,7 +3,7 @@ import CustomModal from "components/CustomModal/containers/index";
 import AuthForm from "./authForm";
 
 export const AuthBar = (props) => {
-  const { handleModal, isModalOpen } = props;
+  const { handleModal, isModalOpen, handleAuthFormSubmit } = props;
 
   return (
     <div className="navbar-collapse collapse">
@@ -21,7 +21,8 @@ export const AuthBar = (props) => {
         title="Log In"
         isModalOpen={isModalOpen}
       >
-        <AuthForm handleModal={handleModal}/>
+        <AuthForm onSubmit={handleAuthFormSubmit}
+                  handleModal={handleModal}/>
       </CustomModal>
     </div>
   )

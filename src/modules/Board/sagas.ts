@@ -33,7 +33,7 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
 export function* createCloudSaga(event: Event): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
-    Cloud.accountId = '596f648587f78b0998c35c25';
+    Cloud.accountId = localStorage.getItem('UserId');
     yield addNewCloud(Cloud.cloudId, Cloud);
     yield put(getListsStart());
     toastr.success('Success!', `The cloud ${Cloud.name} has been successfully created`);
@@ -46,7 +46,7 @@ export function* createCloudSaga(event: Event): Iterator<Object | Task> {
 export function* createCloudGroupSaga(event: Event): Iterator<Object | Task> {
   try {
     const CloudGroup = yield select(getCloudGroupFromState);
-    CloudGroup.accountId = '596f648587f78b0998c35c25';
+    CloudGroup.accountId = localStorage.getItem('UserId');
     yield addNewCloudGroup(CloudGroup);
     yield put(getListsStart());
     toastr.success('Success!', `The cloud group ${CloudGroup.name} has been successfully created`);

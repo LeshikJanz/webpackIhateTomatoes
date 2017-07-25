@@ -1,5 +1,9 @@
 import { createAction } from "../utils/createAction";
 
+export const loginInit = createAction('LOGIN_INIT');
+export const loginDone = createAction('LOGIN_DONE');
+export const loginError = createAction('LOGIN_ERROR');
+
 export const addTag = createAction('ADD_TAG');
 export const createNewKnowledge = createAction('CREATE_NEW_KNOWLEDGE');
 export const openEditor = createAction('OPEN_EDITOR');
