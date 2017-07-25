@@ -1,6 +1,6 @@
 import { createReducer } from 'utils/createReducer';
 import { IKnowledge } from "interfaces/index";
-import { addTag, fetchCloudDone, fetchCloudError } from "../../../../actions";
+import { addTag, fetchCloudDone, fetchCloudError, updateCloud } from "../../../../actions";
 
 const initialState: any = [];
 
@@ -16,5 +16,12 @@ export default createReducer({
   [fetchCloudError]: (state: any, error: Error) => ([
     ...state,
     error.message
-  ])
+  ]),
+  [updateCloud]: (state, payload: IKnowledge) => ({
+    ...state,
+    knowledge: [
+      ...state.knowledge.filter((kn: IKnowledge) => kn.id !== payload.id),
+      ...payload
+    ]
+  })
 }, initialState);

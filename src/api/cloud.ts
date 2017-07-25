@@ -1,12 +1,25 @@
 import { request } from "./base";
 import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
 
-export const fetchCloudGroups = (params: any = {}) => {
+/**
+ * Fetching cloud groups including clouds
+ *
+ * @returns {ICloudGroup[]} cloudGroups - cloud groups
+ */
+export const fetchCloudGroups = () => {
   return request
-    .get(`CloudGroups?filter={"include": ["clouds"]}`, params)
-    .then((cloudGroups: ICloudGroup[]) => cloudGroups );
+    .get(`CloudGroups?filter={"include": ["clouds"]}`, {})
+    .then((cloudGroups: ICloudGroup[]) => cloudGroups);
 };
 
+/**
+ * Updating cloud by id
+ *
+ * @param {string} id - cloud id
+ * @param {ICloud} cloud - cloud
+ *
+ * @returns {ICloud} cloud - updated cloud
+ */
 export const updateCloudById = (id: string, cloud: ICloud) => {
   return request
     .put(`Clouds/${id}`, cloud)
@@ -16,12 +29,19 @@ export const updateCloudById = (id: string, cloud: ICloud) => {
 export const fetchClouds = (params: any = {}) => {
   return request
     .get(`Clouds`, params)
-    .then((clouds: ICloud[]) => clouds );
+    .then((clouds: ICloud[]) => clouds);
 };
 
-export const fetchCloud = (id: string, params: any = {}) => {
+/**
+ * Fetching cloud by id including knowledge
+ *
+ * @param {string} id - cloud id
+ *
+ * @returns {ICloud} cloud - cloud
+ */
+export const fetchCloud = (id: string) => {
   return request
-    .get(`Clouds/${id}?filter={"include": ["knowledge"]}`, params)
+    .get(`Clouds/${id}?filter={"include": ["knowledge"]}`, {})
     .then((cloud: ICloud) => <ICloud> cloud);
 };
 
@@ -40,7 +60,7 @@ export const addNewCloudGroup = (params: any = {}) => {
 export const fetchKnowledge = (id: string, params: any = {}) => {
   return request
     .get(`Knowledges/${id}`, params)
-    .then((content: IKnowledge[]) => content.map( ( c ) => <IKnowledge> c) );
+    .then((content: IKnowledge[]) => content.map((c) => <IKnowledge> c));
 };
 
 export const addNewKnowledge = (params: any = {}) => {

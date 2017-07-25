@@ -1,8 +1,14 @@
+/**
+ * Identifiable interface
+ */
 export
 declare interface Identifiable {
   id?: any;
 }
 
+/**
+ * Cloud group interface
+ */
 export
 declare interface ICloudGroup extends Identifiable {
   name: string,
@@ -10,6 +16,9 @@ declare interface ICloudGroup extends Identifiable {
   title: string
 }
 
+/**
+ * Cloud interface
+ */
 export
 declare interface ICloud extends Identifiable {
   name: string,
@@ -20,6 +29,9 @@ declare interface ICloud extends Identifiable {
   accountId: string
 }
 
+/**
+ * Knowledge interface
+ */
 export
 declare interface IKnowledge extends Identifiable {
   name: string,
@@ -29,18 +41,27 @@ declare interface IKnowledge extends Identifiable {
   cloudId: string
 }
 
+/**
+ * Session interface
+ */
 export
 declare interface ISession extends Identifiable {
   lastOpenedCloudId: string,
   accountId: string
 }
 
+/**
+ * Login interface
+ */
 export
 declare interface ILogin {
   username: string,
   password: string
 }
 
+/**
+ * Token interface
+ */
 export
 declare interface IToken extends Identifiable {
   created: Date,
@@ -48,6 +69,9 @@ declare interface IToken extends Identifiable {
   userId: string
 }
 
+/**
+ * User interface
+ */
 export
 declare interface IUser extends Identifiable {
   avatar: string,

@@ -19,7 +19,8 @@ const createUserSession = (cloud: ICloud): ISession => ({
 export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
   try {
     const cloud: ICloud = yield fetchCloud(payload);
-    yield addUserSession(cloud.accountId, createUserSession(cloud));
+    // TODO: figure out issues with authorization before working with sessions
+    // yield addUserSession(cloud.accountId, createUserSession(cloud));
 
     yield put(fetchCloudDone(cloud));
   } catch (e) {
