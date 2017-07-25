@@ -1,13 +1,11 @@
 import * as React from "react";
 import RegistrationForm from "./RegistrationForm";
 
-export const Registration = (props) => {
-
-  return (
-    <div>
-      <RegistrationForm
-        onSubmit={props.handleRegistrationFormSubmit}
-      />
-    </div>
-  )
-};
+/**
+ * Registration page
+ */
+export const Registration = (props) => (
+  <RegistrationForm
+    onSubmit={props.handleRegistrationFormSubmit}
+  />
+)

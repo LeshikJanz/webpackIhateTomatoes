@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { AuthBar } from "../components/AuthBar";
-import { handleModalAction, loginInit } from "../../../actions";
-import { ILogin } from "../../../../interfaces/index";
+import { handleModalAction } from "../../../actions";
+import { ILogin } from "interfaces/index";
 import { push } from "react-router-redux";
 import { urls } from "../../../urls";
+import { loginInit } from "../../actions";
 
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,

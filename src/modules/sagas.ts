@@ -5,6 +5,9 @@ import { trelloSaga } from "./Board/sagas";
 import { loginSaga } from "./Main/sagas";
 import { registrationSaga } from "./Registration/sagas";
 
+/**
+ * Function combines sagas
+ */
 export default function* rootSaga() {
   yield [
     popUpSaga(),

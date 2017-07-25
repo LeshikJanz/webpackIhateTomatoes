@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Modal from 'react-modal';
 import Styles from "../style";
-require('../../../styles/modal.scss');
+require('styles/modal.scss');
 
 export const CustomModal = (props) => {
   const { title, handleModal, customStyles } = props;
@@ -37,5 +37,6 @@ export const CustomModal = (props) => {
         </div>
         {props.children}
       </div>
-    </Modal>  )
-}
+    </Modal>
+  )
+};

@@ -1,8 +1,8 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup } from "../../api/cloud";
 import {
-  fetchCloudsError, updateCloud, createCloudInit, createCloudError,
-  createCloudGroupInit, createCloudGroupError
+  updateCloud, createCloudInit, createCloudError,
+  createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError
 } from "../actions";
 import { ICloudGroup, ICloud } from "interfaces/index";
 import { Task } from "redux-saga";
@@ -18,7 +18,7 @@ export function* fetchCloudGroupList(): Iterator<Object | Task> {
     const lists: ICloudGroup[] = yield fetchCloudGroups();
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
   } catch (e) {
-    yield put(fetchCloudsError(e));
+    yield put(fetchCloudError(e));
   }
 }
 
@@ -26,7 +26,7 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
   try {
     yield updateCloudById(payload.id, payload);
   } catch (e) {
-    yield put(fetchCloudsError(e));
+    yield put(fetchCloudError(e));
   }
 }
 
@@ -36,7 +36,9 @@ export function* createCloudSaga(event: Event): Iterator<Object | Task> {
     Cloud.accountId = localStorage.getItem('UserId');
     yield addNewCloud(Cloud.cloudId, Cloud);
     yield put(getListsStart());
+
     toastr.success('Success!', `The cloud ${Cloud.name} has been successfully created`);
+    yield put(createCloudDone());
   } catch (e) {
     toastr.error('Error!', `The cloud has not been created! Connect to the administrator for more information, mail`);
     yield put(createCloudError(e));
@@ -49,7 +51,9 @@ export function* createCloudGroupSaga(event: Event): Iterator<Object | Task> {
     CloudGroup.accountId = localStorage.getItem('UserId');
     yield addNewCloudGroup(CloudGroup);
     yield put(getListsStart());
+
     toastr.success('Success!', `The cloud group ${CloudGroup.name} has been successfully created`);
+    yield put(createCloudGroupDone());
   } catch (e) {
     toastr.error('Error!', `The cloud group has not been created! Connect to the administrator for more information, mail`);
     yield put(createCloudGroupError(e));

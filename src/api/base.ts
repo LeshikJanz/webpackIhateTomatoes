@@ -1,3 +1,6 @@
+/**
+ * Initial http configuration
+ */
 const config = {
   baseUrl: '/api/'
 };

@@ -3,7 +3,6 @@ import Cloud from "./src/modules/Cloud/components/JqueryCloud/reducers/knowledge
 import Modal from "./src/modules/DraftModal/reducers/modalReducer";
 import Knowledge from "./src/modules/DraftModal/reducers/knowledgeReducer";
 import Trello from "./src/modules/Board/reducers/lists";
-import Authorisation from "./src/modules/Login-Old/reducers/loginReducer";
 import { routerReducer } from "react-router-redux";
 import { reducer as formReducer } from 'redux-form';
 import { reducer as toastrReducer} from 'react-redux-toastr'
@@ -14,7 +13,6 @@ export default combineReducers({
   Modal,
   Knowledge,
   Trello,
-  Authorisation,
   form: formReducer,
   toastr: toastrReducer
 });

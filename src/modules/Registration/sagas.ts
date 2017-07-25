@@ -5,6 +5,13 @@ import { toastr } from 'react-redux-toastr'
 import { createAccountInit, createAccountDone, createAccountError } from "./actions";
 import { register } from "../../api/auth";
 
+/**
+ * Handle user registration
+ *
+ * @param {IUser} payload - user
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task> {
   try {
     const user: IUser = yield register(payload);
@@ -16,6 +23,9 @@ export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task>
   }
 }
 
+/**
+ * Registration saga
+ */
 export function* registrationSaga() {
   yield [
     takeEvery(createAccountInit().type, createAccountSaga)

@@ -5,13 +5,12 @@ import "../styles/main.css";
 import TagCloud from './JqueryCloud/containers/index';
 import PopUpModal from '../../DraftModal/containers/index';
 
-export const Cloud = (props) => {
-  const { params } = props;
-
-  return (
-    <div>
-      <TagCloud cloudId = {params.id} contents={props.trackNumber}/>
-      <PopUpModal/>
-    </div>
-  )
-};
+/**
+ * Cloud wrapper component
+ */
+export const Cloud = (props) => (
+  <div>
+    <TagCloud cloudId={props.params.id} contents={props.trackNumber}/>
+    <PopUpModal/>
+  </div>
+);

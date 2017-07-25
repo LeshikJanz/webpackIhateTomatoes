@@ -3,9 +3,7 @@ import { fetchCloud, updateKnowledgeById } from "../../api/cloud";
 import {
   fetchCloudInit, fetchCloudDone, fetchCloudError, updateKnowledge, updateKnowledgeError, saveKnowledge
 } from "../actions";
-import { currentCloudId } from "../Cloud/components/JqueryCloud/constants/index";
 import { Task } from "redux-saga";
-import { addUserSession } from "../../api/session";
 import { ICloud, ISession } from "../../interfaces/index";
 
 const getFromState = (state: any) => state.Knowledge;
