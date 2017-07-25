@@ -1,14 +1,17 @@
 import * as React from "react";
 import CustomModal from "components/CustomModal/containers/index";
-import AuthForm from "./authForm";
+import AuthForm from "./AuthForm";
 
-export const AuthBar = (props) => {
-  const { handleModal, isModalOpen, handleAuthFormSubmit, goRegistrationPage} = props;
+/**
+ * Header authorization menu bar
+ */
+export const AuthBar = ( props ) => {
+  const { handleModal, isModalOpen, handleAuthFormSubmit, goRegistrationPage } = props;
 
   return (
     <div className="navbar-collapse collapse">
       <button style={{ width: '90px', margin: '10px' }}
-              onClick={handleModal}
+              onClick={ handleModal }
               className="tertiary small add">
         Log In
       </button>
@@ -21,10 +24,10 @@ export const AuthBar = (props) => {
 
       <CustomModal
         title="Log In"
-        isModalOpen={isModalOpen}
+        isModalOpen={ isModalOpen }
       >
-        <AuthForm onSubmit={handleAuthFormSubmit}
-                  handleModal={handleModal}/>
+        <AuthForm onSubmit={ handleAuthFormSubmit }
+                  handleModal={ handleModal }/>
       </CustomModal>
     </div>
   )

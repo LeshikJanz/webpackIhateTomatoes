@@ -1,4 +1,8 @@
 "use strict";
+
+/**
+ * Custom styles for Draft Editor
+ */
 const customStyles = {
   overlay: {
     position: 'fixed',

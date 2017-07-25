@@ -1,5 +1,8 @@
 import * as React from "react";
 
+/**
+ * Component will show if selected url isn't exist
+ * */
 export const PageNotFound = (props) => {
 
   return (

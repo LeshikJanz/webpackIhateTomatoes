@@ -3,23 +3,35 @@ import { fetchCloud, updateKnowledgeById } from "../../api/cloud";
 import {
   fetchCloudInit, fetchCloudDone, fetchCloudError, updateKnowledge, updateKnowledgeError, saveKnowledge
 } from "../actions";
-import { currentCloudId } from "../Cloud/components/JqueryCloud/constants/index";
 import { Task } from "redux-saga";
-import { addUserSession } from "../../api/session";
 import { ICloud, ISession } from "../../interfaces/index";
 
 const getFromState = (state: any) => state.Knowledge;
 
+/**
+ * Creates user session object
+ *
+ * @param {ICloud} cloud - cloud item
+ *
+ * @returns {ISession}
+ */
 const createUserSession = (cloud: ICloud): ISession => ({
   lastOpenedCloudId: cloud.id,
   accountId: cloud.accountId
 })
 
-
+/**
+ * Handle fetching cloud by id
+ *
+ * @param {string} payload - cloud id
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
   try {
     const cloud: ICloud = yield fetchCloud(payload);
-    yield addUserSession(cloud.accountId, createUserSession(cloud));
+    // TODO: figure out issues with authorization before working with sessions
+    // yield addUserSession(cloud.accountId, createUserSession(cloud));
 
     yield put(fetchCloudDone(cloud));
   } catch (e) {
@@ -27,6 +39,11 @@ export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
   }
 }
 
+/**
+ * Updates knowledge edited in Draft editor
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* updateKnowledgeSaga(): Iterator<Object | Task> {
   try {
     const knowledge = yield select(getFromState);
@@ -37,6 +54,9 @@ export function* updateKnowledgeSaga(): Iterator<Object | Task> {
   }
 }
 
+/**
+ * Draft modal saga
+ */
 export function* popUpSaga() {
   yield takeEvery(fetchCloudInit().type, fetchCloudSaga);
   yield takeEvery(updateKnowledge().type, updateKnowledgeSaga);

@@ -1,12 +1,25 @@
 import { request } from "./base";
-import { ICloud, IKnowledge, ICloudGroup, ILogin, IUser } from "../interfaces/index";
+import { ILogin, IUser, IToken } from "../interfaces/index";
 
+/**
+ * Api for user login POST /Accounts/login
+ *
+ * See: .../explorer/#!/Account/Account_login
+ *
+ * @param {ILogin} params - Login parameters
+ * @returns {IToken} token - Token
+ */
 export const login = (params: ILogin) => {
   return request
     .post(`Accounts/login`, params)
-    .then((token: any) => token);
+    .then((token: IToken) => token);
 };
 
+/**
+ * Api for user log out POST /Accounts/logout
+ *
+ * See: .../explorer/#!/Account/Account_logout
+ */
 export const logOut = () => {
   return request
     .post(`Accounts/logout`)
@@ -14,7 +27,15 @@ export const logOut = () => {
     .catch(() => 'Logged out')
 };
 
-export const register = (params: ILogin) => {
+/**
+ * Api for user registration POST /Accounts
+ *
+ * See: .../explorer/#!/Account/Account_login
+ *
+ * @param {IUser} params - User registration parameters
+ * @returns {IUser} user - Registered user
+ */
+export const register = (params: IUser) => {
   return request
     .post(`Accounts`, params)
     .then((user: IUser) => user);

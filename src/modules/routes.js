@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import CloudBoard from "./Board/containers/Board/CloudBoard";
-import { LoginPageRoot } from "./Login-Old/containers/LoginPageRoot";
 import Board from "../../workingTrello/containers/Board/Board";
 import { urls } from "./urls";
 import Cloud from './Cloud/containers';
@@ -20,7 +19,6 @@ export default (
     <IndexRoute component={Main}/>
     <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
     <Route path={urls.board} component={CloudBoard}></Route>
-    <Route path={urls.login} component={LoginPageRoot}></Route>
     <Route path={urls.trello} component={Board}></Route>
     <Route path={urls.registration} component={Registration}></Route>
     <Route path='*' component={PageNotFound}/>

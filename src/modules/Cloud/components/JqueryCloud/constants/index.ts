@@ -1,17 +1,15 @@
-const cloudWidth = window.innerWidth / 2;
+const cloudWidth = window.innerWidth / 1.5;
 const cloudHeight = window.innerHeight;
-export const currentCloudId = "596f4eddd34e37070ec35dc2";
-// export const currentCloudId = "58fbb915a8ca5c187fa5f697";
-// export const currentCloudId = "59248baf22be6c02958e08e4";
-
 
 export const tagCloudInitial = `
   <div id="cloud">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-8 col-lg-offset-2 centered center-tag-cloud">
+    <div>
+      <div>
+        <div>
           <div id="CanvasContainer">
-            <canvas width="${cloudWidth}px" height="${cloudHeight}px" id="Canvas">
+            <canvas width="${cloudWidth}px" height="${cloudHeight}px"
+             style="border-left: 1px dashed #ffffff; border-right: 1px dashed #ffffff;"
+              id="Canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
           </div>

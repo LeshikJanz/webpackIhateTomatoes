@@ -1,9 +1,26 @@
+/**
+ * Initial http configuration
+ */
 const config = {
   baseUrl: '/api/'
 };
 
+/**
+ * Function for sending http requests
+ *
+ * @param {any[]} params - http parameters
+ *
+ * @returns {Response} response - http response
+ */
 declare function fetch(...params);
 
+/**
+ * Function for converting http response to JSON format
+ *
+ * @param {any} response - http response
+ *
+ * @returns {any} response - http response
+ */
 export const JSONResponse = (response: any) => {
   if (response.ok) {
     return response.json();
@@ -15,9 +32,13 @@ export const JSONResponse = (response: any) => {
   });
 };
 
+/**
+ * Object for sending GET, POST, PUT, DELETE, etc requests
+ *
+ * @type {any}
+ */
 export const request: any = new Object({
   get: (apiEndpoint: string, params?: any) => {
-    // params['access_token'] = localStorage.getItem('Token');
 
     const paramsString = Object
       .keys(params)
@@ -26,7 +47,6 @@ export const request: any = new Object({
 
     return fetch(config.baseUrl + apiEndpoint + ( paramsString ? `${paramsString}` : ""),
       {
-        method: "GET",
         headers: {
           "Authorization": localStorage.getItem('Token')
         }

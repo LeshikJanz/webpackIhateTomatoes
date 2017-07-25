@@ -1,13 +1,19 @@
 import { put, takeEvery } from 'redux-saga/effects'
-import { loginInit, loginDone, loginError } from "../actions";
 import { Task } from "redux-saga";
-import { ILogin, IToken } from "../../interfaces/index";
+import { ILogin, IToken } from "interfaces/index";
 import { login, logOut } from "api/auth";
 import { push, replace } from "react-router-redux";
-import { logOutInit, logOutError, logOutDone } from "./actions";
+import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
 import { toastr } from 'react-redux-toastr'
 import { urls } from "../urls";
 
+/**
+ * Log in saga handler
+ *
+ * @param {ILogin} payload - authorizing user
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
   try {
     const token: IToken = yield login(payload);
@@ -20,6 +26,12 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     yield put(loginError());
   }
 }
+
+/**
+ * Log out saga handler
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* logOutSaga(): Iterator<Object | Task> {
   try {
     yield logOut();
@@ -35,6 +47,9 @@ export function* logOutSaga(): Iterator<Object | Task> {
   }
 }
 
+/**
+ * Authorization saga
+ */
 export function* loginSaga() {
   yield [
     takeEvery(loginInit().type, loginInitSaga),

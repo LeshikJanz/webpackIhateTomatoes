@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import "assets/js/tagcanvas.min.js";
-import "../style.css";
+import "../style.scss";
 import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
 import { Link } from 'react-router';
@@ -11,11 +11,6 @@ import { urls }  from 'modules/urls';
 function tagCloudController() {
   try {
     TagCanvas.Start('Canvas', 'tags', {
-      // textColour: '#337ab7',
-      // outlineColour: '#ff00ff',
-      // reverse: true,
-      // depth: 0.8,
-      // maxSpeed: 0.04
       textFont: 'Trebuchet MS, Helvetica, sans-serif',
       textColour: '#337ab7',
       textHeight: 25,
@@ -28,7 +23,6 @@ function tagCloudController() {
       initial: [0.2, -0.2],
       decel: 1,
       reverse: true,
-      // hideTags: false,
       shadow: '#ccf',
       shadowBlur: 3,
       weight: false,
@@ -39,7 +33,17 @@ function tagCloudController() {
   } catch (e) {
     document.getElementById('CanvasContainer').style.display = 'none';
   }
-}
+};
+
+//TODO: release this function instead of long li tag inputs
+// const getHtmlTag = (elem, number = '') => `<li><a id="tag${number}"
+//     onclick="{
+//               this.dispatchEvent(new CustomEvent('tagclick',
+//                {bubbles: true, detail: { tagId: '${elem.id}' }});)
+//                return false;
+//             }"
+//      >${elem.name}</a></li>`;
+
 
 const generateTags = (tags: Array) => {
   let tagCloud = `${tagCloudInitial}`;
@@ -95,16 +99,16 @@ export class TagCloud extends React.Component {
   };
 
   render() {
-    const { props } = this;
+    const { isEditorOpen, contents, goToHeader } = this.props;
 
-    if (!props.isEditorOpen) startCloud();
+    if (!isEditorOpen) startCloud();
     else stopCloud();
     return (
       <div>
         <ReactIgnore>
-          <textarea value={props.contents}/>
+          <textarea value={contents}/>
         </ReactIgnore>
-        <button onClick={this.props.goToHeader}>Go to board through props</button>
+        <button onClick={goToHeader}>Go to board through props</button>
         <ul>
           <li><Link to={ urls.header }> Go to header</Link></li>
           <li><Link to={ urls.board }> Go to cloud board</Link></li>

@@ -1,11 +1,16 @@
-import { put, takeEvery, select } from 'redux-saga/effects'
+import { put, takeEvery } from 'redux-saga/effects'
 import { addNewKnowledge } from "../../../api/cloud";
 import { Task } from "redux-saga";
 import { addTag, updateKnowledgeError, createNewKnowledge } from "../../actions";
+import { IKnowledge } from "interfaces/index";
 
-const getFromState = (state: any) => state.Knowledge;
-
-export function* createNewKnowledgeSaga({payload}: any): Iterator<Object | Task> {
+/**
+ * Handle creating new knowledge
+ *
+ * @param {IKnowledge} payload - knowledge
+ * @returns {Iterator<Object | Task>}
+ */
+export function* createNewKnowledgeSaga( { payload }: IKnowledge ): Iterator<Object | Task> {
   try {
     const knowledge = yield addNewKnowledge(payload);
     yield put(addTag(knowledge));
@@ -14,6 +19,9 @@ export function* createNewKnowledgeSaga({payload}: any): Iterator<Object | Task>
   }
 }
 
+/**
+ * Saga with header actions
+ */
 export function* headerSaga() {
   yield takeEvery(createNewKnowledge().type, createNewKnowledgeSaga);
 }

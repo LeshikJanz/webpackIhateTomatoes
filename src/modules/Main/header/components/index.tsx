@@ -1,27 +1,37 @@
 import * as React from "react";
-import styles = require("../styles/main.scss");
 import AuthBar from "../../auth/containers/AuthBar";
 import LogOutBar from "../../auth/containers/LogOutBar";
-const classNames = require('classnames/bind');
-const cx = classNames.bind(styles);
+import { IKnowledge } from "interfaces/index";
+require('../styles/main.scss');
 const moment = require('moment');
 
-export const Header = (props) => {
-  const getEmptyKnowledge = () => ({
+/**
+ * Main page's header
+ */
+export const Header = ( props ) => {
+
+  /**
+   * Get empty(default) knowledge
+   *
+   * @returns {IKnowledge} knowledge - default knowledge
+   */
+  const getEmptyKnowledge = (): IKnowledge => ({
     name: "New knowledge",
-    userId: "string",
     createDate: moment(),
     updateDate: moment(),
     text: {},
     cloudId: props.cloudId
   });
 
+  /**
+   * Blur css filter
+   */
   const blur = { filter: 'blur(2px)' };
 
   return (
     <div style={ props.isModalOpen ? blur : {} }>
       <div className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
+        <div className="header-container">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span className="icon-bar"></span>
