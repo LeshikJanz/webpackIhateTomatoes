@@ -9,9 +9,9 @@ export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
 export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
-export function getLists(quantity) {
+export function getLists(accountId: string) {
   return dispatch => {
-    dispatch(getListsStart({ isFetching: false }));
+    dispatch(getListsStart(accountId));
   };
 }
 

@@ -13,9 +13,9 @@ export const getCloudFromState: any = (state): any => state.form.cloudForm.value
 
 export const getCloudGroupFromState: any = (state): any => state.form.cloudGroupForm.values;
 
-export function* fetchCloudGroupList(): Iterator<Object | Task> {
+export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
-    const lists: ICloudGroup[] = yield fetchCloudGroups();
+    const lists: ICloudGroup[] = yield fetchCloudGroups(payload);
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
   } catch (e) {
     yield put(fetchCloudError(e));

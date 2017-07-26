@@ -8,7 +8,7 @@ export const User = (props) => {
     <div className="user-container">
       <div className="user">
         <div className="user-avatar-small">
-          <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`} alt=""/>
+          <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
         </div>
         <div>
           <div className="user-name">
@@ -18,7 +18,8 @@ export const User = (props) => {
             1 Feb, 2017
           </div>
         </div>
-        <button className="gray small add">
+        <button className="gray small add"
+                onClick={ () => props.goToUserBoard(user.id) }>
           View user
         </button>
       </div>

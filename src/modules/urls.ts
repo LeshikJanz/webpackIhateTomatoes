@@ -7,6 +7,7 @@ export const urls = {
   header: 'header',
   board: 'board',
   login: 'login',
+  user: 'user',
   users: 'users',
   registration: 'registration'
 };

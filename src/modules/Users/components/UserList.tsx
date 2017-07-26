@@ -1,6 +1,6 @@
 import * as React from "react";
 import { IUser } from "interfaces/index";
-import { User } from "./User";
+import User from "../containers/User";
 import { Search } from "components/Search/Search";
 
 export const UserList = (props) => (
@@ -14,4 +14,4 @@ export const UserList = (props) => (
       }
     </div>
   </div>
-)
+);

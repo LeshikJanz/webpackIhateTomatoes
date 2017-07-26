@@ -19,6 +19,7 @@ export default (
   <Route path={urls.index} component={Header}>
     <IndexRoute component={Main}/>
     <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
+    <Route path={urls.user + `/:id/` + urls.board} component={CloudBoard}></Route>
     <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.trello} component={Board}></Route>
     <Route path={urls.registration} component={Registration}></Route>
