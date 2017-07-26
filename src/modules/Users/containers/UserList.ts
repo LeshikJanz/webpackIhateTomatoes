@@ -10,56 +10,8 @@ const mapStateToProps: any = (state): any => ({
 export default compose(
   connect(mapStateToProps, null, null),
   withHandlers({
-    getUsers: ({ dispatch }) => () => {
-      dispatch(getUsersInit())
-    },
-    onOpen: ({ onDropdownChange }) => () => {
-      onDropdownChange(result => ({
-        ...result,
-        open: !result.open
-      }));
-    },
-    onSelect: ({ onDropdownChange, onChange, items }) => (id) => {
-      onDropdownChange(result => {
-        const state = ({
-          ...result,
-          open: false,
-          selected: id,
-          title: items.find(item => item.id === id).title
-        });
-
-        onChange(state.selected);
-        return state;
-      });
-    },
-    onMultipleSelect: ({ onDropdownChange, onChange, items }) => (id) => {
-      onDropdownChange(result => {
-        const state = ({
-          ...result,
-          selected: toggleItemInArray(
-            result.selected,
-            id
-          )
-        });
-
-        onChange(state.selected);
-        return state;
-      });
-    },
-    onScroll: () => (event) => event.stopPropagation(),
-    clear: ({ onDropdownChange, onChange, multiple }) => () => {
-      onDropdownChange(result => {
-        const state = ({
-          ...result,
-          title: null,
-          open: false,
-          selected: multiple ? [] : null
-        });
-
-        onChange(state.selected);
-        return state;
-      });
-    }
+    getUsers: ({ dispatch }) => (event) =>
+      dispatch(getUsersInit(event && event.target && event.target.value))
   }),
   lifecycle({
     componentDidMount() {

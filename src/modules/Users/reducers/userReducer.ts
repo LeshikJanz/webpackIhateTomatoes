@@ -9,7 +9,6 @@ const initialState: IUser[] = [];
 
 export default createReducer({
   [getUsersDone]: (state: any, payload: any) => ([
-    ...state,
     ...payload
   ])
 }, initialState);

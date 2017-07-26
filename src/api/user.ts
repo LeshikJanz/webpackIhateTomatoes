@@ -8,7 +8,7 @@ import { IUser } from "../interfaces/index";
  * @returns {any} res - cloudinary response
  * @param file
  */
-export const uploadImage = ( file: File ) => {
+export const uploadImage = (file: File) => {
   const formData = new FormData();
 
   formData.append('file', file);
@@ -16,11 +16,18 @@ export const uploadImage = ( file: File ) => {
 
   return request
     .upload(CLOUDINARY_URL, file, formData)
-    .then(( res ) => res);
+    .then((res) => res);
 };
 
-export const fetchUsers = (filter?) => {
+/**
+ * Fetching users
+ *
+ * @param {string} filter - username filter
+ *
+ * @returns {IUser[]} users - users
+ */
+export const fetchUsers = (filter: string) => {
   return request
-    .get(`Accounts`, {})
+    .get("Accounts" + (filter ? `?filter={"where": {"username": {"regexp": "/${filter}%2B/"}}}` : ''), {})
     .then((users: IUser[]) => users);
 };

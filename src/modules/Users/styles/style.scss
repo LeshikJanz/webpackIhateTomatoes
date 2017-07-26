@@ -1,3 +1,14 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+
+  > .search-bar {
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-top: 10px;
+  }
+}
+
 .user-container {
   display: flex;
   justify-content: center;
