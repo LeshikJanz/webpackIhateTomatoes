@@ -1,56 +1,70 @@
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 const Dropzone = require('react-dropzone');
+import PlacesAutocomplete from 'react-places-autocomplete'
+const styles = require('../styles/style.scss');
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
+
+/**
+ * Google place autocomplete for Redux Form Field
+ */
+const places = ( { input } ) => {
+  const placesCssClasses = {
+    root: 'form-group',
+    input: 'input-container input-modal',
+    autocompleteContainer: 'my-autocomplete-container'
+  };
+
+  const inputProps = {
+    value: input.value,
+    onChange: input.onChange,
+    placeholder: 'Search Places...'
+  };
+
+  return (
+    <div>
+      <PlacesAutocomplete
+        classNames={placesCssClasses}
+        inputProps={inputProps}/>
+    </div>
+  )
+};
 
 /**
  * Registration form
  */
-const RegistrationForm = props => {
-  let avatar: string = '';
+let RegistrationForm = props => {
 
-  const dropzone = ({
-    input,
-    label,
-    meta: { touched, error },
-    ...custom
-  }) => {
+  /**
+   * Dropzone input for Redux Form Field
+   */
+  const dropzone = () => {
     const onDrop = ( acceptedFiles, rejectedFiles ) => {
-      console.log("onDrop");
-      console.log("acceptedFiles");
-
-      props.handleImageUpload(acceptedFiles[0]);
-
-      // console.log(acceptedFiles);
-      // input.onChange(acceptedFiles[0].preview);
-    }
+      props.handleImageUpload(acceptedFiles[ 0 ]);
+    };
 
     return (
-      <div className="dropzone">
-        <Dropzone onDrop={ onDrop }>
-          <p>Try dropping some files here, or click to select files to upload.</p>
-        </Dropzone>
-        <img src={avatar} alt=""/>
-      </div>
+      <Dropzone onDrop={ onDrop }>
+        <p>Drag n drop a profile picture here or&nbsp;
+          <ins>browse for one on your computer</ins>
+        </p>
+      </Dropzone>
     )
-  }
-
+  };
 
   return (
     <form onSubmit={ props.handleSubmit }>
       <div className="modal-body">
+        <div className={cx(['dropzone'])}>
+          <Field
+            name="avatar"
+            component={dropzone}
+            label="Dropzone"
+          />
+          <img src={props.avatar}/>
+        </div>
 
-        <Field
-          name="dropzone"
-          component={dropzone}
-          label="Dropzone"
-        />
-
-        {/*<div className="dropzone">*/}
-          {/*<Dropzone onDrop={ onDrop }>*/}
-            {/*<p>Try dropping some files here, or click to select files to upload.</p>*/}
-          {/*</Dropzone>*/}
-          {/*<img src={avatar} alt=""/>*/}
-        {/*</div>*/}
         <div className="form-element">
           <label htmlFor="username">User name</label>
           <div>
@@ -77,9 +91,8 @@ const RegistrationForm = props => {
         <div className="form-element">
           <label htmlFor="address">Address</label>
           <div>
-            <Field placeholder="Enter your address..." name="address" className="input-container input-modal"
-                   component="input"
-                   type="text"/>
+            <Field name="address"
+                   component={places} label="address"/>
           </div>
         </div>
         <div className="modal-footer btn-actions">
@@ -89,10 +102,10 @@ const RegistrationForm = props => {
       </div>
     </form>
   )
-}
+};
 
 RegistrationForm = reduxForm({
   form: 'RegistrationForm'
-})(RegistrationForm)
+})(RegistrationForm);
 
 export default RegistrationForm;

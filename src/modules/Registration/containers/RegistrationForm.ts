@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { IUser } from "interfaces/index";
-import { createAccountInit, avatarUploadInit } from "../actions";
+import { avatarUploadInit } from "../actions";
 import RegistrationForm from "../components/RegistrationForm";
 
 /**
@@ -12,7 +11,7 @@ import RegistrationForm from "../components/RegistrationForm";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  isModalOpen: state.Modal.isModalOpen
+  avatar: state.form.RegistrationForm && state.form.RegistrationForm.values && state.form.RegistrationForm.values.avatar
 });
 
 /**

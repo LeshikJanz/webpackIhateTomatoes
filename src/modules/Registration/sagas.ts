@@ -36,8 +36,7 @@ export function* createAccountSaga( { payload } : IUser ): Iterator<Object | Tas
 export function* avatarUploadSaga( { payload }: File ): Iterator<Object | Task> {
   const response = yield uploadImage(payload);
 
-  yield put(change("RegistrationForm", "dropzone", response.data.secure_url))
-
+  yield put(change("RegistrationForm", "avatar", response.data.secure_url))
 }
 
 /**

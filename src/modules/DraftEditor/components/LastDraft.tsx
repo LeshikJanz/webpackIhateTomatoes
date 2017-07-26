@@ -17,8 +17,7 @@ import sticker from 'ld-sticker';
 import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
-import { uploadImage } from "../../../api/user";
+import { uploadImage } from "api/user";
 
 export default class LastDraft extends React.Component<any, any> {
 

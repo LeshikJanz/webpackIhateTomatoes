@@ -1,0 +1,8 @@
+.dropzone {
+  display: flex;
+
+  > img {
+    margin-left: 50px;
+    max-height: 200px;
+  }
+}
