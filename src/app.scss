@@ -83,6 +83,10 @@ body {
   filter: blur(2px);
 }
 
+.modal-header {
+  align-items: flex-start;
+}
+
 @media (min-width: 1400px) {
   .container {
     width: auto !important;

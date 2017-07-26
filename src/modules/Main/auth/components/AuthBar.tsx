@@ -31,4 +31,4 @@ export const AuthBar = ( props ) => {
       </CustomModal>
     </div>
   )
-}
+};
