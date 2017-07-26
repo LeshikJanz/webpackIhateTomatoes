@@ -7,7 +7,7 @@ import Cloud from './Cloud/containers';
 import Header from './Main/header/containers';
 import { PageNotFound } from '../components/pageNotFound';
 import { Main } from './Main';
-import Registration from './Registration/containers';
+import Registration from './Registration/containers/Registration';
 
 /**
  * Routing between pages using React-Router-Redux
