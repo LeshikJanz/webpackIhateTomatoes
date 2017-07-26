@@ -2,7 +2,9 @@ import * as React from "react";
 import AuthBar from "../../auth/containers/AuthBar";
 import LogOutBar from "../../auth/containers/LogOutBar";
 import { IKnowledge } from "interfaces/index";
-require('../styles/main.scss');
+const styles = require('../styles/main.scss');
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 const moment = require('moment');
 
 /**
@@ -26,13 +28,14 @@ export const Header = ( props ) => {
   /**
    * Blur css filter
    */
+    //TODO: Make filter blur though classNames and cx
   const blur = { filter: 'blur(2px)' };
 
   return (
-    <div style={ props.isModalOpen ? blur : {} }>
-      <div className="navbar navbar-default navbar-fixed-top">
+    <div className={cx([{ 'blur': props.isModalOpen }])}>
+      <div className="navbar navbar-default">
         <div className="header-container">
-          <div className="navbar-header">
+          <div>
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -43,16 +46,15 @@ export const Header = ( props ) => {
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
           <div id="hello">
-            <div className="col-lg-8 centered">
-              <h2>Hurry up to fill your Big Head up. <br/>
-                World's knowledge is here!</h2>
-            </div>
+            <h2>Hurry up to fill your Big Head up. <br/>
+              World's knowledge is here!</h2>
           </div>
-          {
-            !localStorage.getItem('Token') ?
-              <AuthBar/> : <LogOutBar/>
-
-          }
+          <div>
+            {
+              !localStorage.getItem('Token') ?
+                <AuthBar/> : <LogOutBar/>
+            }
+          </div>
         </div>
       </div>
       {props.children}

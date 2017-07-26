@@ -10,7 +10,7 @@ import PopUpModal from '../../DraftModal/containers/index';
  */
 export const Cloud = (props) => (
   <div>
-    <TagCloud cloudId={props.params.id} contents={props.trackNumber}/>
+    <TagCloud cloudId={props.params && props.params.id} contents={props.trackNumber}/>
     <PopUpModal/>
   </div>
 );

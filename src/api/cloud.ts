@@ -8,10 +8,10 @@ import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
  *
  * @returns {ICloudGroup[]} cloudGroups - cloud groups
  */
-export const fetchCloudGroups = () => {
+export const fetchCloudGroups = (accountId?: string) => {
   return request
-    .get(`CloudGroups?filter={"include": ["clouds"]}`, {})
-    .then((cloudGroups: ICloudGroup[]) => cloudGroups);
+    .get('CloudGroups?filter={"include": ["clouds"]' + (accountId ? `, "where": {"accountId": "${accountId}"}}` : '}'), {})
+    .then((cloudGroups: ICloudGroup[]) => cloudGroups)
 };
 
 /**

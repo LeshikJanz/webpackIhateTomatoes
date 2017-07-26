@@ -17,7 +17,7 @@ import sticker from 'ld-sticker';
 import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
+import { uploadImage } from "api/user";
 
 export default class LastDraft extends React.Component<any, any> {
 
@@ -59,21 +59,10 @@ export default class LastDraft extends React.Component<any, any> {
    * @returns {Promise}
    */
   uploadImageAsync( file: File ): Promise<any> {
-    const formData = new FormData();
-
-    formData.append('file', file);
-    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
     return new Promise(
       ( resolve, reject ) =>
-        axios({
-          url: CLOUDINARY_URL,
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data: formData
-        }).then(( res ) => resolve({ src: res.data.secure_url }))
+        uploadImage(file)
+          .then(( res ) => resolve({ src: res.data.secure_url }))
           .catch(( err ) => reject(err))
     )
   }

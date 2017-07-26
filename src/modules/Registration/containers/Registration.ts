@@ -2,6 +2,10 @@ import { Registration } from '../components/Registration';
 import { connect } from 'react-redux';
 import { IUser } from "interfaces/index";
 import { createAccountInit } from "../actions";
+import { push } from "react-router-redux";
+import { urls } from "../../urls";
+import { addNewCloudGroup } from "../../../api/cloud";
+import { DEFAULT_CLOUD_GROUP } from "../../../constants/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -24,7 +28,10 @@ const mapStateToProps = (state) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps = (dispatch) => ({
-  handleRegistrationFormSubmit: (regForm: IUser) => dispatch(createAccountInit(regForm))
+  handleRegistrationFormSubmit: (regForm: IUser) => {
+    dispatch(createAccountInit(regForm));
+    dispatch(push(urls.index));
+  }
 });
 
 /**

@@ -66,10 +66,25 @@ body {
 
 .header-container {
   margin: 10px 50px;
+  display: flex;
+  align-items: center;
 }
 
 .container {
   margin: 100px 10px 0 10px;
+}
+
+.centered-container {
+  text-align: center;
+  margin: 0 20%;
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+.modal-header {
+  align-items: flex-start;
 }
 
 @media (min-width: 1400px) {

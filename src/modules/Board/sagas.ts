@@ -13,9 +13,9 @@ export const getCloudFromState: any = (state): any => state.form.cloudForm.value
 
 export const getCloudGroupFromState: any = (state): any => state.form.cloudGroupForm.values;
 
-export function* fetchCloudGroupList(): Iterator<Object | Task> {
+export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
-    const lists: ICloudGroup[] = yield fetchCloudGroups();
+    const lists: ICloudGroup[] = yield fetchCloudGroups(payload);
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
   } catch (e) {
     yield put(fetchCloudError(e));
@@ -30,7 +30,7 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
   }
 }
 
-export function* createCloudSaga(event: Event): Iterator<Object | Task> {
+export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
     Cloud.accountId = localStorage.getItem('UserId');
@@ -45,7 +45,7 @@ export function* createCloudSaga(event: Event): Iterator<Object | Task> {
   }
 }
 
-export function* createCloudGroupSaga(event: Event): Iterator<Object | Task> {
+export function* createCloudGroupSaga(): Iterator<Object | Task> {
   try {
     const CloudGroup = yield select(getCloudGroupFromState);
     CloudGroup.accountId = localStorage.getItem('UserId');

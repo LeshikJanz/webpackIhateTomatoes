@@ -7,6 +7,7 @@ import { ReactIgnore } from "./ReactIgnore";
 import { tagCloudInitial } from "../constants/index";
 import { Link } from 'react-router';
 import { urls }  from 'modules/urls';
+import { DEFAULT_CLOUD_ID } from "../../../../../constants/index";
 
 function tagCloudController() {
   try {
@@ -80,7 +81,7 @@ export class TagCloud extends React.Component {
   static tagNumber = 0;
 
   componentDidMount = () => {
-    this.props.fetchCloudInit(this.props.cloudId);
+    this.props.fetchCloudInit(this.props.cloudId || DEFAULT_CLOUD_ID);
     document.addEventListener('tagclick', this.handleTagClick);
   };
 
@@ -106,13 +107,8 @@ export class TagCloud extends React.Component {
     return (
       <div>
         <ReactIgnore>
-          <textarea value={contents}/>
+          <textarea style={{ opacity: 0 }} value={contents}/>
         </ReactIgnore>
-        <button onClick={goToHeader}>Go to board through props</button>
-        <ul>
-          <li><Link to={ urls.header }> Go to header</Link></li>
-          <li><Link to={ urls.board }> Go to cloud board</Link></li>
-        </ul>
       </div>
     )
   }

@@ -6,7 +6,8 @@ export const urls = {
   cloud: 'cloud',
   header: 'header',
   board: 'board',
-  trello: 'trello',
   login: 'login',
+  user: 'user',
+  users: 'users',
   registration: 'registration'
 };

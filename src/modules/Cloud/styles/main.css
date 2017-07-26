@@ -110,8 +110,7 @@ a:after {
 
 .navbar-brand {
 	font-size: 60px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+	height: 100px;
 }
 
 .btn-theme {
@@ -138,8 +137,8 @@ a:after {
 #hello {
 	width: 100%;
 	padding-right: 10px;
-	/*padding-top: 20px;
-	padding-bottom: 250px;*/
+	display: flex;
+	justify-content: center;
 }
 
 #hello h1 {
@@ -152,6 +151,8 @@ a:after {
 #hello h2 {
 	color: #c0c0c0;
 	font-weight: 400;
+	margin: 0 !important;
+	text-align: center;
 }
 
 /* Green */

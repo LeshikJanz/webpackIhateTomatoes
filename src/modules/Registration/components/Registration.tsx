@@ -1,5 +1,5 @@
 import * as React from "react";
-import RegistrationForm from "./RegistrationForm";
+import RegistrationForm from "../containers/RegistrationForm";
 
 /**
  * Registration page
