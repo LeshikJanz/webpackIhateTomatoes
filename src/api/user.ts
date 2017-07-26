@@ -1,5 +1,6 @@
 import { request } from "./base";
 import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
+import { IUser } from "../interfaces/index";
 
 /**
  * Uploading image to cloudinary.com
@@ -16,4 +17,10 @@ export const uploadImage = ( file: File ) => {
   return request
     .upload(CLOUDINARY_URL, file, formData)
     .then(( res ) => res);
+};
+
+export const fetchUsers = (filter?) => {
+  return request
+    .get(`Accounts`, {})
+    .then((users: IUser[]) => users);
 };

@@ -8,6 +8,7 @@ import Header from './Main/header/containers';
 import { PageNotFound } from '../components/pageNotFound';
 import { Main } from './Main';
 import Registration from './Registration/containers/Registration';
+import UserList from './Users/containers/UserList';
 
 /**
  * Routing between pages using React-Router-Redux
@@ -21,6 +22,7 @@ export default (
     <Route path={urls.board} component={CloudBoard}></Route>
     <Route path={urls.trello} component={Board}></Route>
     <Route path={urls.registration} component={Registration}></Route>
+    <Route path={urls.users} component={UserList}></Route>
     <Route path='*' component={PageNotFound}/>
   </Route>
 );
