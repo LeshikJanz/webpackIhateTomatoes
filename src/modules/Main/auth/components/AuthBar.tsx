@@ -9,8 +9,8 @@ export const AuthBar = ( props ) => {
   const { handleModal, isModalOpen, handleAuthFormSubmit, goRegistrationPage } = props;
 
   return (
-    <div className="navbar-collapse collapse">
-      <button style={{ width: '90px', margin: '10px' }}
+    <div>
+      <button style={{ width: '90px', marginBottom: '10px' }}
               onClick={ handleModal }
               className="tertiary small add">
         Log In

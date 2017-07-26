@@ -30,9 +30,9 @@ export const Header = ( props ) => {
 
   return (
     <div style={ props.isModalOpen ? blur : {} }>
-      <div className="navbar navbar-default navbar-fixed-top">
+      <div className="navbar navbar-default">
         <div className="header-container">
-          <div className="navbar-header">
+          <div>
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -43,16 +43,17 @@ export const Header = ( props ) => {
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
           <div id="hello">
-            <div className="col-lg-8 centered">
+            <div className="centered">
               <h2>Hurry up to fill your Big Head up. <br/>
                 World's knowledge is here!</h2>
             </div>
           </div>
-          {
-            !localStorage.getItem('Token') ?
-              <AuthBar/> : <LogOutBar/>
-
-          }
+          <div>
+            {
+              !localStorage.getItem('Token') ?
+                <AuthBar/> : <LogOutBar/>
+            }
+          </div>
         </div>
       </div>
       {props.children}
