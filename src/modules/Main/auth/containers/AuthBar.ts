@@ -3,7 +3,7 @@ import { AuthBar } from "../components/AuthBar";
 import { handleModalAction } from "../../../actions";
 import { ILogin } from "interfaces/index";
 import { push } from "react-router-redux";
-import { urls } from "../../../urls";
+import { urls } from "modules/urls";
 import { loginInit } from "../../actions";
 
 /**

@@ -204,6 +204,7 @@ export default class CloudBoard extends React.Component {
             />
           </CustomModal>
         }
+        {}
         <div className="centered-container">
           <h1>Welcome to the board. You're already has one default cloud group - Main.
          Let's start working with Big Head from creating first cloud</h1>

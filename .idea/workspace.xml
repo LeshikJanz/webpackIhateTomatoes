@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/constants/index.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/constants/index.ts" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/Main/styles/style.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/base.ts" afterPath="$PROJECT_DIR$/src/api/base.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/user.ts" afterPath="$PROJECT_DIR$/src/api/user.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.scss" afterPath="$PROJECT_DIR$/src/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/index.ts" afterPath="$PROJECT_DIR$/src/interfaces/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants/index.ts" afterPath="$PROJECT_DIR$/src/constants/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" afterPath="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/Board/sagas.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx" afterPath="$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx" afterPath="$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts" afterPath="$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Main/index.tsx" afterPath="$PROJECT_DIR$/src/modules/Main/index.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Registration/containers/Registration.ts" afterPath="$PROJECT_DIR$/src/modules/Registration/containers/Registration.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Registration/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/Registration/sagas.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
     <ignored path="webpackEgghead.iws" />
@@ -33,108 +30,43 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="RegistrationForm.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/Registration/containers/RegistrationForm.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#0#38#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Registration.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/Registration/containers/Registration.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#58#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="actions.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/Registration/actions.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CloudBoard.tsx" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="453">
-                  <caret line="206" column="13" lean-forward="false" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="43" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/modules/Main/index.tsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/app.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="429">
-                  <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="base.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api/base.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="user.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/api/user.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#0#33#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Main/header/components/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="52" column="20" lean-forward="false" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/Main/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/Main/styles/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name</find>
       <find>moveCard</find>
       <find>jquer</find>
       <find>tagCloudInitial</find>
@@ -164,6 +96,7 @@
       <find>setNewTag</find>
       <find>RegistrationForm</find>
       <find>autocomplet</find>
+      <find>cloudId</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -183,8 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/boot/authentication.js" />
-        <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/snapToGrid.ts" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/reducers/modalReducer.ts" />
         <option value="$PROJECT_DIR$/src/modules/Board/actions/lists.ts" />
@@ -202,13 +133,10 @@
         <option value="$PROJECT_DIR$/src/components/CustomModal/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/components/CustomModal/containers/index.ts" />
         <option value="$PROJECT_DIR$/src/components/pageNotFound/index.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx" />
         <option value="$PROJECT_DIR$/src/modules/DraftModal/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/constants/index.ts" />
         <option value="$PROJECT_DIR$/reducers.ts" />
         <option value="$PROJECT_DIR$/src/modules/Main/actions.ts" />
-        <option value="$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts" />
         <option value="$PROJECT_DIR$/src/modules/actions.ts" />
         <option value="$PROJECT_DIR$/src/modules/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/urls.ts" />
@@ -227,13 +155,18 @@
         <option value="$PROJECT_DIR$/src/api/base.ts" />
         <option value="$PROJECT_DIR$/src/api/user.ts" />
         <option value="$PROJECT_DIR$/src/interfaces/index.ts" />
-        <option value="$PROJECT_DIR$/src/constants/index.ts" />
         <option value="$PROJECT_DIR$/src/modules/Board/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/Registration/containers/Registration.ts" />
         <option value="$PROJECT_DIR$/src/modules/Registration/sagas.ts" />
-        <option value="$PROJECT_DIR$/src/app.scss" />
         <option value="$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx" />
+        <option value="$PROJECT_DIR$/src/constants/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx" />
+        <option value="$PROJECT_DIR$/src/styles/modal.scss" />
+        <option value="$PROJECT_DIR$/src/app.scss" />
+        <option value="$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts" />
         <option value="$PROJECT_DIR$/src/modules/Main/index.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx" />
+        <option value="$PROJECT_DIR$/src/modules/Main/styles/style.scss" />
       </list>
     </option>
   </component>
@@ -316,6 +249,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -360,6 +311,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DraftEditor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -382,7 +359,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Board" />
+              <option name="myItemId" value="Cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpackIhateTomatoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,7 +575,7 @@
       <workItem from="1500649801874" duration="12000" />
       <workItem from="1500649823953" duration="286000" />
       <workItem from="1500997032175" duration="7667000" />
-      <workItem from="1501056242701" duration="13063000" />
+      <workItem from="1501056242701" duration="14921000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: created simple jquery wrapper for textEditor">
       <created>1490533727161</created>
@@ -882,11 +885,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501068099677</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Feat: implemented creating default cloud group after user registration&#10;">
+      <created>1501070524882</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1501070524882</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206000000" />
+    <option name="totallyTimeSpent" value="207858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
@@ -1011,7 +1021,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: hiden blue trello background&#10;" />
     <MESSAGE value="Feat: implemented image uploading though axios to cloudinary" />
     <MESSAGE value="Feat: added typeDoc to project" />
     <MESSAGE value="Feat: created copy of trello board&#10;" />
@@ -1036,7 +1045,8 @@
     <MESSAGE value="Feat: refactored registration form and global actions&#10;" />
     <MESSAGE value="Feat: implemented api for uploading files to cloudinary&#10;" />
     <MESSAGE value="Feat: implemented autocomplete for registration form&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented autocomplete for registration form&#10;" />
+    <MESSAGE value="Feat: implemented creating default cloud group after user registration&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented creating default cloud group after user registration&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1045,37 +1055,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/reducers/knowledgeReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/initialize.ts" />
-    <entry file="file://$PROJECT_DIR$/src/core/initialize.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/button/index.tsx" />
-    <entry file="file://$PROJECT_DIR$/src/api/session.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#33#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CustomModal/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="2" lean-forward="false" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CustomModal/style.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1107,14 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Main/actions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1128,26 +1099,6 @@
         <state relative-caret-position="210">
           <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1203,14 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1305,9 +1248,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,24 +1276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/base.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/user.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Board/actions/lists.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1365,14 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1410,7 +1325,7 @@
         <state relative-caret-position="201">
           <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1441,28 +1356,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.scss">
+    <entry file="file://$PROJECT_DIR$/src/constants/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="19" />
+        <state relative-caret-position="135">
+          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="41" lean-forward="true" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Board/containers/Board/CloudBoard.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="206" column="13" lean-forward="false" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="43" />
+        <state relative-caret-position="633">
+          <caret line="193" column="9" lean-forward="true" selection-start-line="193" selection-start-column="9" selection-end-line="193" selection-end-column="9" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Main/index.tsx">
+    <entry file="file://$PROJECT_DIR$/src/modules/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/containers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/Cloud.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="75" column="1" lean-forward="false" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="80" column="10" lean-forward="false" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Main/auth/components/AuthBar.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Main/auth/containers/AuthBar.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#33#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/base.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Main/header/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="52" column="20" lean-forward="false" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Main/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Cloud/components/JqueryCloud/components/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="109" column="39" lean-forward="false" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+          <folding>
+            <marker date="1501073262000" expanded="true" signature="1533:1723" ph="..." />
+            <marker date="1501073262000" expanded="true" signature="1545:1718" ph="..." />
+            <marker date="1501073262000" expanded="true" signature="2012:2224" ph="..." />
+            <marker date="1501073262000" expanded="true" signature="2033:2219" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Main/styles/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding />
         </state>
       </provider>

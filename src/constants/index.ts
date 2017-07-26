@@ -6,3 +6,5 @@ export const DEFAULT_CLOUD_GROUP: ICloudGroup = {
   name: "Main",
   title: "This is your default cloud group."
 };
+
+export const DEFAULT_CLOUD_ID: string = "5975c01383025c0292f174ed";
