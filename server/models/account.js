@@ -1,5 +1,4 @@
 'use strict';
 
-module.exports = function(Auth) {
-
+module.exports = function (Auth) {
 };

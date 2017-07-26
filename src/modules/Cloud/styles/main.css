@@ -137,8 +137,8 @@ a:after {
 #hello {
 	width: 100%;
 	padding-right: 10px;
-	/*padding-top: 20px;
-	padding-bottom: 250px;*/
+	display: flex;
+	justify-content: center;
 }
 
 #hello h1 {
@@ -152,6 +152,7 @@ a:after {
 	color: #c0c0c0;
 	font-weight: 400;
 	margin: 0 !important;
+	text-align: center;
 }
 
 /* Green */

@@ -6,6 +6,7 @@
   "options": {
     "validateUpsert": true
   },
+  "replaceById": true,
   "properties": {
     "name": {
       "type": "string"
@@ -47,6 +48,5 @@
     }
   },
   "acls": [],
-  "methods": {},
-  "replaceById": true
+  "methods": {}
 }

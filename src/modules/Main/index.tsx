@@ -13,7 +13,7 @@ export const Main = ( props ) => (
        knowledge with people from all over the world</h2>
       <div>
         <button className="primary get-started-button">
-          Get Started
+          Get Started!
         </button>
       </div>
     </div>
