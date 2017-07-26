@@ -30,7 +30,7 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
   }
 }
 
-export function* createCloudSaga(event: Event): Iterator<Object | Task> {
+export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
     Cloud.accountId = localStorage.getItem('UserId');
@@ -45,7 +45,7 @@ export function* createCloudSaga(event: Event): Iterator<Object | Task> {
   }
 }
 
-export function* createCloudGroupSaga(event: Event): Iterator<Object | Task> {
+export function* createCloudGroupSaga(): Iterator<Object | Task> {
   try {
     const CloudGroup = yield select(getCloudGroupFromState);
     CloudGroup.accountId = localStorage.getItem('UserId');

@@ -9,6 +9,9 @@ import {
 import { register } from "../../api/auth";
 import { change } from "redux-form";
 import { uploadImage } from "../../api/user";
+import { DEFAULT_CLOUD_GROUP } from "../../constants/index";
+import { createCloudGroupInit } from "../actions";
+import { addNewCloudGroup } from "../../api/cloud";
 
 /**
  * Handle user registration
@@ -22,6 +25,7 @@ export function* createAccountSaga( { payload } : IUser ): Iterator<Object | Tas
     const user: IUser = yield register(payload);
     yield put(createAccountDone());
     toastr.success('Success!', `The user ${user.username} has been successfully created`);
+    yield addNewCloudGroup(Object.assign({}, DEFAULT_CLOUD_GROUP, { accountId: user.id }))
   } catch (e) {
     toastr.error('Error!', `The user has not been created!`);
     yield put(createAccountError());

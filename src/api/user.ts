@@ -1,5 +1,5 @@
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../modules/DraftEditor/constants/index";
 import { request } from "./base";
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
 
 /**
  * Uploading image to cloudinary.com

@@ -1,4 +1,3 @@
-import { CLOUDINARY_URL, CLOUDINARY_UPLOAD_PRESET } from "../modules/DraftEditor/constants/index";
 /**
  * Initial http configuration
  */

@@ -72,6 +72,11 @@ body {
   margin: 100px 10px 0 10px;
 }
 
+.centered-container {
+  text-align: center;
+  margin: 0 20%;
+}
+
 @media (min-width: 1400px) {
   .container {
     width: auto !important;
