@@ -137,7 +137,9 @@ export default class CloudBoard extends React.Component {
   }
 
   render() {
-    const { lists, modal } = this.props;
+    const {
+      lists, modal, handleModal, handleCloudGroupFormSubmit, handleCloudFormSubmit
+    } = this.props;
 
     return (
       <div>
@@ -182,31 +184,29 @@ export default class CloudBoard extends React.Component {
           isModalOpen={modal.isOpen && modal.type == "CloudAdd"}
         >
           <CloudForm cloudGroups={lists}
-                     handleModalAction={this.props.handleModal}
-                     onSubmit={this.props.handleCloudFormSubmit}
+                     handleModalAction={handleModal}
+                     onSubmit={handleCloudFormSubmit}
           />
         </CustomModal>
 
         <CustomModal
-          onSubmit={ this.props.onSubmit }
           title="Adding new cloud group"
           isModalOpen={modal.isOpen && modal.type == 'CloudGroupAdd'}
         >
           <CloudGroupForm
-            handleModalAction={this.props.handleModal}
-            onSubmit={this.props.handleCloudGroupFormSubmit}
+            handleModalAction={handleModal}
+            onSubmit={handleCloudGroupFormSubmit}
           />
         </CustomModal>
 
         <ConfirmModal
-          title={this.props.modal.title}
-          text={this.props.modal.text}
+          handleConfirm={ () => this.props[modal.callback](modal.itemId) }
           isModalOpen={modal.isOpen && modal.type === 'Delete'}
         />
 
         { (lists.length === 1 && !lists[0].clouds.length) &&
         <div className="centered-container">
-          <h1>Welcome to the board. You're already have one default cloud group - Main.
+          <h1>Welcome to the board. You're already have one default cloud group - <b>Main.</b>&nbsp;
          Let's start working with Big Head from creating first cloud
           </h1>
         </div>

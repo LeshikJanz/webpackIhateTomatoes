@@ -11,7 +11,6 @@ import { handleModalAction } from "modules/actions";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  // isModalOpen: state.Modal.isModalOpen
 });
 
 /**

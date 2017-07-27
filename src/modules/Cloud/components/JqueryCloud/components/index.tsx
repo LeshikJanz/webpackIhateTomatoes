@@ -83,7 +83,7 @@ export class TagCloud extends React.Component {
   };
 
   componentDidUpdate = () => {
-    if ( TagCloud.tagNumber != this.props.tags.length ) {
+    if ( TagCloud.tagNumber != (this.props.tags && this.props.tags.length) ) {
       if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }

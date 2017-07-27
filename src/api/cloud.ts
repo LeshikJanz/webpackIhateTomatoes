@@ -88,6 +88,20 @@ export const deleteCloudGroup = (id: string) => {
 };
 
 /**
+ * Deleting cloud by id
+ *
+ * See: .../explorer/#!/Clouds/{id}:DELETE
+ * @param {string} id - deleting cloud id
+ *
+ * @returns {string} c - amount of deleted clouds
+ */
+export const deleteCloud = (id: string) => {
+  return request
+    .delete(`Clouds/${id}`)
+    .then((c: string) => c);
+};
+
+/**
  * Fetching knowledge by id
  *
  * See: .../explorer/#!/Knowledges/{id}:GET

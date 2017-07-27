@@ -58,5 +58,13 @@ export function handleCloudGroupFormSubmit(event) {
   }
 }
 
-export const deleteCloudGroup = (cloudId) => (dispatch) =>
-  dispatch(deleteCloudGroupInit(cloudId));
+export const deleteCloudGroup = (cloudGroupId: string) => (dispatch) => {
+  dispatch(deleteCloudGroupInit(cloudGroupId));
+  dispatch(handleModalAction());
+};
+
+export const deleteCloud = (cloudId: string) => (dispatch) => {
+  dispatch(deleteCloudInit(cloudId));
+  dispatch(handleModalAction());
+};
+

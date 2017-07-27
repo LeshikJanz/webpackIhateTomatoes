@@ -1,5 +1,8 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup, deleteCloudGroup } from "../../api/cloud";
+import {
+  fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup, deleteCloudGroup,
+  deleteCloud
+} from "../../api/cloud";
 import {
   updateCloud, createCloudInit, createCloudError,
   createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError
@@ -8,7 +11,10 @@ import { ICloudGroup, ICloud } from "interfaces/index";
 import { Task } from "redux-saga";
 import { getListsStart } from "./actions/lists";
 import { toastr } from 'react-redux-toastr'
-import { deleteCloudInit, deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError } from "./actions";
+import {
+  deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
+  deleteCloudDone, deleteCloudError
+} from "./actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
@@ -80,12 +86,25 @@ export function* deleteCloudGroupSaga({ payload }: string ): Iterator<Object | T
   }
 }
 
+export function* deleteCloudSaga({ payload }: string ): Iterator<Object | Task> {
+  try {
+    yield deleteCloud(payload);
+    toastr.success('Success!', `The cloud has been successfully deleted`);
+    yield put(getListsStart());
+    yield put(deleteCloudDone());
+  } catch (e) {
+    toastr.error('Error!', `The cloud has not been deleted! Connect to the administrator for more information, mail`);
+    yield put(deleteCloudError(e));
+  }
+}
+
 export function* trelloSaga() {
   yield [
     takeEvery(getListsStart().type, fetchCloudGroupList),
     takeEvery(updateCloud().type, updateCloudSaga),
     takeEvery(createCloudInit().type, createCloudSaga),
     takeEvery(createCloudGroupInit().type, createCloudGroupSaga),
-    takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga)
+    takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga),
+    takeEvery(deleteCloudInit().type, deleteCloudSaga),
   ]
 }

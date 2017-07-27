@@ -11,7 +11,9 @@ const initialState: IModal = {
   type: "",
   title: "",
   text: "",
-  isOpen: false
+  itemId: "",
+  isOpen: false,
+  callback: ""
 };
 
 export default createReducer({

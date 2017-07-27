@@ -14,9 +14,9 @@ import { loginInit } from "../../actions";
  *
  * @param: {any} state - App state
  */
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isModalOpen
+  modal: state.Modal
 });
 
 /**
@@ -28,8 +28,8 @@ const mapStateToProps = ( state ) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps: any = dispatch => ({
-  handleModal: ( tag ) => dispatch(handleModalAction()),
-  handleAuthFormSubmit: ( credentials: ILogin ) => {
+  handleModal: (tag) => dispatch(handleModalAction({ type: 'Auth' })),
+  handleAuthFormSubmit: (credentials: ILogin) => {
     dispatch(loginInit(credentials));
     dispatch(handleModalAction());
   },

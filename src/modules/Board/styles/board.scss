@@ -21,16 +21,16 @@
   }
 }
 
+.desk:hover .desk-head > img, .item:hover .item-name > img  {
+  visibility: visible;
+  opacity: 1;
+}
+
 .desk-head, .item-name {
   display: flex;
   width: 100%;
   justify-content: space-between;
   transition: 1s linear;
-
-  &:hover > img {
-    visibility: visible;
-    opacity: 1;
-  }
 
   > img {
     cursor: pointer;

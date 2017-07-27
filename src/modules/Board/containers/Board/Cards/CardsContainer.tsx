@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { DropTarget, DragSource } from 'react-dnd';
-
 import Cards from './Cards';
 import PropTypes = React.PropTypes;
 import { connect } from "react-redux";
-import { deleteCloudGroupInit } from "../../../actions";
-import { handleModalAction } from "../../../../actions";
-import { IModal } from "../../../../../interfaces/index";
+import { handleModalAction } from "modules/actions";
+import { IModal } from "interfaces/index";
 
 const listSource = {
   beginDrag(props) {
@@ -69,12 +67,12 @@ export default class CardsContainer extends React.Component {
     startScrolling: PropTypes.func,
     stopScrolling: PropTypes.func,
     isScrolling: PropTypes.bool
-  }
+  };
 
   render() {
     const {
       connectDropTarget, connectDragSource, item, x, moveCard, update, isDragging,
-      handleModal, handleDeleteCloudGroup
+      handleModal, lists
     } = this.props;
 
     item.cards = item.clouds;
@@ -86,12 +84,14 @@ export default class CardsContainer extends React.Component {
         <div className="desk-head">
           <div className="desk-name">{item.name}</div>
           {
-            !item.cards.length &&
+            (!item.cards.length && lists.length > 1) &&
             <img onClick={ () => {
               handleModal({
                             type: "Delete",
-                            title: `Are you sure?`,
-                            text:  `You're going to delete ${item.name} group`
+                            title: `Confirm?`,
+                            text:  `Are you sure you want to delete <b>${item.name}?</b> This cloud group will be archive and you will not see it on the Board.`,
+                            itemId: item.id,
+                            callback: 'deleteCloudGroup'
                           });
             } } src="assets/icons/del.png"/>
           }
@@ -110,12 +110,11 @@ export default class CardsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  lists: state.Trello.lists
+});
 
 const mapDispatchToProps: any = dispatch => ({
-  handleDeleteCloudGroup: (id) => {
-    dispatch(deleteCloudGroupInit(id))
-  },
   handleModal: (modal: IModal) => {
     dispatch(handleModalAction(modal))
   }

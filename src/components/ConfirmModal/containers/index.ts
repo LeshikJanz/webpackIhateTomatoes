@@ -11,7 +11,7 @@ import { handleModalAction } from "modules/actions";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  isConfirmModalOpen: state.Modal.isConfirmModalOpen
+  modal: state.Modal
 });
 
 /**
