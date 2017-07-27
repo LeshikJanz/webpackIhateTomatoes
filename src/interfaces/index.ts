@@ -82,3 +82,14 @@ declare interface IUser extends Identifiable {
   emailVerified: boolean,
   accountId: string
 }
+
+/**
+ * Modal interface
+ */
+export
+declare interface IModal {
+  type: string,
+  title: string,
+  text: string,
+  isOpen: boolean
+}

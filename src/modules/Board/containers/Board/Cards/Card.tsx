@@ -7,7 +7,10 @@ const Card = (props) => {
 
   return (
     <div style={style} className="item" id={style ? item.id : null}>
-      <div className="item-name">{item.name}</div>
+      <div className="item-name">
+        <div>{item.name}</div>
+        <img src="assets/icons/del.png"/>
+      </div>
       <div className="item-container">
         <div className="item-avatar-wrap">
           <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt=""/>

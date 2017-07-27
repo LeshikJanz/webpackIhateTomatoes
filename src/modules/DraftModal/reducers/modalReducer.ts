@@ -1,21 +1,24 @@
 import { createReducer } from 'utils/createReducer';
 import {
-  handleModalAction, openEditor, closeEditor
+  handleModalAction, openEditor, closeEditor, handleConfirmModalAction
 } from "modules/actions";
+import { IModal } from "interfaces/index";
 
 /**
  * Initial state for modal reducer
  */
-const initialState = {
-  isModalOpen: false,
-  isEditorOpen: false,
-  isOptionsOpen: false,
-}
+const initialState: IModal = {
+  type: "",
+  title: "",
+  text: "",
+  isOpen: false
+};
 
 export default createReducer({
-  [handleModalAction]: ( state: any ) => ({
+  [handleModalAction]: ( state: any, payload: IModal ) => ({
     ...state,
-    isModalOpen: !state.isModalOpen
+    ...payload,
+    isOpen: !state.isOpen
   }),
   [openEditor]: ( state: any ) => ({
     ...state,
@@ -24,5 +27,9 @@ export default createReducer({
   [closeEditor]: ( state: any ) => ({
     ...state,
     isEditorOpen: false
+  }),
+  [handleConfirmModalAction]: ( state: any ) => ({
+    ...state,
+    isConfirmModalOpen: !state.isConfirmModalOpen
   })
 }, initialState);

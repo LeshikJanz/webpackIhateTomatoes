@@ -6,6 +6,8 @@ export const openEditor = createAction('OPEN_EDITOR');
 export const closeEditor = createAction('CLOSE_EDITOR');
 export const handleModalAction = createAction('HANDLE_MODAL');
 
+export const handleConfirmModalAction = createAction('HANDLE_CONFIRM_MODAL');
+
 export const viewCloud = createAction('VIEW_CLOUD');
 export const fetchCloudInit = createAction('FETCH_CLOUD_INIT');
 export const fetchCloudDone = createAction('FETCH_CLOUD_DONE');

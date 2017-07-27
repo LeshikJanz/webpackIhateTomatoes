@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { Header } from "../components/index";
-import { createNewKnowledge, handleModalAction } from "modules/actions";
+import { ConfirmModal } from "../components";
+import { handleModalAction } from "modules/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -11,8 +11,7 @@ import { createNewKnowledge, handleModalAction } from "modules/actions";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isOpen
+  isConfirmModalOpen: state.Modal.isConfirmModalOpen
 });
 
 /**
@@ -24,8 +23,7 @@ const mapStateToProps = (state) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps: any = dispatch => ({
-  addTag: (tag) => dispatch(createNewKnowledge(tag)),
-  handleModalAction: (tag) => dispatch(handleModalAction())
+  handleModal: () => dispatch(handleModalAction()),
 });
 
 /**
@@ -42,4 +40,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Header);
+)(ConfirmModal);

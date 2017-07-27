@@ -1,5 +1,5 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup } from "../../api/cloud";
+import { fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup, deleteCloudGroup } from "../../api/cloud";
 import {
   updateCloud, createCloudInit, createCloudError,
   createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError
@@ -8,11 +8,19 @@ import { ICloudGroup, ICloud } from "interfaces/index";
 import { Task } from "redux-saga";
 import { getListsStart } from "./actions/lists";
 import { toastr } from 'react-redux-toastr'
+import { deleteCloudInit, deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError } from "./actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
 export const getCloudGroupFromState: any = (state): any => state.form.cloudGroupForm.values;
 
+/**
+ * Fetching cloud groups with appropriate clouds
+ *
+ * @param {string} payload - user id
+ *
+ * @returns {Iterator<Object | Task>}
+ */
 export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
     const lists: ICloudGroup[] = yield fetchCloudGroups(payload);
@@ -60,11 +68,24 @@ export function* createCloudGroupSaga(): Iterator<Object | Task> {
   }
 }
 
+export function* deleteCloudGroupSaga({ payload }: string ): Iterator<Object | Task> {
+  try {
+    yield deleteCloudGroup(payload);
+    toastr.success('Success!', `The cloud group has been successfully deleted`);
+    yield put(getListsStart());
+    yield put(deleteCloudGroupDone());
+  } catch (e) {
+    toastr.error('Error!', `The cloud group has not been deleted! Connect to the administrator for more information, mail`);
+    yield put(deleteCloudGroupError(e));
+  }
+}
+
 export function* trelloSaga() {
   yield [
     takeEvery(getListsStart().type, fetchCloudGroupList),
     takeEvery(updateCloud().type, updateCloudSaga),
     takeEvery(createCloudInit().type, createCloudSaga),
-    takeEvery(createCloudGroupInit().type, createCloudGroupSaga)
+    takeEvery(createCloudGroupInit().type, createCloudGroupSaga),
+    takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga)
   ]
 }

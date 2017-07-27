@@ -6,9 +6,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import '../../assets/temp.styl';
 const SVG = require('react-svg');
 require('../../styles/board.scss');
-
 import * as ListsActions from '../../actions/lists';
-
 import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
@@ -16,11 +14,12 @@ import { ICloud, ICloudGroup } from "interfaces/index";
 import CustomModal from "components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
 import CloudGroupForm from "./form/cloudGroupForm";
+import ConfirmModal from "components/ConfirmModal/containers";
 
 function mapStateToProps(state) {
   return {
     lists: state.Trello.lists,
-    isModalOpen: state.Modal.isModalOpen
+    modal: state.Modal
   };
 }
 
@@ -120,7 +119,7 @@ export default class CloudBoard extends React.Component {
   openModal(type: string) {
     this.setState({ isOptionsOpen: !this.state.isOptionsOpen })
     this.modalType = type;
-    this.props.handleModal();
+    this.props.handleModal({ type });
   }
 
   handleOptionMenu() {
@@ -138,7 +137,7 @@ export default class CloudBoard extends React.Component {
   }
 
   render() {
-    const { lists } = this.props;
+    const { lists, modal } = this.props;
 
     return (
       <div>
@@ -147,11 +146,11 @@ export default class CloudBoard extends React.Component {
             <SVG className="option-svg" path="assets/icons/settings.svg"/>
           </div>
           <div className="options" style={ this.state.isOptionsOpen ? { display: 'flex' } : { display: 'none' }}>
-            <button onClick={() => this.openModal('Cloud') } className="primary big add">
+            <button onClick={() => this.openModal('CloudAdd') } className="primary big add">
               <SVG path="assets/icons/add-icon.svg"/>
               Create cloud
             </button>
-            <button onClick={() => this.openModal('CloudGroup') } className="primary big wider add">
+            <button onClick={() => this.openModal('CloudGroupAdd') } className="primary big wider add">
               <SVG path="assets/icons/add-icon.svg"/>
               Create cloud group
             </button>
@@ -177,37 +176,40 @@ export default class CloudBoard extends React.Component {
           }
         </div>
 
-        { this.modalType === 'Cloud' &&
         <CustomModal
           title="Adding new cloud"
           customStyles={{ height: '700px' }}
-          isModalOpen={this.props.isModalOpen}
+          isModalOpen={modal.isOpen && modal.type == "CloudAdd"}
         >
           <CloudForm cloudGroups={lists}
                      handleModalAction={this.props.handleModal}
                      onSubmit={this.props.handleCloudFormSubmit}
           />
         </CustomModal>
-        }
 
-        {
-          this.modalType === 'CloudGroup' &&
-          <CustomModal
-            onSubmit={ this.props.onSubmit }
-            title="Adding new cloud group"
-            isModalOpen={this.props.isModalOpen}
-          >
-            <CloudGroupForm
-              handleModalAction={this.props.handleModal}
-              onSubmit={this.props.handleCloudGroupFormSubmit}
-            />
-          </CustomModal>
-        }
+        <CustomModal
+          onSubmit={ this.props.onSubmit }
+          title="Adding new cloud group"
+          isModalOpen={modal.isOpen && modal.type == 'CloudGroupAdd'}
+        >
+          <CloudGroupForm
+            handleModalAction={this.props.handleModal}
+            onSubmit={this.props.handleCloudGroupFormSubmit}
+          />
+        </CustomModal>
+
+        <ConfirmModal
+          title={this.props.modal.title}
+          text={this.props.modal.text}
+          isModalOpen={modal.isOpen && modal.type === 'Delete'}
+        />
+
         { (lists.length === 1 && !lists[0].clouds.length) &&
-          <div className="centered-container">
-            <h1>Welcome to the board. You're already have one default cloud group - Main.
-         Let's start working with Big Head from creating first cloud</h1>
-          </div>
+        <div className="centered-container">
+          <h1>Welcome to the board. You're already have one default cloud group - Main.
+         Let's start working with Big Head from creating first cloud
+          </h1>
+        </div>
         }
       </div>
     )
