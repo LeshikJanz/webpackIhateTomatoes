@@ -18,15 +18,33 @@ import html from 'ld-html';
 import todo from 'ld-todo';
 import '../styles/style.css';
 import { uploadImage } from "api/user";
+import { Editor } from "draft-js";
+import { IKnowledge } from "interfaces/index";
 
-export default class LastDraft extends React.Component<any, any> {
+/**
+ * Last draft props interface
+ */
+declare interface ILastDraftProps {
+  knowledge: IKnowledge,
+  editKnowledge: Function,
+  handleNameChange: Function,
+  closeEditor: Function
+}
 
+/**
+ * Last draft state interface
+ */
+declare interface ILastDraftState {
+  value: string
+}
+
+export default class LastDraft extends React.Component<ILastDraftProps, ILastDraftState> {
   /**
    * Last Draft plugins
    *
    * @type {any[]}
    */
-  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
+  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
 
   /**
    * Constructor
@@ -34,7 +52,7 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {props} props - external props
    * @returns {void}
    */
-  constructor( props ) {
+  constructor(props) {
     super(props);
     this.state = { value: editorStateFromRaw(this.props.knowledge.text) }
   }
@@ -45,7 +63,7 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {string} editorState - editor state
    * @returns {void}
    */
-  change( editorState: string ) {
+  change(editorState: string) {
     this.setState({ value: editorState });
     this.props.editKnowledge(editorStateToJSON(editorState));
   }
@@ -58,12 +76,12 @@ export default class LastDraft extends React.Component<any, any> {
    * @param {File} file - uploading file
    * @returns {Promise}
    */
-  uploadImageAsync( file: File ): Promise<any> {
+  uploadImageAsync(file: File): Promise<any> {
     return new Promise(
-      ( resolve, reject ) =>
+      (resolve, reject) =>
         uploadImage(file)
-          .then(( res ) => resolve({ src: res.data.secure_url }))
-          .catch(( err ) => reject(err))
+          .then((res) => resolve({ src: res.data.secure_url }))
+          .catch((err) => reject(err))
     )
   }
 
@@ -89,7 +107,6 @@ export default class LastDraft extends React.Component<any, any> {
         </div>
         <div style={{ margin: '20px 50px' }}>
           <Editor
-            theme={this.props.theme}
             plugins={this.plugins}
             sidebarVisibleOn='newline'
             inline={['bold', 'italic', 'dropcap']}

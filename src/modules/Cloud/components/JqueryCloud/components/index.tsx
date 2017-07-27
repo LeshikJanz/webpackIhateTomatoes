@@ -4,12 +4,12 @@ import * as $ from "jquery";
 import "assets/js/tagcanvas.min.js";
 import "../style.scss";
 import { ReactIgnore } from "./ReactIgnore";
-import { tagCloudInitial } from "../constants/index";
+import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { Link } from 'react-router';
-import { urls }  from 'modules/urls';
-import { DEFAULT_CLOUD_ID } from "../../../../../constants/index";
-import { Search } from "../../../../../components/Search/Search";
-import { IKnowledge } from "../../../../../interfaces/index";
+import { DEFAULT_CLOUD_ID } from "constants/index";
+import { Search } from "components/Search/Search";
+import { IKnowledge } from "interfaces/index";
+import { urls } from "modules/urls";
 
 function tagCloudController() {
   try {
@@ -23,7 +23,7 @@ function tagCloudController() {
       minBrightness: 0.2,
       depth: 0.92,
       pulsateTo: 0.6,
-      initial: [ 0.2, -0.2 ],
+      initial: [0.2, -0.2],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
@@ -38,36 +38,30 @@ function tagCloudController() {
   }
 };
 
-//TODO: release this function instead of long li tag inputs
-// const getHtmlTag = (elem, number = '') => `<li><a id="tag${number}"
-//     onclick="{
-//               this.dispatchEvent(new CustomEvent('tagclick',
-//                {bubbles: true, detail: { tagId: '${elem.id}' }});)
-//                return false;
-//             }"
-//      >${elem.name}</a></li>`;
-
+const getHtmlTag = (elem, number = '') =>
+  `<li><a id="tag${number}" 
+          onclick="{ this.dispatchEvent(new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }})); return false; }"
+          >${elem.name}</a>
+  </li>`;
 
 const generateTags = (tags: Array) => {
-  let tagCloud = `${tagCloudInitial}`;
-  tags.forEach((elem, index) => tagCloud += `<li><a id="tag" 
-        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }}); this.dispatchEvent(myEvent); return false;}">${elem.name}</a></li>`);
+  let tagCloud = `${TAG_CLOUD_INIT}`;
+  tags.forEach((elem, index) => tagCloud += getHtmlTag(elem))
 
-  return tagCloud + `</ul></div></div></div></div></div>`;
+  return tagCloud + TAG_CLOUD_END;
 }
+
+const setNewTag = (tag, number) => {
+  if ( tag ) {
+    $('#tags ul').append(getHtmlTag(tag, number));
+    removeTagCloud();
+  }
+};
 
 const removeTagCloud = () => {
   TagCanvas.Delete('Canvas', `tags`);
   $('#cloud').replaceWith('<textarea value={this.props.contents}/>');
 }
-
-const setNewTag = (tag, number) => {
-  if ( tag ) {
-    $('#tags ul').append(`<li><a id="tag${number}"
-                        onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.name}</a></li>`);
-    removeTagCloud();
-  }
-};
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
@@ -76,8 +70,9 @@ const tagCloudCreator = (parent, tags) => {
   let $parent = $(parent);
   let $editor = $(generateTags(tags));
   $parent.find('textarea').replaceWith($editor);
+
   tagCloudController();
-}
+};
 
 export class TagCloud extends React.Component {
   static tagNumber = 0;
@@ -89,30 +84,29 @@ export class TagCloud extends React.Component {
 
   componentDidUpdate = () => {
     if ( TagCloud.tagNumber != this.props.tags.length ) {
-      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[ this.props.tags.length - 1 ], this.props.tags.length - 1);
+      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags);
-  }
+  };
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.tags.find((elem: any) => elem.id === e.detail.tagId));
     this.props.openEditor();
   };
 
-  handleSearch = ({ target }) => {
-    this.props.tags.filter((t: IKnowledge) => t.name.indexOf(target.value) >= 0);
-  }
-
   render() {
-    const { isEditorOpen, contents, handleSearch } = this.props;
+    const { isEditorOpen, contents, handleSearch, locationPath } = this.props;
 
-    if ( !isEditorOpen ) startCloud();
-    else stopCloud();
+    !isEditorOpen ? startCloud() : stopCloud();
+
     return (
       <div className="main-container">
-        <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
+        {
+          locationPath !== urls.index &&
+          <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
+        }
         <ReactIgnore>
           <textarea style={{ opacity: 0 }} value={contents}/>
         </ReactIgnore>

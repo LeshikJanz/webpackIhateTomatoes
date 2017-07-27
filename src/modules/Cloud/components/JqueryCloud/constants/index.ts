@@ -1,8 +1,8 @@
 const headerHeight = 100;
 const cloudWidth = window.innerWidth / 1.3;
-const cloudHeight = window.innerHeight - 100;
+const cloudHeight = window.innerHeight - 200;
 
-export const tagCloudInitial = `
+export const TAG_CLOUD_INIT = `
   <div id="cloud">
     <div>
       <div>
@@ -16,3 +16,5 @@ export const tagCloudInitial = `
           </div>
           <div id="tags">
             <ul>`;
+
+export const TAG_CLOUD_END = `</ul></div></div></div></div></div>`;

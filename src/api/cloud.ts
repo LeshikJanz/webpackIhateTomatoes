@@ -84,7 +84,7 @@ export const addNewCloudGroup = (cloudGroup: ICloudGroup) => {
 export const fetchKnowledgeById = (id: string) => {
   return request
     .get(`Knowledges/${id}`, {})
-    .then((knowledge: IKnowledge[]) => <IKnowledge> knowledge);
+    .then((knowledge: IKnowledge[]) => <IKnowledge[]> knowledge);
 };
 
 /**

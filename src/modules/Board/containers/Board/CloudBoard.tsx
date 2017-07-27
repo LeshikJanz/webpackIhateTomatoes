@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import '../../assets/temp.styl';
+import 'assets/temp.styl';
 const SVG = require('react-svg');
 require('../../styles/board.scss');
 
@@ -139,8 +139,6 @@ export default class CloudBoard extends React.Component {
 
   render() {
     const { lists } = this.props;
-    console.log('lists');
-    console.log(lists);
 
     return (
       <div>

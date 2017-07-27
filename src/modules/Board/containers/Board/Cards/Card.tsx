@@ -1,12 +1,6 @@
 import * as React from 'react';
-import PropTypes = React.PropTypes;
 import { urls } from "modules/urls";
 import { Link } from 'react-router';
-
-const propTypes = {
-  item: PropTypes.object.isRequired,
-  style: PropTypes.object
-};
 
 const Card = (props) => {
   const { style, item } = props;
@@ -33,7 +27,5 @@ const Card = (props) => {
     </div>
   );
 };
-
-Card.propTypes = propTypes;
 
 export default Card;

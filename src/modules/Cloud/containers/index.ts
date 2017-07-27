@@ -14,13 +14,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mergeProps = ({ tags }, { dispatch }) => ({
-  tags,
-  handleSearch: ({ target }) => {
-    return tags.includes(target.value)
-  }
-});
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
