@@ -21,6 +21,10 @@
   }
 }
 
+.desk {
+  cursor: pointer;
+}
+
 .desk:hover .desk-head > img, .item:hover .item-name > img  {
   visibility: visible;
   opacity: 1;
