@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { DropTarget, DragSource } from 'react-dnd';
-
 import Cards from './Cards';
 import PropTypes = React.PropTypes;
+import { connect } from "react-redux";
+import { handleModalAction } from "modules/actions";
+import { IModal } from "interfaces/index";
 
 const listSource = {
   beginDrag(props) {
@@ -21,22 +23,22 @@ const listTarget = {
     return false;
   },
   hover(props, monitor) {
-    if (!props.isScrolling) {
-      if (window.innerWidth - monitor.getClientOffset().x < 200) {
+    if ( !props.isScrolling ) {
+      if ( window.innerWidth - monitor.getClientOffset().x < 200 ) {
         props.startScrolling('toRight');
-      } else if (monitor.getClientOffset().x < 200) {
+      } else if ( monitor.getClientOffset().x < 200 ) {
         props.startScrolling('toLeft');
       }
     } else {
-      if (window.innerWidth - monitor.getClientOffset().x > 200 &&
-          monitor.getClientOffset().x > 200
+      if ( window.innerWidth - monitor.getClientOffset().x > 200 &&
+        monitor.getClientOffset().x > 200
       ) {
         props.stopScrolling();
       }
     }
     const { id: listId } = monitor.getItem();
     const { id: nextX } = props;
-    if (listId !== nextX) {
+    if ( listId !== nextX ) {
       props.moveList(listId, props.x);
     }
   }
@@ -65,10 +67,14 @@ export default class CardsContainer extends React.Component {
     startScrolling: PropTypes.func,
     stopScrolling: PropTypes.func,
     isScrolling: PropTypes.bool
-  }
+  };
 
   render() {
-    const { connectDropTarget, connectDragSource, item, x, moveCard, update, isDragging } = this.props;
+    const {
+      connectDropTarget, connectDragSource, item, x, moveCard, update, isDragging,
+      handleModal, lists
+    } = this.props;
+
     item.cards = item.clouds;
 
     const opacity = isDragging ? 0.5 : 1;
@@ -77,6 +83,18 @@ export default class CardsContainer extends React.Component {
       <div className="desk" style={{ opacity }}>
         <div className="desk-head">
           <div className="desk-name">{item.name}</div>
+          {
+            (!item.cards.length && lists.length > 1) &&
+            <img onClick={ () => {
+              handleModal({
+                            type: "Delete",
+                            title: `Confirm?`,
+                            text:  `Are you sure you want to delete <b>${item.name}?</b> This cloud group will be archive and you will not see it on the Board.`,
+                            itemId: item.id,
+                            callback: 'deleteCloudGroup'
+                          });
+            } } src="assets/icons/del.png"/>
+          }
         </div>
         <Cards
           moveCard={moveCard}
@@ -91,3 +109,19 @@ export default class CardsContainer extends React.Component {
     ));
   }
 }
+
+const mapStateToProps = (state) => ({
+  lists: state.Trello.lists
+});
+
+const mapDispatchToProps: any = dispatch => ({
+  handleModal: (modal: IModal) => {
+    dispatch(handleModalAction(modal))
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  null
+)(CardsContainer);

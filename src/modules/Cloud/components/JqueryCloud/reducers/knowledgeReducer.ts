@@ -2,7 +2,9 @@ import { createReducer } from 'utils/createReducer';
 import { IKnowledge } from "interfaces/index";
 import { addTag, fetchCloudDone, fetchCloudError, updateCloud } from "../../../../actions";
 
-const initialState: any = [];
+const initialState: any = {
+  knowledge: []
+};
 
 export default createReducer({
   [addTag]: (state: any, payload: any) => ({

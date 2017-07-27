@@ -12,7 +12,7 @@ import { createNewKnowledge, handleModalAction } from "modules/actions";
  */
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isModalOpen
+  isModalOpen: state.Modal.isOpen
 });
 
 /**

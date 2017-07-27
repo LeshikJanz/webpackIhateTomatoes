@@ -51,7 +51,7 @@ export const fetchCloud = (id: string) => {
  * @param {string} id - cloud id
  * @param {ICloud} cloud - cloud
  *
- * @returns {ICloud} cloud - cloud
+ * @returns {ICloud} c - cloud
  */
 export const addNewCloud = (id: string, cloud: ICloud) => {
   return request
@@ -65,12 +65,40 @@ export const addNewCloud = (id: string, cloud: ICloud) => {
  * See: .../explorer/#!/CloudGroups/{id}/clouds:POST
  * @param {ICloudGroup} cloudGroup - cloud group
  *
- * @returns {ICloud} cloud - cloud
+ * @returns {ICloudGroup} c - cloud group
  */
 export const addNewCloudGroup = (cloudGroup: ICloudGroup) => {
   return request
     .post(`CloudGroups`, cloudGroup)
     .then((c: ICloudGroup) => <ICloudGroup> c);
+};
+
+/**
+ * Deleting cloud group by id
+ *
+ * See: .../explorer/#!/CloudGroups/{id}:DELETE
+ * @param {string} id - deleting cloud group id
+ *
+ * @returns {string} c - amount of deleted cloud groups
+ */
+export const deleteCloudGroup = (id: string) => {
+  return request
+    .delete(`CloudGroups/${id}`)
+    .then((c: string) => c);
+};
+
+/**
+ * Deleting cloud by id
+ *
+ * See: .../explorer/#!/Clouds/{id}:DELETE
+ * @param {string} id - deleting cloud id
+ *
+ * @returns {string} c - amount of deleted clouds
+ */
+export const deleteCloud = (id: string) => {
+  return request
+    .delete(`Clouds/${id}`)
+    .then((c: string) => c);
 };
 
 /**

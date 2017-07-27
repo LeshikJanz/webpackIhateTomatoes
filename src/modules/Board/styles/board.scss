@@ -21,6 +21,29 @@
   }
 }
 
+.desk {
+  cursor: pointer;
+}
+
+.desk:hover .desk-head > img, .item:hover .item-name > img  {
+  visibility: visible;
+  opacity: 1;
+}
+
+.desk-head, .item-name {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  transition: 1s linear;
+
+  > img {
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+  }
+}
+
 .options {
   position: absolute;
   right: 50px;

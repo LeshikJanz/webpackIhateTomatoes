@@ -10,7 +10,7 @@ const moment = require('moment');
 /**
  * Main page's header
  */
-export const Header = ( props ) => {
+export const Header = (props) => {
 
   /**
    * Get empty(default) knowledge
@@ -47,7 +47,8 @@ export const Header = ( props ) => {
           </div>
           <div id="hello">
             <h2>Hurry up to fill your Big Head up. <br/>
-              World's knowledge is here!</h2>
+              World's knowledge is here!
+            </h2>
           </div>
           <div>
             {

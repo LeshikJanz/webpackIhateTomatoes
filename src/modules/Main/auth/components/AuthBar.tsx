@@ -6,7 +6,7 @@ import AuthForm from "./AuthForm";
  * Header authorization menu bar
  */
 export const AuthBar = ( props ) => {
-  const { handleModal, isModalOpen, handleAuthFormSubmit, goRegistrationPage } = props;
+  const { handleModal, modal, handleAuthFormSubmit, goRegistrationPage } = props;
 
   return (
     <div>
@@ -24,7 +24,7 @@ export const AuthBar = ( props ) => {
 
       <CustomModal
         title="Log In"
-        isModalOpen={ isModalOpen }
+        isModalOpen={ modal.isOpen && modal.type === 'Auth' }
       >
         <AuthForm onSubmit={ handleAuthFormSubmit }
                   handleModal={ handleModal }/>

@@ -1,6 +1,7 @@
-import { ICloud } from "interfaces/index";
+import { ICloud, IModal } from "interfaces/index";
 import { updateCloud, handleModalAction, createCloudInit, createCloudGroupInit } from "../../actions";
 import { createAction } from "utils/createAction";
+import { deleteCloudInit, deleteCloudGroupInit } from "../actions";
 const faker = require('faker');
 
 export const getListsStart = createAction('GET_LISTS_START');
@@ -39,8 +40,8 @@ export function toggleDragging(isDragging) {
   };
 }
 
-export function handleModal() {
-  return (dispatch) => dispatch(handleModalAction())
+export function handleModal(modal: IModal) {
+  return (dispatch) => dispatch(handleModalAction(modal))
 }
 
 export function handleCloudFormSubmit(event) {
@@ -56,3 +57,14 @@ export function handleCloudGroupFormSubmit(event) {
     dispatch(createCloudGroupInit(event));
   }
 }
+
+export const deleteCloudGroup = (cloudGroupId: string) => (dispatch) => {
+  dispatch(deleteCloudGroupInit(cloudGroupId));
+  dispatch(handleModalAction());
+};
+
+export const deleteCloud = (cloudId: string) => (dispatch) => {
+  dispatch(deleteCloudInit(cloudId));
+  dispatch(handleModalAction());
+};
+

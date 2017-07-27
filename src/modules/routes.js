@@ -6,7 +6,7 @@ import { urls } from "./urls";
 import Cloud from './Cloud/containers';
 import Header from './Main/header/containers';
 import { PageNotFound } from '../components/pageNotFound';
-import { Main } from './Main';
+import { Main, Base } from './Main';
 import Registration from './Registration/containers/Registration';
 import UserList from './Users/containers/UserList';
 
@@ -17,13 +17,15 @@ import UserList from './Users/containers/UserList';
  */
 export default (
   <Route path={urls.index} component={Header}>
-    <IndexRoute component={Main}/>
-    <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
-    <Route path={urls.user + `/:id/` + urls.board} component={CloudBoard}></Route>
-    <Route path={urls.board} component={CloudBoard}></Route>
-    <Route path={urls.trello} component={Board}></Route>
-    <Route path={urls.registration} component={Registration}></Route>
-    <Route path={urls.users} component={UserList}></Route>
-    <Route path='*' component={PageNotFound}/>
+    <Route component={Base}>
+      <IndexRoute component={Main}/>
+      <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
+      <Route path={urls.user + `/:id/` + urls.board} component={CloudBoard}></Route>
+      <Route path={urls.board} component={CloudBoard}></Route>
+      <Route path={urls.trello} component={Board}></Route>
+      <Route path={urls.registration} component={Registration}></Route>
+      <Route path={urls.users} component={UserList}></Route>
+      <Route path='*' component={PageNotFound}/>
+    </Route>
   </Route>
 );

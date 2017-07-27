@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LastDraft from "../components/LastDraft";
-import { editKnowledge, changeKnowledgeName, closeEditor, updateKnowledge } from "modules/actions";
+import { editKnowledge, changeKnowledgeName, closeEditor, updateKnowledge, handleModalAction } from "modules/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -11,7 +11,6 @@ import { editKnowledge, changeKnowledgeName, closeEditor, updateKnowledge } from
  * @param: {any} state - App state
  */
 const mapStateToProps = ( state ) => ({
-  isModalOpen: state.Modal.isModalOpen,
   knowledge: state.Knowledge
 });
 
@@ -25,7 +24,7 @@ const mapStateToProps = ( state ) => ({
  */
 const mapDispatchToProps: any = dispatch => ({
   closeEditor: () => {
-    dispatch(closeEditor());
+    dispatch(handleModalAction());
     dispatch(updateKnowledge());
   },
   editKnowledge: text => dispatch(editKnowledge(text)),

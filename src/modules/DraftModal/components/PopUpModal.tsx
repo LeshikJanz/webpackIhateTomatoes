@@ -15,7 +15,7 @@ export const PopUpModal = (props) => {
   return (
     <div>
       <Modal
-        isOpen={props.isEditorOpen}
+        isOpen={props.modal.isOpen && props.modal.type === 'Editor'}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
