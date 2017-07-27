@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
-import { push } from "react-router-redux";
 import {
-  addTag, handleModalAction, fetchCloudInit, openKnowledge, handleEditorAction,
+  addTag, fetchCloudInit, openKnowledge,
   openEditor
-} from "../../../../actions";
+} from "modules/actions";
+import { filterTags } from "../actions";
+import { IKnowledge } from "interfaces/index";
 
 const mapStateToProps = (state: any) => ({
-  tags: state.Cloud.knowledge,
+  tags: state.Cloud.knowledge && state.Cloud.knowledge.filter((k: IKnowledge) =>
+    k.name.toLocaleLowerCase().includes(state.Filter.name.toLowerCase())),
   isEditorOpen: state.Modal.isEditorOpen
 });
 
@@ -16,7 +18,7 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   openEditor: () => dispatch(openEditor()),
   fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
   openKnowledge: (id: string) => dispatch(openKnowledge(id)),
-  goToHeader: () => dispatch(push('/board'))
+  handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value }))
 });
 
 export default connect(

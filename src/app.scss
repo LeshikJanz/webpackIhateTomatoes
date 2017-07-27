@@ -70,8 +70,8 @@ body {
   align-items: center;
 }
 
-.container {
-  margin: 100px 10px 0 10px;
+.main-container {
+  margin: 0 10%;
 }
 
 .centered-container {
@@ -85,10 +85,4 @@ body {
 
 .modal-header {
   align-items: flex-start;
-}
-
-@media (min-width: 1400px) {
-  .container {
-    width: auto !important;
-  }
 }

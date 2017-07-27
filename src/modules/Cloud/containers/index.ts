@@ -14,12 +14,11 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mergeProps = ({ trackNumber }, { dispatch }) => ({
-  trackNumber,
-  onClick: () => { dispatch({
-    type: "ADD_TRACK",
-    payload: trackNumber+1
-  }) }
+const mergeProps = ({ tags }, { dispatch }) => ({
+  tags,
+  handleSearch: ({ target }) => {
+    return tags.includes(target.value)
+  }
 });
 
 export default connect(

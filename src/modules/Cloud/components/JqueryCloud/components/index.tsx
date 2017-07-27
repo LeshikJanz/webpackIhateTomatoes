@@ -8,6 +8,8 @@ import { tagCloudInitial } from "../constants/index";
 import { Link } from 'react-router';
 import { urls }  from 'modules/urls';
 import { DEFAULT_CLOUD_ID } from "../../../../../constants/index";
+import { Search } from "../../../../../components/Search/Search";
+import { IKnowledge } from "../../../../../interfaces/index";
 
 function tagCloudController() {
   try {
@@ -21,7 +23,7 @@ function tagCloudController() {
       minBrightness: 0.2,
       depth: 0.92,
       pulsateTo: 0.6,
-      initial: [0.2, -0.2],
+      initial: [ 0.2, -0.2 ],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
@@ -60,7 +62,7 @@ const removeTagCloud = () => {
 }
 
 const setNewTag = (tag, number) => {
-  if (tag) {
+  if ( tag ) {
     $('#tags ul').append(`<li><a id="tag${number}"
                         onclick="{var myEvent = new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${tag.id}' }}); this.dispatchEvent(myEvent); return false;}">${tag.name}</a></li>`);
     removeTagCloud();
@@ -86,8 +88,8 @@ export class TagCloud extends React.Component {
   };
 
   componentDidUpdate = () => {
-    if (TagCloud.tagNumber != this.props.tags.length) {
-      if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+    if ( TagCloud.tagNumber != this.props.tags.length ) {
+      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[ this.props.tags.length - 1 ], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
@@ -99,13 +101,18 @@ export class TagCloud extends React.Component {
     this.props.openEditor();
   };
 
-  render() {
-    const { isEditorOpen, contents, goToHeader } = this.props;
+  handleSearch = ({ target }) => {
+    this.props.tags.filter((t: IKnowledge) => t.name.indexOf(target.value) >= 0);
+  }
 
-    if (!isEditorOpen) startCloud();
+  render() {
+    const { isEditorOpen, contents, handleSearch } = this.props;
+
+    if ( !isEditorOpen ) startCloud();
     else stopCloud();
     return (
-      <div>
+      <div className="main-container">
+        <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
         <ReactIgnore>
           <textarea style={{ opacity: 0 }} value={contents}/>
         </ReactIgnore>
