@@ -10,11 +10,12 @@ import * as ListsActions from '../../actions/lists';
 import CardsContainer from './Cards/CardsContainer';
 import CustomDragLayer from './CustomDragLayer';
 import PropTypes = React.PropTypes;
-import { ICloud, ICloudGroup } from "interfaces/index";
+import { ICloud, ICloudGroup, IMenu } from "interfaces/index";
 import CustomModal from "components/CustomModal/containers/index";
 import CloudForm from "./form/cloudForm";
 import CloudGroupForm from "./form/cloudGroupForm";
 import ConfirmModal from "components/ConfirmModal/containers";
+import { GooeyMenu } from "../../../../components/GooeyMenu/components/GooeyMenu";
 
 function mapStateToProps(state) {
   return {
@@ -36,6 +37,14 @@ export default class CloudBoard extends React.Component {
     moveList: PropTypes.func.isRequired,
     lists: PropTypes.array.isRequired,
   }
+
+  menuItems = [ {
+    title: "Tweet",
+    className: "fa fa-twitter"
+  }, {
+    title: "Share on Facebook",
+    className: "fa fa-facebook"
+  } ];
 
   /**
    * Modal type
@@ -128,13 +137,18 @@ export default class CloudBoard extends React.Component {
 
   findList(id) {
     const { lists } = this.props;
-    const list = lists.filter(l => l.id === id)[0];
+    const list = lists.filter(l => l.id === id)[ 0 ];
 
     return {
       list,
       lastX: lists.indexOf(list)
     };
   }
+
+  actionMenu: IMenu[] = [
+    { callback: 'openModal', arg: 'CloudGroupAdd', placeholder: 'Create cloud group', icon: 'fa fa-menu fa-sitemap' },
+    { callback: 'openModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
+  ];
 
   render() {
     const {
@@ -143,21 +157,8 @@ export default class CloudBoard extends React.Component {
 
     return (
       <div>
-        <div className="board-menu">
-          <div className="options-button" onClick={ this.handleOptionMenu.bind(this) }>
-            <SVG className="option-svg" path="assets/icons/settings.svg"/>
-          </div>
-          <div className="options" style={ this.state.isOptionsOpen ? { display: 'flex' } : { display: 'none' }}>
-            <button onClick={() => this.openModal('CloudAdd') } className="primary big add">
-              <SVG path="assets/icons/add-icon.svg"/>
-              Create cloud
-            </button>
-            <button onClick={() => this.openModal('CloudGroupAdd') } className="primary big wider add">
-              <SVG path="assets/icons/add-icon.svg"/>
-              Create cloud group
-            </button>
-          </div>
-        </div>
+        <GooeyMenu onSelect={ (callback, arg) => this[callback](arg) } menuItems={this.actionMenu}/>
+
         <div>
           <CustomDragLayer snapToGrid={false}/>
           {
@@ -204,7 +205,7 @@ export default class CloudBoard extends React.Component {
           isModalOpen={modal.isOpen && modal.type === 'Delete'}
         />
 
-        { (lists.length === 1 && !lists[0].clouds.length) &&
+        { (lists.length === 1 && !lists[ 0 ].clouds.length) &&
         <div className="centered-container">
           <h1>Welcome to the board. You're already have one default cloud group - <b>Main.</b>&nbsp;
          Let's start working with Big Head from creating first cloud
