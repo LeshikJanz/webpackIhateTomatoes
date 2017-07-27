@@ -8,6 +8,12 @@ export const GooeyMenu = (props) => {
   const handleSelect = (item) => {
     props.onSelect(item.callback, item.arg);
     checkbox.checked = false;
+  };
+
+  const options = {
+    followCursor: true,
+    shiftX: 20,
+    shiftY: 0
   }
 
   return (
@@ -23,10 +29,12 @@ export const GooeyMenu = (props) => {
         </label>
         {
           props.menuItems.map((item, i) =>
-            <a key={i} href="javascript:void(0)"
+            <a href="javascript:void(0)"
                title={item.placeholder}
                onClick={() => handleSelect(item)}
-               className="menu-item"> <i className={item.icon} aria-hidden="true"></i> </a>
+               className="menu-item">
+              <i className={item.icon} aria-hidden="true"></i>
+            </a>
           )
         }
       </nav>

@@ -124,3 +124,27 @@ $hamburger-spacing:8px;
     }
   }
 }
+
+a {
+  color: #900;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  position: absolute;
+}
+
+a[title]:hover:after {
+  transform: rotate(-90deg);
+  content: attr(title);
+  padding: 4px 8px;
+  text-align: center;
+  color: #333;
+  position: absolute;
+  top: 120px;
+  right: -15px;
+  z-index: 20;
+  white-space: nowrap;
+  text-shadow: -1px -1px 19px #969696;
+}
