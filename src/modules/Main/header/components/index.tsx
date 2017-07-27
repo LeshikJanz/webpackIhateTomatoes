@@ -25,12 +25,6 @@ export const Header = (props) => {
     cloudId: props.cloudId
   });
 
-  /**
-   * Blur css filter
-   */
-    //TODO: Make filter blur though classNames and cx
-  const blur = { filter: 'blur(2px)' };
-
   return (
     <div className={cx([{ 'blur': props.isModalOpen }])}>
       <div className="navbar navbar-default">

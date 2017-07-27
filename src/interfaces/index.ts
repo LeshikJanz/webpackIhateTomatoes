@@ -93,3 +93,14 @@ declare interface IModal {
   text: string,
   isOpen: boolean
 }
+
+/**
+ * Modal interface
+ */
+export
+declare interface IMenu {
+  callback: string,
+  placeholder?: string,
+  arg: string,
+  icon: string
+}

@@ -44,7 +44,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    *
    * @type {any[]}
    */
-  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
+  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
 
   /**
    * Constructor
