@@ -54,7 +54,7 @@ let RegistrationForm = props => {
   };
 
   return (
-    <form onSubmit={ props.handleSubmit }>
+    <form className="form-container" onSubmit={ props.handleSubmit }>
       <div className="modal-body">
         <div className={cx(['dropzone'])}>
           <Field

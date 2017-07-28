@@ -159,7 +159,7 @@ export default class CloudBoard extends React.Component {
       <div>
         <GooeyMenu onSelect={ (callback, arg) => this[callback](arg) } menuItems={this.actionMenu}/>
 
-        <div>
+        <div style={{ width: '90%' }}>
           <CustomDragLayer snapToGrid={false}/>
           {
             lists.length > 0 && lists.map((item, i) =>

@@ -3,7 +3,7 @@ import { Cloud } from "../Cloud/components/Cloud";
 require('./styles/style.scss');
 
 export const Base = (props) => (
-  <div className="container-fluid">
+  <div className="main-container">
     {props.children}
   </div>
 )
