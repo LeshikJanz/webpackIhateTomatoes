@@ -55,6 +55,7 @@ let RegistrationForm = props => {
 
   return (
     <form className="form-container" onSubmit={ props.handleSubmit }>
+      <h1 style={{ textAlign: 'right', color: '#62B006' }}>Sign Up</h1><br/>
       <div className="modal-body">
         <div className={cx(['dropzone'])}>
           <Field
@@ -95,9 +96,8 @@ let RegistrationForm = props => {
                    component={places} label="address"/>
           </div>
         </div>
-        <div className="modal-footer btn-actions">
-          <button className="primary" type="submit">Confirm</button>
-          <button className="secondary">Cancel</button>
+        <div className="registration-actions">
+          <button className="primary big" type="submit">Sign Up</button>
         </div>
       </div>
     </form>

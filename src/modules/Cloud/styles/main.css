@@ -26,13 +26,6 @@ body {
   overflow-x:hidden;
 }
 
-/* Titles */
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
-    font-weight: 300;
-    color: #333;
-}
-
 #myCanvasContainer {
 	margin-top: 10px;
 }
@@ -153,6 +146,7 @@ a:after {
 	font-weight: 400;
 	margin: 0 !important;
 	text-align: center;
+	font-family: Raleway;
 }
 
 /* Green */
