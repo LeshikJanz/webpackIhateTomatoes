@@ -1,0 +1,35 @@
+{
+  "name": "View",
+  "plural": "Views",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Date": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Cloud",
+      "foreignKey": "cloudId"
+    },
+    "knowledge": {
+      "type": "belongsTo",
+      "model": "Knowledge",
+      "foreignKey": "knowledgeId"
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
