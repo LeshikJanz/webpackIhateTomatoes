@@ -4,8 +4,8 @@ import { ILogin, IToken } from "interfaces/index";
 import { login, logOut } from "api/auth";
 import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
-import { toastr } from 'react-redux-toastr'
 import { urls } from "../urls";
+import { NotificationManager } from 'react-notifications';
 
 /**
  * Log in saga handler
@@ -22,7 +22,8 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
 
     yield put(loginDone());
     yield put(replace('/board'));
-  } catch (e) {
+  } catch ({ error }) {
+    NotificationManager.error(error.message, 'Error!');
     yield put(loginError());
   }
 }
@@ -39,10 +40,10 @@ export function* logOutSaga(): Iterator<Object | Task> {
     localStorage.removeItem('UserId');
 
     yield put(logOutDone());
-    toastr.success('Success!', `You are successfully logged out`);
+    NotificationManager.success(`You are successfully logged out`, 'Success!');
     yield put(push(urls.index));
-  }catch (e) {
-    toastr.error('Error!', `You didn't log out`);
+  }catch ({ error }) {
+    NotificationManager.error(error.message, 'Error!');
     yield put(logOutError());
   }
 }

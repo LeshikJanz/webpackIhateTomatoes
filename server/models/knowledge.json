@@ -28,6 +28,16 @@
       "model": "Cloud",
       "foreignKey": "cloudId",
       "required": true
+    },
+    "views": {
+      "type": "hasMany",
+      "model": "View",
+      "foreignKey": "viewId"
+    },
+    "relations": {
+      "type": "hasMany",
+      "model": "Relation",
+      "foreignKey": "relationId"
     }
   },
   "acls": [],

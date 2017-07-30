@@ -4,14 +4,13 @@ import { Task } from "redux-saga";
 import { toastr } from 'react-redux-toastr'
 import {
   createAccountInit, createAccountDone, createAccountError, avatarUploadInit,
-  avatarUploadDone
 } from "./actions";
-import { register } from "../../api/auth";
+import { register } from "api/auth";
 import { change } from "redux-form";
-import { uploadImage } from "../../api/user";
+import { uploadImage } from "api/user";
 import { DEFAULT_CLOUD_GROUP } from "../../constants/index";
-import { createCloudGroupInit } from "../actions";
 import { addNewCloudGroup } from "../../api/cloud";
+import { NotificationManager } from 'react-notifications';
 
 /**
  * Handle user registration
@@ -20,14 +19,14 @@ import { addNewCloudGroup } from "../../api/cloud";
  *
  * @returns {Iterator<Object | Task>}
  */
-export function* createAccountSaga( { payload } : IUser ): Iterator<Object | Task> {
+export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task> {
   try {
     const user: IUser = yield register(payload);
     yield put(createAccountDone());
-    toastr.success('Success!', `The user ${user.username} has been successfully created`);
+    NotificationManager.success(`The user ${user.username} has been successfully created`, 'Success!');
     yield addNewCloudGroup(Object.assign({}, DEFAULT_CLOUD_GROUP, { accountId: user.id }))
-  } catch (e) {
-    toastr.error('Error!', `The user has not been created!`);
+  } catch ({ error }) {
+    NotificationManager.error(error.message, 'Error!');
     yield put(createAccountError());
   }
 }
@@ -37,7 +36,7 @@ export function* createAccountSaga( { payload } : IUser ): Iterator<Object | Tas
  *
  * @returns {Iterator<Object | Task>}
  */
-export function* avatarUploadSaga( { payload }: File ): Iterator<Object | Task> {
+export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
   const response = yield uploadImage(payload);
 
   yield put(change("RegistrationForm", "avatar", response.data.secure_url))

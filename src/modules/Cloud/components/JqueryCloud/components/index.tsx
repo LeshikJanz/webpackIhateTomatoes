@@ -8,7 +8,6 @@ import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { Link } from 'react-router';
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
-import { IKnowledge } from "interfaces/index";
 import { urls } from "modules/urls";
 
 function tagCloudController() {

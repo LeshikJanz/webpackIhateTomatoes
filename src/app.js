@@ -10,8 +10,10 @@ import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import routes from './modules/routes';
 import thunk from 'redux-thunk';
+import 'react-notifications/lib/notifications.css';
 require('./app.scss');
 import ReduxToastr from 'react-redux-toastr';
+import { NotificationContainer } from 'react-notifications';
 require('react-redux-toastr/src/styles/index.scss');
 
 /**
@@ -66,14 +68,15 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <Router history={history} routes={routes}/>
-      <ReduxToastr
-        timeOut={4000}
-        newestOnTop={false}
-        preventDuplicates
-        position="top-center"
-        transitionIn="fadeIn"
-        transitionOut="fadeOut"
-        progressBar/>
+      {/*<ReduxToastr*/}
+        {/*timeOut={4000}*/}
+        {/*newestOnTop={false}*/}
+        {/*preventDuplicates*/}
+        {/*position="top-center"*/}
+        {/*transitionIn="fadeIn"*/}
+        {/*transitionOut="fadeOut"*/}
+        {/*progressBar/>*/}
+      <NotificationContainer/>
     </div>
   </Provider>,
   document.getElementById('root')
