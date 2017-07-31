@@ -64,20 +64,20 @@
 
 @mixin input-container {
   width: inherit;
-  height: 65px;
-  border-radius: 3px;
-  background-color: #ffffff;
-  border: solid 1px #3d3d3d;
+  height: 65px !important;
+  border-radius: 3px !important;
+  background-color: #ffffff !important;
+  border: solid 1px #3d3d3d !important;
 }
 
 @mixin input-text {
-  font-family: WorkSans;
-  font-size: 16px;
-  color: #3d3d3d;
+  font-family: WorkSans !important;
+  font-size: 16px !important;
+  color: #3d3d3d !important;
 }
 
 @mixin input-placeholder {
-  font-family: WorkSans;
-  font-size: 16px;
-  color: #b2bac4;
+  font-family: WorkSans !important;
+  font-size: 16px !important;
+  color: #b2bac4 !important;
 }

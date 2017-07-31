@@ -98,10 +98,9 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   render() {
     return (
       <div>
-        <div className="modal-header" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="modal-header draft-editor-container">
           <input disabled={!this.isAllowed()}
                  className="input-container"
-                 style={{ width: '200px', textAlign: 'center' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
                  value={this.props.knowledge.name}

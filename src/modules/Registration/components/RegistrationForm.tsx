@@ -5,12 +5,12 @@ import PlacesAutocomplete from 'react-places-autocomplete'
 const styles = require('../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 /**
  * Google place autocomplete for Redux Form Field
  */
-const places = ( { input } ) => {
+const places = ({ input }) => {
   const placesCssClasses = {
     root: 'form-group',
     input: 'input-container input-modal',
@@ -41,8 +41,8 @@ let RegistrationForm = props => {
    * Dropzone input for Redux Form Field
    */
   const dropzone = () => {
-    const onDrop = ( acceptedFiles, rejectedFiles ) => {
-      props.handleImageUpload(acceptedFiles[ 0 ]);
+    const onDrop = (acceptedFiles, rejectedFiles) => {
+      props.handleImageUpload(acceptedFiles[0]);
     };
 
     return (
@@ -57,7 +57,7 @@ let RegistrationForm = props => {
   return (
     <form className="form-container" onSubmit={ props.handleSubmit }>
       <div className="registration-bar">
-        <Link className="hvr-icon-wobble-horizontal">Back</Link>
+        <Link className="hvr-icon-wobble-horizontal" onClick={browserHistory.goBack}>Back</Link>
         <h1 style={{ color: '#62B006' }}>Sign Up</h1>
       </div>
       <div className="modal-body">

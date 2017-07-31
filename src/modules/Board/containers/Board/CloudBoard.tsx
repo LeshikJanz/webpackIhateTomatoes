@@ -162,7 +162,7 @@ export default class CloudBoard extends React.Component {
           <GooeyMenu onSelect={ (callback, arg) => this[callback](arg) } menuItems={this.actionMenu}/>
         }
 
-        <div style={{ width: '90%' }}>
+        <div style={{ padding: '20px 60px 0 0' }}>
           <CustomDragLayer snapToGrid={false}/>
           {
             lists.length > 0 && lists.map((item, i) =>
@@ -183,7 +183,7 @@ export default class CloudBoard extends React.Component {
         </div>
 
         <CustomModal
-          title="Adding new cloud"
+          title="Adding cloud"
           customStyles={{ height: '700px' }}
           isModalOpen={modal.isOpen && modal.type == "CloudAdd"}
         >
@@ -194,7 +194,7 @@ export default class CloudBoard extends React.Component {
         </CustomModal>
 
         <CustomModal
-          title="Adding new cloud group"
+          title="Adding cloud group"
           isModalOpen={modal.isOpen && modal.type == 'CloudGroupAdd'}
         >
           <CloudGroupForm
