@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { Task } from "redux-saga";
-import { ILogin, IToken } from "interfaces/index";
-import { login, logOut } from "api/auth";
+import { ILogin, IToken, IUser } from "interfaces/index";
+import { login, logOut, getUserById } from "api/auth";
 import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
 import { urls } from "../urls";
@@ -19,8 +19,9 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     const token: IToken = yield login(payload);
     localStorage.setItem('Token', token.id);
     localStorage.setItem('UserId', token.userId);
+    const user: IUser = yield getUserById(token.userId);
 
-    yield put(loginDone());
+    yield put(loginDone(user));
     yield put(replace('/board'));
   } catch ({ error }) {
     NotificationManager.error(error.message, 'Error!');
