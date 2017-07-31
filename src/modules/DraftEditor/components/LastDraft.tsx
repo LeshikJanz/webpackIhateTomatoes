@@ -105,7 +105,8 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-        <div style={{ margin: '20px 50px' }}>
+        <div
+          style={this.props.knowledge.accoundId === localStorage.getItem('UserId') ? {} : { pointerEvents: 'none' } }>
           <Editor
             plugins={this.plugins}
             sidebarVisibleOn='newline'

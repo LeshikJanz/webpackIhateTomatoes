@@ -49,6 +49,7 @@ export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
 export function* updateKnowledgeSaga(): Iterator<Object | Task> {
   try {
     const knowledge = yield select(getFromState);
+
     yield updateKnowledgeById(knowledge.id, knowledge);
     yield put(saveKnowledge());
     NotificationManager.success(`Knowledge has been updated successfully`, 'Success!');

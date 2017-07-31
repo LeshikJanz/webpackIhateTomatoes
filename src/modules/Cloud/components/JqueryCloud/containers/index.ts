@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
 import {
-  addTag, fetchCloudInit, openKnowledge,
-  openEditor, handleModalAction
+  addTag, fetchCloudInit, openKnowledge, handleModalAction
 } from "modules/actions";
 import { filterTags } from "../actions";
 import { IKnowledge } from "interfaces/index";

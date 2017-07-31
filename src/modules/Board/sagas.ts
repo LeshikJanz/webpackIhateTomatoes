@@ -2,7 +2,7 @@ import { put, takeEvery, select } from 'redux-saga/effects'
 import {
   fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup, deleteCloudGroup,
   deleteCloud
-} from "../../api/cloud";
+} from "api/cloud";
 import {
   updateCloud, createCloudInit, createCloudError,
   createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError
