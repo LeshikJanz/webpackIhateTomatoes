@@ -13,7 +13,7 @@ import thunk from 'redux-thunk';
 import 'react-notifications/lib/notifications.css';
 require('./app.scss');
 require('./styles/animations.scss');
-import ReduxToastr from 'react-redux-toastr';
+import 'react-select/dist/react-select.css';
 import { NotificationContainer } from 'react-notifications';
 require('react-redux-toastr/src/styles/index.scss');
 

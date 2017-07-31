@@ -49,12 +49,20 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
 export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
-    Cloud.accountId = localStorage.getItem('UserId');
-    yield addNewCloud(Cloud.cloudId, Cloud);
+    let newCloudGroup = {};
+    Cloud.accountId = newCloudGroup.accountId = localStorage.getItem('UserId');
+
+    //If entered custom cloud group name
+    if(!Cloud.cloudGroup.id) {
+      newCloudGroup.name = Cloud.cloudGroup.value;
+      newCloudGroup = yield addNewCloudGroup(newCloudGroup);
+    }
+
+    yield addNewCloud(Cloud.cloudGroup.id || newCloudGroup.id, Cloud);
     yield put(getListsStart());
     NotificationManager.success(`The cloud ${Cloud.name} has been successfully created`, 'Success!');
     yield put(createCloudDone());
-  } catch ({ error }) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(createCloudError(error));
   }

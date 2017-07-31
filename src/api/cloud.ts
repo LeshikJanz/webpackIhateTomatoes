@@ -48,7 +48,7 @@ export const fetchCloud = (id: string) => {
  * Creating new cloud
  *
  * See: .../explorer/#!/CloudGroups/{id}/clouds:POST
- * @param {string} id - cloud id
+ * @param {string} id - cloud group id
  * @param {ICloud} cloud - cloud
  *
  * @returns {ICloud} c - cloud

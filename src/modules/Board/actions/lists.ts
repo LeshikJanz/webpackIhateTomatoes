@@ -1,4 +1,4 @@
-import { ICloud, IModal } from "interfaces/index";
+import { ICloud, IModal, ICloudGroup } from "interfaces/index";
 import { updateCloud, handleModalAction, createCloudInit, createCloudGroupInit } from "../../actions";
 import { createAction } from "utils/createAction";
 import { deleteCloudInit, deleteCloudGroupInit } from "../actions";
@@ -44,14 +44,14 @@ export function handleModal(modal: IModal) {
   return (dispatch) => dispatch(handleModalAction(modal))
 }
 
-export function handleCloudFormSubmit(event) {
+export function handleCloudFormSubmit(cloud) {
   return (dispatch) => {
     dispatch(handleModalAction());
     dispatch(createCloudInit(event));
   }
 }
 
-export function handleCloudGroupFormSubmit(event) {
+export function handleCloudGroupFormSubmit(cloudGroup: ICloudGroup) {
   return (dispatch) => {
     dispatch(handleModalAction());
     dispatch(createCloudGroupInit(event));

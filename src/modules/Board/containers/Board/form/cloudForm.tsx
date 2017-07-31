@@ -1,9 +1,25 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-require('../../../../../styles/form.scss');
+import { ICloudGroup } from "interfaces/index";
+require('styles/form.scss');
+const Select = require('react-select');
 
 let CloudForm = props => {
   const { cloudGroups, handleModalAction, handleSubmit } = props;
+
+  const reactSelect = ({ input, options, hint }) => (
+    <div>
+      <Select.Creatable
+        {...input}
+        value={input.value}
+        onChange={(value) => {return input.onChange(value)}}
+        onBlur={() => input.onBlur(input.value)}
+        options={options}
+        clearableValue={false}
+      />
+      <div className="hint">{hint}</div>
+    </div>
+  );
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -18,12 +34,22 @@ let CloudForm = props => {
         <div className="form-element">
           <label className="input-label">Cloud Group</label>
           <div>
-            <Field className="input-container input-modal" name="cloudId" component="select">
-              <option key="-1" value="Choice cloud group..."/>
-              {cloudGroups.length > 0 && cloudGroups.map((item, i) =>
-                <option key={i} value={item.id}>{item.name}</option>
-              )}
-            </Field>
+            <Field className="input-container input-modal" name="cloudGroup"
+                   component={reactSelect}
+                   options={cloudGroups.map(
+                                    o => ({
+                                          ...o,
+                                          label: o.name,
+                                          value: o.id,
+                                         }))}
+                   hint="Enter a value that's NOT in the list, then hit return"
+            />
+            {/*<Field className="input-container input-modal" name="cloudId" component="select">*/}
+            {/*<option key="-1" value="Choice cloud group..."/>*/}
+            {/*{cloudGroups.length > 0 && cloudGroups.map((item, i) =>*/}
+            {/*<option key={i} value={item.id}>{item.name}</option>*/}
+            {/*)}*/}
+            {/*</Field>*/}
           </div>
         </div>
         <div className="form-element">
