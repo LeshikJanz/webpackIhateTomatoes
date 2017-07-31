@@ -16,4 +16,3 @@ export function* saveKnowledgeSaga(): Iterator<Object | Task> {
 export function* knowledgeSaga() {
   yield takeEvery(saveKnowledge().type, saveKnowledgeSaga);
 }
-

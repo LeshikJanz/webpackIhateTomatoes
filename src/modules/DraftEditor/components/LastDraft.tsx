@@ -26,9 +26,8 @@ import { IKnowledge } from "interfaces/index";
  */
 declare interface ILastDraftProps {
   knowledge: IKnowledge,
-  editKnowledge: Function,
-  handleNameChange: Function,
-  closeEditor: Function
+  handleNameChange: Object,
+  closeEditor: Object
 }
 
 /**
@@ -92,6 +91,9 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    * @return {string} - HTML markup for the component
    */
   render() {
+    console.log('this.props');
+    console.log(this.props);
+
     return (
       <div>
         <div className="modal-header" style={{ display: 'flex', justifyContent: 'center' }}>
@@ -106,7 +108,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
           </button>
         </div>
         <div
-          style={this.props.knowledge.accoundId === localStorage.getItem('UserId') ? {} : { pointerEvents: 'none' } }>
+          style={this.props.knowledge.accountId === localStorage.getItem('UserId') ? {} : { pointerEvents: 'none' } }>
           <Editor
             plugins={this.plugins}
             sidebarVisibleOn='newline'

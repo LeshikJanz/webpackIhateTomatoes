@@ -14,21 +14,14 @@ const mapStateToProps = ( state ) => ({
   knowledge: state.Knowledge
 });
 
-/**
- * Function is a Redux action creator wrapped into a dispatch call
- * so they may be invoked directly, will be merged into the component’s props
- *
- * See: https://github.com/reactjs/react-redux/blob/master/docs/api.md
- *
- * @param: {any} dispatch - dispatch
- */
-const mapDispatchToProps: any = dispatch => ({
+const mergeProps: any = (props, { dispatch }): any => ({
+  ...props,
+  editKnowledge: (text) => dispatch(editKnowledge(text)),
+  handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value)),
   closeEditor: () => {
     dispatch(handleModalAction());
-    dispatch(updateKnowledge());
-  },
-  editKnowledge: text => dispatch(editKnowledge(text)),
-  handleNameChange: e => dispatch(changeKnowledgeName(e.target.value))
+    props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledge());
+  }
 });
 
 /**
@@ -43,6 +36,6 @@ const mapDispatchToProps: any = dispatch => ({
  */
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  null
+  null,
+  mergeProps
 )(LastDraft);
