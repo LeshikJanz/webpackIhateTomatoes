@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "modules/urls";
+import { Link } from 'react-router';
 
 function tagCloudController() {
   try {
@@ -22,7 +23,7 @@ function tagCloudController() {
       minBrightness: 0.2,
       depth: 0.92,
       pulsateTo: 0.6,
-      initial: [ 0.2, -0.2 ],
+      initial: [0.2, -0.2],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
@@ -83,7 +84,7 @@ export class TagCloud extends React.Component {
 
   componentDidUpdate = () => {
     if ( TagCloud.tagNumber != (this.props.tags && this.props.tags.length) ) {
-      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[ this.props.tags.length - 1 ], this.props.tags.length - 1);
+      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
@@ -107,10 +108,10 @@ export class TagCloud extends React.Component {
 
     return (
       <div className="main-container">
-        {
-          locationPath !== urls.index &&
-          <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
-        }
+          {
+            locationPath !== urls.index &&
+            <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
+          }
         <ReactIgnore>
           <textarea style={{ opacity: 0 }} value={contents}/>
         </ReactIgnore>

@@ -5,6 +5,7 @@ import PlacesAutocomplete from 'react-places-autocomplete'
 const styles = require('../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
+import { Link } from 'react-router';
 
 /**
  * Google place autocomplete for Redux Form Field
@@ -55,7 +56,10 @@ let RegistrationForm = props => {
 
   return (
     <form className="form-container" onSubmit={ props.handleSubmit }>
-      <h1 style={{ textAlign: 'right', color: '#62B006' }}>Sign Up</h1><br/>
+      <div className="registration-bar">
+        <Link className="hvr-icon-wobble-horizontal">Back</Link>
+        <h1 style={{ color: '#62B006' }}>Sign Up</h1>
+      </div>
       <div className="modal-body">
         <div className={cx(['dropzone'])}>
           <Field

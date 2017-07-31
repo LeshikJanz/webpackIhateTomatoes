@@ -130,10 +130,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: red;
-}
-
 a[title]:hover:after {
   transform: rotate(-90deg);
   content: attr(title);
