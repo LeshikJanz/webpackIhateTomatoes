@@ -12,7 +12,8 @@ import routes from './modules/routes';
 import thunk from 'redux-thunk';
 import 'react-notifications/lib/notifications.css';
 require('./app.scss');
-import ReduxToastr from 'react-redux-toastr';
+require('./styles/animations.scss');
+import 'react-select/dist/react-select.css';
 import { NotificationContainer } from 'react-notifications';
 require('react-redux-toastr/src/styles/index.scss');
 

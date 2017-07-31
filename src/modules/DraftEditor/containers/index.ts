@@ -11,7 +11,8 @@ import { editKnowledge, changeKnowledgeName, closeEditor, updateKnowledge, handl
  * @param: {any} state - App state
  */
 const mapStateToProps = ( state ) => ({
-  knowledge: state.Knowledge
+  knowledge: state.Knowledge,
+  user: state.Knowledge.account
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({

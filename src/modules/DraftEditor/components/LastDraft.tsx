@@ -16,10 +16,11 @@ import audio from 'ld-audio';
 import sticker from 'ld-sticker';
 import html from 'ld-html';
 import todo from 'ld-todo';
-import '../styles/style.css';
+import '../styles/style.scss';
 import { uploadImage } from "api/user";
 import { Editor } from "draft-js";
 import { IKnowledge } from "interfaces/index";
+import { Subscription } from "./Subscription";
 
 /**
  * Last draft props interface
@@ -43,7 +44,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    *
    * @type {any[]}
    */
-  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
+  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
 
   /**
    * Constructor
@@ -85,20 +86,24 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   }
 
   /**
+   * Check if current user has access to the component
+   */
+  isAllowed = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
+
+  /**
    * Renders the component.
    *
    * @memberof LastDraft
    * @return {string} - HTML markup for the component
    */
   render() {
-    console.log('this.props');
-    console.log(this.props);
-
     return (
       <div>
-        <div className="modal-header" style={{ display: 'flex', justifyContent: 'center' }}>
-          <input className="input-container"
-                 style={{ width: '200px', textAlign: 'center' }}
+        <div className="modal-header draft-editor-container">
+          <Subscription user={this.props.user}/>
+          <input disabled={!this.isAllowed()}
+                 className="input-container"
+                 style={{   marginRight: 'auto' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
                  value={this.props.knowledge.name}
@@ -107,9 +112,9 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-        <div
-          style={this.props.knowledge.accountId === localStorage.getItem('UserId') ? {} : { pointerEvents: 'none' } }>
+        <div>
           <Editor
+            readOnly={!this.isAllowed()}
             plugins={this.plugins}
             sidebarVisibleOn='newline'
             inline={['bold', 'italic', 'dropcap']}

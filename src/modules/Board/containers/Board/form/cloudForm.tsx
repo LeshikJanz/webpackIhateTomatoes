@@ -1,9 +1,26 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-require('../../../../../styles/form.scss');
+import { ICloudGroup } from "interfaces/index";
+require('styles/form.scss');
+const Select = require('react-select');
 
 let CloudForm = props => {
   const { cloudGroups, handleModalAction, handleSubmit } = props;
+
+  const reactSelect = ({ input, options, hint }) => (
+    <div>
+      <Select.Creatable
+        {...input}
+        value={input.value}
+        onChange={(value) => {return input.onChange(value)}}
+        onBlur={() => input.onBlur(input.value)}
+        options={options}
+        clearableValue={false}
+        promptTextCreator={ (label) => `Create cloud group '${label}'` }
+      />
+      <div className="hint">{hint}</div>
+    </div>
+  );
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -18,22 +35,23 @@ let CloudForm = props => {
         <div className="form-element">
           <label className="input-label">Cloud Group</label>
           <div>
-            <Field className="input-container input-modal" name="cloudId" component="select">
-              <option key="-1" value="Choice cloud group..."/>
-              {cloudGroups.length > 0 && cloudGroups.map((item, i) =>
-                <option key={i} value={item.id}>{item.name}</option>
-              )}
-            </Field>
+            <Field className="input-container input-modal" name="cloudGroup"
+                   component={reactSelect}
+                   hint="*You can enter name not from list and this group will be created"
+                   options={
+                     cloudGroups.map(
+                        o => ({
+                              ...o,
+                              label: o.name,
+                              value: o.id,
+                              }))}
+            />
           </div>
         </div>
         <div className="form-element">
-          <div>
-            <label className="input-label" htmlFor="goal">Why do you create this cloud?</label>
-            <div>
-              <Field placeholder="Enter short explanation..." className="input-container input-modal"
-                     style={{ height: '100px' }} name="goal" component="textarea" type="text"/>
-            </div>
-          </div>
+          <label className="input-label" htmlFor="goal">Why do you create this cloud?</label>
+          <Field placeholder="Enter short explanation..." className="input-container input-modal"
+                 name="goal" component="textarea" type="text"/>
         </div>
       </div>
       <div className="modal-footer btn-actions">
