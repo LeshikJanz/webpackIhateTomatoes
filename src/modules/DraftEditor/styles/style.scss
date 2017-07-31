@@ -21,3 +21,37 @@
     text-align: center;
   }
 }
+
+.profile {
+  display: flex;
+  margin-right: auto;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  min-width: 150px;
+
+  .user-labels {
+    display: flex;
+    padding-left: 15px;
+    flex-direction: column;
+  }
+
+  .user-img {
+    cursor: pointer;
+    width: 50px;
+    border-radius: 5px;
+    align-self: flex-end;
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+
+    img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

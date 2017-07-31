@@ -40,7 +40,7 @@ export const updateCloudById = (id: string, cloud: ICloud) => {
  */
 export const fetchCloud = (id: string) => {
   return request
-    .get(`Clouds/${id}?filter={"include": ["knowledge"]}`, {})
+    .get(`Clouds/${id}?filter={"include": [{"knowledge" : "account"}]}`, {})
     .then((cloud: ICloud) => <ICloud> cloud);
 };
 
@@ -111,7 +111,7 @@ export const deleteCloud = (id: string) => {
  */
 export const fetchKnowledgeById = (id: string) => {
   return request
-    .get(`Knowledges/${id}`, {})
+    .get(`Knowledges/${id}?filter={"include": ["account"]}`, {})
     .then((knowledge: IKnowledge[]) => <IKnowledge[]> knowledge);
 };
 

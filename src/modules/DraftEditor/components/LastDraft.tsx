@@ -20,6 +20,7 @@ import '../styles/style.scss';
 import { uploadImage } from "api/user";
 import { Editor } from "draft-js";
 import { IKnowledge } from "interfaces/index";
+import { Subscription } from "./Subscription";
 
 /**
  * Last draft props interface
@@ -99,8 +100,10 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
     return (
       <div>
         <div className="modal-header draft-editor-container">
+          <Subscription user={this.props.user}/>
           <input disabled={!this.isAllowed()}
                  className="input-container"
+                 style={{   marginRight: 'auto' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
                  value={this.props.knowledge.name}
