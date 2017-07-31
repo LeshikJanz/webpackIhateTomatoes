@@ -34,6 +34,7 @@ declare interface ICloud extends Identifiable {
  */
 export
 declare interface IKnowledge extends Identifiable {
+  accountId: string,
   name: string,
   text: {},
   createDate: Date,

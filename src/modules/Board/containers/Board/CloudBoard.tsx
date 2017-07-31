@@ -152,14 +152,17 @@ export default class CloudBoard extends React.Component {
 
   render() {
     const {
-      lists, modal, handleModal, handleCloudGroupFormSubmit, handleCloudFormSubmit
+      lists, modal, handleModal, handleCloudGroupFormSubmit, handleCloudFormSubmit, params
     } = this.props;
 
     return (
       <div>
-        <GooeyMenu onSelect={ (callback, arg) => this[callback](arg) } menuItems={this.actionMenu}/>
+        {
+          !params.id &&
+          <GooeyMenu onSelect={ (callback, arg) => this[callback](arg) } menuItems={this.actionMenu}/>
+        }
 
-        <div>
+        <div style={{ width: '90%' }}>
           <CustomDragLayer snapToGrid={false}/>
           {
             lists.length > 0 && lists.map((item, i) =>

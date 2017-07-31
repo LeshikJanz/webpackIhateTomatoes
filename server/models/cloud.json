@@ -45,6 +45,11 @@
       "type": "hasOne",
       "model": "Session",
       "foreignKey": "lastOpenedCloudId"
+    },
+    "views": {
+      "type": "hasMany",
+      "model": "View",
+      "foreignKey": "viewId"
     }
   },
   "acls": [],

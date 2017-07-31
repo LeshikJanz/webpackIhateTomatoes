@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { PopUpModal } from "../components/PopUpModal";
-import { updateKnowledge, closeEditor, handleModalAction } from "../../actions";
+import { updateKnowledge, handleModalAction } from "../../actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -11,7 +11,8 @@ import { updateKnowledge, closeEditor, handleModalAction } from "../../actions";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  modal: state.Modal
+  modal: state.Modal,
+  knowledge: state.Knowledge
 });
 
 /**

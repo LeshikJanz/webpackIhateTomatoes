@@ -8,7 +8,6 @@ import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { Link } from 'react-router';
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
-import { IKnowledge } from "interfaces/index";
 import { urls } from "modules/urls";
 
 function tagCloudController() {
@@ -23,7 +22,7 @@ function tagCloudController() {
       minBrightness: 0.2,
       depth: 0.92,
       pulsateTo: 0.6,
-      initial: [0.2, -0.2],
+      initial: [ 0.2, -0.2 ],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
@@ -84,12 +83,17 @@ export class TagCloud extends React.Component {
 
   componentDidUpdate = () => {
     if ( TagCloud.tagNumber != (this.props.tags && this.props.tags.length) ) {
-      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[ this.props.tags.length - 1 ], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags);
   };
+
+  componentWillUnmount = () => {
+    removeTagCloud();
+    document.removeEventListener('tagclick', this.handleTagClick);
+  }
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.tags.find((elem: any) => elem.id === e.detail.tagId));

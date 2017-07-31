@@ -72,7 +72,7 @@ $hamburger-spacing:8px;
 .menu{
   @extend %goo;
   position: absolute;
-  right: 0%;
+  right: 3%;
   top: 60px;
   width: 100px;
   box-sizing: border-box;
@@ -132,7 +132,6 @@ a {
 
 a:hover {
   color: red;
-  position: absolute;
 }
 
 a[title]:hover:after {

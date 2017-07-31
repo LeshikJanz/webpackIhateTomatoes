@@ -10,12 +10,6 @@ export const GooeyMenu = (props) => {
     checkbox.checked = false;
   };
 
-  const options = {
-    followCursor: true,
-    shiftX: 20,
-    shiftY: 0
-  }
-
   return (
     <div className="gooey-container">
       <nav className="menu">
@@ -29,7 +23,8 @@ export const GooeyMenu = (props) => {
         </label>
         {
           props.menuItems.map((item, i) =>
-            <a href="javascript:void(0)"
+            <a key={i}
+               href="javascript:void(0)"
                title={item.placeholder}
                onClick={() => handleSelect(item)}
                className="menu-item">

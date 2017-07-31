@@ -9,7 +9,7 @@ import customStyles from "../styles/style";
 export const PopUpModal = (props) => {
   const closeModal = () => {
     props.closeEditor();
-    props.updateKnowledge();
+    props.knowledge.accountId === localStorage.getItem('UserId') && props.updateKnowledge();
   };
 
   return (

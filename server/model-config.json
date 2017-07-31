@@ -56,5 +56,13 @@
   "Account": {
     "dataSource": "mongodbDs",
     "public": true
+  },
+  "View": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "Relation": {
+    "dataSource": "mongodbDs",
+    "public": true
   }
 }
