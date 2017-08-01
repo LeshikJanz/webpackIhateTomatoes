@@ -19,7 +19,7 @@ import { GooeyMenu } from "../../../../components/GooeyMenu/components/GooeyMenu
 
 function mapStateToProps(state) {
   return {
-    lists: state.Trello.lists,
+    lists: state.Board.lists,
     modal: state.Modal
   };
 }

@@ -25,6 +25,9 @@ export const Header = (props) => {
     cloudId: props.cloudId
   });
 
+  console.log('props');
+  console.log(props);
+
   return (
     <div className={cx([{ 'blur': props.isModalOpen }])}>
       <div className="navbar navbar-default">
@@ -35,7 +38,7 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a onClick={() => { props.addTag(getEmptyKnowledge()) }}
+            <a onClick={() => { props.handleKnowledgeCreateModal() }}
                className="navbar-brand"
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
@@ -51,6 +54,16 @@ export const Header = (props) => {
             }
           </div>
         </div>
+        {/*<CustomModal*/}
+          {/*title="Adding knowledge"*/}
+          {/*isModalOpen={modal.isOpen && modal.type == 'CloudGroupAdd'}*/}
+        {/*>*/}
+          {/*<KnowledgeCreateForm*/}
+            {/*clouds={clouds}*/}
+            {/*handleModalAction={handleModal}*/}
+            {/*onSubmit={handleKnowledgeCreateFormSubmit}*/}
+          {/*/>*/}
+        {/*</CustomModal>*/}
       </div>
       {props.children}
     </div>

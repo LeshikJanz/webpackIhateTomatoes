@@ -4,7 +4,7 @@ import {
   addTag, fetchCloudInit, openKnowledge, handleModalAction
 } from "modules/actions";
 import { filterTags } from "../actions";
-import { IKnowledge } from "interfaces/index";
+import { IKnowledge, ICloudGroup } from "interfaces/index";
 
 const mapStateToProps = (state: any) => ({
   tags: state.Cloud.knowledge && state.Cloud.knowledge.filter((k: IKnowledge) =>

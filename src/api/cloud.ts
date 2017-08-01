@@ -2,9 +2,22 @@ import { request } from "./base";
 import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
 
 /**
+ * Fetching clouds
+ *
+ * See: .../explorer/#!/Clouds:GET
+ *
+ * @returns {ICloud[]} clouds - clouds
+ */
+export const fetchClouds = (accountId?: string) => {
+  return request
+    .get('Clouds')
+    .then((clouds: ICloud[]) => clouds)
+};
+
+/**
  * Fetching cloud groups including clouds
  *
- * See: .../explorer/#!/CloudGroups:PUT
+ * See: .../explorer/#!/CloudGroups:GET
  *
  * @returns {ICloudGroup[]} cloudGroups - cloud groups
  */

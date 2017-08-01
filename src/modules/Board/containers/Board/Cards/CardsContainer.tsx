@@ -111,7 +111,7 @@ export default class CardsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  lists: state.Trello.lists
+  lists: state.Board.lists
 });
 
 const mapDispatchToProps: any = dispatch => ({
