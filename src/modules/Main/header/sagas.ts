@@ -1,13 +1,14 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { addNewKnowledge } from "api/cloud";
+import { addNewKnowledge, addNewCloud } from "api/cloud";
 import { Task } from "redux-saga";
 import { addTag, updateKnowledgeError, createNewKnowledge } from "../../actions";
-import { IKnowledge } from "interfaces/index";
+import { IKnowledge, ICloudGroup } from "interfaces/index";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
 import { knowledgeSaga } from "../../Cloud/components/JqueryCloud/sagas";
 import { push } from "react-router-redux";
 import { urls } from "../../urls";
+import { fetchCloudGroupList } from "../../Board/sagas";
 
 const getFromState = (state: any) => state.form.knowledgeForm.values;
 
@@ -19,6 +20,20 @@ const getFromState = (state: any) => state.form.knowledgeForm.values;
 export function* createNewKnowledgeSaga(): Iterator<Object | Task> {
   try {
     const knowledgeForm = yield select(getFromState);
+
+    let mainGroup = {};
+    // check if cloud is not exist
+    if(knowledgeForm.cloud && !knowledgeForm.cloud.id) {
+      const cloudGroups = yield fetchCloudGroupList();
+      mainGroup = cloudGroups.find((cg: ICloudGroup) => cg.name === 'Main');
+      const newCloud = {
+        name: knowledgeForm.cloud.name,
+        accountId: localStorage.getItem('UserId')
+      };
+
+      yield addNewCloud(mainGroup.id, newCloud)
+    }
+
     const newKnowledge = {
       accountId: localStorage.getItem('UserId'),
       name: knowledgeForm.name,

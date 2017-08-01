@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { lifecycle } from 'recompose';
 import { Field, reduxForm } from 'redux-form'
 import { ICloud } from "../../Board/interfaces/index";
 const Select = require('react-select');
@@ -6,11 +7,17 @@ const Select = require('react-select');
 let KnowledgeCreateForm = (props) => {
   const { handleSubmit, clouds, handleModal, cloudId } = props;
 
-  const reactSelect = ({ input, options, hint }) => (
+  const enhance = lifecycle({
+    componentDidMount() {
+      this.props.input.onChange(this.props.options.find((c: ICloud) => c.id === cloudId));
+    }
+  });
+
+  const reactSelect = enhance(({ input, options, hint }) => (
     <div>
       <Select.Creatable
         {...input}
-        value={input.value || options.find((c: ICloud) => c.id === cloudId )}
+        value={input.value}
         onChange={(value) => {return input.onChange(value)}}
         onBlur={() => input.onBlur(input.value)}
         options={options}
@@ -19,7 +26,7 @@ let KnowledgeCreateForm = (props) => {
       />
       <div className="hint">{hint}</div>
     </div>
-  );
+  ));
 
   return (
     <form onSubmit={ handleSubmit }>

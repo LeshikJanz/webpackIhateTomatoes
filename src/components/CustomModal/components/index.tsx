@@ -7,13 +7,6 @@ export const CustomModal = (props) => {
   const { title, handleModal } = props;
 
   /**
-   * Close Confirm Modal
-   *
-   * @returns {void}
-   * */
-  const closeModal = () => handleModal();
-
-  /**
    * Renders the component.
    *
    * @memberof LastDraft
