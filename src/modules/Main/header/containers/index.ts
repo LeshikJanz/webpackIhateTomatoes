@@ -14,7 +14,8 @@ import { ICloudGroup, ICloud } from "../../../../interfaces/index";
  */
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isOpen
+  modal: state.Modal,
+  clouds: state.Board.lists.reduce((sum: ICloud[], cg: ICloudGroup) => sum.concat(cg.clouds), [])
 });
 
 /**
@@ -26,8 +27,15 @@ const mapStateToProps = (state) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps: any = dispatch => ({
-  addTag: (tag) => dispatch(createNewKnowledge(tag)),
-  handleModalAction: (tag) => dispatch(handleModalAction())
+  addKnowledge: () => {
+    dispatch(createNewKnowledge());
+    dispatch(handleModalAction());
+  },
+  handleModal: (tag) => dispatch(handleModalAction()),
+  handleKnowledgeCreateModal: () => {
+    dispatch(getListsStart(localStorage.getItem('UserId')));
+    dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
+  }
 });
 
 /**

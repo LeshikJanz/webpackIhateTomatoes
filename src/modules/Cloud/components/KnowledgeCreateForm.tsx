@@ -3,21 +3,25 @@ import { Field, reduxForm } from 'redux-form'
 const Select = require('react-select');
 
 let KnowledgeCreateForm = (props) => {
-  const { handleSubmit, clouds, handleModalAction } = props;
+  const { handleSubmit, clouds, handleModal } = props;
 
   const reactSelect = ({ input, options, hint }) => (
     <div>
-      <Select
+      <Select.Creatable
         {...input}
         value={input.value}
         onChange={(value) => {return input.onChange(value)}}
         onBlur={() => input.onBlur(input.value)}
         options={options}
         clearableValue={false}
+        promptTextCreator={ (label) => `Create cloud '${label}'` }
       />
       <div className="hint">{hint}</div>
     </div>
   );
+
+  console.log('props.params');
+  console.log(props.params);
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -29,26 +33,27 @@ let KnowledgeCreateForm = (props) => {
                    component="input" type="text"/>
           </div>
         </div>
-        <div className="form-element">
+        <div className="form-element" style={{ height: '160px' }}>
           <label className="input-label">Cloud</label>
           <div>
             <Field className="input-container input-modal" name="cloud"
                    component={reactSelect}
                    options={clouds}
+                   hint="*Select existing cloud name or write down new name for adding knowledge to the fresh cloud"
             />
           </div>
         </div>
       </div>
       <div className="modal-footer btn-actions">
         <button className="primary" type="submit">Confirm</button>
-        <button className="secondary" onClick={handleModalAction}>Cancel</button>
+        <button className="secondary" onClick={handleModal}>Cancel</button>
       </div>
     </form>
   )
 };
 
 KnowledgeCreateForm = reduxForm({
-  form: 'cloudForm'
+  form: 'knowledgeForm'
 })(KnowledgeCreateForm);
 
 export default KnowledgeCreateForm;

@@ -1,25 +1,36 @@
-import { put, takeEvery } from 'redux-saga/effects'
+import { put, takeEvery, select } from 'redux-saga/effects'
 import { addNewKnowledge } from "api/cloud";
 import { Task } from "redux-saga";
 import { addTag, updateKnowledgeError, createNewKnowledge } from "../../actions";
 import { IKnowledge } from "interfaces/index";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
+import { knowledgeSaga } from "../../Cloud/components/JqueryCloud/sagas";
+import { push } from "react-router-redux";
+import { urls } from "../../urls";
+
+const getFromState = (state: any) => state.form.knowledgeForm.values;
 
 /**
  * Handle creating new knowledge
  *
- * @param {IKnowledge} payload - knowledge
  * @returns {Iterator<Object | Task>}
  */
-export function* createNewKnowledgeSaga( { payload }: IKnowledge ): Iterator<Object | Task> {
+export function* createNewKnowledgeSaga(): Iterator<Object | Task> {
   try {
-    payload.accountId = localStorage.getItem('UserId');
-    const knowledge = yield addNewKnowledge(payload);
+    const knowledgeForm = yield select(getFromState);
+    const newKnowledge = {
+      accountId: localStorage.getItem('UserId'),
+      name: knowledgeForm.name,
+      cloudId: knowledgeForm.cloud.id
+    };
+
+    const knowledge = yield addNewKnowledge(newKnowledge);
 
     yield put(addTag(knowledge));
+    yield put(push(urls.cloud + `/${knowledge.cloudId}`));
     NotificationManager.success(`The knowledge ${knowledge.name} has been successfully created`, 'Success!');
-  } catch ({ error }) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(updateKnowledgeError(error));
   }
@@ -31,9 +42,8 @@ export function* createNewKnowledgeSaga( { payload }: IKnowledge ): Iterator<Obj
  * @param {IKnowledge} payload - knowledge
  * @returns {Iterator<Object | Task>}
  */
-export function* fetchCloudsSaga( { payload }: IKnowledge ): Iterator<Object | Task> {
+export function* fetchCloudsSaga({ payload }: IKnowledge): Iterator<Object | Task> {
   try {
-    const clouds
     payload.accountId = localStorage.getItem('UserId');
     const knowledge = yield addNewKnowledge(payload);
 

@@ -1,35 +1,20 @@
 import * as React from "react";
 import AuthBar from "../../auth/containers/AuthBar";
 import LogOutBar from "../../auth/containers/LogOutBar";
-import { IKnowledge } from "interfaces/index";
+import { CustomModal } from "components/CustomModal/components/index";
+import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
-const moment = require('moment');
 
 /**
  * Main page's header
  */
 export const Header = (props) => {
-
-  /**
-   * Get empty(default) knowledge
-   *
-   * @returns {IKnowledge} knowledge - default knowledge
-   */
-  const getEmptyKnowledge = (): IKnowledge => ({
-    name: "New knowledge",
-    createDate: moment(),
-    updateDate: moment(),
-    text: {},
-    cloudId: props.cloudId
-  });
-
-  console.log('props');
-  console.log(props);
+  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, clouds } = props;
 
   return (
-    <div className={cx([{ 'blur': props.isModalOpen }])}>
+    <div className={cx([{ 'blur': modal.isOpen }])}>
       <div className="navbar navbar-default">
         <div className="header-container">
           <div>
@@ -38,7 +23,7 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a onClick={() => { props.handleKnowledgeCreateModal() }}
+            <a onClick={() => { handleKnowledgeCreateModal() }}
                className="navbar-brand"
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>
@@ -54,18 +39,24 @@ export const Header = (props) => {
             }
           </div>
         </div>
-        {/*<CustomModal*/}
-          {/*title="Adding knowledge"*/}
-          {/*isModalOpen={modal.isOpen && modal.type == 'CloudGroupAdd'}*/}
-        {/*>*/}
-          {/*<KnowledgeCreateForm*/}
-            {/*clouds={clouds}*/}
-            {/*handleModalAction={handleModal}*/}
-            {/*onSubmit={handleKnowledgeCreateFormSubmit}*/}
-          {/*/>*/}
-        {/*</CustomModal>*/}
+        <CustomModal
+          title="Adding knowledge"
+          isModalOpen={modal.isOpen && modal.type == 'KnowledgeCreate'}
+          handleModal={handleModal}
+        >
+          <KnowledgeCreateForm
+            clouds={clouds.map(
+                        o => ({
+                              ...o,
+                              label: o.name,
+                              value: o.id,
+                              }))}
+            handleModal={handleModal}
+            onSubmit={addKnowledge}
+          />
+        </CustomModal>
       </div>
       {props.children}
     </div>
   )
-}
+};

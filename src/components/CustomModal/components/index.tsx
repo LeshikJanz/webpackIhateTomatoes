@@ -22,7 +22,7 @@ export const CustomModal = (props) => {
   return (
     <Modal
       isOpen={props.isModalOpen}
-      onRequestClose={closeModal}
+      onRequestClose={handleModal}
       style={Styles}
       contentLabel="Example Modal"
     >
