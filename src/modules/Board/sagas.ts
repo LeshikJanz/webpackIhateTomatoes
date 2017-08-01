@@ -14,7 +14,7 @@ import { getListsStart } from "./actions/lists";
 import { NotificationManager } from 'react-notifications';
 import {
   deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
-  deleteCloudDone, deleteCloudError, updateCloudOrderInit
+  deleteCloudDone, deleteCloudError
 } from "./actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
@@ -30,21 +30,17 @@ export const getCloudGroupFromState: any = (state): any => state.form.cloudGroup
  */
 export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
-    const lists: ICloudGroup[] = yield fetchCloudGroups(payload);
-
-    lists = lists.map(l => {
-        if ( l.clouds.length !== l.cloudOrder.length ) return l;
-        else {
-          let clouds = [];
-          l.cloudOrder.forEach((co, index) => clouds.push(l.clouds.find(cl => cl.id == co)));
-          l.clouds = clouds;
+    const lists: ICloudGroup[] = (yield fetchCloudGroups(payload))
+      .map(l => {
+          if ( (l.cloudOrders && l.clouds) && l.clouds.length === l.cloudOrders.length ) {
+            l.clouds = l.cloudOrders.reduce((sum, co, index) => sum.concat(l.clouds.find(cl => cl.id == co)), []);
+          }
           return l;
         }
-      }
-    );
+      );
 
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
-  } catch ( error ) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(fetchCloudError(error));
   }
@@ -71,12 +67,16 @@ export function* updateCloudGroupSaga({ payload }: ICloudGroup): Iterator<Object
 export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
-    let newCloudGroup = {};
-    Cloud.accountId = newCloudGroup.accountId = localStorage.getItem('UserId');
+    let newCloudGroup: ICloudGroup = {
+      name: Cloud.cloudGroup.value,
+      cloudOrders: [],
+      accountId: localStorage.getItem('UserId')
+    };
+
+    Cloud.accountId = localStorage.getItem('UserId');
 
     //If entered custom cloud group name
     if ( !Cloud.cloudGroup.id ) {
-      newCloudGroup.name = Cloud.cloudGroup.value;
       newCloudGroup = yield addNewCloudGroup(newCloudGroup);
     }
 
@@ -92,8 +92,12 @@ export function* createCloudSaga(): Iterator<Object | Task> {
 
 export function* createCloudGroupSaga(): Iterator<Object | Task> {
   try {
-    const CloudGroup = yield select(getCloudGroupFromState);
-    CloudGroup.accountId = localStorage.getItem('UserId');
+    const CloudGroup: ICloudGroup = {
+      ...(yield select(getCloudGroupFromState)),
+      accountId: localStorage.getItem('UserId'),
+      cloudOrders: []
+    };
+
     yield addNewCloudGroup(CloudGroup);
     yield put(getListsStart());
 

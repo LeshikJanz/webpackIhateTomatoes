@@ -4,8 +4,6 @@ import { IUser } from "interfaces/index";
 import { createAccountInit } from "../actions";
 import { push } from "react-router-redux";
 import { urls } from "../../urls";
-import { addNewCloudGroup } from "../../../api/cloud";
-import { DEFAULT_CLOUD_GROUP } from "../../../constants/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state

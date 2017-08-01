@@ -4,7 +4,8 @@ export const CLOUDINARY_UPLOAD_PRESET = 'oo5ejtrk';
 
 export const DEFAULT_CLOUD_GROUP: ICloudGroup = {
   name: "Main",
-  title: "This is your default cloud group."
+  title: "This is your default cloud group.",
+  cloudOrders: []
 };
 
 export const DEFAULT_CLOUD_ID: string = "597b7608971b4d071a77a8bf";

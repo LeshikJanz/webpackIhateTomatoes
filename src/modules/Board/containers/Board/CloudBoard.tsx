@@ -118,7 +118,7 @@ export default class CloudBoard extends React.Component {
       const cloudGroup = this.props.lists.find((cg: ICloudGroup) => cg.clouds.find((c: ICloud) => c === cloud))
       cloud.cloudGroupId = cloudGroup.id;
 
-      cloudGroup.cloudOrder = cloudGroup.clouds.reduce((sum, c: ICloud) => sum.concat(c.id), []);
+      cloudGroup.cloudOrders = cloudGroup.clouds.reduce((sum, c: ICloud) => sum.concat(c.id), []);
 
       this.props.update(cloud, cloudGroup);
     }, 1000)

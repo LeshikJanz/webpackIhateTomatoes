@@ -11,10 +11,11 @@ declare interface Identifiable {
  */
 export
 declare interface ICloudGroup extends Identifiable {
-  name: string,
+  name?: string,
+  accountId: string,
   createDate?: Date,
-  title: string,
-  cloudsOrder: string[]
+  title?: string,
+  cloudOrders: string[]
 }
 
 /**
