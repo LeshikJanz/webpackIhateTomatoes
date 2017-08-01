@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
+import { ICloud } from "../../Board/interfaces/index";
 const Select = require('react-select');
 
 let KnowledgeCreateForm = (props) => {
-  const { handleSubmit, clouds, handleModal } = props;
+  const { handleSubmit, clouds, handleModal, cloudId } = props;
 
   const reactSelect = ({ input, options, hint }) => (
     <div>
       <Select.Creatable
         {...input}
-        value={input.value}
+        value={input.value || options.find((c: ICloud) => c.id === cloudId )}
         onChange={(value) => {return input.onChange(value)}}
         onBlur={() => input.onBlur(input.value)}
         options={options}
@@ -19,9 +20,6 @@ let KnowledgeCreateForm = (props) => {
       <div className="hint">{hint}</div>
     </div>
   );
-
-  console.log('props.params');
-  console.log(props.params);
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -39,6 +37,7 @@ let KnowledgeCreateForm = (props) => {
             <Field className="input-container input-modal" name="cloud"
                    component={reactSelect}
                    options={clouds}
+                   cloudId={cloudId}
                    hint="*Select existing cloud name or write down new name for adding knowledge to the fresh cloud"
             />
           </div>

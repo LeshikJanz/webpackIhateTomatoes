@@ -28,7 +28,7 @@ export function* createNewKnowledgeSaga(): Iterator<Object | Task> {
     const knowledge = yield addNewKnowledge(newKnowledge);
 
     yield put(addTag(knowledge));
-    yield put(push(urls.cloud + `/${knowledge.cloudId}`));
+    yield put(push(urls.cloud + '/' + knowledge.cloudId));
     NotificationManager.success(`The knowledge ${knowledge.name} has been successfully created`, 'Success!');
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');

@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
 import { createNewKnowledge, handleModalAction } from "modules/actions";
-import { getLists, getListsStart } from "../../../Board/actions/lists";
-import { ICloudGroup, ICloud } from "../../../../interfaces/index";
+import { getListsStart } from "modules/Board/actions/lists";
+import { ICloudGroup, ICloud } from "interfaces/index";
+import { withRouter } from 'react-router';
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -48,8 +49,8 @@ const mapDispatchToProps: any = dispatch => ({
  * @param mergeProps
  * @param options
  */
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Header);
+)(Header));

@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
  * Main page's header
  */
 export const Header = (props) => {
-  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, clouds } = props;
+  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, clouds, params } = props;
 
   return (
     <div className={cx([{ 'blur': modal.isOpen }])}>
@@ -45,6 +45,7 @@ export const Header = (props) => {
           handleModal={handleModal}
         >
           <KnowledgeCreateForm
+            cloudId={params && params.id}
             clouds={clouds.map(
                         o => ({
                               ...o,
