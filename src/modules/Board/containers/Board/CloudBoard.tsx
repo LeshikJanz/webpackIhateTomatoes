@@ -115,8 +115,12 @@ export default class CloudBoard extends React.Component {
 
   update(cloud: ICloud) {
     setTimeout(() => {
-      cloud.cloudGroupId = this.props.lists.find((cg: ICloudGroup) => cg.clouds.find((c: ICloud) => c === cloud)).id;
-      this.props.update(cloud);
+      const cloudGroup = this.props.lists.find((cg: ICloudGroup) => cg.clouds.find((c: ICloud) => c === cloud))
+      cloud.cloudGroupId = cloudGroup.id;
+
+      cloudGroup.cloudOrder = cloudGroup.clouds.reduce((sum, c: ICloud) => sum.concat(c.id), []);
+
+      this.props.update(cloud, cloudGroup);
     }, 1000)
   }
 
@@ -149,6 +153,8 @@ export default class CloudBoard extends React.Component {
     { callback: 'openModal', arg: 'CloudGroupAdd', placeholder: 'Create cloud group', icon: 'fa fa-menu fa-sitemap' },
     { callback: 'openModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
   ];
+
+
 
   render() {
     const {

@@ -13,7 +13,8 @@ export
 declare interface ICloudGroup extends Identifiable {
   name: string,
   createDate?: Date,
-  title: string
+  title: string,
+  cloudsOrder: string[]
 }
 
 /**

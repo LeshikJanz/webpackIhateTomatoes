@@ -1,5 +1,8 @@
 import { ICloud, IModal, ICloudGroup } from "interfaces/index";
-import { updateCloud, handleModalAction, createCloudInit, createCloudGroupInit } from "../../actions";
+import {
+  updateCloud, handleModalAction, createCloudInit, createCloudGroupInit,
+  updateCloudGroupInit
+} from "../../actions";
 import { createAction } from "utils/createAction";
 import { deleteCloudInit, deleteCloudGroupInit } from "../actions";
 const faker = require('faker');
@@ -28,9 +31,10 @@ export function moveCard(lastX, lastY, nextX, nextY) {
   };
 }
 
-export function update(cloud: ICloud) {
+export function update(cloud: ICloud, cloudGroup: ICloudGroup[]) {
   return (dispatch) => {
     dispatch(updateCloud(cloud));
+    dispatch(updateCloudGroupInit(cloudGroup))
   };
 }
 

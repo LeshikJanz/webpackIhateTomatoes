@@ -44,6 +44,22 @@ export const updateCloudById = (id: string, cloud: ICloud) => {
 };
 
 /**
+ * Updating cloud group by id
+ *
+ * See: .../explorer/#!/CloudGroups/{id}:PUT
+ *
+ * @param {string} id - cloud group id
+ * @param {ICloudGroup} cloudGroup - cloud group
+ *
+ * @returns {ICloud} cloud - updated cloud
+ */
+export const updateCloudGroupById = (id: string, cloudGroup: ICloudGroup) => {
+  return request
+    .put(`CloudGroups/${id}`, cloudGroup)
+    .then((cloudGroup: ICloudGroup) => <ICloudGroup> cloudGroup);
+};
+
+/**
  * Fetching cloud by id including knowledge
  *
  * See: .../explorer/#!/Clouds/{id}:POST
