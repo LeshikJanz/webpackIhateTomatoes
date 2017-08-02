@@ -2,9 +2,22 @@ import { request } from "./base";
 import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
 
 /**
+ * Fetching clouds
+ *
+ * See: .../explorer/#!/Clouds:GET
+ *
+ * @returns {ICloud[]} clouds - clouds
+ */
+export const fetchClouds = (accountId?: string) => {
+  return request
+    .get('Clouds')
+    .then((clouds: ICloud[]) => clouds)
+};
+
+/**
  * Fetching cloud groups including clouds
  *
- * See: .../explorer/#!/CloudGroups:PUT
+ * See: .../explorer/#!/CloudGroups:GET
  *
  * @returns {ICloudGroup[]} cloudGroups - cloud groups
  */
@@ -28,6 +41,22 @@ export const updateCloudById = (id: string, cloud: ICloud) => {
   return request
     .put(`Clouds/${id}`, cloud)
     .then((cloud: ICloud) => <ICloud> cloud);
+};
+
+/**
+ * Updating cloud group by id
+ *
+ * See: .../explorer/#!/CloudGroups/{id}:PUT
+ *
+ * @param {string} id - cloud group id
+ * @param {ICloudGroup} cloudGroup - cloud group
+ *
+ * @returns {ICloud} cloud - updated cloud
+ */
+export const updateCloudGroupById = (id: string, cloudGroup: ICloudGroup) => {
+  return request
+    .put(`CloudGroups/${id}`, cloudGroup)
+    .then((cloudGroup: ICloudGroup) => <ICloudGroup> cloudGroup);
 };
 
 /**

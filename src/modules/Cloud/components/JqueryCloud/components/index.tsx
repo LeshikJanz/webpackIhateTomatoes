@@ -10,6 +10,8 @@ import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "modules/urls";
 import { Link } from 'react-router';
+import CustomModal from "components/CustomModal/containers/index";
+import KnowledgeCreateForm from "../../KnowledgeCreateForm";
 
 function tagCloudController() {
   try {
@@ -102,16 +104,22 @@ export class TagCloud extends React.Component {
   };
 
   render() {
-    const { isEditorOpen, contents, handleSearch, locationPath } = this.props;
+    const {
+      isEditorOpen, contents, handleSearch, locationPath, cloud, updateCloud, updateCloudName
+    } = this.props;
 
     !isEditorOpen ? startCloud() : stopCloud();
 
     return (
       <div className="main-container">
-          {
-            locationPath !== urls.index &&
-            <Search style={{ position: 'absolute' }} onChange={ handleSearch } name="name"/>
-          }
+        {
+          locationPath !== urls.index &&
+          <div className="cloud-actions">
+            <Search onChange={ handleSearch } name="name"/>
+            <input className="cloud-name-input" disabled={cloud.accountId !== localStorage.getItem('UserId')}
+                   value={cloud.name} onChange={updateCloudName} onBlur={() => updateCloud(cloud)}/>
+          </div>
+        }
         <ReactIgnore>
           <textarea style={{ opacity: 0 }} value={contents}/>
         </ReactIgnore>

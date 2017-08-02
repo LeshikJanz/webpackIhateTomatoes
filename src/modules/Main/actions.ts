@@ -7,3 +7,7 @@ export const loginError = createAction('LOGIN_ERROR');
 export const logOutInit = createAction('LOG_OUT_INIT');
 export const logOutDone = createAction('LOG_OUT_DONE');
 export const logOutError = createAction('LOG_OUT_ERROR');
+
+export const fetchCloudsInit = createAction('FETCH_CLOUDS_INIT');
+export const fetchCloudsDone = createAction('FETCH_CLOUDS_DONE');
+export const fetchCloudsError = createAction('FETCH_CLOUDS_ERROR');

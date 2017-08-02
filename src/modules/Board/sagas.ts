@@ -1,13 +1,14 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import {
   fetchCloudGroups, updateCloudById, addNewCloud, addNewCloudGroup, deleteCloudGroup,
-  deleteCloud
+  deleteCloud, updateCloudGroupById
 } from "api/cloud";
 import {
   updateCloud, createCloudInit, createCloudError,
-  createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError
+  createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError,
+  updateCloudGroupInit
 } from "../actions";
-import { ICloudGroup, ICloud } from "interfaces/index";
+import { ICloudGroup, ICloud, IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { getListsStart } from "./actions/lists";
 import { NotificationManager } from 'react-notifications';
@@ -15,6 +16,8 @@ import {
   deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
   deleteCloudDone, deleteCloudError
 } from "./actions";
+import { getUserById } from "../../api/auth";
+import { loginDone } from "../Main/actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
@@ -29,9 +32,24 @@ export const getCloudGroupFromState: any = (state): any => state.form.cloudGroup
  */
 export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
-    const lists: ICloudGroup[] = yield fetchCloudGroups(payload);
+    const user: IUser = yield getUserById(localStorage.getItem('UserId'));
+    yield put(loginDone(user));
+    let lists: ICloudGroup[] = (yield fetchCloudGroups(payload))
+      .map(l => {
+          if ( (l.cloudOrders && l.clouds) && l.clouds.length === l.cloudOrders.length ) {
+            l.clouds = l.cloudOrders.reduce((sum, co, index) => sum.concat(l.clouds.find(cl => cl.id == co)), []);
+          }
+          return l;
+        }
+      );
+
+    if ( user.cloudGroupOrders ) {
+      lists = [...user.cloudGroupOrders.map(co => lists.find(cg => cg.id == co)), ...lists];
+      lists = lists.filter((item, pos) => lists.indexOf(item) === pos);
+    }
+
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
-  } catch ({ error }) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(fetchCloudError(error));
   }
@@ -46,15 +64,28 @@ export function* updateCloudSaga({ payload }: ICloud): Iterator<Object | Task> {
   }
 }
 
+export function* updateCloudGroupSaga({ payload }: ICloudGroup): Iterator<Object | Task> {
+  try {
+    yield updateCloudGroupById(payload.id, payload);
+  } catch ({ error }) {
+    NotificationManager.error(error.message, 'Error!');
+    yield put(fetchCloudError(error));
+  }
+}
+
 export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
-    let newCloudGroup = {};
-    Cloud.accountId = newCloudGroup.accountId = localStorage.getItem('UserId');
+    let newCloudGroup: ICloudGroup = {
+      name: Cloud.cloudGroup.value,
+      cloudOrders: [],
+      accountId: localStorage.getItem('UserId')
+    };
+
+    Cloud.accountId = localStorage.getItem('UserId');
 
     //If entered custom cloud group name
-    if(!Cloud.cloudGroup.id) {
-      newCloudGroup.name = Cloud.cloudGroup.value;
+    if ( !Cloud.cloudGroup.id ) {
       newCloudGroup = yield addNewCloudGroup(newCloudGroup);
     }
 
@@ -70,8 +101,12 @@ export function* createCloudSaga(): Iterator<Object | Task> {
 
 export function* createCloudGroupSaga(): Iterator<Object | Task> {
   try {
-    const CloudGroup = yield select(getCloudGroupFromState);
-    CloudGroup.accountId = localStorage.getItem('UserId');
+    const CloudGroup: ICloudGroup = {
+      ...(yield select(getCloudGroupFromState)),
+      accountId: localStorage.getItem('UserId'),
+      cloudOrders: []
+    };
+
     yield addNewCloudGroup(CloudGroup);
     yield put(getListsStart());
 
@@ -83,7 +118,7 @@ export function* createCloudGroupSaga(): Iterator<Object | Task> {
   }
 }
 
-export function* deleteCloudGroupSaga({ payload }: string ): Iterator<Object | Task> {
+export function* deleteCloudGroupSaga({ payload }: string): Iterator<Object | Task> {
   try {
     yield deleteCloudGroup(payload);
     NotificationManager.success(`The cloud group has been successfully deleted`, 'Success!');
@@ -96,7 +131,7 @@ export function* deleteCloudGroupSaga({ payload }: string ): Iterator<Object | T
   }
 }
 
-export function* deleteCloudSaga({ payload }: string ): Iterator<Object | Task> {
+export function* deleteCloudSaga({ payload }: string): Iterator<Object | Task> {
   try {
     yield deleteCloud(payload);
     NotificationManager.success(`The cloud has been successfully deleted`, 'Success!');
@@ -116,5 +151,6 @@ export function* trelloSaga() {
     takeEvery(createCloudGroupInit().type, createCloudGroupSaga),
     takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga),
     takeEvery(deleteCloudInit().type, deleteCloudSaga),
+    takeEvery(updateCloudGroupInit().type, updateCloudGroupSaga),
   ]
 }

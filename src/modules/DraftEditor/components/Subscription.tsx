@@ -9,6 +9,7 @@ export const Subscription = (props) => {
       <div className="user-labels">
         <div className="user-type">Founder</div>
         <div className="user-name">{ user && user.realm}
+        </div>
       </div>
     </div>
   )

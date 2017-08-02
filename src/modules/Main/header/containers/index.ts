@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
 import { createNewKnowledge, handleModalAction } from "modules/actions";
+import { getListsStart } from "modules/Board/actions/lists";
+import { ICloudGroup, ICloud } from "interfaces/index";
+import { withRouter } from 'react-router';
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -12,7 +15,8 @@ import { createNewKnowledge, handleModalAction } from "modules/actions";
  */
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isOpen
+  modal: state.Modal,
+  clouds: state.Board.lists.reduce((sum: ICloud[], cg: ICloudGroup) => sum.concat(cg.clouds), [])
 });
 
 /**
@@ -24,8 +28,15 @@ const mapStateToProps = (state) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps: any = dispatch => ({
-  addTag: (tag) => dispatch(createNewKnowledge(tag)),
-  handleModalAction: (tag) => dispatch(handleModalAction())
+  addKnowledge: () => {
+    dispatch(createNewKnowledge());
+    dispatch(handleModalAction());
+  },
+  handleModal: (tag) => dispatch(handleModalAction()),
+  handleKnowledgeCreateModal: () => {
+    dispatch(getListsStart(localStorage.getItem('UserId')));
+    dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
+  }
 });
 
 /**
@@ -38,8 +49,8 @@ const mapDispatchToProps: any = dispatch => ({
  * @param mergeProps
  * @param options
  */
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Header);
+)(Header));

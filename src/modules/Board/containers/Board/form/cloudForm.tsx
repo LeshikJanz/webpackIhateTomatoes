@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { ICloudGroup } from "interfaces/index";
 require('styles/form.scss');
 const Select = require('react-select');
 
@@ -60,10 +59,10 @@ let CloudForm = props => {
       </div>
     </form>
   )
-}
+};
 
 CloudForm = reduxForm({
   form: 'cloudForm'
-})(CloudForm)
+})(CloudForm);
 
 export default CloudForm;

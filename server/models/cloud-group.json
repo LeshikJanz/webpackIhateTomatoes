@@ -8,14 +8,15 @@
   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "title": {
       "type": "string"
     },
-    "order": {
-      "type": "number"
+    "cloudOrders": {
+      "type": [
+        "string"
+      ]
     },
     "createDate": {
       "type": "date"
