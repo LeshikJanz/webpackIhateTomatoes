@@ -28,6 +28,7 @@ export const createCloudGroupError = createAction('CREATE_CLOUD_GROUP_ERROR');
 
 export const createNewKnowledge = createAction('CREATE_NEW_KNOWLEDGE');
 export const openKnowledge = createAction('OPEN_KNOWLEDGE');
+export const clearKnowledge = createAction('CLEAR_KNOWLEDGE');
 export const updateKnowledge = createAction('UPDATE_KNOWLEDGE');
 export const updateKnowledgeError = createAction('UPDATE_KNOWLEDGE_ERROR');
 export const editKnowledge = createAction('EDIT_KNOWLEDGE');
