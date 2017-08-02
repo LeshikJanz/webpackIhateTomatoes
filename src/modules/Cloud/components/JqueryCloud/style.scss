@@ -10,8 +10,30 @@
 
 #CanvasContainer {
   width: 100%;
-  //background-image: url(~assets/icons/scroll.png);
-  //background-position: 10px 12px;
-  //background-repeat: no-repeat;
-  //background-size: 125px;
 }
+
+.cloud-actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .cloud-name-input {
+    border: 0px solid;
+    outline: none;
+    background-color: transparent;
+    width: 400px;
+    text-align: center;
+    font-family: Avenir;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #7a8693;
+    transition: 0.5s background-color linear;
+
+    &:focus {
+      background-color: white;
+    }
+  }
+}
+

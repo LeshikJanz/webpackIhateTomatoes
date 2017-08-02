@@ -31,3 +31,17 @@ export const fetchUsers = (filter: string) => {
     .get("Accounts" + (filter ? `?filter={"where": {"username": {"regexp": "/${filter}%2B/"}}}` : ''), {})
     .then((users: IUser[]) => users);
 };
+
+/**
+ * Update user by id
+ *
+ * @param {IUser} user - username filter
+ * @param {string} userId - updating user id
+ *
+ * @returns {IUser} user - user
+ */
+export const updateUserById = (userId: string, user: IUser) => {
+  return request
+    .put(`Accounts/${userId}`, user)
+    .then((user: IUser) => user);
+};

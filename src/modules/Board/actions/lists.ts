@@ -33,8 +33,10 @@ export function moveCard(lastX, lastY, nextX, nextY) {
 
 export function update(cloud: ICloud, cloudGroup: ICloudGroup[]) {
   return (dispatch) => {
-    dispatch(updateCloud(cloud));
-    dispatch(updateCloudGroupInit(cloudGroup))
+    if ( cloud.accountId === localStorage.getItem('UserId') ) {
+      dispatch(updateCloud(cloud));
+      dispatch(updateCloudGroupInit(cloudGroup));
+    }
   };
 }
 

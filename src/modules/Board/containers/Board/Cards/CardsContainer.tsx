@@ -4,7 +4,8 @@ import Cards from './Cards';
 import PropTypes = React.PropTypes;
 import { connect } from "react-redux";
 import { handleModalAction } from "modules/actions";
-import { IModal } from "interfaces/index";
+import { IModal, ICloudGroup, IUser } from "interfaces/index";
+import { updateAccountInit } from "../../../actions";
 
 const listSource = {
   beginDrag(props) {
@@ -14,6 +15,12 @@ const listSource = {
     };
   },
   endDrag(props) {
+    const user = {
+      id: localStorage.getItem('UserId'),
+      cloudGroupOrders: props.lists.reduce((sum, c: ICloudGroup) => sum.concat(c.id), [])
+    };
+    props.updateUser(user);
+
     props.stopScrolling();
   }
 };
@@ -117,7 +124,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps: any = dispatch => ({
   handleModal: (modal: IModal) => {
     dispatch(handleModalAction(modal))
-  }
+  },
+  updateUser: (user: IUser) => dispatch(updateAccountInit(user))
 });
 
 export default connect(

@@ -8,7 +8,7 @@ import {
   createCloudGroupInit, createCloudGroupError, createCloudGroupDone, createCloudDone, fetchCloudError,
   updateCloudGroupInit
 } from "../actions";
-import { ICloudGroup, ICloud } from "interfaces/index";
+import { ICloudGroup, ICloud, IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { getListsStart } from "./actions/lists";
 import { NotificationManager } from 'react-notifications';
@@ -16,6 +16,8 @@ import {
   deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
   deleteCloudDone, deleteCloudError
 } from "./actions";
+import { getUserById } from "../../api/auth";
+import { loginDone } from "../Main/actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
@@ -30,7 +32,9 @@ export const getCloudGroupFromState: any = (state): any => state.form.cloudGroup
  */
 export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Task> {
   try {
-    const lists: ICloudGroup[] = (yield fetchCloudGroups(payload))
+    const user: IUser = yield getUserById(localStorage.getItem('UserId'));
+    yield put(loginDone(user));
+    let lists: ICloudGroup[] = (yield fetchCloudGroups(payload))
       .map(l => {
           if ( (l.cloudOrders && l.clouds) && l.clouds.length === l.cloudOrders.length ) {
             l.clouds = l.cloudOrders.reduce((sum, co, index) => sum.concat(l.clouds.find(cl => cl.id == co)), []);
@@ -38,6 +42,11 @@ export function* fetchCloudGroupList({ payload }?: string): Iterator<Object | Ta
           return l;
         }
       );
+
+    if ( user.cloudGroupOrders ) {
+      lists = [...user.cloudGroupOrders.map(co => lists.find(cg => cg.id == co)), ...lists];
+      lists = lists.filter((item, pos) => lists.indexOf(item) === pos);
+    }
 
     yield put({ type: 'GET_LISTS', lists, isFetching: true });
   } catch (error) {
