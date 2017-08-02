@@ -2,6 +2,8 @@ import * as React from 'react';
 import { lifecycle } from 'recompose';
 import { Field, reduxForm } from 'redux-form'
 import { ICloud } from "../../Board/interfaces/index";
+import { renderField } from "components/RenderField/index";
+import { required } from "components/RenderField/validators";
 const Select = require('react-select');
 
 let KnowledgeCreateForm = (props) => {
@@ -32,10 +34,12 @@ let KnowledgeCreateForm = (props) => {
     <form onSubmit={ handleSubmit }>
       <div className="modal-body">
         <div className="form-element">
-          <label className="input-label" htmlFor="name">Knowledge Name</label>
           <div>
             <Field placeholder="Enter knowledge name..." name="name" className="input-container input-modal"
-                   component="input" type="text"/>
+                   label="Knowledge Name"
+                   component={renderField}
+                   validate={required}
+                   type="text"/>
           </div>
         </div>
         <div className="form-element" style={{ height: '160px' }}>
@@ -45,13 +49,14 @@ let KnowledgeCreateForm = (props) => {
                    component={reactSelect}
                    options={clouds}
                    cloudId={cloudId}
+                   validate={required}
                    hint="*Select existing cloud name or write down new name for adding knowledge to the fresh cloud"
             />
           </div>
         </div>
       </div>
       <div className="modal-footer btn-actions">
-        <button className="primary" type="submit">Confirm</button>
+        <button className="primary" type="submit" disabled={props.invalid}>Confirm</button>
         <button className="secondary" onClick={handleModal}>Cancel</button>
       </div>
     </form>
