@@ -108,3 +108,12 @@ declare interface IMenu {
   arg: string,
   icon: string
 }
+
+/**
+ * Async validation interface
+ */
+export
+declare interface IValidation {
+  field: string,
+  value: string,
+}

@@ -86,11 +86,6 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   }
 
   /**
-   * Check if current user has access to the component
-   */
-  isAllowed = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
-
-  /**
    * Renders the component.
    *
    * @memberof LastDraft
@@ -101,9 +96,9 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
       <div>
         <div className="modal-header draft-editor-container">
           <Subscription user={this.props.user}/>
-          <input disabled={!this.isAllowed()}
+          <input disabled={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
-                 style={{   marginRight: 'auto' }}
+                 style={{ marginRight: 'auto' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
                  value={this.props.knowledge.name}
@@ -114,7 +109,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
         </div>
         <div>
           <Editor
-            readOnly={!this.isAllowed()}
+            readOnly={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
             plugins={this.plugins}
             sidebarVisibleOn='newline'
             inline={['bold', 'italic', 'dropcap']}

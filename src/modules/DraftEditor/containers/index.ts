@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import LastDraft from "../components/LastDraft";
-import { editKnowledge, changeKnowledgeName, closeEditor, updateKnowledge, handleModalAction } from "modules/actions";
+import {
+  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction,
+  clearKnowledge
+} from "modules/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state

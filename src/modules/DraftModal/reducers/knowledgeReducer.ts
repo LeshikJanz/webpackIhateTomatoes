@@ -1,5 +1,5 @@
 import { createReducer } from 'utils/createReducer';
-import { openKnowledge, editKnowledge, changeKnowledgeName } from "modules/actions";
+import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "modules/actions";
 
 /**
  * Initial state for knowledge reducer
@@ -24,6 +24,8 @@ export default createReducer({
   [changeKnowledgeName]: ( state: any, payload: string ) => ({
     ...state,
     name: payload
+  }),
+  [clearKnowledge]: ( state: any, payload: string ) => ({
+    ...initialState
   })
-
 }, initialState);

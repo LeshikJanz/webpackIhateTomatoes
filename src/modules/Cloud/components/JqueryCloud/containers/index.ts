@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { TagCloud } from "../components/index";
 import {
-  addTag, fetchCloudInit, openKnowledge, handleModalAction, updateCloud
+  addTag, fetchCloudInit, openKnowledge, handleModalAction, updateCloud, clearKnowledge
 } from "modules/actions";
 import { filterTags, updateCloudName } from "../actions";
 import { IKnowledge, ICloudGroup } from "interfaces/index";
@@ -18,7 +18,10 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   addTag: (tag: any) => dispatch(addTag(tag)),
   openEditor: () => dispatch(handleModalAction({ type: "Editor" })),
   fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
-  openKnowledge: (id: string) => dispatch(openKnowledge(id)),
+  openKnowledge: (id: string) => {
+    dispatch(clearKnowledge());
+    dispatch(openKnowledge(id));
+  },
   handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value })),
   updateCloudName: ({ target }) => dispatch(updateCloudName(target.value)),
   updateCloud: (cloud) => dispatch(updateCloud(cloud))

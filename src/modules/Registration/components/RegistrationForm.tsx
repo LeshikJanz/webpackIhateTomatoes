@@ -6,6 +6,10 @@ const styles = require('../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import { Link, browserHistory } from 'react-router';
+import {
+  email, required, minValue18, minLength4, minLength8, asyncValidate
+} from "components/RenderField/validators";
+import { renderField } from "components/RenderField/index";
 
 /**
  * Google place autocomplete for Redux Form Field
@@ -71,26 +75,30 @@ let RegistrationForm = props => {
         </div>
 
         <div className="form-element">
-          <label htmlFor="username">User name</label>
           <div>
             <Field placeholder="Enter your user name..." name="username" className="input-container input-modal"
-                   component="input"
+                   label="User name"
+                   component={renderField}
+                   validate={[required, minLength4]}
                    type="text"/>
           </div>
         </div>
         <div className="form-element">
-          <label htmlFor="email">Email</label>
           <div>
             <Field placeholder="Enter your email..." name="email" className="input-container input-modal"
-                   component="input"
+                   label="Email"
+                   component={renderField}
+                   validate={[required, email]}
                    type="text"/>
           </div>
         </div>
         <div className="form-element">
-          <label htmlFor="password">Password</label>
           <div>
             <Field placeholder="Enter your password..." name="password" className="input-container input-modal"
-                   component="input" type="password"/>
+                   label="Password"
+                   component={renderField}
+                   validate={[required, minLength8]}
+                   type="password"/>
           </div>
         </div>
         <div className="form-element">
@@ -101,7 +109,7 @@ let RegistrationForm = props => {
           </div>
         </div>
         <div className="registration-actions">
-          <button className="primary big" type="submit">Sign Up</button>
+          <button className="primary big" disabled={props.invalid} type="submit">Sign Up</button>
         </div>
       </div>
     </form>
@@ -109,7 +117,9 @@ let RegistrationForm = props => {
 };
 
 RegistrationForm = reduxForm({
-  form: 'RegistrationForm'
+  form: 'RegistrationForm',
+  asyncValidate,
+  asyncBlurFields: ['username', 'email']
 })(RegistrationForm);
 
 export default RegistrationForm;

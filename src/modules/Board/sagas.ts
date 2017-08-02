@@ -77,7 +77,7 @@ export function* createCloudSaga(): Iterator<Object | Task> {
   try {
     const Cloud = yield select(getCloudFromState);
     let newCloudGroup: ICloudGroup = {
-      name: Cloud.cloudGroup.value,
+      name: Cloud.cloudGroupta,
       cloudOrders: [],
       accountId: localStorage.getItem('UserId')
     };
