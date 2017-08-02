@@ -1,6 +1,5 @@
 @import "styles/mixins";
 
-
 body {
   background-color: antiquewhite;
 }
@@ -100,4 +99,24 @@ h4 {
 
 .modal-header {
   align-items: flex-start;
+}
+
+.input-container + br + span {
+  border: none;
+  font-weight: bold;
+  color: #ff3328;
+}
+
+.error-textfield {
+  border : 1px solid #ff0000;
+}
+
+.async-validating {
+  > input {
+    background-color: #ffffff;
+    background-image: url("http://loadinggif.com/images/image-selection/3.gif");
+    background-size: 25px 25px;
+    background-position:right center;
+    background-repeat: no-repeat;
+  }
 }
