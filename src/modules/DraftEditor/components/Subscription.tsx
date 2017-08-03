@@ -7,10 +7,9 @@ export const Subscription = (props) => {
     <div className="profile">
       <img className="user-img" src={ user && user.avatar }/>
       <div className="user-labels">
+        <div className="user-name">{ user && (user.realm || user.username)}</div>
         <div className="user-type">Founder</div>
-        <div className="user-name">{ user && user.realm}
-        </div>
       </div>
     </div>
   )
-}
+};

@@ -98,11 +98,23 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
           <Subscription user={this.props.user}/>
           <input disabled={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
-                 style={{ marginRight: 'auto' }}
+                 style={{ marginRight: 'auto', marginLeft: '5%' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
                  value={this.props.knowledge.name}
                  onChange={this.props.handleNameChange}/>
+          <div className="renew-actions">
+            <button className="tertiary small get-knowledge-button">
+              Renew
+            </button>
+            <div className="group-renewers">
+              <div className="group-label">There are 54 Renewers</div>
+              <div className="group_renewers_images">
+                <img src="assets/img/default-user-icon.png"/>
+                <img src="assets/img/default-user-icon.png"/>
+              </div>
+            </div>
+          </div>
           <button type="button" className="close" onClick={this.props.closeEditor} aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
