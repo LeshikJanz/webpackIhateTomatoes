@@ -1,16 +1,34 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { addNewKnowledge, addNewCloud } from "api/cloud";
 import { Task } from "redux-saga";
-import { addTag, updateKnowledgeError, createNewKnowledge } from "../../actions";
+import {
+  addTag, updateKnowledgeError, createNewKnowledgeInit, createNewKnowledgeDone,
+  fetchCloudInit
+} from "../../actions";
 import { IKnowledge, ICloudGroup } from "interfaces/index";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
-import { knowledgeSaga } from "../../Cloud/components/JqueryCloud/sagas";
-import { push } from "react-router-redux";
+import { push, replace, go } from "react-router-redux";
 import { urls } from "../../urls";
 import { fetchCloudGroupList } from "../../Board/sagas";
 
-const getFromState = (state: any) => state.form.knowledgeForm.values;
+const getFromState = (state: any) => state.form.knowledgeCreateForm.values;
+
+const getCloudGroupFromState: any = (state): any => state.Board.lists;
+
+function* createCloud(form) {
+  yield fetchCloudGroupList();
+  const cloudGroups = yield select(getCloudGroupFromState);
+
+  const mainGroup = cloudGroups.find((cg: ICloudGroup) => cg.name === 'Main');
+
+  const newCloud = {
+    name: form.cloud.value,
+    accountId: localStorage.getItem('UserId')
+  };
+
+  return (yield addNewCloud(mainGroup.id, newCloud)).id;
+}
 
 /**
  * Handle creating new knowledge
@@ -19,34 +37,28 @@ const getFromState = (state: any) => state.form.knowledgeForm.values;
  */
 export function* createNewKnowledgeSaga(): Iterator<Object | Task> {
   try {
-    const knowledgeForm = yield select(getFromState);
-
-    let mainGroup = {};
-    // check if cloud is not exist
-    if(knowledgeForm.cloud && !knowledgeForm.cloud.id) {
-      const cloudGroups = yield fetchCloudGroupList();
-      mainGroup = cloudGroups.find((cg: ICloudGroup) => cg.name === 'Main');
-      const newCloud = {
-        name: knowledgeForm.cloud.name,
-        accountId: localStorage.getItem('UserId')
-      };
-
-      yield addNewCloud(mainGroup.id, newCloud)
-    }
+    const knowledgeCreateForm = yield select(getFromState);
 
     const newKnowledge = {
       accountId: localStorage.getItem('UserId'),
-      name: knowledgeForm.name,
-      cloudId: knowledgeForm.cloud.id
+      name: knowledgeCreateForm.name,
+      cloudId: knowledgeCreateForm.cloud.id
     };
 
-    const knowledge = yield addNewKnowledge(newKnowledge);
+    // check if cloud is not exist
+    if ( !knowledgeCreateForm.cloud.id ) {
+      newKnowledge.cloudId = yield createCloud(knowledgeCreateForm);
+    }
 
-    yield put(addTag(knowledge));
+    const knowledge = yield addNewKnowledge(newKnowledge);
+    yield put(createNewKnowledgeDone(knowledge));
+
+    yield put(fetchCloudInit(knowledge.cloudId));
     yield put(push(urls.cloud + '/' + knowledge.cloudId));
     NotificationManager.success(`The knowledge ${knowledge.name} has been successfully created`, 'Success!');
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
+    console.error(error);
     yield put(updateKnowledgeError(error));
   }
 }
@@ -74,7 +86,7 @@ export function* fetchCloudsSaga({ payload }: IKnowledge): Iterator<Object | Tas
  * Saga with header actions
  */
 export function* headerSaga() {
-  yield takeEvery(createNewKnowledge().type, createNewKnowledgeSaga);
+  yield takeEvery(createNewKnowledgeInit().type, createNewKnowledgeSaga);
   yield takeEvery(fetchCloudsInit().type, fetchCloudsSaga);
 }
 

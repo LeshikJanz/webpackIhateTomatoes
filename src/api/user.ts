@@ -42,6 +42,6 @@ export const fetchUsers = (filter: string) => {
  */
 export const updateUserById = (userId: string, user: IUser) => {
   return request
-    .put(`Accounts/${userId}`, user)
+    .patch(`Accounts/${userId}`, user)
     .then((user: IUser) => user);
 };

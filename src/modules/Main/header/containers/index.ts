@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
-import { createNewKnowledge, handleModalAction } from "modules/actions";
-import { getListsStart } from "modules/Board/actions/lists";
+import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
 import { ICloudGroup, ICloud } from "interfaces/index";
 import { withRouter } from 'react-router';
+import { getCloudGroupsInit } from "modules/Board/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -29,14 +29,12 @@ const mapStateToProps = (state) => ({
  */
 const mapDispatchToProps: any = dispatch => ({
   addKnowledge: () => {
-    dispatch(createNewKnowledge());
+    dispatch(createNewKnowledgeInit());
     dispatch(handleModalAction());
   },
   handleModal: (tag) => dispatch(handleModalAction()),
-  handleKnowledgeCreateModal: () => {
-    dispatch(getListsStart(localStorage.getItem('UserId')));
-    dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
-  }
+  getCloudGroups: () => dispatch(getCloudGroupsInit(localStorage.getItem('UserId'))),
+handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
 });
 
 /**
@@ -49,8 +47,8 @@ const mapDispatchToProps: any = dispatch => ({
  * @param mergeProps
  * @param options
  */
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Header));
+)(Header);

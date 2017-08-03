@@ -11,7 +11,8 @@ let KnowledgeCreateForm = (props) => {
 
   const enhance = lifecycle({
     componentDidMount() {
-      this.props.input.onChange(this.props.options.find((c: ICloud) => c.id === cloudId));
+      this.props.input.onChange(this.props.options.find((c: ICloud) =>
+          c.id === cloudId && c.accountId === localStorage.getItem('UserId')));
     }
   });
 
@@ -56,7 +57,7 @@ let KnowledgeCreateForm = (props) => {
         </div>
       </div>
       <div className="modal-footer btn-actions">
-        <button className="primary" type="submit" disabled={props.invalid}>Confirm</button>
+        <button className="primary" type="submit" disabled={props.invalid}>Create</button>
         <button className="secondary" onClick={handleModal}>Cancel</button>
       </div>
     </form>
@@ -64,7 +65,7 @@ let KnowledgeCreateForm = (props) => {
 };
 
 KnowledgeCreateForm = reduxForm({
-  form: 'knowledgeForm'
+  form: 'knowledgeCreateForm'
 })(KnowledgeCreateForm);
 
 export default KnowledgeCreateForm;

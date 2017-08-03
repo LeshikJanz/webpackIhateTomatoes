@@ -12,8 +12,10 @@ const Card = (props) => {
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">
         <div>{item.name}</div>
-        <img
-          onClick={() =>
+        {
+          item.accountId === localStorage.getItem('UserId') &&
+          <img
+            onClick={() =>
           handleModal({
                        type: "Delete",
                        title: "Confirm?",
@@ -22,7 +24,9 @@ const Card = (props) => {
                        callback: "deleteCloud"
                       })
           }
-          src="assets/icons/del.png"/>
+            src="assets/icons/del.png"/>
+        }
+
       </div>
       <div className="item-container">
         <div className="item-avatar-wrap">

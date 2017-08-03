@@ -71,7 +71,7 @@ export default class CloudBoard extends React.Component {
   }
 
   componentWillMount() {
-    this.props.getLists(this.props.params && this.props.params.id);
+    this.props.getLists((this.props.params && this.props.params.id) || localStorage.getItem('UserId'));
   }
 
   startScrolling(direction) {

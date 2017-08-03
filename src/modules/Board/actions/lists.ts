@@ -4,18 +4,17 @@ import {
   updateCloudGroupInit
 } from "../../actions";
 import { createAction } from "utils/createAction";
-import { deleteCloudInit, deleteCloudGroupInit } from "../actions";
+import { deleteCloudInit, deleteCloudGroupInit, getCloudGroupsInit } from "../actions";
 const faker = require('faker');
 
-export const getListsStart = createAction('GET_LISTS_START');
-export const GET_LISTS = 'GET_LISTS';
+export const GET_CLOUD_GROUPS_DONE = 'GET_CLOUD_GROUPS_DONE';
 export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
 export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
 export function getLists(accountId: string) {
   return dispatch => {
-    dispatch(getListsStart(accountId));
+    dispatch(getCloudGroupsInit({ accountId, sort: accountId === localStorage.getItem('UserId') }));
   };
 }
 
