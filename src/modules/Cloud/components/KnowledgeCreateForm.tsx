@@ -6,30 +6,32 @@ import { renderField } from "components/RenderField/index";
 import { required } from "components/RenderField/validators";
 const Select = require('react-select');
 
+const enhance = lifecycle({
+  componentDidMount() {
+    const { cloudId, options } = this.props;
+
+    this.props.input.onChange(options.find((c: ICloud) =>
+    c.id === cloudId && c.accountId === localStorage.getItem('UserId')));
+  }
+});
+
+const reactSelect = enhance(({ input, options, hint }) => (
+  <div>
+    <Select.Creatable
+      {...input}
+      value={input.value}
+      onChange={(value) => {return input.onChange(value)}}
+      onBlur={() => input.onBlur(input.value)}
+      options={options}
+      clearableValue={false}
+      promptTextCreator={ (label) => `Create cloud '${label}'` }
+    />
+    <div className="hint">{hint}</div>
+  </div>
+));
+
 let KnowledgeCreateForm = (props) => {
   const { handleSubmit, clouds, handleModal, cloudId } = props;
-
-  const enhance = lifecycle({
-    componentDidMount() {
-      this.props.input.onChange(this.props.options.find((c: ICloud) =>
-          c.id === cloudId && c.accountId === localStorage.getItem('UserId')));
-    }
-  });
-
-  const reactSelect = enhance(({ input, options, hint }) => (
-    <div>
-      <Select.Creatable
-        {...input}
-        value={input.value}
-        onChange={(value) => {return input.onChange(value)}}
-        onBlur={() => input.onBlur(input.value)}
-        options={options}
-        clearableValue={false}
-        promptTextCreator={ (label) => `Create cloud '${label}'` }
-      />
-      <div className="hint">{hint}</div>
-    </div>
-  ));
 
   return (
     <form onSubmit={ handleSubmit }>

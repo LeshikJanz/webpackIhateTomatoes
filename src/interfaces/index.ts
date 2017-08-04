@@ -88,6 +88,16 @@ declare interface IUser extends Identifiable {
 }
 
 /**
+ * Relation interface
+ */
+export
+declare interface IRenewer extends Identifiable {
+  founderId: string,
+  knowledgeId: string,
+  cloudId: string,
+}
+
+/**
  * Modal interface
  */
 export

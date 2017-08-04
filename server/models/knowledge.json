@@ -19,6 +19,9 @@
     },
     "updateDate": {
       "type": "date"
+    },
+    "founderId": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -29,20 +32,15 @@
       "foreignKey": "cloudId",
       "required": true
     },
-    "views": {
-      "type": "hasMany",
-      "model": "View",
-      "foreignKey": "viewId"
-    },
-    "relations": {
-      "type": "hasMany",
-      "model": "Relation",
-      "foreignKey": "relationId"
-    },
     "account": {
       "type": "belongsTo",
       "model": "Account",
       "foreignKey": "accountId"
+    },
+    "relations": {
+      "type": "hasMany",
+      "model": "Relation",
+      "foreignKey": "knowledgeId"
     }
   },
   "acls": [

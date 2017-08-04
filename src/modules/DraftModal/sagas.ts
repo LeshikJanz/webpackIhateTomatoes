@@ -51,6 +51,7 @@ export function* updateKnowledgeSaga(): Iterator<Object | Task> {
     const knowledge = yield select(getFromState);
 
     const updatedKnowledge = yield updateKnowledgeById(knowledge.id, knowledge);
+    updatedKnowledge.account = knowledge.account;
     yield put(saveKnowledge(updatedKnowledge));
     NotificationManager.success(`Knowledge has been updated successfully`, 'Success!');
   } catch ({ error }) {

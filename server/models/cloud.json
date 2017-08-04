@@ -41,15 +41,10 @@
       "model": "Account",
       "foreignKey": "accountId"
     },
-    "sessions": {
-      "type": "hasOne",
-      "model": "Session",
-      "foreignKey": "lastOpenedCloudId"
-    },
-    "views": {
+    "relations": {
       "type": "hasMany",
-      "model": "View",
-      "foreignKey": "viewId"
+      "model": "Relation",
+      "foreignKey": "cloudId"
     }
   },
   "acls": [],

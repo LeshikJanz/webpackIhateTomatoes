@@ -14,6 +14,8 @@ import { fetchCloudGroupList } from "../../Board/sagas";
 
 const getFromState = (state: any) => state.form.knowledgeCreateForm.values;
 
+const getKnowledgeFromState = (state: any) => state.Knowledge;
+
 const getCloudGroupFromState: any = (state): any => state.Board.lists;
 
 function* createCloud(form) {
@@ -33,17 +35,28 @@ function* createCloud(form) {
 /**
  * Handle creating new knowledge
  *
+ * fromExisting: true - means that this knowledge has been renewed, fromExisting: false - just create new knowledge
+ *
+ * @param { any } payload - { fromExisting: boolean }
+ *
  * @returns {Iterator<Object | Task>}
  */
-export function* createNewKnowledgeSaga(): Iterator<Object | Task> {
+export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
   try {
     const knowledgeCreateForm = yield select(getFromState);
+
+    const knowledgeForCopy = yield select(getKnowledgeFromState);
 
     const newKnowledge = {
       accountId: localStorage.getItem('UserId'),
       name: knowledgeCreateForm.name,
       cloudId: knowledgeCreateForm.cloud.id
     };
+
+    if(payload && payload.fromExisting) {
+      newKnowledge.text = knowledgeForCopy.text;
+      newKnowledge.founderId = knowledgeForCopy.accountId;
+    }
 
     // check if cloud is not exist
     if ( !knowledgeCreateForm.cloud.id ) {

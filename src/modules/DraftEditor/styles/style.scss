@@ -30,6 +30,23 @@
   cursor: pointer;
   min-width: 150px;
 
+  .user-name {
+    font-family: Avenir;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: #343a40;
+  }
+
+  .user-type {
+    font-family: WorkSans;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.4px;
+    color: #7a8693;
+  }
+
   .user-labels {
     display: flex;
     padding-left: 15px;
@@ -54,4 +71,41 @@
       height: 30px;
     }
   }
+}
+
+.get-knowledge-button {
+  height: 50px;
+  width: 200px;
+  margin-right: 10%;
+}
+
+.renew-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 240px;
+  height: 70px;
+  margin-right: 5%;
+  align-self: center;
+
+  > .group-renewers {
+    display: flex;
+    justify-content: space-between;
+
+    > .group-label {
+      font-family: Avenir;
+      font-weight: 500;
+      font-size: 16px;
+      align-self: flex-end;
+    }
+
+    > .group_renewers_images {
+
+      > img {
+        width: 25px;
+        margin-left: 5px;
+      }
+    }
+  }
+
 }
