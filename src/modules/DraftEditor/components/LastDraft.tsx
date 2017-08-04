@@ -21,6 +21,9 @@ import { uploadImage } from "api/user";
 import { Editor } from "draft-js";
 import { IKnowledge } from "interfaces/index";
 import { Subscription } from "./Subscription";
+import { CustomModal } from "../../../components/CustomModal/components/index";
+import RenewForm from "./forms/renewForm";
+import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 
 /**
  * Last draft props interface
@@ -54,7 +57,10 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    */
   constructor(props) {
     super(props);
-    this.state = { value: editorStateFromRaw(this.props.knowledge.text) }
+    this.state = {
+      value: editorStateFromRaw(this.props.knowledge.text),
+      isRenewingModalOpen: false
+    }
   }
 
   /**
@@ -85,6 +91,11 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
     )
   }
 
+  handleRenewingModal() {
+    this.props.getCloudGroups();
+    this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
+  }
+
   /**
    * Renders the component.
    *
@@ -92,24 +103,42 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    * @return {string} - HTML markup for the component
    */
   render() {
+    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds } = this.props;
+
     return (
       <div>
         <div className="modal-header draft-editor-container">
-          <Subscription user={this.props.user}/>
-          <input disabled={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
+          <Subscription user={user} knowledge={knowledge}/>
+          <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
-                 style={{ marginRight: 'auto' }}
+                 style={{ marginRight: 'auto', marginLeft: '5%' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
-                 value={this.props.knowledge.name}
-                 onChange={this.props.handleNameChange}/>
-          <button type="button" className="close" onClick={this.props.closeEditor} aria-label="Close">
+                 value={knowledge.name}
+                 onChange={handleNameChange}/>
+          <div className="renew-actions">
+            { (knowledge.accountId !== localStorage.getItem('UserId') && !knowledge.relations.find(r => r.accountId === localStorage.getItem('UserId')
+            )) &&
+            <button onClick={this.handleRenewingModal.bind(this)}
+                    className="tertiary small get-knowledge-button">
+              Renew
+            </button>
+            }
+            <div className="group-renewers">
+              <div className="group-label">There are 54 Renewers</div>
+              <div className="group_renewers_images">
+                <img src="assets/img/default-user-icon.png"/>
+                <img src="assets/img/default-user-icon.png"/>
+              </div>
+            </div>
+          </div>
+          <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
         <div>
           <Editor
-            readOnly={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
+            readOnly={knowledge.accountId !== localStorage.getItem('UserId')}
             plugins={this.plugins}
             sidebarVisibleOn='newline'
             inline={['bold', 'italic', 'dropcap']}
@@ -121,6 +150,23 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             uploadImageAsync={this.uploadImageAsync}
             onChange={this.change.bind(this)}/>
         </div>
+
+        <CustomModal
+          title="Renewing knowledge"
+          handleModal={this.handleRenewingModal.bind(this)}
+          isModalOpen={this.state.isRenewingModalOpen}
+        >
+          <KnowledgeCreateForm
+            clouds={clouds.map(
+                        o => ({
+                              ...o,
+                              label: o.name,
+                              value: o.id,
+                              }))}
+            handleModal={this.handleRenewingModal.bind(this)}
+            onSubmit={handleRenewing}
+          />
+        </CustomModal>
       </div>
     )
   }

@@ -96,7 +96,7 @@ export class TagCloud extends React.Component {
   componentWillUnmount = () => {
     removeTagCloud();
     document.removeEventListener('tagclick', this.handleTagClick);
-  }
+  };
 
   handleTagClick = (e: Event) => {
     this.props.openKnowledge(this.props.tags.find((elem: any) => elem.id === e.detail.tagId));

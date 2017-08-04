@@ -3,6 +3,7 @@ import AuthBar from "../../auth/containers/AuthBar";
 import LogOutBar from "../../auth/containers/LogOutBar";
 import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
+import { urls } from "modules/urls";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -11,7 +12,14 @@ const cx = classNames.bind(styles);
  * Main page's header
  */
 export const Header = (props) => {
-  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, clouds, params } = props;
+  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getCloudGroups, clouds, params } = props;
+
+  const createKnowledge = () => {
+    if(props.location.pathname !== `/${urls.board}`) {
+      getCloudGroups();
+    }
+    handleKnowledgeCreateModal();
+  };
 
   return (
     <div className={cx([{ 'blur': modal.isOpen }])}>
@@ -23,7 +31,7 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a onClick={() => { handleKnowledgeCreateModal() }}
+            <a onClick={ createKnowledge }
                className="navbar-brand"
                href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
           </div>

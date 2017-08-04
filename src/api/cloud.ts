@@ -69,7 +69,7 @@ export const updateCloudGroupById = (id: string, cloudGroup: ICloudGroup) => {
  */
 export const fetchCloud = (id: string) => {
   return request
-    .get(`Clouds/${id}?filter={"include": [{"knowledge" : "account"}]}`, {})
+    .get(`Clouds/${id}?filter={"include": [{"knowledge" : ["account", "relations"]}]}`, {})
     .then((cloud: ICloud) => <ICloud> cloud);
 };
 

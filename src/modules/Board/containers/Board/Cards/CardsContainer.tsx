@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { handleModalAction } from "modules/actions";
 import { IModal, ICloudGroup, IUser } from "interfaces/index";
 import { updateAccountInit } from "../../../actions";
+import { urls } from "modules/urls";
 
 const listSource = {
   beginDrag(props) {
@@ -19,7 +20,10 @@ const listSource = {
       id: localStorage.getItem('UserId'),
       cloudGroupOrders: props.lists.reduce((sum, c: ICloudGroup) => sum.concat(c.id), [])
     };
-    props.updateUser(user);
+
+    if(props.pathname === `/${urls.board}`) {
+      props.updateUser(user);
+    }
 
     props.stopScrolling();
   }
@@ -82,8 +86,6 @@ export default class CardsContainer extends React.Component {
       handleModal, lists
     } = this.props;
 
-    item.cards = item.clouds;
-
     const opacity = isDragging ? 0.5 : 1;
 
     return connectDragSource(connectDropTarget(
@@ -91,7 +93,7 @@ export default class CardsContainer extends React.Component {
         <div className="desk-head">
           <div className="desk-name">{item.name}</div>
           {
-            (!item.cards.length && lists.length > 1) &&
+            (item.accountId === localStorage.getItem('UserId') && !item.clouds.length && lists.length > 1 && item.name !== 'Main') &&
             <img onClick={ () => {
               handleModal({
                             type: "Delete",
@@ -107,7 +109,7 @@ export default class CardsContainer extends React.Component {
           moveCard={moveCard}
           update={update}
           x={x}
-          cards={item.cards}
+          cards={item.clouds}
           startScrolling={this.props.startScrolling}
           stopScrolling={this.props.stopScrolling}
           isScrolling={this.props.isScrolling}
@@ -118,7 +120,8 @@ export default class CardsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  lists: state.Board.lists
+  lists: state.Board.lists,
+  pathname: state.routing.locationBeforeTransitions.pathname
 });
 
 const mapDispatchToProps: any = dispatch => ({

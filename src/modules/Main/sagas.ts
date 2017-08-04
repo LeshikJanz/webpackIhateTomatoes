@@ -22,7 +22,7 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     const user: IUser = yield getUserById(token.userId);
 
     yield put(loginDone(user));
-    yield put(replace('/board'));
+    yield put(replace(urls.board));
   } catch ({ error }) {
     NotificationManager.error(error.message, 'Error!');
     yield put(loginError());

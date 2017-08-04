@@ -9,5 +9,6 @@ export const urls = {
   login: 'login',
   user: 'user',
   users: 'users',
+  test: 'test',
   registration: 'registration'
 };

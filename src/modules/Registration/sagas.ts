@@ -22,12 +22,14 @@ import { updateAccountInit, updateAccountDone } from "../Board/actions";
  */
 export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task> {
   try {
+    payload.avatar = payload.avatar || 'assets/img/default-user-icon.png';
     const user: IUser = yield register(payload);
     yield put(createAccountDone());
     NotificationManager.success(`The user ${user.username} has been successfully created`, 'Success!');
     yield addNewCloudGroup(Object.assign({}, DEFAULT_CLOUD_GROUP, { accountId: user.id }))
-  } catch ({ error }) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
+    console.error(error);
     yield put(createAccountError());
   }
 }
