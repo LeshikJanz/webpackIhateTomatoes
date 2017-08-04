@@ -22,13 +22,12 @@ const minValue = min => value =>
  *
  * @returns {void | Error}
  */
-export const asyncValidate = (values, dispatch, props, field) => {
-  return request.get(`Accounts?filter={"where":{"${field}":"${values[field]}"}}`, {}).then((res) => {
-    if (res.length !== 0) {
+export const asyncValidate = (values, dispatch, props, field) =>
+  request.get(`Accounts?filter={"where":{"${field}":"${values[ field ]}"}}`, {}).then((res) => {
+    if ( res.length !== 0 ) {
       throw { [field]: `That ${field} is taken` }
     }
-  })
-};
+  });
 
 export const required = value => (value ? undefined : 'Required');
 
