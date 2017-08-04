@@ -35,6 +35,10 @@ function* createCloud(form) {
 /**
  * Handle creating new knowledge
  *
+ * fromExisting: true - means that this knowledge has been renewed, fromExisting: false - just create new knowledge
+ *
+ * @param { any } payload - { fromExisting: boolean }
+ *
  * @returns {Iterator<Object | Task>}
  */
 export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {

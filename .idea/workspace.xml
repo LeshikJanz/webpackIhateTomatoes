@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec03587-04d4-4033-b2d6-b52d923e7286" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/forms/renewForm.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/knowledge.json" afterPath="$PROJECT_DIR$/server/models/knowledge.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Board/styles/board.scss" afterPath="$PROJECT_DIR$/src/modules/Board/styles/board.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Cloud/components/KnowledgeCreateForm.tsx" afterPath="$PROJECT_DIR$/src/modules/Cloud/components/KnowledgeCreateForm.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/components/Subscription.tsx" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/components/Subscription.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" afterPath="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Main/header/sagas.ts" afterPath="$PROJECT_DIR$/src/modules/Main/header/sagas.ts" />
     </list>
     <list id="3dae5663-27dc-4f18-a340-0e1aa1930b83" name="New changelist" comment="" />
@@ -49,8 +42,8 @@
           <file leaf-file-name="sagas.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/modules/Main/header/sagas.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
-                  <caret line="39" column="79" lean-forward="true" selection-start-line="39" selection-start-column="79" selection-end-line="39" selection-end-column="79" />
+                <state relative-caret-position="117">
+                  <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
@@ -187,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/modules/Cloud/components/KnowledgeCreateForm.tsx" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/Subscription.tsx" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/components/LastDraft.tsx" />
-        <option value="$PROJECT_DIR$/src/modules/Main/header/sagas.ts" />
         <option value="$PROJECT_DIR$/src/modules/DraftEditor/containers/index.ts" />
+        <option value="$PROJECT_DIR$/src/modules/Main/header/sagas.ts" />
       </list>
     </option>
   </component>
@@ -540,14 +533,7 @@
       <workItem from="1501666353143" duration="10089000" />
       <workItem from="1501681543308" duration="10887000" />
       <workItem from="1501748440998" duration="23959000" />
-      <workItem from="1501836681073" duration="15774000" />
-    </task>
-    <task id="LOCAL-00016" summary="Feat: added saving new knowledges to the server">
-      <created>1492095679752</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1492095679752</updated>
+      <workItem from="1501836681073" duration="15938000" />
     </task>
     <task id="LOCAL-00017" summary="Feat: added simple router-redux&#10;">
       <created>1492862366047</created>
@@ -885,11 +871,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501853991408</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Feat: implemented renewing logic">
+      <created>1501861420028</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1501861420028</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355728000" />
+    <option name="totallyTimeSpent" value="355892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
@@ -1014,7 +1007,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: implemented saving user sessions&#10;" />
     <MESSAGE value="Feat: implemented updating knowledge without page reloading&#10;" />
     <MESSAGE value="Feat: updated react classes warnings&#10;" />
     <MESSAGE value="Fix: fixed style path&#10;" />
@@ -1039,7 +1031,8 @@
     <MESSAGE value="Refactor: refactored sorting cloud groups" />
     <MESSAGE value="Feat: implemented renew style for Editor" />
     <MESSAGE value="Feat: added react-sortable-tree example" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: added react-sortable-tree example" />
+    <MESSAGE value="Feat: implemented renewing logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: implemented renewing logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1447,8 +1440,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Main/header/sagas.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="39" column="79" lean-forward="true" selection-start-line="39" selection-start-column="79" selection-end-line="39" selection-end-column="79" />
+        <state relative-caret-position="117">
+          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
           <folding />
         </state>
       </provider>
