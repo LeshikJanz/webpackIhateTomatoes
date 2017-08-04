@@ -15,16 +15,17 @@ const minValue = min => value =>
 /**
  * Async checking redux form field
  *
- * @param {any} elem - form element, key - field name, value - field value
+ * @param values - form element, key - field name, value - field value
+ * @param dispatch
+ * @param props
+ * @param {string} field
  *
  * @returns {void | Error}
  */
-export const asyncValidate = (elem) => {
-  const key = Object.keys(elem)[0];
-
-  return request.get(`Accounts?filter={"where":{"${key}":"${elem[key]}"}}`, {}).then((res) => {
+export const asyncValidate = (values, dispatch, props, field) => {
+  return request.get(`Accounts?filter={"where":{"${field}":"${values[field]}"}}`, {}).then((res) => {
     if (res.length !== 0) {
-      throw { [key]: `That ${key} is taken` }
+      throw { [field]: `That ${field} is taken` }
     }
   })
 };
