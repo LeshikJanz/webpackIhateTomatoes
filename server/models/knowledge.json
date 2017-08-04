@@ -19,6 +19,9 @@
     },
     "updateDate": {
       "type": "date"
+    },
+    "founderId": {
+      "type": "string"
     }
   },
   "validations": [],

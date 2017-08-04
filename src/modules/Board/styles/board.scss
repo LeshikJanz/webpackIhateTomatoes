@@ -80,6 +80,7 @@
 
 .Select-menu-outer {
   @include input-text;
+  z-index: 2000;
   width: 105% !important;
 
   > .Select-menu {

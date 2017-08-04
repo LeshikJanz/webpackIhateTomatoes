@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import LastDraft from "../components/LastDraft";
 import {
   editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction,
-  clearKnowledge
+  clearKnowledge, createNewKnowledgeInit
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
-import { IRenewer } from "../../../interfaces/index";
+import { IRenewer, ICloudGroup, ICloud } from "../../../interfaces/index";
+import { getCloudGroupsInit } from "../../Board/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -15,9 +16,10 @@ import { IRenewer } from "../../../interfaces/index";
  *
  * @param: {any} state - App state
  */
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = (state) => ({
   knowledge: state.Knowledge,
-  user: state.Knowledge.account
+  user: state.Knowledge.account,
+  clouds: state.Board.lists.reduce((sum: ICloud[], cg: ICloudGroup) => sum.concat(cg.clouds), [])
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({
@@ -28,7 +30,12 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(handleModalAction());
     props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledge());
   },
-  handleRenewing: () => dispatch(createRenewerInit())
+  handleRenewing: () => {
+    dispatch(createRenewerInit());
+    dispatch(createNewKnowledgeInit({ fromExisting: true }));
+    dispatch(handleModalAction());
+  },
+  getCloudGroups: () => dispatch(getCloudGroupsInit(localStorage.getItem('UserId'))),
 });
 
 /**
