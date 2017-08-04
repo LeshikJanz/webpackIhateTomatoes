@@ -5,6 +5,7 @@ import { trelloSaga } from "./Board/sagas";
 import { loginSaga } from "./Main/sagas";
 import { registrationSaga } from "./Registration/sagas";
 import { usersSaga } from "./Users/sagas";
+import { editorSaga } from "./DraftEditor/sagas";
 
 /**
  * Function combines sagas
@@ -17,6 +18,7 @@ export default function* rootSaga() {
     trelloSaga(),
     loginSaga(),
     registrationSaga(),
-    usersSaga()
+    usersSaga(),
+    editorSaga()
   ]
 }

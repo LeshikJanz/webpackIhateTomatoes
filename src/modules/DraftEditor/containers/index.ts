@@ -4,6 +4,8 @@ import {
   editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction,
   clearKnowledge
 } from "modules/actions";
+import { createRenewerInit } from "../actions";
+import { IRenewer } from "../../../interfaces/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -25,7 +27,8 @@ const mergeProps: any = (props, { dispatch }): any => ({
   closeEditor: () => {
     dispatch(handleModalAction());
     props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledge());
-  }
+  },
+  handleRenewing: () => dispatch(createRenewerInit())
 });
 
 /**

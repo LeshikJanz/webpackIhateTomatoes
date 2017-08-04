@@ -92,21 +92,26 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    * @return {string} - HTML markup for the component
    */
   render() {
+    const { handleRenewing, user, knowledge, handleNameChange, closeEditor } = this.props;
+
     return (
       <div>
         <div className="modal-header draft-editor-container">
-          <Subscription user={this.props.user}/>
-          <input disabled={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
+          <Subscription user={user}/>
+          <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
                  style={{ marginRight: 'auto', marginLeft: '5%' }}
                  placeholder="Enter the name..."
                  title="Knowledge name"
-                 value={this.props.knowledge.name}
-                 onChange={this.props.handleNameChange}/>
+                 value={knowledge.name}
+                 onChange={handleNameChange}/>
           <div className="renew-actions">
-            <button className="tertiary small get-knowledge-button">
-              Renew
-            </button>
+            { knowledge.accountId !== localStorage.getItem('UserId') &&
+              <button onClick={handleRenewing}
+                      className="tertiary small get-knowledge-button">
+                Renew
+              </button>
+            }
             <div className="group-renewers">
               <div className="group-label">There are 54 Renewers</div>
               <div className="group_renewers_images">
@@ -115,13 +120,13 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
               </div>
             </div>
           </div>
-          <button type="button" className="close" onClick={this.props.closeEditor} aria-label="Close">
+          <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
         <div>
           <Editor
-            readOnly={this.props.knowledge.accountId !== localStorage.getItem('UserId')}
+            readOnly={knowledge.accountId !== localStorage.getItem('UserId')}
             plugins={this.plugins}
             sidebarVisibleOn='newline'
             inline={['bold', 'italic', 'dropcap']}

@@ -45,19 +45,7 @@
     "dataSource": "mongodbDs",
     "public": true
   },
-  "Session": {
-    "dataSource": "mongodbDs",
-    "public": true
-  },
-  "History": {
-    "dataSource": "mongodbDs",
-    "public": true
-  },
   "Account": {
-    "dataSource": "mongodbDs",
-    "public": true
-  },
-  "View": {
     "dataSource": "mongodbDs",
     "public": true
   },

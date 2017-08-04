@@ -42,15 +42,10 @@
       "model": "Cloud",
       "foreignKey": "cloudId"
     },
-    "views": {
-      "type": "hasMany",
-      "model": "View",
-      "foreignKey": "viewId"
-    },
     "relations": {
       "type": "hasMany",
       "model": "Relation",
-      "foreignKey": "relationId"
+      "foreignKey": "founderId"
     }
   },
   "acls": [

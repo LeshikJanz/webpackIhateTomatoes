@@ -6,13 +6,25 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "founderId": {
-      "type": "string"
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "relationId"
+    },
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Cloud",
+      "foreignKey": "relationId"
+    },
+    "knowledge": {
+      "type": "belongsTo",
+      "model": "Knowledge",
+      "foreignKey": "relationId"
     }
   },
-  "validations": [],
-  "relations": {},
   "acls": [],
   "methods": {}
 }
