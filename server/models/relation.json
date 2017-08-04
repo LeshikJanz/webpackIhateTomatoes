@@ -6,7 +6,11 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "accountId": {
+      "type": "string"
+    }
+  },
   "validations": [],
   "relations": {
     "account": {

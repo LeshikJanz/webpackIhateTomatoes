@@ -106,7 +106,10 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
                  value={knowledge.name}
                  onChange={handleNameChange}/>
           <div className="renew-actions">
-            { knowledge.accountId !== localStorage.getItem('UserId') &&
+            { (knowledge.accountId !== localStorage.getItem('UserId') && !knowledge.relations.find(r => {
+              console.log('rerender');
+              return r.accountId === localStorage.getItem('UserId');
+            })) &&
               <button onClick={handleRenewing}
                       className="tertiary small get-knowledge-button">
                 Renew

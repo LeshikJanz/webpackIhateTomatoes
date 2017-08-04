@@ -42,6 +42,11 @@
       "model": "Cloud",
       "foreignKey": "cloudId"
     },
+    "knowledges": {
+      "type": "hasMany",
+      "model": "Knowledge",
+      "foreignKey": "accountId"
+    },
     "relations": {
       "type": "hasMany",
       "model": "Relation",

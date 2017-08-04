@@ -16,6 +16,7 @@ export function* createRenewerSaga(): Iterator<Object | Task> {
   try {
     const curKnowledge: IKnowledge = yield select(getFromState);
     const renewer = {
+      accountId: localStorage.getItem('UserId'),
       founderId: curKnowledge.accountId,
       cloudId: curKnowledge.cloudId,
       knowledgeId: curKnowledge.id
