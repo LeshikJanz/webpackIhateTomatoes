@@ -5,13 +5,9 @@ import "assets/js/tagcanvas.min.js";
 import "../style.scss";
 import { ReactIgnore } from "./ReactIgnore";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
-import { Link } from 'react-router';
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "modules/urls";
-import { Link } from 'react-router';
-import CustomModal from "components/CustomModal/containers/index";
-import KnowledgeCreateForm from "../../KnowledgeCreateForm";
 
 function tagCloudController() {
   try {

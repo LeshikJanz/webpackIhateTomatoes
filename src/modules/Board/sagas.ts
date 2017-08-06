@@ -35,11 +35,14 @@ export function* fetchCloudGroupList( action? ): Iterator<Object | Task> {
   try {
     const cloudGroups: ICloudGroup[] = yield fetchCloudGroups(action && action.payload && action.payload.accountId);
 
-    if(action && action.payload && action.payload.sort) {
-      yield put(sortCloudGroups(cloudGroups));
-    } else {
-      yield put({ type: 'GET_CLOUD_GROUPS_DONE', cloudGroups, isFetching: true });
-    }
+    // if(action && action.payload && action.payload.sort) {
+    //   // TODO: figure out with sorting cloud groups
+    //   // yield put(sortCloudGroups(cloudGroups));
+    // } else {
+    //   yield put({ type: 'GET_CLOUD_GROUPS_DONE', cloudGroups, isFetching: true });
+    // }
+
+    yield put({ type: 'GET_CLOUD_GROUPS_DONE', cloudGroups, isFetching: true });
 
     yield put(getCloudGroupsDone);
   } catch (error) {
@@ -120,7 +123,7 @@ export function* createCloudGroupSaga(): Iterator<Object | Task> {
     };
 
     yield addNewCloudGroup(CloudGroup);
-    yield put(getCloudGroupsInit());
+    yield put(getCloudGroupsInit({ sort: true }));
 
     NotificationManager.success(`The cloud group ${CloudGroup.name} has been successfully created`, 'Success!');
     yield put(createCloudGroupDone());
@@ -145,7 +148,7 @@ export function* deleteCloudGroupSaga({ payload }: string): Iterator<Object | Ta
     yield deleteCloudGroup(payload);
     NotificationManager.success(`The cloud group has been successfully deleted`, 'Success!');
 
-    yield put(getCloudGroupsInit());
+    yield put(getCloudGroupsInit({ sort: true }));
     yield updateCloudGroupOrders();
 
     yield put(deleteCloudGroupDone());
