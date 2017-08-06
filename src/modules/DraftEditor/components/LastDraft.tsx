@@ -24,7 +24,6 @@ import { Subscription } from "./Subscription";
 import { CustomModal } from "../../../components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
-import { urls } from "../../urls";
 
 /**
  * Last draft props interface
@@ -127,7 +126,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             </button>
             }
             <div className="group-renewers">
-              <div className="group-label">There are { knowledge.relations.length } Renewers</div>
+              <div className="group-label">There are { knowledge.relations && knowledge.relations.length } Renewers</div>
               <div className="group_renewers_images">
                 {
                   knowledge.relations.map((item, i) =>

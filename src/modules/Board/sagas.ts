@@ -13,7 +13,7 @@ import { Task } from "redux-saga";
 import { NotificationManager } from 'react-notifications';
 import {
   deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
-  deleteCloudDone, deleteCloudError, sortClouds, getCloudGroupsInit, getCloudGroupsDone, getCloudGroupsError,
+  deleteCloudDone, deleteCloudError, getCloudGroupsInit, getCloudGroupsDone, getCloudGroupsError,
   sortCloudGroups, updateAccountInit
 } from "./actions";
 import { getUserById } from "../../api/auth";

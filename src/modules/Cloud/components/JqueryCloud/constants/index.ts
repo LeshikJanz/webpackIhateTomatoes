@@ -1,4 +1,3 @@
-const headerHeight = 100;
 const cloudWidth = window.innerWidth / 1.3;
 const cloudHeight = window.innerHeight - 200;
 
