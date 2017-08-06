@@ -32,11 +32,6 @@
       "foreignKey": "knowledgeCloudId"
     },
     "account": {
-      "type": "hasOne",
-      "model": "Account",
-      "foreignKey": "accountId"
-    },
-    "cloud": {
       "type": "belongsTo",
       "model": "Account",
       "foreignKey": "accountId"

@@ -15,7 +15,7 @@ const Card = (props) => {
   return (
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">
-        <div>{item.name}</div>
+        <div className="name">{item.name}</div>
         {
           item.accountId === localStorage.getItem('UserId') &&
           <img
@@ -33,15 +33,17 @@ const Card = (props) => {
 
       </div>
       <div className="item-container">
-        <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt=""/>
-        </div>
-        <div className="item-content">
-          <div className="item-author" title={item.accountId}>ID: {item.accountId}</div>
-          <p>{item.goal}</p>
+        <div className="item-preview">
+          <div className="item-avatar-wrap">
+            <img src={item.account.avatar} alt=""/>
+          </div>
+          <div className="item-content">
+            <div className="item-author">{item.account.realm || item.account.username}</div>
+            <div className="item-goal">{item.goal}</div>
+          </div>
         </div>
       </div>
-      <div className="item-container renew-actions">
+      <div className="item-name renew-actions">
         <div className="group-renewers">
           <div className="group-label">There are { renewers.length } Renewers</div>
           <div className="group_renewers_images">

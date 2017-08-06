@@ -23,7 +23,7 @@ export const fetchClouds = (accountId?: string) => {
  */
 export const fetchCloudGroups = (accountId?: string) => {
   return request
-    .get('CloudGroups?filter={"include": [{"clouds":{"relations":"account"}}]' + (accountId ? `, "where": {"accountId": "${accountId}"}}` : '}'), {})
+    .get('CloudGroups?filter={"include": [{ "clouds": ["account", {"relations":"account"}]}]' + (accountId ? `, "where": {"accountId": "${accountId}"}}` : '}'), {})
     .then((cloudGroups: ICloudGroup[]) => cloudGroups)
 };
 
