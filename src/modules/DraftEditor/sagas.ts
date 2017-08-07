@@ -22,7 +22,7 @@ export function* createRenewerSaga(): Iterator<Object | Task> {
       knowledgeId: curKnowledge.id
     };
 
-    const createdRenewer: IRenewer = yield addRenewer(renewer);
+    const createdRenewer: IRenewer = yield addRenewer(renewer.accountId, renewer);
 
     NotificationManager.success(`You have been successfully renewed ${curKnowledge.name}`, 'Error!');
     yield put(createRenewerDone(createdRenewer));

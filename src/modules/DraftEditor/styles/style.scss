@@ -84,24 +84,25 @@
   flex-direction: column;
   justify-content: space-between;
   width: 240px;
-  height: 70px;
   margin-right: 5%;
-  align-self: center;
+  align-self: flex-start;
 
   > .group-renewers {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     > .group-label {
       font-family: Avenir;
       font-weight: 500;
       font-size: 16px;
-      align-self: flex-end;
+      align-self: flex-start;
     }
 
     > .group_renewers_images {
 
       > img {
+        cursor: pointer;
         width: 25px;
         margin-left: 5px;
       }

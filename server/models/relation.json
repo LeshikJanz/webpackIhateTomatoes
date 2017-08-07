@@ -7,8 +7,8 @@
     "validateUpsert": true
   },
   "properties": {
-    "accountId": {
-      "type": "string"
+    "createDate": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -16,7 +16,7 @@
     "account": {
       "type": "belongsTo",
       "model": "Account",
-      "foreignKey": "relationId"
+      "foreignKey": "accountId"
     },
     "cloud": {
       "type": "belongsTo",

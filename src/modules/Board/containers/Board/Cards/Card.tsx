@@ -4,14 +4,18 @@ import { Link } from 'react-router';
 import { connect } from "react-redux";
 import { handleModalAction } from "modules/actions";
 import { IModal } from "interfaces/index";
+import { push } from "react-router-redux";
 
 const Card = (props) => {
-  const { style, item, handleModal } = props;
+  const { style, item, handleModal, goToUser } = props;
+
+  // Sorting only unic objects according to accountId key
+  const renewers = item.relations.filter((rel, index, self) => self.findIndex((t) => t.accountId === rel.accountId) === index)
 
   return (
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">
-        <div>{item.name}</div>
+        <div className="name">{item.name}</div>
         {
           item.accountId === localStorage.getItem('UserId') &&
           <img
@@ -29,12 +33,31 @@ const Card = (props) => {
 
       </div>
       <div className="item-container">
-        <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/1.jpg`} alt=""/>
+        <div className="item-preview">
+          <div className="item-avatar-wrap">
+            <img src={item.account.avatar} alt=""/>
+          </div>
+          <div className="item-content">
+            <div className="item-author">{item.account.realm || item.account.username}</div>
+            <div className="item-goal">{item.goal}</div>
+          </div>
         </div>
-        <div className="item-content">
-          <div className="item-author" title={item.accountId}>ID: {item.accountId}</div>
-          <p>{item.goal}</p>
+      </div>
+      <div className="item-name renew-actions">
+        <div className="group-renewers">
+          <div className="group-label">There are { renewers.length } Renewers</div>
+          <div className="group_renewers_images">
+            {
+              renewers.map((item, i) =>
+                <img key={i}
+                     onClick={ () => goToUser(item.accountId) }
+                     src={item.account.avatar}
+                     title={item.account.realm || item.account.username}
+                     alt={item.account.realm || item.account.username}
+                />
+              )
+            }
+          </div>
         </div>
       </div>
       <div className="actions">
@@ -52,7 +75,8 @@ const Card = (props) => {
 const mapDispatchToProps: any = dispatch => ({
   handleModal: (modal: IModal) => {
     dispatch(handleModalAction(modal))
-  }
+  },
+  goToUser: (accountId: string) => dispatch(push(`${urls.user}/${accountId}/${urls.board}`))
 });
 
 export default connect(

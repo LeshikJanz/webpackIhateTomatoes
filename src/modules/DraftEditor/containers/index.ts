@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import LastDraft from "../components/LastDraft";
 import {
-  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction,
-  clearKnowledge, createNewKnowledgeInit
+  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction, createNewKnowledgeInit
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
-import { IRenewer, ICloudGroup, ICloud } from "../../../interfaces/index";
+import { ICloudGroup, ICloud } from "interfaces/index";
 import { getCloudGroupsInit } from "../../Board/actions";
+import { push } from "react-router-redux";
+import { urls } from "../../urls";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -36,6 +37,10 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(handleModalAction());
   },
   getCloudGroups: () => dispatch(getCloudGroupsInit(localStorage.getItem('UserId'))),
+  goToUser: (accountId: string) => {
+    dispatch(handleModalAction());
+    dispatch(push(`${urls.user}/${accountId}/${urls.board}`))
+  }
 });
 
 /**

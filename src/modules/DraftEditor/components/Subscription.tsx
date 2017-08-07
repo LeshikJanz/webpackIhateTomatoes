@@ -1,15 +1,18 @@
 import * as React from 'react'
+import { DEFAULT_PROFILE_IMG } from "constants/index";
 
 export const Subscription = (props) => {
-  const { user, knowledge } = props;
-
-  const defaultProfileImg = 'assets/img/default-user-icon.png';
+  const { user, knowledge, goToUser } = props;
 
   return (
     <div className="profile">
-      <img className="user-img" src={ user && user.avatar || defaultProfileImg }/>
+      <img onClick={() => goToUser(user.id)}
+           className="user-img"
+           src={ user && user.avatar || DEFAULT_PROFILE_IMG }
+           alt={user.realm || user.username}
+      />
       <div className="user-labels">
-        <div className="user-name">{ user && (user.realm || user.username)}</div>
+        <div className="user-name" onClick={() => goToUser(user.id)} >{ user && (user.realm || user.username)}</div>
         <div className="user-type">{knowledge.founderId ? 'Renewer' : 'Founder'}</div>
       </div>
     </div>

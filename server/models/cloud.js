@@ -2,7 +2,7 @@
 
 module.exports = function (Cloud) {
   /**
-   * Updating order
+   * Adding createDate and updateDate
    */
   Cloud.observe('before save', function updateDate(ctx, next) {
     if (ctx.instance) {

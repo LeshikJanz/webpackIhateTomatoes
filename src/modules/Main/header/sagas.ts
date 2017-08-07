@@ -8,7 +8,7 @@ import {
 import { IKnowledge, ICloudGroup } from "interfaces/index";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
-import { push, replace, go } from "react-router-redux";
+import { push } from "react-router-redux";
 import { urls } from "../../urls";
 import { fetchCloudGroupList } from "../../Board/sagas";
 

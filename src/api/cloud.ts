@@ -23,7 +23,7 @@ export const fetchClouds = (accountId?: string) => {
  */
 export const fetchCloudGroups = (accountId?: string) => {
   return request
-    .get('CloudGroups?filter={"include": ["clouds"]' + (accountId ? `, "where": {"accountId": "${accountId}"}}` : '}'), {})
+    .get('CloudGroups?filter={"include": [{ "clouds": ["account", {"relations":"account"}]}]' + (accountId ? `, "where": {"accountId": "${accountId}"}}` : '}'), {})
     .then((cloudGroups: ICloudGroup[]) => cloudGroups)
 };
 
@@ -69,7 +69,7 @@ export const updateCloudGroupById = (id: string, cloudGroup: ICloudGroup) => {
  */
 export const fetchCloud = (id: string) => {
   return request
-    .get(`Clouds/${id}?filter={"include": [{"knowledge" : ["account", "relations"]}]}`, {})
+    .get(`Clouds/${id}?filter={"include": [{"knowledge" : ["account", { "relations": "account" }]}]}`, {})
     .then((cloud: ICloud) => <ICloud> cloud);
 };
 

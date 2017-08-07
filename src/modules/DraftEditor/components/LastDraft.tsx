@@ -22,7 +22,7 @@ import { Editor } from "draft-js";
 import { IKnowledge } from "interfaces/index";
 import { Subscription } from "./Subscription";
 import { CustomModal } from "../../../components/CustomModal/components/index";
-import RenewForm from "./forms/renewForm";
+import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 
 /**
@@ -47,7 +47,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    *
    * @type {any[]}
    */
-  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
+  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
 
   /**
    * Constructor
@@ -103,12 +103,12 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds } = this.props;
+    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
 
     return (
       <div>
         <div className="modal-header draft-editor-container">
-          <Subscription user={user} knowledge={knowledge}/>
+          <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
           <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
                  style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -117,7 +117,8 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
                  value={knowledge.name}
                  onChange={handleNameChange}/>
           <div className="renew-actions">
-            { (knowledge.accountId !== localStorage.getItem('UserId') && !knowledge.relations.find(r => r.accountId === localStorage.getItem('UserId')
+            { (knowledge.accountId !== localStorage.getItem('UserId')
+              && !knowledge.relations.find(r => r.accountId === localStorage.getItem('UserId')
             )) &&
             <button onClick={this.handleRenewingModal.bind(this)}
                     className="tertiary small get-knowledge-button">
@@ -125,10 +126,18 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             </button>
             }
             <div className="group-renewers">
-              <div className="group-label">There are 54 Renewers</div>
+              <div className="group-label">There are { knowledge.relations && knowledge.relations.length } Renewers</div>
               <div className="group_renewers_images">
-                <img src="assets/img/default-user-icon.png"/>
-                <img src="assets/img/default-user-icon.png"/>
+                {
+                  knowledge.relations.map((item, i) =>
+                    <img key={i}
+                         onClick={ () => goToUser(item.accountId) }
+                         src={item.account.avatar}
+                         title={item.account.realm || item.account.username}
+                         alt={item.account.realm || item.account.username}
+                    />
+                  )
+                }
               </div>
             </div>
           </div>
@@ -152,7 +161,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
         </div>
 
         <CustomModal
-          title="Renewing knowledge"
+          title={ `Renewing ${knowledge.name}` }
           handleModal={this.handleRenewingModal.bind(this)}
           isModalOpen={this.state.isRenewingModalOpen}
         >

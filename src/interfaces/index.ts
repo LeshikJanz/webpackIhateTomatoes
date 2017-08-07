@@ -12,7 +12,7 @@ declare interface Identifiable {
 export
 declare interface ICloudGroup extends Identifiable {
   name?: string,
-  accountId: string,
+  accountId?: string,
   createDate?: Date,
   title?: string,
   cloudOrders: string[]

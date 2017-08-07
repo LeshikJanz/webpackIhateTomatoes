@@ -1,32 +1,18 @@
 import { request } from "./base";
-import { ICloud, IKnowledge, ICloudGroup, IRenewer } from "../interfaces/index";
+import { IRenewer } from "../interfaces/index";
 
 /**
  * Creating new relation
  *
- * See: .../explorer/#!/Relations:POST
+ * See: .../explorer/#!/Accounts/{id/}relations:POST
  *
+ * @param {string} accountId - account id
  * @param {IRenewer} relation - renewer
  *
  * @returns {IRenewer} r - relation
  */
-export const addRenewer = (relation: IRenewer) => {
+export const addRenewer = (accountId: string, relation: IRenewer) => {
   return request
-    .post(`Relations`, relation)
-    .then((r: IRenewer) => <IRenewer> r);
-};
-
-/**
- * Creating new relation
- *
- * See: .../explorer/#!/Relations:Get
- *
- * @param {string} id - relation id
- *
- * @returns {IRenewer} r - relation
- */
-export const getRelationById = (id: string) => {
-  return request
-    .post(`Relations`, relation)
+    .post(`Accounts/${accountId}/relations`, relation)
     .then((r: IRenewer) => <IRenewer> r);
 };
