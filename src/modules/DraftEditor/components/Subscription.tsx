@@ -12,9 +12,12 @@ export const Subscription = (props) => {
            alt={user.realm || user.username}
       />
       <div className="user-labels">
-        <div className="user-name" onClick={() => goToUser(user.id)} >{ user && (user.realm || user.username)}</div>
+        <div className="user-name" onClick={() => goToUser(user.id)}>{ user && (user.realm || user.username)}</div>
         <div className="user-type">{knowledge.founderId ? 'Renewer' : 'Founder'}</div>
       </div>
+      <img className="tree-view"
+           title="Open renewing tree"
+           src="assets/icons/tree-map-icon.svg"/>
     </div>
   )
 };

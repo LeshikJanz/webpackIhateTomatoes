@@ -20,10 +20,12 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     localStorage.setItem('Token', token.id);
     localStorage.setItem('UserId', token.userId);
     const user: IUser = yield getUserById(token.userId);
+    localStorage.setItem('Account', JSON.stringify(user));
 
     yield put(loginDone(user));
+    NotificationManager.success(`You are successfully logged in`, 'Success!');
     yield put(replace(urls.board));
-  } catch ({ error }) {
+  } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(loginError());
   }
@@ -39,6 +41,7 @@ export function* logOutSaga(): Iterator<Object | Task> {
     yield logOut();
     localStorage.removeItem('Token');
     localStorage.removeItem('UserId');
+    localStorage.removeItem('Account');
 
     yield put(logOutDone());
     NotificationManager.success(`You are successfully logged out`, 'Success!');

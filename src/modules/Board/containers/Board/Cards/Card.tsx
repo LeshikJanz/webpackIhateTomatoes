@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { handleModalAction } from "modules/actions";
 import { IModal } from "interfaces/index";
 import { push } from "react-router-redux";
+import { DEFAULT_PROFILE_IMG } from "../../../../../constants/index";
 
 const Card = (props) => {
   const { style, item, handleModal, goToUser } = props;
@@ -35,7 +36,7 @@ const Card = (props) => {
       <div className="item-container">
         <div className="item-preview">
           <div className="item-avatar-wrap">
-            <img src={item.account.avatar} alt=""/>
+            <img src={item.account.avatar || DEFAULT_PROFILE_IMG} alt=""/>
           </div>
           <div className="item-content">
             <div className="item-author">{item.account.realm || item.account.username}</div>
@@ -51,7 +52,7 @@ const Card = (props) => {
               renewers.map((item, i) =>
                 <img key={i}
                      onClick={ () => goToUser(item.accountId) }
-                     src={item.account.avatar}
+                     src={item.account.avatar || DEFAULT_PROFILE_IMG}
                      title={item.account.realm || item.account.username}
                      alt={item.account.realm || item.account.username}
                 />
