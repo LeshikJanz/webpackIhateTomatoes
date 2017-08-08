@@ -9,7 +9,7 @@ import { IKnowledge, ICloudGroup } from "interfaces/index";
 const mapStateToProps = (state: any) => ({
   tags: state.Cloud.knowledge && state.Cloud.knowledge.filter((k: IKnowledge) =>
     k.name.toLocaleLowerCase().includes(state.Filter.name.toLowerCase())),
-  isEditorOpen: state.Modal.isEditorOpen,
+  isModalOpen: state.Modal.isOpen,
   locationPath: state.routing.locationBeforeTransitions.pathname,
   cloud: state.Cloud
 });
