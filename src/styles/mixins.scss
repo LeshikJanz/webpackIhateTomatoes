@@ -81,3 +81,15 @@
   font-size: 16px !important;
   color: #b2bac4 !important;
 }
+
+@mixin dropdown-li {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  cursor: pointer;
+  font-family: WorkSans !important;
+  font-size: 16px !important;
+  color: #343a40;
+  border-top: solid 1px #f5f6f7;
+}

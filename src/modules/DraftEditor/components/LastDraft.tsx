@@ -47,7 +47,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    *
    * @type {any[]}
    */
-  plugins: any[] = [ video, color, emoji, gif, mention, sticker, todo ];
+  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
 
   /**
    * Constructor
@@ -105,10 +105,13 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   render() {
     const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
 
+    const relations = knowledge.relations || [];
+
     return (
       <div>
         <div className="modal-header draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
+
           <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
                  className="input-container"
                  style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -118,7 +121,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
                  onChange={handleNameChange}/>
           <div className="renew-actions">
             { (knowledge.accountId !== localStorage.getItem('UserId')
-              && !knowledge.relations.find(r => r.accountId === localStorage.getItem('UserId')
+            && !relations.find(r => r.accountId === localStorage.getItem('UserId')
             )) &&
             <button onClick={this.handleRenewingModal.bind(this)}
                     className="tertiary small get-knowledge-button">
@@ -126,10 +129,10 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             </button>
             }
             <div className="group-renewers">
-              <div className="group-label">There are { knowledge.relations && knowledge.relations.length } Renewers</div>
+              <div className="group-label">There are { relations.length } Renewers</div>
               <div className="group_renewers_images">
                 {
-                  knowledge.relations.map((item, i) =>
+                  relations.map((item, i) =>
                     <img key={i}
                          onClick={ () => goToUser(item.accountId) }
                          src={item.account.avatar}

@@ -60,6 +60,10 @@
     align-self: flex-end;
   }
 
+  .profile-img {
+    align-self: center;
+  }
+
   .user-profile {
     display: flex;
     justify-content: space-between;
@@ -108,5 +112,10 @@
       }
     }
   }
+}
 
+.tree-view {
+  cursor: pointer;
+  width: 60px;
+  margin-left: 50px;
 }
