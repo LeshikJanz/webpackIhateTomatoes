@@ -10,7 +10,7 @@ $headerHeight: 152px;
   height: 100%;
   width: 5%;
   z-index: 1;
-  transition: all 500ms ease-in-out;
+  transition: width 500ms ease-in-out;
 
   img.nav-hamburger {
     opacity: 0.6;
@@ -21,41 +21,46 @@ $headerHeight: 152px;
     flex-direction: column;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
     color: #ffffff;
+    text-align: center;
 
     > a {
       cursor: pointer;
+      color: #ffffff;
+      font-weight: bold;
       font-size: 20px;
       padding-top: 15px;
-      transition: 1s ease-in-out;
 
       &:before, &:after {
         opacity: 0;
-        transition: transform .5s,opacity .2s;
+        transition: transform .5s;
       }
 
       &:before {
-        margin-right: 20px;
         content: '[';
-        -webkit-transform: translateX(20px);
-        -moz-transform: translateX(20px);
         transform: translateX(20px);
       }
 
       &:after {
-        margin-left: 20px;
         content: ']';
-        -webkit-transform: translateX(-20px);
-        -moz-transform: translateX(-20px);
         transform: translateX(-20px);
       }
 
       &:hover {
         color: #f57f17;
 
-        &:before, &:after {
+        &:before{
+          margin-right: 20px;
           opacity: 1;
+          transform: translateX(0);
+          transition: all .5s ease-in-out;
+        }
+
+        &:after {
+          margin-left: 20px;
+          opacity: 1;
+          transform: translateX(0);
+          transition: all .5s ease-in-out;
         }
       }
     }
