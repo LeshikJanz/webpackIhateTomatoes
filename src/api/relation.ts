@@ -1,5 +1,5 @@
 import { request } from "./base";
-import { IRenewer } from "../interfaces/index";
+import { IRelation, IKnowledge } from "../interfaces/index";
 
 /**
  * Creating new relation
@@ -7,12 +7,12 @@ import { IRenewer } from "../interfaces/index";
  * See: .../explorer/#!/Accounts/{id/}relations:POST
  *
  * @param {string} accountId - account id
- * @param {IRenewer} relation - renewer
+ * @param {IRelation} relation - renewer
  *
- * @returns {IRenewer} r - relation
+ * @returns {IRelation} r - relation
  */
-export const addRenewer = (accountId: string, relation: IRenewer) => {
+export const addRenewer = (accountId: string, relation: IRelation) => {
   return request
     .post(`Accounts/${accountId}/relations`, relation)
-    .then((r: IRenewer) => <IRenewer> r);
+    .then((r: IRelation) => <IRelation> r);
 };

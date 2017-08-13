@@ -41,7 +41,8 @@ declare interface IKnowledge extends Identifiable {
   text: {},
   createDate: Date,
   updateDate: Date,
-  cloudId: string
+  cloudId: string,
+  relations?: IRelation[]
 }
 
 /**
@@ -91,10 +92,11 @@ declare interface IUser extends Identifiable {
  * Relation interface
  */
 export
-declare interface IRenewer extends Identifiable {
+declare interface IRelation extends Identifiable {
   founderId: string,
   knowledgeId: string,
   cloudId: string,
+  treeId: string
 }
 
 /**

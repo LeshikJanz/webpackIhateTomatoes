@@ -50,12 +50,14 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
     const newKnowledge = {
       accountId: localStorage.getItem('UserId'),
       name: knowledgeCreateForm.name,
-      cloudId: knowledgeCreateForm.cloud.id
+      cloudId: knowledgeCreateForm.cloud.id,
+      treeId: new Date().getTime()
     };
 
     if(payload && payload.fromExisting) {
       newKnowledge.text = knowledgeForCopy.text;
       newKnowledge.founderId = knowledgeForCopy.accountId;
+      newKnowledge.treeId = knowledgeForCopy.treeId;
     }
 
     // check if cloud is not exist
