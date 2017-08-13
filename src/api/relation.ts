@@ -1,5 +1,5 @@
 import { request } from "./base";
-import { IRelation, IKnowledge } from "../interfaces/index";
+import { IRelation } from "../interfaces/index";
 
 /**
  * Creating new relation

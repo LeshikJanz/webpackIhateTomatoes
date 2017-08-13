@@ -5,7 +5,7 @@ import {
   addTag, updateKnowledgeError, createNewKnowledgeInit, createNewKnowledgeDone,
   fetchCloudInit
 } from "../../actions";
-import { IKnowledge, ICloudGroup } from "interfaces/index";
+import { IKnowledge, ICloudGroup, ICloud } from "interfaces/index";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
 import { push } from "react-router-redux";
@@ -18,7 +18,7 @@ const getKnowledgeFromState = (state: any) => state.Knowledge;
 
 const getCloudGroupFromState: any = (state): any => state.Board.lists;
 
-function* createCloud(form) {
+function* createCloud(form): Iterator<Object | Task> {
   yield fetchCloudGroupList();
   const cloudGroups = yield select(getCloudGroupFromState);
 

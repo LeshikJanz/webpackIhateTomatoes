@@ -10,26 +10,13 @@ const getFromState = (state: any) => state.Knowledge;
 /**
  * Generating Renew relation
  */
-function *generateRenewer(knowledge: IKnowledge): IRelation {
-  const renewer = {
+function *generateRenewer(knowledge: IKnowledge): Iterator<IRelation | Task> {
+  return {
     accountId: localStorage.getItem('UserId'),
     founderId: knowledge.accountId,
     cloudId: knowledge.cloudId,
     knowledgeId: knowledge.id
-  };
-
-  // Search for treeId if exist
-  // if ( knowledge.relations.length && knowledge.relations[0].treeId ) {
-  //   renewer.treeId = knowledge.relations[0].treeId;
-  // } else {
-  //   const relations = yield getRelationsByFounderKnowledgeId(knowledge.id);
-  //
-  //   if ( relations.length && relations[0].treeId ) {
-  //     renewer.treeId = relations[0].treeId;
-  //   } else renewer.treeId = new Date().getTime();
-  // }
-
-  return renewer;
+  }
 }
 
 /**
