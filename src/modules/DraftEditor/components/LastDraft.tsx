@@ -1,29 +1,103 @@
 import * as React from 'react'
-import {
-  Editor,
-  editorStateFromHtml,
-  editorStateToHtml,
-  editorStateFromRaw,
-  editorStateToJSON,
-  editorStateFromText
-} from 'last-draft';
-import video from 'ld-video';
-import color from 'ld-color-picker';
-import emoji from 'ld-emoji';
-import gif from 'ld-gif';
-import mention from 'ld-mention';
-import audio from 'ld-audio';
-import sticker from 'ld-sticker';
-import html from 'ld-html';
-import todo from 'ld-todo';
 import '../styles/style.scss';
 import { uploadImage } from "api/user";
-import { Editor } from "draft-js";
+import Editor, { composeDecorators } from 'draft-js-plugins-editor'
+import { EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { IKnowledge } from "interfaces/index";
 import { Subscription } from "./Subscription";
 import { CustomModal } from "../../../components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
+
+/* Emoji plugin */
+import createEmojiPlugin from 'draft-js-emoji-plugin'
+import 'draft-js-emoji-plugin/lib/plugin.css'
+const emojiPlugin = createEmojiPlugin()
+const { EmojiSuggestions } = emojiPlugin
+
+/* Hashtag plugin */
+import createHashtagPlugin from 'draft-js-hashtag-plugin'
+import 'draft-js-hashtag-plugin/lib/plugin.css'
+const hashtagPlugin = createHashtagPlugin()
+
+/* Image with Alignment, dnd, focus, resize plugin */
+import createImagePlugin from 'draft-js-image-plugin'
+import createAlignmentPlugin from 'draft-js-alignment-plugin'
+import createFocusPlugin from 'draft-js-focus-plugin'
+import createResizeablePlugin from 'draft-js-resizeable-plugin'
+import createDndPlugin from 'draft-js-drag-n-drop-plugin'
+
+import 'draft-js-alignment-plugin/lib/plugin.css'
+import 'draft-js-focus-plugin/lib/plugin.css'
+
+const focusPlugin = createFocusPlugin()
+const resizeablePlugin = createResizeablePlugin()
+const dndPlugin = createDndPlugin()
+const alignmentPlugin = createAlignmentPlugin()
+const { AlignmentTool } = alignmentPlugin
+
+const decorator = composeDecorators(
+  resizeablePlugin.decorator,
+  alignmentPlugin.decorator,
+  focusPlugin.decorator,
+  dndPlugin.decorator
+)
+const imagePlugin = createImagePlugin({ decorator })
+
+/* Linkify */
+import createLinkifyPlugin from 'draft-js-linkify-plugin'
+import 'draft-js-linkify-plugin/lib/plugin.css'
+const linkifyPlugin = createLinkifyPlugin()
+
+/* Mentions */
+
+import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-mention-plugin'
+const mentionPlugin = createMentionPlugin();
+const { MentionSuggestions } = mentionPlugin;
+import mentions from './Mentions';
+import 'draft-js-mention-plugin/lib/plugin.css'
+
+/* ld plugins */
+
+/* Toolbar */
+import createToolbarPlugin from 'last-draft-js-toolbar-plugin'
+import 'last-draft-js-toolbar-plugin/lib/plugin.css'
+const toolbarPlugin = createToolbarPlugin()
+const { Toolbar } = toolbarPlugin
+
+/* Side Toolbar */
+import createSidebarPlugin from 'last-draft-js-sidebar-plugin'
+import 'last-draft-js-sidebar-plugin/lib/plugin.css'
+const sidebarPlugin = createSidebarPlugin()
+const { Sidebar } = sidebarPlugin
+
+/* Embed plugin */
+import createEmbedPlugin from 'draft-js-embed-plugin'
+import 'draft-js-embed-plugin/lib/plugin.css'
+const embedPlugin = createEmbedPlugin()
+
+/* Link plugin */
+import createLinkPlugin from 'draft-js-link-plugin'
+import 'draft-js-link-plugin/lib/plugin.css'
+const linkPlugin = createLinkPlugin()
+
+/* Color */
+import { colorStyleMap } from 'draft-js-color-picker-plugin'
+
+/* init the plugins */
+const plugins = [
+  dndPlugin, focusPlugin, alignmentPlugin, resizeablePlugin, imagePlugin,
+  emojiPlugin, hashtagPlugin, linkifyPlugin, mentionPlugin,
+  toolbarPlugin, sidebarPlugin, embedPlugin, linkPlugin
+]
+
+/* init the state, either from raw, html or text */
+import { raw } from './initialState/raw'
+import { fromJS } from "immutable";
+
+/* from raw */
+const content = convertFromRaw(raw)
+let STATE = EditorState.createWithContent(content)
 
 /**
  * Last draft props interface
@@ -47,21 +121,52 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    *
    * @type {any[]}
    */
-  plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
+  // plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
 
-  /**
-   * Constructor
-   *
-   * @param {props} props - external props
-   * @returns {void}
-   */
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: editorStateFromRaw(this.props.knowledge.text),
-      isRenewingModalOpen: false
-    }
+  // /**
+  //  * Constructor
+  //  *
+  //  * @param {props} props - external props
+  //  * @returns {void}
+  //  */
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     value: convertFromRaw(this.props.knowledge.text),
+  //     isRenewingModalOpen: false
+  //   }
+  // }
+
+  state = {
+    editorState: STATE,
+    suggestions: mentions
   }
+
+  onChange = (editorState) => {
+    this.setState({ editorState })
+
+    let raw = convertToRaw(editorState.getCurrentContent())
+    this.logState('raw state:', raw)
+  }
+
+  logState (type, raw) {
+    // console.log(type)
+    console.log(JSON.stringify(raw))
+  }
+
+  focus = () => {
+    this.editor.focus()
+  }
+
+  onSearchChange = ({ value }) => {
+    this.setState({
+      suggestions: defaultSuggestionsFilter(value, mentions),
+    });
+  };
+
+  onAddMention = () => {
+  }
+
 
   /**
    * On change editor text
@@ -71,7 +176,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    */
   change(editorState: string) {
     this.setState({ value: editorState });
-    this.props.editKnowledge(editorStateToJSON(editorState));
+    this.props.editKnowledge(convertToRaw(editorState));
   }
 
   /**
@@ -150,17 +255,22 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
         </div>
         <div>
           <Editor
-            readOnly={knowledge.accountId !== localStorage.getItem('UserId')}
-            plugins={this.plugins}
-            sidebarVisibleOn='newline'
-            inline={['bold', 'italic', 'dropcap']}
-            blocks={['h3', 'quote']}
-            autofocus={true}
-            separators={false}
-            editorState={this.state.value}
+            editorState={this.state.editorState}
             placeholder='Text'
-            uploadImageAsync={this.uploadImageAsync}
-            onChange={this.change.bind(this)}/>
+            plugins={plugins}
+            customStyleMap={colorStyleMap}
+            onChange={this.onChange}
+          />
+          <AlignmentTool />
+          <Toolbar />
+          <Sidebar />
+          <EmojiSuggestions />
+          <MentionSuggestions
+            onSearchChange={this.onSearchChange}
+            suggestions={this.state.suggestions}
+            onAddMention={this.onAddMention}
+            onClose={() => this.setState({suggestions: fromJS([])})}
+          />
         </div>
 
         <CustomModal
