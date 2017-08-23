@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { lifecycle } from 'recompose';
 import { Field, reduxForm } from 'redux-form'
-import { ICloud } from "../../Board/interfaces/index";
+import { ICloud } from "interfaces/index";
 import { renderField } from "components/RenderField/index";
 import { required } from "components/RenderField/validators";
 const Select = require('react-select');

@@ -24,8 +24,8 @@ declare interface ICloudGroup extends Identifiable {
 export
 declare interface ICloud extends Identifiable {
   name: string,
-  createDate: Date,
-  updateDate: Date,
+  createDate?: Date,
+  updateDate?: Date,
   text: string,
   cloudGroupId: string,
   accountId: string
@@ -41,7 +41,9 @@ declare interface IKnowledge extends Identifiable {
   text: {},
   createDate: Date,
   updateDate: Date,
-  cloudId: string
+  cloudId: string,
+  treeId: string,
+  relations?: IRelation[]
 }
 
 /**
@@ -91,10 +93,10 @@ declare interface IUser extends Identifiable {
  * Relation interface
  */
 export
-declare interface IRenewer extends Identifiable {
+declare interface IRelation extends Identifiable {
   founderId: string,
   knowledgeId: string,
-  cloudId: string,
+  cloudId: string
 }
 
 /**

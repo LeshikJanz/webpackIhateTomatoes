@@ -4,6 +4,7 @@ import LogOutBar from "../../auth/containers/LogOutBar";
 import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
 import { urls } from "modules/urls";
+import { Navigation } from "../../navigation/components/index";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -23,6 +24,7 @@ export const Header = (props) => {
 
   return (
     <div className={cx([{ 'blur': modal.isOpen }])}>
+      <Navigation/>
       <div className="navbar navbar-default">
         <div className="header-container">
           <div>

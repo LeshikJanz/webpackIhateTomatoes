@@ -20,7 +20,7 @@
     "updateDate": {
       "type": "date"
     },
-    "founderId": {
+    "treeId": {
       "type": "string"
     }
   },

@@ -143,7 +143,7 @@ function* updateCloudGroupOrders() {
   yield put(updateAccountInit(user));
 }
 
-export function* deleteCloudGroupSaga({ payload }: string): Iterator<Object | Task> {
+export function* deleteCloudGroupSaga({ payload }): Iterator<Object | Task> {
   try {
     yield deleteCloudGroup(payload);
     NotificationManager.success(`The cloud group has been successfully deleted`, 'Success!');
@@ -158,7 +158,7 @@ export function* deleteCloudGroupSaga({ payload }: string): Iterator<Object | Ta
   }
 }
 
-export function* deleteCloudSaga({ payload }: string): Iterator<Object | Task> {
+export function* deleteCloudSaga({ payload }): Iterator<Object | Task> {
   try {
     yield deleteCloud(payload);
     NotificationManager.success(`The cloud has been successfully deleted`, 'Success!');

@@ -3,7 +3,6 @@ import {
   updateCloud, handleModalAction, createCloudInit, createCloudGroupInit,
   updateCloudGroupInit
 } from "../../actions";
-import { createAction } from "utils/createAction";
 import { deleteCloudInit, deleteCloudGroupInit, getCloudGroupsInit } from "../actions";
 const faker = require('faker');
 
@@ -12,10 +11,16 @@ export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
 export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
+/**
+ * Get Cloud groups and cloud for account
+ *
+ * @param {string} accountId - user id
+ *
+ * @return {any}
+ */
 export function getLists(accountId: string) {
-  return dispatch => {
-    dispatch(getCloudGroupsInit({ accountId, sort: accountId === localStorage.getItem('UserId') }));
-  };
+  return dispatch =>
+    dispatch(getCloudGroupsInit({ accountId, sort: accountId === localStorage.getItem('UserId') }))
 }
 
 export function moveList(lastX, nextX) {
