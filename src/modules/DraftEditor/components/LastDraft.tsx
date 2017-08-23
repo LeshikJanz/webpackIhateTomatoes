@@ -42,32 +42,7 @@ const decorator = composeDecorators(
   focusPlugin.decorator,
   dndPlugin.decorator
 )
-const imagePlugin = createImagePlugin({
-  upload: function (dataUrl, callback) {
-    console.log('upload function');
-    callback('123');
-
-    // return new Promise(
-    //   (resolve, reject) =>
-    //     uploadImage(dataUrl)
-    //       .then((res) => {
-    //         console.log('UPLOADED!!!');
-    //         console.log(res.data.secure_url);
-    //     // resolve({ src: res.data.secure_url })
-    //       })
-    //       .catch((err) => reject(err))
-    // )
-  }
-});
-// {upload: function(dataUrl, callback){
-//   // Upload the data url and call the callback!
-//     // eg. dataUrl = 'data:image/png;base64,iVBORE6+ogD...'
-//       $.post('/upload',{data_url:dataUrl},function(result)){
-//       // the result contains a new url, eg. result.url = '/image/1.png'
-//         callback(result.url);
-//     }
-// }})
-// const imagePlugin = createImagePlugin({ decorator })
+const imagePlugin = createImagePlugin({ decorator });
 
 /* Linkify */
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
@@ -146,39 +121,13 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
     editorState: EditorState.createWithContent(convertFromRaw(this.props.knowledge.text)),
     suggestions: mentions
   }
-  /**
-   * Last Draft plugins
-   *
-   * @type {any[]}
-   */
-    // plugins: any[] = [video, color, emoji, gif, mention, sticker, todo];
-
-    // /**
-    //  * Constructor
-    //  *
-    //  * @param {props} props - external props
-    //  * @returns {void}
-    //  */
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     value: convertFromRaw(this.props.knowledge.text),
-    //     isRenewingModalOpen: false
-    //   }
-    // }
-
 
   onChange = (editorState) => {
     this.setState({ editorState })
 
     let raw = convertToRaw(editorState.getCurrentContent())
     this.props.editKnowledge(raw);
-  }
-
-  logState(type, raw) {
-    // console.log(type)
-    console.log(JSON.stringify(raw))
-  }
+  };
 
   focus = () => {
     this.editor.focus()
@@ -214,8 +163,6 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
    * @returns {Promise}
    */
   uploadImageAsync(file: File): Promise<any> {
-    console.log('uploadImageAsync');
-
     return new Promise(
       (resolve, reject) =>
         uploadImage(file)
@@ -229,14 +176,13 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
   }
 
-  toDataURL = (url, callback) => {
-    console.log('toDataUrll')
+  toDataURL(url, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = () => {
       const reader = new FileReader();
-      reader.onloadend = function() {
+      reader.onloadend = function () {
         callback(reader.result);
-      }
+      };
       reader.readAsDataURL(xhr.response);
     };
     xhr.open('GET', url);
@@ -245,16 +191,14 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   };
 
 
-  myBlockRenderer(block) {
-    if(block.getType() === 'atomic') {
-
+  blockRenderer(block) {
+    if ( block.getType() === 'atomic' ) {
       const entity = Entity.get(block.getEntityAt(0));
 
-      if(entity.getType() === 'image') {
+      if ( entity.getType() === 'image' ) {
         this.toDataURL(entity.data.src, (dataUrl) => {
-          const result = this.uploadImageAsync(dataUrl)
+          this.uploadImageAsync(dataUrl)
             .then(result => {
-
               entity.data.src = result.src;
               Entity.mergeData(block.getEntityAt(0), entity);
             })
@@ -323,7 +267,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             customStyleMap={colorStyleMap}
             uploadImageAsync={this.uploadImageAsync}
             onChange={this.onChange}
-            blockRendererFn={this.myBlockRenderer.bind(this)}
+            blockRendererFn={this.blockRenderer.bind(this)}
           />
           <AlignmentTool />
           <Toolbar />

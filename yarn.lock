@@ -8,13 +8,6 @@
   dependencies:
     axios "*"
 
-"@types/draft-js@^0.10.5":
-  version "0.10.9"
-  resolved "https://registry.yarnpkg.com/@types/draft-js/-/draft-js-0.10.9.tgz#fe78ec7582e7578c93d39697dcd3eeaf4b6a1317"
-  dependencies:
-    "@types/react" "*"
-    immutable "^3.8.1"
-
 "@types/fs-extra@^3.0.0":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-3.0.3.tgz#1d66eb670ebf657e57c0fda014df340c19d8aa0c"
@@ -1076,14 +1069,7 @@ babel-register@^6.24.1:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.11.6:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.0"
-
-babel-runtime@^6.18.0, babel-runtime@^6.22.0:
+babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.22.0:
   version "6.25.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
   dependencies:
@@ -1902,7 +1888,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.5.3, create-react-class@^15.6.0:
+create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.5.3:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -2196,7 +2182,7 @@ disposables@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/disposables/-/disposables-1.0.1.tgz#064727a25b54f502bd82b89aa2dfb8df9f1b39e3"
 
-dnd-core@^2.0.1, dnd-core@^2.4.0:
+dnd-core@^2.0.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-2.4.0.tgz#c4a5bc2aea75164f8a295d769d5f551810e7d411"
   dependencies:
@@ -2314,6 +2300,18 @@ draft-js-alignment-plugin@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
+draft-js-alignment-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-alignment-plugin/-/draft-js-alignment-plugin-2.0.0-beta1.tgz#77f68e99b75b0e9c33f5734efe314b71c73567fe"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    union-class-names "^1.0.0"
+
 draft-js-buttons-plugin@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/draft-js-buttons-plugin/-/draft-js-buttons-plugin-1.2.0.tgz#fc0a5391c1dd609a02e999ea88ee8d1026053867"
@@ -2324,7 +2322,7 @@ draft-js-buttons@^2.0.0-rc2:
   dependencies:
     union-class-names "^1.0.0"
 
-draft-js-color-picker-plugin@1.2.0:
+draft-js-color-picker-plugin@1.2.0, draft-js-color-picker-plugin@latest:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/draft-js-color-picker-plugin/-/draft-js-color-picker-plugin-1.2.0.tgz#f46dffb2e1df787accb35066c9e31c6a191d88fe"
 
@@ -2350,17 +2348,17 @@ draft-js-drag-n-drop-plugin@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
-draft-js-drag-n-drop-plugin@^2.0.0-beta10:
-  version "2.0.0-beta10"
-  resolved "https://registry.yarnpkg.com/draft-js-drag-n-drop-plugin/-/draft-js-drag-n-drop-plugin-2.0.0-beta10.tgz#bab9c9ac35ec3ca6fdc0b135d4bd52a81da9ab5c"
+draft-js-drag-n-drop-plugin@^latest:
+  version "2.0.0-rc5"
+  resolved "https://registry.yarnpkg.com/draft-js-drag-n-drop-plugin/-/draft-js-drag-n-drop-plugin-2.0.0-rc5.tgz#7222dcd7ae5602da65c5768df2d6bec0e3275b60"
   dependencies:
     decorate-component-with-props "^1.0.2"
-    draft-js ">=0.9.1"
     find-with-regex "^1.0.2"
     immutable "~3.7.4"
+    prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
-draft-js-embed-plugin@1.2.0:
+draft-js-embed-plugin@1.2.0, draft-js-embed-plugin@latest:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/draft-js-embed-plugin/-/draft-js-embed-plugin-1.2.0.tgz#cf41c6de58ce58c3662d8cd3d45325733587d3d1"
   dependencies:
@@ -2385,6 +2383,18 @@ draft-js-emoji-plugin@2.0.0-rc2:
     to-style "^1.3.3"
     union-class-names "^1.0.0"
 
+draft-js-emoji-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-emoji-plugin/-/draft-js-emoji-plugin-2.0.0-beta1.tgz#81920d76df2fb6c86df4bb27c3da0aec44ef5c18"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    union-class-names "^1.0.0"
+
 draft-js-focus-plugin@2.0.0-rc2:
   version "2.0.0-rc2"
   resolved "https://registry.yarnpkg.com/draft-js-focus-plugin/-/draft-js-focus-plugin-2.0.0-rc2.tgz#6b65e0c489a0cedc9cfad414b3313d44168375d9"
@@ -2393,6 +2403,18 @@ draft-js-focus-plugin@2.0.0-rc2:
     find-with-regex "^1.0.2"
     immutable "~3.7.4"
     prop-types "^15.5.8"
+    union-class-names "^1.0.0"
+
+draft-js-focus-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-focus-plugin/-/draft-js-focus-plugin-2.0.0-beta1.tgz#96b3958e714c59163022fa28753a0214d51b56c3"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
     union-class-names "^1.0.0"
 
 draft-js-gif-picker-plugin@1.2.0:
@@ -2409,6 +2431,18 @@ draft-js-hashtag-plugin@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
+draft-js-hashtag-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-hashtag-plugin/-/draft-js-hashtag-plugin-2.0.0-beta1.tgz#f21099aa3ee117ec8c22ca605985309d9ecbe3d2"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    union-class-names "^1.0.0"
+
 draft-js-image-plugin@2.0.0-rc2:
   version "2.0.0-rc2"
   resolved "https://registry.yarnpkg.com/draft-js-image-plugin/-/draft-js-image-plugin-2.0.0-rc2.tgz#c14d5834419dae3f7bb0ac65f2039cf588ed95ca"
@@ -2419,7 +2453,19 @@ draft-js-image-plugin@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
-draft-js-link-plugin@1.2.2:
+draft-js-image-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-image-plugin/-/draft-js-image-plugin-2.0.0-beta1.tgz#fac1d896b62c93e018a3b97f2a7e6861986c7245"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    union-class-names "^1.0.0"
+
+draft-js-link-plugin@1.2.2, draft-js-link-plugin@latest:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/draft-js-link-plugin/-/draft-js-link-plugin-1.2.2.tgz#01939fa622a778cdb140f9fc28cd5ec4cde4eae3"
   dependencies:
@@ -2438,6 +2484,19 @@ draft-js-linkify-plugin@2.0.0-rc2:
     tlds "1.159.0"
     union-class-names "^1.0.0"
 
+draft-js-linkify-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-linkify-plugin/-/draft-js-linkify-plugin-2.0.0-beta1.tgz#03098dce5744c66228f2851cd13777182ad24d61"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    immutable ">=3.8.1"
+    linkify-it "2.0.0"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    tlds "1.132.0"
+    union-class-names "^1.0.0"
+
 draft-js-mention-plugin@2.0.0-rc2:
   version "2.0.0-rc2"
   resolved "https://registry.yarnpkg.com/draft-js-mention-plugin/-/draft-js-mention-plugin-2.0.0-rc2.tgz#619fe1a12278f154937fb1b4c263a320b679919b"
@@ -2447,6 +2506,18 @@ draft-js-mention-plugin@2.0.0-rc2:
     immutable "~3.7.4"
     lodash.escaperegexp "^4.1.2"
     prop-types "^15.5.8"
+    union-class-names "^1.0.0"
+
+draft-js-mention-plugin@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-mention-plugin/-/draft-js-mention-plugin-2.0.0-beta1.tgz#c57c597b30dd84c1963badb0512aafa8fcbf1e22"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
     union-class-names "^1.0.0"
 
 draft-js-modal-plugin@1.2.0:
@@ -2467,6 +2538,18 @@ draft-js-plugins-editor@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
+draft-js-plugins-editor@latest:
+  version "2.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/draft-js-plugins-editor/-/draft-js-plugins-editor-2.0.0-beta1.tgz#184e0c3579bffeb4b18b8b65a172ffdfce110d04"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js ">=0.7.0"
+    find-with-regex "^1.0.2"
+    immutable ">=3.8.1"
+    react ">=15.1.0"
+    react-dom ">=15.1.0"
+    union-class-names "^1.0.0"
+
 draft-js-resizeable-plugin@2.0.0-rc2:
   version "2.0.0-rc2"
   resolved "https://registry.yarnpkg.com/draft-js-resizeable-plugin/-/draft-js-resizeable-plugin-2.0.0-rc2.tgz#698efae38ce4ce8bbce14da41eba6a488b66e7eb"
@@ -2477,7 +2560,7 @@ draft-js-resizeable-plugin@2.0.0-rc2:
     prop-types "^15.5.8"
     union-class-names "^1.0.0"
 
-draft-js@>=0.7.0, draft-js@>=0.9.1, draft-js@^0.10.1:
+draft-js@>=0.7.0, draft-js@latest:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/draft-js/-/draft-js-0.10.1.tgz#6f1219d8095729691429ca6fd7a58d2a8be5cb67"
   dependencies:
@@ -6129,15 +6212,9 @@ react-display-name@^0.2.0:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/react-display-name/-/react-display-name-0.2.3.tgz#f50204d430c9ca819bc0bade0306e9175d8d1987"
 
-react-dnd-html5-backend@2.1.2:
+react-dnd-html5-backend@2.1.2, react-dnd-html5-backend@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-2.1.2.tgz#bcff5866629c335b310b1062fe6537af35073c66"
-  dependencies:
-    lodash "^4.2.0"
-
-react-dnd-html5-backend@^2.1.2:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-2.4.1.tgz#439d2bcaf8bd8b87a51386beb51c128826182ddd"
   dependencies:
     lodash "^4.2.0"
 
@@ -6151,7 +6228,7 @@ react-dnd-scrollzone@^4.0.0:
     raf "^3.2.0"
     react-display-name "^0.2.0"
 
-react-dnd@2.1.4:
+react-dnd@2.1.4, react-dnd@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-2.1.4.tgz#dd2afeddddd5ff4507d795a5bd44361c84374c0f"
   dependencies:
@@ -6160,22 +6237,11 @@ react-dnd@2.1.4:
     invariant "^2.1.0"
     lodash "^4.2.0"
 
-react-dnd@^2.1.4:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-2.4.0.tgz#96f0042cd4cd375b4f0c3413f6ec84d267b7d792"
-  dependencies:
-    disposables "^1.0.1"
-    dnd-core "^2.4.0"
-    hoist-non-react-statics "^1.2.0"
-    invariant "^2.1.0"
-    lodash "^4.2.0"
-    prop-types "^15.5.8"
-
 react-dom-factories@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.0.tgz#f43c05e5051b304f33251618d5bc859b29e46b6d"
 
-react-dom@15.5.0:
+react-dom@15.5.0, react-dom@>=15.1.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.0.tgz#86a8d6dcde388473815039de3840706e1f28f697"
   dependencies:
@@ -6183,15 +6249,6 @@ react-dom@15.5.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.0"
-
-react-dom@>=15.1.0:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
-  dependencies:
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-    prop-types "^15.5.10"
 
 react-dropzone@^3.13.3:
   version "3.13.4"
@@ -6339,7 +6396,7 @@ react-virtualized@^9.9.0:
     loose-envify "^1.3.0"
     prop-types "^15.5.4"
 
-react@15.5.0:
+react@15.5.0, react@>=15.1.0, react@^15.3.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.0.tgz#1f8e4b492dcfbf77479eb4fdfc48da425002e505"
   dependencies:
@@ -6347,16 +6404,6 @@ react@15.5.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "15.5.0-alpha.0"
-
-react@>=15.1.0, react@^15.3.0:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
-  dependencies:
-    create-react-class "^15.6.0"
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-    prop-types "^15.5.10"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
@@ -6518,10 +6565,6 @@ regenerate@^1.2.1:
 regenerator-runtime@^0.10.0:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
-
-regenerator-runtime@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.0.tgz#7e54fe5b5ccd5d6624ea6255c3473be090b802e1"
 
 regenerator-transform@0.9.11:
   version "0.9.11"
@@ -7435,6 +7478,10 @@ timers-browserify@^2.0.2:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"
   dependencies:
     setimmediate "^1.0.4"
+
+tlds@1.132.0:
+  version "1.132.0"
+  resolved "https://registry.yarnpkg.com/tlds/-/tlds-1.132.0.tgz#85b8edba2e664531ccf6a69989be790c16777305"
 
 tlds@1.159.0:
   version "1.159.0"
