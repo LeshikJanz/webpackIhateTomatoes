@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addTag: (tag) => dispatch(addTag(tag))
   }
-}
+};
 
 export default connect(
   mapStateToProps,

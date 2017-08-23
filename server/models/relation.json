@@ -9,6 +9,9 @@
   "properties": {
     "createDate": {
       "type": "date"
+    },
+    "founderId": {
+      "type": "string"
     }
   },
   "validations": [],

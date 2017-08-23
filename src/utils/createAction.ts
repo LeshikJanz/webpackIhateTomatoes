@@ -1,4 +1,4 @@
-export function createAction(type:string, payloadMapper:any) {
+export function createAction(type:string, payloadMapper?:any) {
   const scopedName = this.scope ? `${this.scope}/` : '';
   const name = `big-head/${scopedName}${type}`;
 
