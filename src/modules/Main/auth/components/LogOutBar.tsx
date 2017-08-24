@@ -9,26 +9,20 @@ export const LogOutBar = (props) => {
   const user = JSON.parse(localStorage.getItem('Account'));
 
   return (
-    <div>
-      <div className="profile">
-        <img className="user-img profile-img"
-             src={ user && (user.avatar || DEFAULT_PROFILE_IMG) }
-             alt={user && (user.realm || user.username)}
-        />
-        <div className="user-labels">
-          <button className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
+    <div className="profile">
+      <img className="user-img profile-img"
+           src={ user && (user.avatar || DEFAULT_PROFILE_IMG) }
+           alt={user && (user.realm || user.username)}
+      />
+      <div className="user-labels">
+        <button className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
 
-          <button style={{ width: '100px' }}
-                  onClick={ props.logOut }
-                  className="tertiary small add">
-            Log out
-          </button>
-        </div>
-
+        <button style={{ width: '100px' }}
+                onClick={ props.logOut }
+                className="tertiary small add">
+          Log out
+        </button>
       </div>
-
-
-
     </div>
   )
 };

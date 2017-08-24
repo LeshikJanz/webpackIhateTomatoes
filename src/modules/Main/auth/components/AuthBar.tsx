@@ -9,7 +9,7 @@ export const AuthBar = ( props ) => {
   const { handleModal, modal, handleAuthFormSubmit, goRegistrationPage } = props;
 
   return (
-    <div>
+    <div className="authContainer">
       <button style={{ width: '90px', marginBottom: '10px' }}
               onClick={ handleModal }
               className="tertiary small add">

@@ -44,7 +44,7 @@ export const Header = (props) => {
               World's knowledge is here!
             </h2>
           </div>
-          <div>
+          <div className="profile-bar">
             {
               !localStorage.getItem('Token') ?
                 <AuthBar/> : <LogOutBar/>
