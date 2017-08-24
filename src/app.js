@@ -15,6 +15,8 @@ require('./app.scss');
 require('./styles/animations.scss');
 import 'react-select/dist/react-select.css';
 import { NotificationContainer } from 'react-notifications';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
 
 /**
  * Saga Middleware for Redux to Handle Side Effects

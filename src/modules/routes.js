@@ -9,6 +9,7 @@ import { Main, Base } from './Main';
 import Registration from './Registration/containers/Registration';
 import UserList from './Users/containers/UserList';
 import Tree from './Tree/components/reviewersTree';
+import { GridLayout } from './GridLayout';
 
 /**
  * Routing between pages using React-Router-Redux
@@ -25,6 +26,7 @@ export default (
       <Route path={urls.registration} component={Registration}></Route>
       <Route path={urls.users} component={UserList}></Route>
       <Route path={urls.test} component={Tree}></Route>
+      <Route path={urls.grid} component={GridLayout}></Route>
       <Route path='*' component={PageNotFound}/>
     </Route>
   </Route>
