@@ -69,10 +69,10 @@ $hamburger-spacing:8px;
     transform: translate3d(0,0,0) rotate(-45deg);
   }
 }
-.menu{
+.menu {
   @extend %goo;
   position: absolute;
-  right: 3%;
+  right: 80px;
   top: 60px;
   width: 100px;
   box-sizing: border-box;

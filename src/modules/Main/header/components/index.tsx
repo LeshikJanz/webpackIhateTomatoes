@@ -24,7 +24,9 @@ export const Header = (props) => {
 
   return (
     <div className={cx([{ 'blur': modal.isOpen }])}>
-      <Navigation/>
+      {
+        localStorage.getItem('UserId') && <Navigation />
+      }
       <div className="navbar navbar-default">
         <div className="header-container">
           <div>

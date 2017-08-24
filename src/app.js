@@ -66,16 +66,8 @@ sagaMiddleware.run(rootSaga);
  */
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    <div style={{ height: '100%' }}>
       <Router history={history} routes={routes}/>
-      {/*<ReduxToastr*/}
-        {/*timeOut={4000}*/}
-        {/*newestOnTop={false}*/}
-        {/*preventDuplicates*/}
-        {/*position="top-center"*/}
-        {/*transitionIn="fadeIn"*/}
-        {/*transitionOut="fadeOut"*/}
-        {/*progressBar/>*/}
       <NotificationContainer/>
     </div>
   </Provider>,

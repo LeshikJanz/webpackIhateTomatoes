@@ -6,13 +6,14 @@ $headerHeight: 152px;
   padding-top: $headerHeight + 50px;
   flex-direction: column;
   align-items: center;
-  background-color: #343a40;
+  //background-color: #343a40;
+  background-color: transparent;
   height: 100%;
-  width: 5%;
+  width: 90px;
   z-index: 1;
   transition: width 500ms ease-in-out;
 
-  img.nav-hamburger {
+  svg.nav-hamburger {
     opacity: 0.6;
     transition: opacity .5s;
   }
@@ -24,17 +25,33 @@ $headerHeight: 152px;
     opacity: 0;
     color: #ffffff;
     text-align: center;
+    transition: all 200ms linear;
+    margin-top: 5vh;
 
     > a {
       cursor: pointer;
-      color: #ffffff;
+      color: #343a40;
       font-weight: bold;
       font-size: 20px;
       padding-top: 15px;
 
+      &.active {
+        color: #f57f17;
+
+        &:before {
+          margin-right: 20px;
+          opacity: 1;
+        }
+
+        &:after {
+          margin-left: 20px;
+          opacity: 1;
+        }
+      }
+
       &:before, &:after {
         opacity: 0;
-        transition: transform .5s;
+        transition: all .5s;
       }
 
       &:before {
@@ -50,7 +67,7 @@ $headerHeight: 152px;
       &:hover {
         color: #f57f17;
 
-        &:before{
+        &:before {
           margin-right: 20px;
           opacity: 1;
           transform: translateX(0);
@@ -68,10 +85,15 @@ $headerHeight: 152px;
   }
 
   &:hover {
-    width: 12%;
+    width: 250px;
+    background-color: #f8f8f8;
 
-    img.nav-hamburger {
+    svg.nav-hamburger > g:last-child {
       opacity: 1;
+
+      rect {
+        fill: #626d78;
+      }
     }
 
     > nav {
