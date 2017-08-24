@@ -44,16 +44,22 @@ let RegistrationForm = props => {
   /**
    * Dropzone input for Redux Form Field
    */
-  const dropzone = () => {
+  const dropzone = ({ avatar }) => {
     const onDrop = (acceptedFiles, rejectedFiles) => {
       props.handleImageUpload(acceptedFiles[0]);
     };
 
+    console.log('avatar');
+    console.log(avatar);
+
     return (
-      <Dropzone onDrop={ onDrop }>
-        <p>Drag n drop a profile picture here or&nbsp;
-          <ins>browse for one on your computer</ins>
-        </p>
+      <Dropzone onDrop={ onDrop } className="dropzone-area">
+        {
+          avatar ? <img src={avatar}/> :
+            <p>Drag n drop a profile picture here or&nbsp;
+              <ins>browse for one on your computer</ins>
+            </p>
+        }
       </Dropzone>
     )
   };
@@ -70,8 +76,9 @@ let RegistrationForm = props => {
             name="avatar"
             component={dropzone}
             label="Dropzone"
+            avatar={props.avatar}
           />
-          <img src={props.avatar}/>
+          {/*<img src={props.avatar}/>*/}
         </div>
 
         <div className="form-element">
