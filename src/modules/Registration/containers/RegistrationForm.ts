@@ -11,7 +11,8 @@ import RegistrationForm from "../components/RegistrationForm";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  avatar: state.form.RegistrationForm && state.form.RegistrationForm.values && state.form.RegistrationForm.values.avatar
+  avatar: state.form.RegistrationForm && state.form.RegistrationForm.values && state.form.RegistrationForm.values.avatar,
+  loading: state.Loading
 });
 
 /**
