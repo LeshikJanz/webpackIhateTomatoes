@@ -10,6 +10,7 @@ import {
   email, required, minValue18, minLength4, minLength8, asyncValidate
 } from "components/RenderField/validators";
 import { renderField } from "components/RenderField/index";
+import { Spinner } from "../../../components/Spinner/index";
 
 /**
  * Google place autocomplete for Redux Form Field
@@ -44,18 +45,16 @@ let RegistrationForm = props => {
   /**
    * Dropzone input for Redux Form Field
    */
-  const dropzone = ({ avatar }) => {
+  const dropzone = ({ avatar, loading }) => {
     const onDrop = (acceptedFiles, rejectedFiles) => {
       props.handleImageUpload(acceptedFiles[0]);
     };
-
-    console.log('avatar');
-    console.log(avatar);
 
     return (
       <Dropzone onDrop={ onDrop } className="dropzone-area">
         {
           avatar ? <img src={avatar}/> :
+            loading ? <Spinner/> :
             <p>Drag n drop a profile picture here or&nbsp;
               <ins>browse for one on your computer</ins>
             </p>
@@ -77,6 +76,7 @@ let RegistrationForm = props => {
             component={dropzone}
             label="Dropzone"
             avatar={props.avatar}
+            loading={props.loading}
           />
           {/*<img src={props.avatar}/>*/}
         </div>

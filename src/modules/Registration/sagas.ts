@@ -3,7 +3,7 @@ import { IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { toastr } from 'react-redux-toastr'
 import {
-  createAccountInit, createAccountDone, createAccountError, avatarUploadInit,
+  createAccountInit, createAccountDone, createAccountError, avatarUploadInit, avatarUploadDone, avatarUploadError,
 } from "./actions";
 import { register } from "api/auth";
 import { change } from "redux-form";
@@ -56,9 +56,13 @@ export function* updateAccountSaga({ payload } : IUser): Iterator<Object | Task>
  * @returns {Iterator<Object | Task>}
  */
 export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
-  const response = yield uploadImage(payload);
-
-  yield put(change("RegistrationForm", "avatar", response.data.secure_url))
+  try {
+    const response = yield uploadImage(payload);
+    yield put(avatarUploadDone());
+    yield put(change("RegistrationForm", "avatar", response.data.secure_url))
+  }catch(error) {
+    yield put(avatarUploadError());
+  }
 }
 
 /**

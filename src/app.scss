@@ -64,6 +64,11 @@ body {
   src: url(./assets/fonts/WorkSans/WorkSans-Medium.otf);
 }
 
+@font-face {
+  font-family: Cooper-Medium;
+  src: url(./assets/fonts/Cooper/CooperMediumCBT.otf);
+}
+
 h1 {
   @include heading-1;
 }
