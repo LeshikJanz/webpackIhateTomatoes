@@ -1,12 +1,13 @@
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { getUsersInit, getCloudsInit, updateLayout } from "../actions";
+import { getUsersInit, getCloudsInit, updateLayout, getCloudsDone } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
 
 const mapStateToProps: any = (state): any => ({
-  clouds: state.Sky,
-  modal: state.Modal
+  clouds: state.Sky.clouds,
+  modal: state.Modal,
+  zoom: state.Sky.zoom
 });
 
 const parameters = {
@@ -24,7 +25,8 @@ const mapDispatchToProps = (dispatch) => ({
     action.grid = parameters;
     dispatch(createCloudInit(action));
     dispatch(handleModalAction());
-  }
+  },
+  updateSky: (clouds) => dispatch(getCloudsDone(clouds))
 });
 
 export default compose(

@@ -21,3 +21,17 @@
 .gooey-container {
   top: $HEADER_HEIGHT;
 }
+
+.zoom-panel {
+  position: fixed;
+  cursor: pointer;
+  display: flex;
+  bottom: 20px;
+  right: 20px;
+
+  > img {
+    cursor: pointer;
+    height: 40px;
+    margin-right: 10px;
+  }
+}
