@@ -3,7 +3,7 @@ import { ICloud } from "interfaces/index";
 import { getCloudsDone } from "../actions";
 
 /**
- * Initial state for user reducer
+ * Initial state for sky reducer
  */
 const initialState: ICloud[] = [];
 

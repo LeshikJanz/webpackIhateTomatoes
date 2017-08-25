@@ -22,6 +22,38 @@
     },
     "updateDate": {
       "type": "date"
+    },
+    "grid": {
+      "type": "object",
+      "properties": {
+        "h": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "maxH": {
+          "type": "number"
+        },
+        "maxW": {
+          "type": "number"
+        },
+        "minH": {
+          "type": "number"
+        },
+        "minW": {
+          "type": "number"
+        },
+        "moved": {
+          "type": "boolean"
+        },
+        "static": {
+          "type": "boolean"
+        }
+      }
     }
   },
   "validations": [],

@@ -1,36 +1,57 @@
 import * as React from 'react';
-import '../styles/style.scss';
+import { withState } from 'recompose';
+import '../styles/style.module.scss';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+import { ICloud, IMenu } from "interfaces/index";
+import { SkyItem } from "./SkyItem";
+import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
+import CustomModal from "components/CustomModal/containers";
+import CloudForm from "./form/cloudForm";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = (props) => {
+export const GridLayout = ({ clouds, modal, params, handleModal, handleCloudFormSubmit }) => {
 
-  const handleDrag = (layout, oldItem, newItem, placeholder, e, element) => {
+  const actionMenu: IMenu[] = [
+    // { callback: 'openModal', arg: 'CloudGroupAdd', placeholder: 'Create cloud group', icon: 'fa fa-menu fa-sitemap' },
+    { callback: 'openModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
+  ];
+
+  const handleDrag = (layout) => {
     console.log('layout');
     console.log(layout);
-    console.log('oldItem');
-    console.log(oldItem);
-    console.log('newItem');
-    console.log(newItem);
-    console.log('placeholder');
-    console.log(placeholder);
-    console.log('e');
-    console.log(e);
-    console.log('element');
-    console.log(element);
+  };
+
+  const openModal = (type) => {
+    handleModal({ type });
+    console.log('openModal');
   }
 
   return (
+    <div>
+      <ResponsiveReactGridLayout className="layout" onDragStop={handleDrag}
+                                 breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+                                 cols={{lg: 12, md: 8, sm: 4, xs: 2, xxs: 1}}>
 
-    <ResponsiveReactGridLayout className="layout" onDragStop={handleDrag}
-                               breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-                               cols={{lg: 12, md: 8, sm: 4, xs: 2, xxs: 1}}>
+        {
+          clouds.map((c: ICloud) => <div key={c.id} data-grid={{w: 2, h: 2, x: 0, y: 0}}>
+            <SkyItem cloud={c}/>
+          </div>)
+        }
+      </ResponsiveReactGridLayout>
+      {
+        !params.id &&
+        <GooeyMenu onSelect={ (callback, arg) => eval(callback)(arg) } menuItems={actionMenu}/>
+      }
+      <CustomModal
+        title="Adding cloud"
+        customStyles={{ height: '700px' }}
+        isModalOpen={modal.isOpen && modal.type == "CloudAdd"}
+      >
+        <CloudForm handleModalAction={handleModal}
+                   onSubmit={handleCloudFormSubmit}
+        />
+      </CustomModal>
+    </div>
 
-      <div key="1" data-grid={{w: 2, h: 3, x: 0, y: 0}}><span className="text">1</span></div>
-      <div key="2" data-grid={{w: 2, h: 3, x: 4, y: 1}}><span className="text">2</span></div>
-      <div key="3" data-grid={{w: 2, h: 3, x: 4, y: 0}}><span className="text">3</span></div>
-      <div key="4" data-grid={{w: 2, h: 3, x: 6, y: 0}}><span className="text">4</span></div>
-      <div key="5" data-grid={{w: 2, h: 3, x: 8, y: 0}}><span className="text">5</span></div>
-    </ResponsiveReactGridLayout>
   )
-}
+};

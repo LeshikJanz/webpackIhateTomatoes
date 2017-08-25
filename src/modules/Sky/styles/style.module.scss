@@ -1,0 +1,23 @@
+@import "../../../styles/variables";
+
+.react-grid-item {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px 0 rgba(52, 58, 64, 0.09);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 2px 2px #62aff7;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 5px #62aff7;
+  }
+}
+
+.gooey-container {
+  top: $HEADER_HEIGHT;
+}
