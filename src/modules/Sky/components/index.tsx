@@ -13,7 +13,7 @@ export const GridLayout = ({ clouds, modal, params, handleModal, handleCloudForm
 
   const actionMenu: IMenu[] = [
     // { callback: 'openModal', arg: 'CloudGroupAdd', placeholder: 'Create cloud group', icon: 'fa fa-menu fa-sitemap' },
-    { callback: 'openModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
+    { callback: 'handleModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
   ];
 
   const handleDrag = (layout) => {
@@ -21,26 +21,21 @@ export const GridLayout = ({ clouds, modal, params, handleModal, handleCloudForm
     console.log(layout);
   };
 
-  const openModal = (type) => {
-    handleModal({ type });
-    console.log('openModal');
-  }
-
   return (
     <div>
       <ResponsiveReactGridLayout className="layout" onDragStop={handleDrag}
                                  breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
                                  cols={{lg: 12, md: 8, sm: 4, xs: 2, xxs: 1}}>
-
         {
-          clouds.map((c: ICloud) => <div key={c.id} data-grid={{w: 2, h: 2, x: 0, y: 0}}>
-            <SkyItem cloud={c}/>
-          </div>)
+          clouds.map((c: ICloud) =>
+            <div key={c.id} data-grid={{w: 2, h: 2, x: 0, y: 0}}>
+              <SkyItem cloud={c}/>
+            </div>)
         }
       </ResponsiveReactGridLayout>
       {
         !params.id &&
-        <GooeyMenu onSelect={ (callback, arg) => eval(callback)(arg) } menuItems={actionMenu}/>
+        <GooeyMenu onSelect={ (callback, arg) => eval(callback)({ type: arg }) } menuItems={actionMenu}/>
       }
       <CustomModal
         title="Adding cloud"

@@ -76,15 +76,14 @@ export const fetchCloud = (id: string) => {
 /**
  * Creating new cloud
  *
- * See: .../explorer/#!/CloudGroups/{id}/clouds:POST
- * @param {string} id - cloud group id
+ * See: .../explorer/#!/Clouds:POST
  * @param {ICloud} cloud - cloud
  *
  * @returns {ICloud} c - cloud
  */
-export const addNewCloud = (id: string, cloud: ICloud) => {
+export const addNewCloud = (cloud: ICloud) => {
   return request
-    .post(`CloudGroups/${id}/clouds`, cloud)
+    .post(`Clouds`, cloud)
     .then((c: ICloud) => <ICloud> c);
 };
 

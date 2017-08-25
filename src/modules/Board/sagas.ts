@@ -174,7 +174,7 @@ export function* trelloSaga() {
   yield [
     takeEvery(getCloudGroupsInit().type, fetchCloudGroupList),
     takeEvery(updateCloud().type, updateCloudSaga),
-    takeEvery(createCloudInit().type, createCloudSaga),
+    // takeEvery(createCloudInit().type, createCloudSaga),
     takeEvery(createCloudGroupInit().type, createCloudGroupSaga),
     takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga),
     takeEvery(deleteCloudInit().type, deleteCloudSaga),
