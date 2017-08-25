@@ -129,3 +129,14 @@ declare interface IValidation {
   field: string,
   value: string,
 }
+
+/**
+ * Async validation interface
+ */
+export
+declare interface IGridItem {
+  height: number,
+  width: number,
+  x: number,
+  y: number
+}

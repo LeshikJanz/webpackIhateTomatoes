@@ -8,9 +8,9 @@ import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
  *
  * @returns {ICloud[]} clouds - clouds
  */
-export const fetchClouds = (accountId?: string) => {
+export const fetchClouds = (accountId: string = localStorage.getItem('UserId')) => {
   return request
-    .get('Clouds')
+    .get(`Clouds?filter={"where": {"accountId": "${accountId}"}}`, {})
     .then((clouds: ICloud[]) => clouds)
 };
 

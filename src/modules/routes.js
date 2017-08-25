@@ -9,7 +9,7 @@ import { Main, Base } from './Main';
 import Registration from './Registration/containers/Registration';
 import UserList from './Users/containers/UserList';
 import Tree from './Tree/components/reviewersTree';
-import { GridLayout } from './GridLayout';
+import GridLayout from './Sky/containers';
 
 /**
  * Routing between pages using React-Router-Redux
