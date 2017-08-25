@@ -1,9 +1,8 @@
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { getUsersInit, getCloudsInit } from "../actions";
+import { getUsersInit, getCloudsInit, updateLayout } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
-import { ICloud } from "interfaces/index";
 
 const mapStateToProps: any = (state): any => ({
   clouds: state.Sky,
@@ -20,6 +19,7 @@ const parameters = {
 const mapDispatchToProps = (dispatch) => ({
   getClouds: (accountId) => dispatch(getCloudsInit(accountId)),
   handleModal: (modal) => dispatch(handleModalAction(modal)),
+  updateLayout: (layout) => dispatch(updateLayout(layout)),
   handleCloudFormSubmit: (action) => {
     action.grid = parameters;
     dispatch(createCloudInit(action));

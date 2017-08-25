@@ -9,26 +9,21 @@ import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ({ clouds, modal, params, handleModal, handleCloudFormSubmit }) => {
+export const GridLayout = ({ clouds, modal, params, handleModal, handleCloudFormSubmit, updateLayout }) => {
 
   const actionMenu: IMenu[] = [
     // { callback: 'openModal', arg: 'CloudGroupAdd', placeholder: 'Create cloud group', icon: 'fa fa-menu fa-sitemap' },
     { callback: 'handleModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' }
   ];
 
-  const handleDrag = (layout) => {
-    console.log('layout');
-    console.log(layout);
-  };
-
   return (
     <div>
-      <ResponsiveReactGridLayout className="layout" onDragStop={handleDrag}
+      <ResponsiveReactGridLayout className="layout" onDragStop={updateLayout}
                                  breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
                                  cols={{lg: 12, md: 8, sm: 4, xs: 2, xxs: 1}}>
         {
           clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={{w: 2, h: 2, x: 0, y: 0}}>
+            <div key={c.id} data-grid={c.grid || {w: 2, h: 2, x: 0, y: 0}}>
               <SkyItem cloud={c}/>
             </div>)
         }

@@ -88,6 +88,15 @@ export const addNewCloud = (cloud: ICloud) => {
 };
 
 /**
+ * Update layout
+ */
+export const updateGridLayout = (layout) => {
+  return request
+    .post(`Clouds/updateGrid`, { data: layout })
+    .then((c) => c);
+};
+
+/**
  * Creating new cloud group
  *
  * See: .../explorer/#!/CloudGroups/{id}/clouds:POST

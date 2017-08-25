@@ -1,7 +1,7 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { getCloudsInit, getCloudsDone, getCloudsError } from "./actions";
+import { getCloudsInit, getCloudsDone, getCloudsError, updateLayout } from "./actions";
 import { Task } from "redux-saga";
-import { fetchClouds, addNewCloud } from "api/cloud";
+import { fetchClouds, addNewCloud, updateGridLayout } from "api/cloud";
 import { NotificationManager } from 'react-notifications';
 import { ICloud } from "../../interfaces/index";
 import { createCloudError, createCloudDone, createCloudInit } from "../actions";
@@ -20,7 +20,6 @@ export function* fetchCloudsSaga( action ): Iterator<Object | Task> {
 
 export function* createCloudSaga(action): Iterator<Object | Task> {
   try {
-    // const Cloud = yield select(getCloudFromState);
     const Cloud = action.payload;
     Cloud.accountId = localStorage.getItem('UserId');
 
@@ -33,9 +32,18 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
   }
 }
 
+export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
+  try {
+    yield updateGridLayout(payload);
+  } catch (error) {
+    NotificationManager.error(error.message, 'Error!');
+  }
+}
+
 export function* skySaga() {
   yield [
     takeEvery(getCloudsInit().type, fetchCloudsSaga),
     takeEvery(createCloudInit().type, createCloudSaga),
+    takeEvery(updateLayout().type, updateLayoutSaga),
   ]
 }
