@@ -15,15 +15,4 @@ module.exports = function (Cloud) {
 
     next();
   });
-
-  Cloud.updateGrid = function (data, cb) {
-    data.forEach((d) => Cloud.upsertWithWhere({ id: d.i }, { grid: d }));
-
-    cb(null, 'Grid has been successfully updated');
-  }
-
-  Cloud.remoteMethod('updateGrid', {
-    accepts: { arg: 'data', type: 'array' },
-    returns: { arg: 'message', type: 'string' }
-  });
 };

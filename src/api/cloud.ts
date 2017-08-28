@@ -1,5 +1,5 @@
 import { request } from "./base";
-import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
+import { ICloud, IKnowledge, ICloudGroup, IGridItem } from "../interfaces/index";
 
 /**
  * Fetching clouds
@@ -8,10 +8,11 @@ import { ICloud, IKnowledge, ICloudGroup } from "../interfaces/index";
  *
  * @returns {ICloud[]} clouds - clouds
  */
-export const fetchClouds = (accountId: string = localStorage.getItem('UserId')) => {
+export const fetchSkiesByAccountId = (accountId: string = localStorage.getItem('UserId')) => {
   return request
-    .get(`Clouds?filter={"where": {"accountId": "${accountId}"}}`, {})
-    .then((clouds: ICloud[]) => clouds)
+    .get(`Skies?filter={"include": "clouds", "where": {"accountId": "${accountId}"}}`, {})
+    // For now one user has one sky
+    .then((skies) => skies[0])
 };
 
 /**
@@ -90,9 +91,15 @@ export const addNewCloud = (cloud: ICloud) => {
 /**
  * Update layout
  */
-export const updateGridLayout = (layout) => {
+// export const updateGridLayout = (layout) => {
+//   return request
+//     .post(`Clouds/updateGrid`, { data: layout })
+//     .then((c) => c);
+// };
+
+export const updateSkyLayout = (id: string, layout: IGridItem[]) => {
   return request
-    .post(`Clouds/updateGrid`, { data: layout })
+    .patch(`Skies/${id}`, { layout: layout })
     .then((c) => c);
 };
 

@@ -46,6 +46,11 @@
       "type": "hasMany",
       "model": "Relation",
       "foreignKey": "accountId"
+    },
+    "skies": {
+      "type": "hasMany",
+      "model": "Sky",
+      "foreignKey": "accountId"
     }
   },
   "acls": [

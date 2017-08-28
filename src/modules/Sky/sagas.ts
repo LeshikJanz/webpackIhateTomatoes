@@ -1,16 +1,16 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { getCloudsInit, getCloudsDone, getCloudsError, updateLayout } from "./actions";
+import { getCloudsInit, getCloudsDone, getCloudsError, updateSky } from "./actions";
 import { Task } from "redux-saga";
-import { fetchClouds, addNewCloud, updateGridLayout } from "api/cloud";
+import { fetchSkiesByAccountId, addNewCloud, updateSkyLayout } from "api/cloud";
 import { NotificationManager } from 'react-notifications';
 import { ICloud } from "../../interfaces/index";
 import { createCloudError, createCloudDone, createCloudInit } from "../actions";
 
-export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
+export const getSkyFromState: any = (state): any => state.Sky;
 
-export function* fetchCloudsSaga( action ): Iterator<Object | Task> {
+export function* fetchSky( action ): Iterator<Object | Task> {
   try {
-    const clouds: ICloud[] = yield fetchClouds(action.payload);
+    const clouds: ICloud[] = yield fetchSkiesByAccountId(action.payload);
     yield put(getCloudsDone(clouds));
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
@@ -23,6 +23,9 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
     const Cloud = action.payload;
     Cloud.accountId = localStorage.getItem('UserId');
 
+    const Sky = yield select(getSkyFromState)
+    Cloud.skyId = Sky.id;
+
     const newCloud = yield addNewCloud(Cloud);
     NotificationManager.success(`The cloud ${Cloud.name} has been successfully created`, 'Success!');
     yield put(createCloudDone(newCloud));
@@ -32,9 +35,10 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
   }
 }
 
-export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
+export function* updateSkySaga({ payload }): Iterator<Object | Task> {
   try {
-    yield updateGridLayout(payload);
+    const Sky = yield select(getSkyFromState);
+    yield updateSkyLayout(Sky.id, payload);
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
   }
@@ -42,8 +46,8 @@ export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
 
 export function* skySaga() {
   yield [
-    takeEvery(getCloudsInit().type, fetchCloudsSaga),
+    takeEvery(getCloudsInit().type, fetchSky),
     takeEvery(createCloudInit().type, createCloudSaga),
-    takeEvery(updateLayout().type, updateLayoutSaga),
+    takeEvery(updateSky().type, updateSkySaga),
   ]
 }
