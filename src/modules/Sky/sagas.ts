@@ -38,7 +38,8 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
 export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
   try {
     const Sky = yield select(getSkyFromState);
-    yield updateSkyLayout(Sky.id, payload);
+    Sky.layout = payload;
+    yield updateSkyLayout(Sky.id, Sky);
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
   }

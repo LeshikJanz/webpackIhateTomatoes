@@ -69,6 +69,16 @@ body {
   src: url(./assets/fonts/Cooper/CooperMediumCBT.otf);
 }
 
+@font-face {
+  font-family: Cooper-Bold;
+  src: url(./assets/fonts/Cooper/CooperBlackCBT.otf);
+}
+
+@font-face {
+  font-family: Serif-Bold;
+  src: url(./assets/fonts/OffecinaSerif/OfficinaSerifBoldC.otf);
+}
+
 h1 {
   @include heading-1;
 }

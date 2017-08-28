@@ -1,4 +1,4 @@
-import { compose, withState, withHandlers, lifecycle } from 'recompose';
+import { compose, lifecycle, withState } from 'recompose';
 import { getUsersInit, getCloudsInit, updateLayout, getCloudsDone } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";

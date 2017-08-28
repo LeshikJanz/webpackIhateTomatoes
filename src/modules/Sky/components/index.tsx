@@ -8,7 +8,6 @@ import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
 import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
-import { DEFAULT_ZOOM } from "../constants/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
@@ -23,7 +22,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
                                  onLayoutChange={updateLayout}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
                                  cols={{ lg: 12 / zoom, md: 8 / zoom, sm: 4 / zoom, xs: 2 / zoom, xxs: 1 }}
-                                 rowHeight={150 * zoom}
+                                 rowHeight={100 * zoom}
       >
         {
           sky.clouds.map((c: ICloud) =>
@@ -48,6 +47,5 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
 
       <ZoomPanel/>
     </div>
-
   )
 };

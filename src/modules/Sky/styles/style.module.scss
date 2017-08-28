@@ -16,6 +16,37 @@
   &.active {
     box-shadow: 0 0 0 5px #62aff7;
   }
+
+  .sky-item-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    > .item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > .name {
+        font-family: Serif-Bold;
+        font-size: 18px;
+      }
+
+      .open-cloud {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.react-grid-item[width~="400px"] {
+  background-color: blue;
+}
+
+.react-grid-item[width~="600px"] {
+  background-color: blue;
 }
 
 .gooey-container {
@@ -38,4 +69,25 @@
       transform: translateY(2px);
     }
   }
+}
+
+//////////////////////DELETE
+
+.widget-name h2 {
+  font-size: 12px;
+}
+
+.widget-name[min-width~="400px"] h2 {
+  font-size: 18px;
+}
+
+.widget-name[min-width~="600px"] h2 {
+  padding: 55px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.widget-name[min-width~="700px"] h2 {
+  font-size: 34px;
+  color: red;
 }

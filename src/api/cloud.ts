@@ -97,9 +97,9 @@ export const addNewCloud = (cloud: ICloud) => {
 //     .then((c) => c);
 // };
 
-export const updateSkyLayout = (id: string, layout: IGridItem[]) => {
+export const updateSkyLayout = (id: string, sky) => {
   return request
-    .patch(`Skies/${id}`, { layout: layout })
+    .patch(`Skies/${id}`, { layout: sky.layout, zoom: sky.zoom })
     .then((c) => c);
 };
 
