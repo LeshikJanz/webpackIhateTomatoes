@@ -10,23 +10,49 @@ import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
+const OPEN_BUTTON_WIDTH = 170;
+
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
   const actionMenu: IMenu[] = [
     { callback: 'handleModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' },
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
+  const fitByWidth = (element: HTMLElement) => {
+    const nameBlock = element.querySelector(".name");
+    const openCloudButton = element.querySelector(".open-cloud");
+
+    if ( element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ) {
+      openCloudButton.style.display = 'none';
+    } else {
+      openCloudButton.style.display = 'block';
+    }
+  }
+
+  const fitByHeight = (element: HTMLElement) => {
+
+  }
+
+  const handleSize = (element: HTMLElement) => {
+    console.log('element');
+    console.log(element);
+
+    fitByWidth(element);
+  }
+
+
   return (
     <div>
       <ResponsiveReactGridLayout className="layout"
                                  onLayoutChange={updateLayout}
+                                 onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
                                  cols={{ lg: 12 / zoom, md: 8 / zoom, sm: 4 / zoom, xs: 2 / zoom, xxs: 1 }}
                                  rowHeight={100 * zoom}
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) }>
+            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) } ref={handleSize}>
               <SkyItem cloud={c}/>
             </div>)
         }
