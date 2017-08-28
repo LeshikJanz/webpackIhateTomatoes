@@ -34,11 +34,16 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   }
 
   const handleSize = (element: HTMLElement) => {
-    console.log('element');
-    console.log(element);
-
-    fitByWidth(element);
+    if ( element ) {
+      fitByWidth(element);
+      fitByHeight(element);
+    }
   }
+
+  const handleItemClick = ({ target }) => {
+    console.log('handleItemClick');
+    console.log(target);
+  };
 
 
   return (
@@ -52,8 +57,8 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) } ref={handleSize}>
-              <SkyItem cloud={c}/>
+            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) } ref={handleSize} onClick={handleItemClick}>
+              <SkyItem cloud={c} />
             </div>)
         }
       </ResponsiveReactGridLayout>
