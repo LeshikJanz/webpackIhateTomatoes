@@ -1,5 +1,5 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { getCloudsInit, getCloudsDone, getCloudsError, updateSky } from "./actions";
+import { getCloudsInit, getCloudsDone, getCloudsError, updateLayout } from "./actions";
 import { Task } from "redux-saga";
 import { fetchSkiesByAccountId, addNewCloud, updateSkyLayout } from "api/cloud";
 import { NotificationManager } from 'react-notifications';
@@ -35,7 +35,7 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
   }
 }
 
-export function* updateSkySaga({ payload }): Iterator<Object | Task> {
+export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
   try {
     const Sky = yield select(getSkyFromState);
     yield updateSkyLayout(Sky.id, payload);
@@ -48,6 +48,6 @@ export function* skySaga() {
   yield [
     takeEvery(getCloudsInit().type, fetchSky),
     takeEvery(createCloudInit().type, createCloudSaga),
-    takeEvery(updateSky().type, updateSkySaga),
+    takeEvery(updateLayout().type, updateLayoutSaga),
   ]
 }

@@ -11,7 +11,7 @@ import ZoomPanel from "../containers/zoomContainer";
 import { DEFAULT_ZOOM } from "../constants/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateSky, zoom }) => {
+export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
   const actionMenu: IMenu[] = [
     { callback: 'handleModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' },
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
@@ -20,7 +20,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   return (
     <div>
       <ResponsiveReactGridLayout className="layout"
-                                 onLayoutChange={updateSky}
+                                 onLayoutChange={updateLayout}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
                                  cols={{ lg: 12 / zoom, md: 8 / zoom, sm: 4 / zoom, xs: 2 / zoom, xxs: 1 }}
                                  rowHeight={150 * zoom}
