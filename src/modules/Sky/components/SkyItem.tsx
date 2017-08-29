@@ -16,7 +16,9 @@ export const SkyItem = ({ cloud, isActive, handleActive }) => (
         </Link>
       </div>
     </div>
-    <div className="text-description"></div>
+    <div className="goal thin-label">
+      {cloud.goal}
+    </div>
     <div className="item-footer">
       <div className="views-counter">
         <SVG path="assets/icons/views.svg" className="counter-icon"/>

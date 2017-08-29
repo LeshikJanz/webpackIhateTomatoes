@@ -1,5 +1,6 @@
-@import "../../../styles/variables";
-@import "../../../styles/titles";
+@import "src/styles/variables";
+@import "src/styles/mixins";
+@import "src/styles/titles";
 
 .react-grid-item {
   background-color: #ffffff;
@@ -33,12 +34,8 @@
       > .name {
         font-family: Serif-Bold;
         font-size: 18px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        line-height: 17px;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        align-self: flex-start;
+        @include ellipsis-container;
       }
 
       .open-cloud-collapsed {
@@ -80,12 +77,18 @@
       }
     }
 
+    > .goal {
+      text-align: center;
+      @include ellipsis-container;
+    }
+
     > .item-footer {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       align-self: flex-end;
       width: 100%;
+      @include ellipsis-container;
 
       > .views-counter, .reviews-counter {
         display: flex;

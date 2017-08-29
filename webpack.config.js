@@ -75,7 +75,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader",
+          options: {
+            includePaths: ["src/"]
+          }
+        }]
       },
       {
         test: /\.scss$/,
@@ -108,7 +117,7 @@ module.exports = {
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
     new CopyWebpackPlugin([
-      { from: 'src/assets', to: 'assets' }
+      {from: 'src/assets', to: 'assets'}
     ]),
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
       title: 'Custom template',
