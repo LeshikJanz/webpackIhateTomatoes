@@ -4,6 +4,7 @@ import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
 import { ICloudGroup, ICloud } from "interfaces/index";
 import { withRouter } from 'react-router';
 import { getCloudGroupsInit } from "modules/Board/actions";
+import { getCloudsInit } from "../../../Sky/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -16,7 +17,7 @@ import { getCloudGroupsInit } from "modules/Board/actions";
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
   modal: state.Modal,
-  clouds: state.Board.lists.reduce((sum: ICloud[], cg: ICloudGroup) => sum.concat(cg.clouds), [])
+  clouds: state.Sky.clouds
 });
 
 /**
@@ -33,8 +34,8 @@ const mapDispatchToProps: any = dispatch => ({
     dispatch(handleModalAction());
   },
   handleModal: (tag) => dispatch(handleModalAction()),
-  getCloudGroups: () => dispatch(getCloudGroupsInit(localStorage.getItem('UserId'))),
-handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
+  getClouds: () => dispatch(getCloudsInit()),
+  handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
 });
 
 /**

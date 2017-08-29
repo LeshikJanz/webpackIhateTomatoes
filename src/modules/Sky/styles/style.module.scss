@@ -121,12 +121,17 @@
   bottom: 20px;
   right: 20px;
 
-  > img {
+  > button {
     cursor: pointer;
-    height: 40px;
-    margin-right: 10px;
+    outline: none;
+    border-style: none !important;
+    background-color: transparent !important;
 
-    &:active {
+    > img {
+      height: 40px;
+    }
+
+    &:not([disabled]) > img:active {
       transform: translateY(2px);
     }
   }

@@ -13,11 +13,11 @@ const cx = classNames.bind(styles);
  * Main page's header
  */
 export const Header = (props) => {
-  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getCloudGroups, clouds, params } = props;
+  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getClouds, clouds, params } = props;
 
   const createKnowledge = () => {
     if(props.location.pathname !== `/${urls.board}`) {
-      getCloudGroups();
+      getClouds();
     }
     handleKnowledgeCreateModal();
   };

@@ -1,0 +1,74 @@
+@import "src/styles/mixins";
+@import "src/styles/buttons";
+@import "src/styles/form";
+@import "src/styles/mixins";
+
+.Select-control {
+  @include input-container;
+  border: solid 1px #3d3d3d !important;
+  width: 105% !important;
+
+  .Select-placeholder {
+    @include input-placeholder;
+    line-height: 4;
+    margin-left: 15px;
+  }
+
+  .Select-clear {
+    font-size: 32px !important;
+    margin-right: 10px;
+  }
+
+  .Select-arrow {
+    border-width: 13px 10px 2.5px !important;
+    margin: 10px 10px 0 0 !important;
+  }
+
+  .Select-input {
+    @include input-text;
+    padding: 15px 22px;
+  }
+
+  .Select-value-label {
+    font-family: WorkSans !important;
+    font-size: 16px !important;
+  }
+
+  .Select-value {
+    padding: 15px 20px !important;
+  }
+}
+
+.is-open .Select-arrow-zone {
+  display: none;
+}
+
+.Select-menu-outer {
+  @include input-text;
+  z-index: 2000;
+  width: 105% !important;
+
+  > .Select-menu {
+
+    > .Select-option {
+      height: 46px !important;
+      display: flex !important;
+      align-items: center;
+      padding-left: 20px !important;
+      cursor: pointer;
+      font-family: WorkSans !important;
+      font-size: 16px !important;
+      color: #343a40;
+      border-top: solid 1px #f5f6f7;
+
+      &.is-focused {
+        background-color: white !important;
+      }
+
+      &:hover {
+        color: #f57f17;
+        background-color: white !important;
+      }
+    }
+  }
+}

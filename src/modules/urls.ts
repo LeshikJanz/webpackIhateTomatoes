@@ -10,6 +10,5 @@ export const urls = {
   user: 'user',
   users: 'users',
   test: 'test',
-  grid: 'grid',
   registration: 'registration'
 };
