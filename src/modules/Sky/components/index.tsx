@@ -8,7 +8,7 @@ import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
 import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
-import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH } from "../constants/index";
+import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
@@ -23,32 +23,33 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     const reviewsCounter = element.querySelector(".reviews-counter");
     const goalBlock = element.querySelector(".goal");
 
-    if (element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH) {
+    if ( element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ) {
       openCloudButton.style.display = reviewsCounter.style.display = goalBlock.style.display = 'none';
     } else {
       openCloudButton.style.display = reviewsCounter.style.display = goalBlock.style.display = 'flex';
     }
-  }
+  };
+
   const fitByHeight = (element: HTMLElement) => {
     const itemFooter = element.querySelector(".item-footer");
     const nameBlock = element.querySelector(".name");
     const goalBlock = element.querySelector(".goal");
 
-    if (element.offsetHeight - goalBlock.offsetHeight <= OPEN_BUTTON_HEIGHT + goalBlock.offsetHeight) {
+    if ( element.offsetHeight - goalBlock.offsetHeight - VIEW_CONTAINER_HEIGHT <= OPEN_BUTTON_HEIGHT ) {
       goalBlock.style.display = 'none';
     } else {
-      goalBlock.style.display = 'flex';
+      goalBlock.style.display = '-webkit-box';
     }
 
-    if (element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT ) {
+    if ( element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT ) {
       itemFooter.style.display = 'none';
     } else {
       itemFooter.style.display = 'flex';
     }
-  }
+  };
 
   const handleSize = (element: HTMLElement) => {
-    if (element) {
+    if ( element ) {
       fitByWidth(element);
       fitByHeight(element);
     }

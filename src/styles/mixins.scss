@@ -97,7 +97,7 @@
 @mixin ellipsis-container {
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box !important;
+  display: -webkit-box;
   line-height: 17px;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
