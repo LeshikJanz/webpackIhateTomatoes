@@ -8,10 +8,8 @@ import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
 import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
+import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH } from "../constants/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-
-const OPEN_BUTTON_WIDTH = 170;
-const OPEN_BUTTON_HEIGHT = 60;
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
   const actionMenu: IMenu[] = [

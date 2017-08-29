@@ -33,6 +33,12 @@
       > .name {
         font-family: Serif-Bold;
         font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 17px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
 
       .open-cloud-collapsed {

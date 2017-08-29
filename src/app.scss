@@ -21,6 +21,10 @@ h4 {
   margin: 10px 50px;
   display: flex;
   align-items: center;
+
+  > div:first-child {
+    z-index: 20;
+  }
 }
 
 .main-container {
