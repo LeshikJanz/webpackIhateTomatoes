@@ -79,6 +79,7 @@
 
     > .goal {
       text-align: center;
+      justify-content: center;
       @include ellipsis-container;
     }
 

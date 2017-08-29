@@ -20,20 +20,27 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");
     const openCloudButton = element.querySelector(".open-cloud");
-    const viewsCounter = element.querySelector(".views-counter");
     const reviewsCounter = element.querySelector(".reviews-counter");
+    const goalBlock = element.querySelector(".goal");
 
     if (element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH) {
-      openCloudButton.style.display = reviewsCounter.style.display = 'none';
+      openCloudButton.style.display = reviewsCounter.style.display = goalBlock.style.display = 'none';
     } else {
-      openCloudButton.style.display = reviewsCounter.style.display = 'flex';
+      openCloudButton.style.display = reviewsCounter.style.display = goalBlock.style.display = 'flex';
     }
   }
   const fitByHeight = (element: HTMLElement) => {
     const itemFooter = element.querySelector(".item-footer");
     const nameBlock = element.querySelector(".name");
+    const goalBlock = element.querySelector(".goal");
 
-    if (element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT) {
+    if (element.offsetHeight - goalBlock.offsetHeight <= OPEN_BUTTON_HEIGHT + goalBlock.offsetHeight) {
+      goalBlock.style.display = 'none';
+    } else {
+      goalBlock.style.display = 'flex';
+    }
+
+    if (element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT ) {
       itemFooter.style.display = 'none';
     } else {
       itemFooter.style.display = 'flex';
