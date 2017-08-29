@@ -1,13 +1,14 @@
 @import "../../../styles/variables";
+@import "../../../styles/titles";
 
 .react-grid-item {
   background-color: #ffffff;
   padding: 20px;
   display: flex;
   height: 100%;
-  border-radius: 6px;
   box-shadow: 1px 1px 5px 0 rgba(52, 58, 64, 0.09);
   cursor: pointer;
+  border-radius: 50px;
 
   &:hover {
     box-shadow: 0 0 2px 2px #62aff7;
@@ -20,6 +21,7 @@
   .sky-item-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
 
@@ -33,20 +35,65 @@
         font-size: 18px;
       }
 
+      .open-cloud-collapsed {
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        right: 30px;
+        transform: rotate(0);
+        transition: visibility 0.3s, opacity 0.3s linear, transform 0.5s;
+        will-change: visibility, opacity, transform;
+      }
+
       .open-cloud {
-        display: flex;
         justify-content: flex-end;
+
+        .add {
+          visibility: hidden;
+          transform: scale(0.6) translate(20px, 0);
+          opacity: 0;
+          transition: visibility 0.2s, opacity 0.1s linear, transform 0.3s;
+          will-change: visibility, opacity, transform;
+        }
+
+        &:hover {
+          .open-cloud-collapsed {
+            visibility: hidden;
+            opacity: 0;
+            transform: rotate(-90deg);
+            transition: visibility 1s, opacity 0.5s linear, transform 0.5s;
+          }
+
+          .add {
+            visibility: visible;
+            transform: scale(1) translate(0, 0);
+            opacity: 1;
+            transition: visibility 0s, opacity 0.5s linear, transform 0.5s;
+          }
+        }
+      }
+    }
+
+    > .item-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      align-self: flex-end;
+      width: 100%;
+
+      > .views-counter, .reviews-counter {
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+
+        .counter-icon {
+          max-height: 20px;
+          max-width: 20px;
+          margin-right: 10px;
+        }
       }
     }
   }
-}
-
-.react-grid-item[width~="400px"] {
-  background-color: blue;
-}
-
-.react-grid-item[width~="600px"] {
-  background-color: blue;
 }
 
 .gooey-container {
@@ -69,25 +116,4 @@
       transform: translateY(2px);
     }
   }
-}
-
-//////////////////////DELETE
-
-.widget-name h2 {
-  font-size: 12px;
-}
-
-.widget-name[min-width~="400px"] h2 {
-  font-size: 18px;
-}
-
-.widget-name[min-width~="600px"] h2 {
-  padding: 55px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.widget-name[min-width~="700px"] h2 {
-  font-size: 34px;
-  color: red;
 }

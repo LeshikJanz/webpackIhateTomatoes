@@ -16,21 +16,6 @@ require('./styles/animations.scss');
 import 'react-select/dist/react-select.css';
 import { NotificationContainer } from 'react-notifications';
 import 'react-grid-layout/css/styles.css';
-import 'css-element-queries/src/ElementQueries';
-import 'css-element-queries/src/ResizeSensor';
-
-var ElementQueries = require('css-element-queries/src/ElementQueries');
-
-// attaches to DOMLoadContent and does anything for you
-ElementQueries.listen();
-
-// or if you want to trigger it yourself:
-// 'init' parses all available CSS and attach ResizeSensor to those elements which
-// have rules attached (make sure this is called after 'load' event, because
-// CSS files are not ready when domReady is fired.
-// Use this function if you have dynamically created HTMLElements
-// (through ajax calls or something)
-ElementQueries.init();
 
 /**
  * Saga Middleware for Redux to Handle Side Effects

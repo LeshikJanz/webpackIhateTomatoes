@@ -111,7 +111,7 @@ export class TagCloud extends React.Component {
     } = this.props;
 
     return (
-      <div className="main-container">
+      <div>
         {
           locationPath !== urls.index &&
           <div className="cloud-actions">

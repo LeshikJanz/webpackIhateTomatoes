@@ -9,7 +9,7 @@ import { DEFAULT_ZOOM } from "../constants/index";
  */
 const initialState = {
   clouds: [],
-  layout: {},
+  layout: [],
   zoom: DEFAULT_ZOOM
 };
 

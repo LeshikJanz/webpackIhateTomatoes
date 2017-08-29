@@ -3,15 +3,15 @@ import { getCloudsInit, getCloudsDone, getCloudsError, updateLayout } from "./ac
 import { Task } from "redux-saga";
 import { fetchSkiesByAccountId, addNewCloud, updateSkyLayout } from "api/cloud";
 import { NotificationManager } from 'react-notifications';
-import { ICloud } from "../../interfaces/index";
+import { ICloud, ISky } from "../../interfaces/index";
 import { createCloudError, createCloudDone, createCloudInit } from "../actions";
 
 export const getSkyFromState: any = (state): any => state.Sky;
 
 export function* fetchSky( action ): Iterator<Object | Task> {
   try {
-    const clouds: ICloud[] = yield fetchSkiesByAccountId(action.payload);
-    yield put(getCloudsDone(clouds));
+    const sky: ISky = yield fetchSkiesByAccountId(action.payload);
+    yield put(getCloudsDone(sky));
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     yield put(getCloudsError(error));

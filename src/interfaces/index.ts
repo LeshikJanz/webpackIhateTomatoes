@@ -117,7 +117,7 @@ export
 declare interface IMenu {
   callback: string,
   placeholder?: string,
-  arg: string,
+  arg?: string,
   icon: string
 }
 
@@ -131,10 +131,20 @@ declare interface IValidation {
 }
 
 /**
- * Async validation interface
+ * Sky interface
  */
 export
-declare interface IGridItem {
+declare interface ISky extends Identifiable {
+  zoom: number,
+  layout?: IGridItem[],
+  accountId: string
+}
+
+/**
+ * Sky layout item interface
+ */
+export
+declare interface IGridItem extends Identifiable {
   height: number,
   width: number,
   x: number,

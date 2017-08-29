@@ -11,6 +11,7 @@ import ZoomPanel from "../containers/zoomContainer";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 const OPEN_BUTTON_WIDTH = 170;
+const OPEN_BUTTON_HEIGHT = 60;
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom }) => {
   const actionMenu: IMenu[] = [
@@ -21,20 +22,28 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");
     const openCloudButton = element.querySelector(".open-cloud");
+    const viewsCounter = element.querySelector(".views-counter");
+    const reviewsCounter = element.querySelector(".reviews-counter");
 
-    if ( element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ) {
-      openCloudButton.style.display = 'none';
+    if (element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH) {
+      openCloudButton.style.display = reviewsCounter.style.display = 'none';
     } else {
-      openCloudButton.style.display = 'block';
+      openCloudButton.style.display = reviewsCounter.style.display = 'flex';
+    }
+  }
+  const fitByHeight = (element: HTMLElement) => {
+    const itemFooter = element.querySelector(".item-footer");
+    const nameBlock = element.querySelector(".name");
+
+    if (element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT) {
+      itemFooter.style.display = 'none';
+    } else {
+      itemFooter.style.display = 'flex';
     }
   }
 
-  const fitByHeight = (element: HTMLElement) => {
-
-  }
-
   const handleSize = (element: HTMLElement) => {
-    if ( element ) {
+    if (element) {
       fitByWidth(element);
       fitByHeight(element);
     }
@@ -49,6 +58,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   return (
     <div>
       <ResponsiveReactGridLayout className="layout"
+                                 layout={sky.layout}
                                  onLayoutChange={updateLayout}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
@@ -57,8 +67,9 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) } ref={handleSize} onClick={handleItemClick}>
-              <SkyItem cloud={c} />
+            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 2, h: 2 } }
+                 ref={handleSize} onClick={handleItemClick}>
+              <SkyItem cloud={c}/>
             </div>)
         }
       </ResponsiveReactGridLayout>

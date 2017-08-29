@@ -1,5 +1,5 @@
 import { put, takeEvery, call, take } from 'redux-saga/effects'
-import { IUser } from "interfaces/index";
+import { ISky, IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { toastr } from 'react-redux-toastr'
 import {
@@ -12,6 +12,7 @@ import { DEFAULT_CLOUD_GROUP } from "../../constants/index";
 import { addNewCloudGroup } from "../../api/cloud";
 import { NotificationManager } from 'react-notifications';
 import { updateAccountInit, updateAccountDone } from "../Board/actions";
+import { createSky } from "../../api/sky";
 
 /**
  * Handle user registration
@@ -20,13 +21,19 @@ import { updateAccountInit, updateAccountDone } from "../Board/actions";
  *
  * @returns {void}
  */
-export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task> {
+export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> {
   try {
     payload.avatar = payload.avatar || 'assets/img/default-user-icon.png';
     const user: IUser = yield register(payload);
     yield put(createAccountDone());
+
+    const defaultSky: ISky = {
+      zoom: 1,
+      accountId: user.id
+    };
+    yield createSky(defaultSky)
+
     NotificationManager.success(`The user ${user.username} has been successfully created`, 'Success!');
-    yield addNewCloudGroup(Object.assign({}, DEFAULT_CLOUD_GROUP, { accountId: user.id }))
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     console.error(error);
@@ -40,7 +47,7 @@ export function* createAccountSaga({ payload } : IUser): Iterator<Object | Task>
  *
  * @returns {void}
  */
-export function* updateAccountSaga({ payload } : IUser): Iterator<Object | Task> {
+export function* updateAccountSaga({ payload }: IUser): Iterator<Object | Task> {
   try {
     yield updateUserById(payload.id, payload);
     yield put(updateAccountDone());
@@ -60,7 +67,7 @@ export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
     const response = yield uploadImage(payload);
     yield put(avatarUploadDone());
     yield put(change("RegistrationForm", "avatar", response.data.secure_url))
-  }catch(error) {
+  } catch (error) {
     yield put(avatarUploadError());
   }
 }
