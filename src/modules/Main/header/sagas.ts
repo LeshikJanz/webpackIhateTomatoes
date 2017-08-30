@@ -3,7 +3,7 @@ import { addNewKnowledge, addNewCloud } from "api/cloud";
 import { Task } from "redux-saga";
 import {
   addTag, updateKnowledgeError, createNewKnowledgeInit, createNewKnowledgeDone,
-  fetchCloudInit
+  fetchCloudInit, createNewKnowledgeError
 } from "../../actions";
 import { IKnowledge } from "interfaces";
 import { NotificationManager } from 'react-notifications';
@@ -57,7 +57,7 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     console.error(error);
-    yield put(updateKnowledgeError(error));
+    yield put(createNewKnowledgeError(error));
   }
 }
 

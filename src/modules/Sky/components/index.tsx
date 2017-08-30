@@ -28,11 +28,9 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     const goalBlock = element.querySelector(".goal");
     const deleteIcon = element.querySelector(".delete-icon") || document.createElement('div');
 
-    if ( element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ) {
-      [openCloudButton, reviewsCounter, goalBlock, deleteIcon].forEach(e => e.style.display = 'none');
-    } else {
+    element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ?
+      [openCloudButton, reviewsCounter, goalBlock, deleteIcon].forEach(e => e.style.display = 'none') :
       [openCloudButton, reviewsCounter, goalBlock, deleteIcon].forEach(e => e.style.display = '');
-    }
   };
 
   const fitByHeight = (element: HTMLElement) => {
@@ -41,17 +39,12 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     const goalBlock = element.querySelector(".goal");
     const deleteIcon = element.querySelector(".delete-icon") || document.createElement('div');
 
-    if ( element.offsetHeight - goalBlock.offsetHeight - VIEW_CONTAINER_HEIGHT <= OPEN_BUTTON_HEIGHT ) {
-      goalBlock.style.display = 'none';
-    } else {
-      goalBlock.style.display = '-webkit-box';
-    }
+    element.offsetHeight - goalBlock.offsetHeight - VIEW_CONTAINER_HEIGHT <= OPEN_BUTTON_HEIGHT ?
+      goalBlock.style.display = 'none' : goalBlock.style.display = '-webkit-box';
 
-    if ( element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT ) {
-      [itemFooter, deleteIcon].forEach(e => e.style.display = 'none');
-    } else {
-      [itemFooter, deleteIcon].forEach(e => e.style.display = '');
-    }
+    element.offsetHeight - nameBlock.offsetHeight <= OPEN_BUTTON_HEIGHT ?
+      [itemFooter, deleteIcon].forEach(e => e.style.display = 'none') :
+      [itemFooter, deleteIcon].forEach(e => e.style.display = '')
   };
 
   const handleSize = (element: HTMLElement) => {
@@ -65,7 +58,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     <div>
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
-                                 onLayoutChange={route === `/${urls.board}` ? updateLayout : () => {}}
+                                 onLayoutChange={route === `/${urls.board}` ? updateLayout : () => null}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: window.innerWidth }}
                                  cols={{ lg: 48 / zoom }}
