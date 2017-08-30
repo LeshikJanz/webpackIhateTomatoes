@@ -11,7 +11,7 @@ import { createCloudError, createCloudDone, createCloudInit } from "../actions";
 
 export const getSkyFromState: any = (state): any => state.Sky;
 
-export function* fetchSky( action ): Iterator<Object | Task> {
+export function* fetchSky(action): Iterator<Object | Task> {
   try {
     const sky: ISky = yield fetchSkiesByAccountId(action.payload);
     yield put(getCloudsDone(sky));
@@ -42,7 +42,9 @@ export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
   try {
     const Sky = yield select(getSkyFromState);
     Sky.layout = payload;
-    yield updateSkyLayout(Sky.id, Sky);
+    if ( Sky.id ) {
+      yield updateSkyLayout(Sky.id, Sky);
+    }
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
   }

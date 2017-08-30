@@ -45,7 +45,7 @@ let RegistrationForm = props => {
   /**
    * Dropzone input for Redux Form Field
    */
-  const dropzone = ({ avatar, loading }) => {
+  const dropzone = ({ avatar }) => {
     const onDrop = (acceptedFiles, rejectedFiles) => {
       props.handleImageUpload(acceptedFiles[0]);
     };
@@ -54,7 +54,6 @@ let RegistrationForm = props => {
       <Dropzone onDrop={ onDrop } className="dropzone-area">
         {
           avatar ? <img src={avatar}/> :
-            loading ? <Spinner/> :
             <p>Drag n drop a profile picture here or&nbsp;
               <ins>browse for one on your computer</ins>
             </p>
@@ -78,7 +77,6 @@ let RegistrationForm = props => {
             avatar={props.avatar}
             loading={props.loading}
           />
-          {/*<img src={props.avatar}/>*/}
         </div>
 
         <div className="form-element">
