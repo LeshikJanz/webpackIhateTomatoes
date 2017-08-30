@@ -7,10 +7,10 @@ import { required } from "components/RenderField/validators";
 const Select = require('react-select');
 
 const enhance = lifecycle({
-  componentDidMount() {
-    const { cloudId, options } = this.props;
+  componentDidUpdate() {
+    const { cloudId, options, input } = this.props;
 
-    this.props.input.onChange(options.find((c: ICloud) =>
+    input.onChange(options.find((c: ICloud) => input.value === "" &&
     c.id === cloudId && c.accountId === localStorage.getItem('UserId')));
   }
 });

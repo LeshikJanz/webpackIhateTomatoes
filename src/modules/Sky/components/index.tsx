@@ -3,21 +3,22 @@ import { withState } from 'recompose';
 import '../styles/style.module.scss';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { ICloud, IMenu } from "interfaces";
-import { SkyItem } from "./SkyItem";
+import SkyItem from "../containers/skyItemContainer";
 import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
 import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
 import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants";
 import ConfirmModal from "components/ConfirmModal/containers";
+import { urls } from "urls";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, ...props }) => {
+export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, ...props }) => {
   const actionMenu: IMenu[] = [
     {
       callback: 'handleModal', arg: { type: 'CloudAdd' }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
     },
-    { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
+    // { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
   const fitByWidth = (element: HTMLElement) => {
@@ -25,7 +26,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     const openCloudButton = element.querySelector(".open-cloud");
     const reviewsCounter = element.querySelector(".reviews-counter");
     const goalBlock = element.querySelector(".goal");
-    const deleteIcon = element.querySelector(".delete-icon");
+    const deleteIcon = element.querySelector(".delete-icon") || document.createElement('div');
 
     if ( element.offsetWidth - nameBlock.offsetWidth <= OPEN_BUTTON_WIDTH ) {
       [openCloudButton, reviewsCounter, goalBlock, deleteIcon].forEach(e => e.style.display = 'none');
@@ -38,7 +39,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     const itemFooter = element.querySelector(".item-footer");
     const nameBlock = element.querySelector(".name");
     const goalBlock = element.querySelector(".goal");
-    const deleteIcon = element.querySelector(".delete-icon");
+    const deleteIcon = element.querySelector(".delete-icon") || document.createElement('div');
 
     if ( element.offsetHeight - goalBlock.offsetHeight - VIEW_CONTAINER_HEIGHT <= OPEN_BUTTON_HEIGHT ) {
       goalBlock.style.display = 'none';
@@ -64,7 +65,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
     <div>
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
-                                 onLayoutChange={updateLayout}
+                                 onLayoutChange={route === `/${urls.board}` ? updateLayout : () => {}}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: window.innerWidth }}
                                  cols={{ lg: 48 / zoom }}
@@ -74,7 +75,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
           sky.clouds.map((c: ICloud) =>
             <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10 } }
                  ref={handleSize}>
-              <SkyItem cloud={c} handleModal={handleModal}/>
+              <SkyItem cloud={c}/>
             </div>)
         }
       </ResponsiveReactGridLayout>

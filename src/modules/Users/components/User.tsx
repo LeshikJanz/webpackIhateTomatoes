@@ -1,5 +1,5 @@
 import * as React from "react";
-const styles = require('../styles/style.scss');
+import '../styles/style.scss';
 
 export const User = (props) => {
   const { user } = props;

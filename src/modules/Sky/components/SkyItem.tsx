@@ -3,7 +3,7 @@ import { urls } from "urls";
 import { Link } from 'react-router';
 const SVG = require('react-svg');
 
-export const SkyItem = ({ cloud, isActive, handleActive, handleModal }) => (
+export const SkyItem = ({ cloud, handleModal, route }) => (
   <div className='sky-item-container'>
     <div className="item-header">
       <span className="name">{cloud.name}</span>
@@ -29,19 +29,22 @@ export const SkyItem = ({ cloud, isActive, handleActive, handleModal }) => (
         <div className="thin-label">10</div>
       </div>
     </div>
-    <div className="delete-icon"
-         onClick={() =>
-           handleModal({
-             type: "Confirm",
-             title: "Confirm?",
-             text: `Are you sure you want to delete <b>${cloud.name}?</b> This cloud will be archive and you will not see it on the Board.`,
-             itemId: cloud.id,
-             callback: "deleteCloud"
-           })
-         }
-    >
-      <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
-      <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
-    </div>
+    {
+      route === `/${urls.board}` &&
+      <div className="delete-icon"
+           onClick={() =>
+             handleModal({
+               type: "Confirm",
+               title: "Confirm?",
+               text: `Are you sure you want to delete <b>${cloud.name}?</b> This cloud will be archive and you will not see it on the Board.`,
+               itemId: cloud.id,
+               callback: "deleteCloud"
+             })
+           }
+      >
+        <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+        <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+      </div>
+    }
   </div>
 );

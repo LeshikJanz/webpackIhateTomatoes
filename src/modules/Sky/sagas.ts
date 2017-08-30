@@ -24,7 +24,7 @@ export function* fetchSky(action): Iterator<Object | Task> {
 export function* createCloudSaga(action): Iterator<Object | Task> {
   try {
     const Cloud = action.payload;
-    Cloud.accountId = localStorage.getItem('UserId');
+    Cloud.accountId = Cloud.accountId || localStorage.getItem('UserId');
 
     const Sky = yield select(getSkyFromState)
     Cloud.skyId = Cloud.skyId || Sky.id;

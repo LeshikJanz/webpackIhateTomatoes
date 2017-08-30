@@ -9,7 +9,7 @@ const mapStateToProps: any = (state): any => ({
   sky: state.Sky,
   modal: state.Modal,
   zoom: state.Sky.zoom,
-  routing: state.routing.locationBeforeTransitions
+  route: state.routing.locationBeforeTransitions.pathname
 });
 
 const mapDispatchToProps = (dispatch) => ({

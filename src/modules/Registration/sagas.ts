@@ -34,7 +34,8 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
     const defaultCloud: ICloud = {
       name: 'Main',
       goal: "This is your first cloud. Let's try all Bighead functionality from here!",
-      skyId: newSky.id
+      skyId: newSky.id,
+      accountId: user.id
     };
     yield put(createCloudInit(defaultCloud));
 

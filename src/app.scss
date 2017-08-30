@@ -54,7 +54,7 @@ h4 {
 }
 
 .error-textfield {
-  border : 1px solid #ff0000;
+  border: 1px solid #ff0000;
 }
 
 .async-validating {
@@ -62,7 +62,7 @@ h4 {
     background-color: #ffffff;
     background-image: url("http://loadinggif.com/images/image-selection/3.gif");
     background-size: 25px 25px;
-    background-position:right center;
+    background-position: right center;
     background-repeat: no-repeat;
   }
 }
@@ -72,7 +72,8 @@ h4 {
 }
 
 .spinner {
+  position: fixed;
+  z-index: 200;
   bottom: 10px;
   left: 10px;
-  position: fixed;
 }
