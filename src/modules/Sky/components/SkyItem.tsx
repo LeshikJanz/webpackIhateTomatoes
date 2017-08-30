@@ -29,5 +29,9 @@ export const SkyItem = ({ cloud, isActive, handleActive }) => (
         <div className="thin-label">10</div>
       </div>
     </div>
+    <div className="delete-icon">
+      <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+      <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+    </div>
   </div>
 );

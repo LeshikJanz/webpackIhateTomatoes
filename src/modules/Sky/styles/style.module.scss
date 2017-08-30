@@ -99,15 +99,39 @@
         display: flex;
         align-items: center;
         margin-left: 10%;
+      }
 
-        .counter-icon {
-          max-height: 20px;
-          max-width: 20px;
-          margin-right: 10px;
+      .counter-icon {
+        max-height: 20px;
+        max-width: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    .delete-icon {
+      position: absolute;
+      flex-direction: column;
+      display: none;
+      right: 20px;
+      bottom: 20px;
+
+      > div:first-child {
+        height: 16px;
+      }
+
+      &:hover {
+        .delete-hat {
+          transform: rotate(30deg) translate(3px, -5px);
         }
       }
     }
+
+    &:hover .delete-icon {
+      display: flex;
+    }
+
   }
+
 }
 
 .gooey-container {
