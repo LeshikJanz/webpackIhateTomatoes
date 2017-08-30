@@ -63,11 +63,11 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
   return (
     <div>
       <ResponsiveReactGridLayout className="layout"
-                                 layout={sky.layout}
+                                 autoSize={false}
                                  onLayoutChange={updateLayout}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
-                                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                                 cols={{ lg: 48 / zoom, md: 32 / zoom, sm: 16 / zoom, xs: 8 / zoom, xxs: 1 }}
+                                 breakpoints={{ lg: window.innerWidth }}
+                                 cols={{ lg: 48 / zoom }}
                                  rowHeight={ 10 * zoom }
       >
         {

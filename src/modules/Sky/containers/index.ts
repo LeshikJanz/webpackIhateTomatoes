@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
 import { IModal } from "interfaces/index";
+import { urls } from "../../urls";
 
 const mapStateToProps: any = (state): any => ({
   sky: state.Sky,
   modal: state.Modal,
-  zoom: state.Sky.zoom
+  zoom: state.Sky.zoom,
+  routing: state.routing.locationBeforeTransitions
 });
 
 const mapDispatchToProps = (dispatch) => ({

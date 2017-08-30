@@ -1,5 +1,5 @@
 import { put, takeEvery, call, take } from 'redux-saga/effects'
-import { ISky, IUser } from "interfaces/index";
+import { ICloud, ISky, IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { toastr } from 'react-redux-toastr'
 import {
@@ -13,6 +13,7 @@ import { addNewCloudGroup } from "../../api/cloud";
 import { NotificationManager } from 'react-notifications';
 import { updateAccountInit, updateAccountDone } from "../Board/actions";
 import { createSky } from "../../api/sky";
+import { createCloudInit } from "../actions";
 
 /**
  * Handle user registration
@@ -31,7 +32,14 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
       zoom: 1,
       accountId: user.id
     };
-    yield createSky(defaultSky);
+    const newSky = yield createSky(defaultSky);
+
+    const defaultCloud: ICloud = {
+      name: 'Main',
+      goal: 'Default cloud',
+      skyId: newSky.id
+    };
+    yield put(createCloudInit(defaultCloud));
 
     NotificationManager.success(`The user ${user.username} has been successfully created`, 'Success!');
   } catch (error) {

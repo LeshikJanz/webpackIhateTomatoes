@@ -12,4 +12,4 @@ export const Navigation = () => (
       <Link to={urls.users} activeClassName="active">Users</Link>
     </nav>
   </div>
-)
+);

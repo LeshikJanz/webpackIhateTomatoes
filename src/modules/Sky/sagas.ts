@@ -27,7 +27,7 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
     Cloud.accountId = localStorage.getItem('UserId');
 
     const Sky = yield select(getSkyFromState)
-    Cloud.skyId = Sky.id;
+    Cloud.skyId = Cloud.skyId || Sky.id;
 
     const newCloud = yield addNewCloud(Cloud);
     NotificationManager.success(`The cloud ${newCloud.name} has been successfully created`, 'Success!');
