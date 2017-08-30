@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { urls } from "modules/urls";
+import { urls } from "urls";
 import { Link } from 'react-router';
 const SVG = require('react-svg');
 

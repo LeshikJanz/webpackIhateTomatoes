@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
 import { IModal } from "interfaces/index";
-import { urls } from "../../urls";
 
 const mapStateToProps: any = (state): any => ({
   sky: state.Sky,

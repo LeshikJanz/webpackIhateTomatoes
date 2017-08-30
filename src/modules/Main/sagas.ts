@@ -4,7 +4,7 @@ import { ILogin, IToken, IUser } from "interfaces/index";
 import { login, logOut, getUserById } from "api/auth";
 import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
-import { urls } from "../urls";
+import { urls } from "urls";
 import { NotificationManager } from 'react-notifications';
 
 /**

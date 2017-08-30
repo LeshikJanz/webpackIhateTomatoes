@@ -7,18 +7,6 @@ declare interface Identifiable {
 }
 
 /**
- * Cloud group interface
- */
-export
-declare interface ICloudGroup extends Identifiable {
-  name?: string,
-  accountId?: string,
-  createDate?: Date,
-  title?: string,
-  cloudOrders: string[]
-}
-
-/**
  * Cloud interface
  */
 export

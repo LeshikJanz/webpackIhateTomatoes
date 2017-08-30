@@ -172,7 +172,6 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   }
 
   handleRenewingModal() {
-    this.props.getCloudGroups();
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
   }
 

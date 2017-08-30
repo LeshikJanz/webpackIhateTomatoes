@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import { urls } from "./urls";
+import { urls } from "urls";
 import Cloud from './Cloud/containers';
 import Header from './Main/header/containers';
 import { PageNotFound } from '../components/pageNotFound';

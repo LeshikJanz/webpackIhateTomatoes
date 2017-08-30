@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { User } from "../components/User";
 import { push } from "react-router-redux";
-import { urls } from "../../urls";
+import { urls } from "urls";
 
 const mapStateToProps: any = (state): any => ({
   users: state.Users

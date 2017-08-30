@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IUser } from "interfaces/index";
 import { createAccountInit } from "../actions";
 import { push } from "react-router-redux";
-import { urls } from "../../urls";
+import { urls } from "urls";
 
 /**
  * Function takes a single argument of the entire Redux store’s state

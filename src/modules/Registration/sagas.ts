@@ -7,11 +7,8 @@ import {
 } from "./actions";
 import { register } from "api/auth";
 import { change } from "redux-form";
-import { uploadImage, updateUserById } from "api/user";
-import { DEFAULT_CLOUD_GROUP } from "../../constants/index";
-import { addNewCloudGroup } from "../../api/cloud";
+import { uploadImage } from "api/user";
 import { NotificationManager } from 'react-notifications';
-import { updateAccountInit, updateAccountDone } from "../Board/actions";
 import { createSky } from "../../api/sky";
 import { createCloudInit } from "../actions";
 
@@ -48,22 +45,6 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
     yield put(createAccountError());
   }
 }
-/**
- * Update user
- *
- * @param {IUser} payload - user
- *
- * @returns {void}
- */
-export function* updateAccountSaga({ payload }: IUser): Iterator<Object | Task> {
-  try {
-    yield updateUserById(payload.id, payload);
-    yield put(updateAccountDone());
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
-    yield put(createAccountError());
-  }
-}
 
 /**
  * Handle avatar uploading to the claudinary
@@ -86,7 +67,6 @@ export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
 export function* registrationSaga() {
   yield [
     takeEvery(createAccountInit().type, createAccountSaga),
-    takeEvery(updateAccountInit().type, updateAccountSaga),
     takeEvery(avatarUploadInit().type, avatarUploadSaga)
   ]
 }
