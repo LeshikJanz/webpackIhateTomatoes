@@ -87,13 +87,13 @@
     }
 
     > .item-footer {
-      display: flex;
       align-items: center;
       justify-content: flex-start;
       align-self: flex-end;
       width: 100%;
       min-height: 36px;
       @include ellipsis-container;
+      display: flex;
 
       > .views-counter, .reviews-counter {
         display: flex;
@@ -140,23 +140,43 @@
 
 .zoom-panel {
   position: fixed;
-  cursor: pointer;
   display: flex;
-  bottom: 20px;
+  flex-direction: column;
+  bottom: 0;
   right: 20px;
 
-  > button {
-    cursor: pointer;
-    outline: none;
-    border-style: none !important;
-    background-color: transparent !important;
+  > h4 {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s linear;
+    align-self: flex-end;
+  }
 
-    > img {
-      height: 40px;
+  &:hover {
+    > h4 {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0.2s, opacity 0.2s linear;
     }
+  }
 
-    &:not([disabled]) > img:active {
-      transform: translateY(2px);
+  > div:first-child {
+    cursor: pointer;
+    display: flex;
+
+    > button {
+      cursor: pointer;
+      outline: none;
+      border-style: none !important;
+      background-color: transparent !important;
+
+      > img {
+        height: 40px;
+      }
+
+      &:not([disabled]) > img:active {
+        transform: translateY(2px);
+      }
     }
   }
 }
