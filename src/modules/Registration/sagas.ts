@@ -31,7 +31,7 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
       zoom: 1,
       accountId: user.id
     };
-    yield createSky(defaultSky)
+    yield createSky(defaultSky);
 
     NotificationManager.success(`The user ${user.username} has been successfully created`, 'Success!');
   } catch (error) {

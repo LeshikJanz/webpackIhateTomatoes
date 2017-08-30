@@ -2,22 +2,25 @@ import * as React from 'react';
 import { withState } from 'recompose';
 import '../styles/style.module.scss';
 import { Responsive, WidthProvider } from 'react-grid-layout';
-import { ICloud, IMenu } from "interfaces/index";
+import { ICloud, IMenu } from "interfaces";
 import { SkyItem } from "./SkyItem";
 import { GooeyMenu } from "components/GooeyMenu/components/GooeyMenu";
 import CustomModal from "components/CustomModal/containers";
 import CloudForm from "./form/cloudForm";
 import ZoomPanel from "../containers/zoomContainer";
-import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants/index";
+import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants";
+import ConfirmModal from "components/ConfirmModal/containers";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ( { sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom } ) => {
+export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, ...props }) => {
   const actionMenu: IMenu[] = [
-    { callback: 'handleModal', arg: 'CloudAdd', placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud' },
+    {
+      callback: 'handleModal', arg: { type: 'CloudAdd' }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
+    },
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
-  const fitByWidth = ( element: HTMLElement ) => {
+  const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");
     const openCloudButton = element.querySelector(".open-cloud");
     const reviewsCounter = element.querySelector(".reviews-counter");
@@ -31,7 +34,7 @@ export const GridLayout = ( { sky, modal, params, handleModal, handleCloudFormSu
     }
   };
 
-  const fitByHeight = ( element: HTMLElement ) => {
+  const fitByHeight = (element: HTMLElement) => {
     const itemFooter = element.querySelector(".item-footer");
     const nameBlock = element.querySelector(".name");
     const goalBlock = element.querySelector(".goal");
@@ -50,7 +53,7 @@ export const GridLayout = ( { sky, modal, params, handleModal, handleCloudFormSu
     }
   };
 
-  const handleSize = ( element: HTMLElement ) => {
+  const handleSize = (element: HTMLElement) => {
     if ( element ) {
       fitByWidth(element);
       fitByHeight(element);
@@ -62,22 +65,22 @@ export const GridLayout = ( { sky, modal, params, handleModal, handleCloudFormSu
       <ResponsiveReactGridLayout className="layout"
                                  layout={sky.layout}
                                  onLayoutChange={updateLayout}
-                                 onResize={( l, o, n, p, e, element ) => handleSize(element.parentNode)}
+                                 onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                                 cols={{ lg: 12 / zoom, md: 8 / zoom, sm: 4 / zoom, xs: 2 / zoom, xxs: 1 }}
-                                 rowHeight={100 * zoom}
+                                 cols={{ lg: 48 / zoom, md: 32 / zoom, sm: 16 / zoom, xs: 8 / zoom, xxs: 1 }}
+                                 rowHeight={ 10 * zoom }
       >
         {
-          sky.clouds.map(( c: ICloud ) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 2, h: 2 } }
+          sky.clouds.map((c: ICloud) =>
+            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10 } }
                  ref={handleSize}>
-              <SkyItem cloud={c}/>
+              <SkyItem cloud={c} handleModal={handleModal}/>
             </div>)
         }
       </ResponsiveReactGridLayout>
       {
         !params.id &&
-        <GooeyMenu onSelect={ ( callback, arg ) => eval(callback)(arg) } menuItems={actionMenu}/>
+        <GooeyMenu onSelect={ (callback, arg) => eval(callback)(arg) } menuItems={actionMenu}/>
       }
       <CustomModal
         title="Adding cloud"
@@ -88,6 +91,11 @@ export const GridLayout = ( { sky, modal, params, handleModal, handleCloudFormSu
                    onSubmit={handleCloudFormSubmit}
         />
       </CustomModal>
+
+      <ConfirmModal
+        handleConfirm={ () => props[modal.callback](modal.itemId) }
+        isModalOpen={modal.isOpen && modal.type === 'Confirm'}
+      />
 
       <ZoomPanel/>
     </div>

@@ -3,7 +3,8 @@ import {
   updateCloud, handleModalAction, createCloudInit, createCloudGroupInit,
   updateCloudGroupInit
 } from "../../actions";
-import { deleteCloudInit, deleteCloudGroupInit, getCloudGroupsInit } from "../actions";
+import { deleteCloudGroupInit, getCloudGroupsInit } from "../actions";
+import { deleteCloudInit } from "../../Sky/actions";
 const faker = require('faker');
 
 export const GET_CLOUD_GROUPS_DONE = 'GET_CLOUD_GROUPS_DONE';

@@ -38,5 +38,6 @@ const mapDispatchToProps: any = dispatch => ({
  */
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  null
 )(ConfirmModal);

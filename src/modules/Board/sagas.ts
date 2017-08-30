@@ -12,11 +12,11 @@ import { ICloudGroup, ICloud, IUser } from "interfaces/index";
 import { Task } from "redux-saga";
 import { NotificationManager } from 'react-notifications';
 import {
-  deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, deleteCloudInit,
-  deleteCloudDone, deleteCloudError, getCloudGroupsInit, getCloudGroupsDone, getCloudGroupsError,
+  deleteCloudGroupInit, deleteCloudGroupDone, deleteCloudGroupError, getCloudGroupsInit, getCloudGroupsDone, getCloudGroupsError,
   sortCloudGroups, updateAccountInit
 } from "./actions";
 import { getUserById } from "../../api/auth";
+import { deleteCloudDone, deleteCloudError, deleteCloudInit } from "../Sky/actions";
 
 export const getCloudFromState: any = (state): any => state.form.cloudForm.values;
 
@@ -158,18 +158,6 @@ export function* deleteCloudGroupSaga({ payload }): Iterator<Object | Task> {
   }
 }
 
-export function* deleteCloudSaga({ payload }): Iterator<Object | Task> {
-  try {
-    yield deleteCloud(payload);
-    NotificationManager.success(`The cloud has been successfully deleted`, 'Success!');
-    yield put(getCloudGroupsInit({ sort: true }));
-    yield put(deleteCloudDone());
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
-    yield put(deleteCloudError(error));
-  }
-}
-
 export function* trelloSaga() {
   yield [
     takeEvery(getCloudGroupsInit().type, fetchCloudGroupList),
@@ -177,7 +165,6 @@ export function* trelloSaga() {
     // takeEvery(createCloudInit().type, createCloudSaga),
     takeEvery(createCloudGroupInit().type, createCloudGroupSaga),
     takeEvery(deleteCloudGroupInit().type, deleteCloudGroupSaga),
-    takeEvery(deleteCloudInit().type, deleteCloudSaga),
     takeEvery(updateCloudGroupInit().type, updateCloudGroupSaga),
     takeEvery(sortCloudGroups().type, sortCloudGroupsSaga),
   ]

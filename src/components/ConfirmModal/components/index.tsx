@@ -2,9 +2,7 @@ import * as React from 'react';
 import * as Modal from 'react-modal';
 import Styles from "../style";
 
-export const ConfirmModal = (props) => {
-  const { handleModal, handleConfirm, modal, isModalOpen } = props;
-
+export const ConfirmModal = ({ handleModal, handleConfirm, modal, isModalOpen }) => {
   /**
    * Close Confirm Modal
    *

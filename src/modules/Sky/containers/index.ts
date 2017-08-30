@@ -1,8 +1,9 @@
 import { compose, lifecycle, withState } from 'recompose';
-import { getUsersInit, getCloudsInit, updateLayout, getCloudsDone } from "../actions";
+import { getUsersInit, getCloudsInit, updateLayout, deleteCloudInit } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
+import { IModal } from "interfaces/index";
 
 const mapStateToProps: any = (state): any => ({
   sky: state.Sky,
@@ -12,10 +13,14 @@ const mapStateToProps: any = (state): any => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getClouds: (accountId) => dispatch(getCloudsInit(accountId)),
-  handleModal: (modal) => dispatch(handleModalAction({ type: modal })),
   updateLayout: (layout) => layout.length && dispatch(updateLayout(layout)),
   handleCloudFormSubmit: (action) => {
     dispatch(createCloudInit(action));
+    dispatch(handleModalAction());
+  },
+  handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
+  deleteCloud: (id: string) => {
+    dispatch(deleteCloudInit(id));
     dispatch(handleModalAction());
   }
 });

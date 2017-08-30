@@ -142,7 +142,7 @@ export const deleteCloudGroup = (id: string) => {
 export const deleteCloud = (id: string) => {
   return request
     .delete(`Clouds/${id}`)
-    .then((c: string) => c);
+    .then((c: string) => c)
 };
 
 /**

@@ -1,6 +1,6 @@
 import { createReducer } from 'utils/createReducer';
 import { ICloud, IGridItem } from "interfaces/index";
-import { getCloudsDone, handleZoom, updateSky } from "../actions";
+import { getCloudsDone, handleZoom, updateLayout, updateSky } from "../actions";
 import { createCloudDone } from "../../actions";
 import { DEFAULT_ZOOM } from "../constants/index";
 
@@ -18,7 +18,7 @@ export default createReducer({
       ...state,
       ...payload
     }),
-    [updateSky]: (state: any, payload: IGridItem) => ({
+    [updateLayout]: (state: any, payload: IGridItem) => ({
       ...state,
       layout: payload
     }),
