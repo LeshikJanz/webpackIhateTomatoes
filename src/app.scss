@@ -1,72 +1,9 @@
 @import "styles/mixins";
+@import "styles/fonts.scss";
+@import "styles/buttons.scss";
 
 body {
   background-color: antiquewhite;
-}
-
-@font-face {
-  font-family: WorkSans;
-  src: url(/assets/fonts/WorkSans/WorkSans-Regular.otf);
-}
-
-@font-face {
-  font-family: Avenir;
-  src: url(/assets/fonts/Avenir/AvenirNextLTPro-Regular.otf);
-}
-
-@font-face {
-  font-family: Avenir-Light;
-  src: url(./assets/fonts/Avenir/AvenirNextLTPro-It.otf);
-}
-
-@font-face {
-  font-family: Avenir-Book;
-  src: url(./assets/fonts/Avenir/AvenirNextLTPro-Regular.otf);
-}
-
-@font-face {
-  font-family: Avenir-Bold;
-  src: url(./assets/fonts/Avenir/AvenirNextLTPro-Bold.otf);
-}
-
-@font-face {
-  font-family: Avenir-DemiBold;
-  src: url(./assets/fonts/Avenir/AvenirNextLTPro-Demi.otf);
-}
-
-@font-face {
-  font-family: Avenir-Medium;
-  src: url(./assets/fonts/Avenir/AvenirNextLTPro-MediumCn.otf);
-}
-
-@font-face {
-  font-family: OpenSans;
-  src: url(./assets/fonts/OpenSans/OpenSans-Regular.ttf);
-}
-
-@font-face {
-  font-family: OpenSans-Bold;
-  src: url(./assets/fonts/OpenSans/OpenSans-Bold.ttf);
-}
-
-@font-face {
-  font-family: WorkSans;
-  src: url(./assets/fonts/WorkSans/WorkSans-Regular.otf);
-}
-
-@font-face {
-  font-family: WorkSans-Bold;
-  src: url(./assets/fonts/WorkSans/WorkSans-Bold.otf);
-}
-
-@font-face {
-  font-family: WorkSans-Medium;
-  src: url(./assets/fonts/WorkSans/WorkSans-Medium.otf);
-}
-
-@font-face {
-  font-family: Cooper-Medium;
-  src: url(./assets/fonts/Cooper/CooperMediumCBT.otf);
 }
 
 h1 {
@@ -85,12 +22,16 @@ h4 {
   margin: 10px 50px;
   display: flex;
   align-items: center;
+
+  > div:first-child {
+    z-index: 20;
+  }
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
-  margin: 0 90px 3% 90px;
+  margin: 0 170px 3% 90px;
 }
 
 .centered-container {
@@ -113,7 +54,7 @@ h4 {
 }
 
 .error-textfield {
-  border : 1px solid #ff0000;
+  border: 1px solid #ff0000;
 }
 
 .async-validating {
@@ -121,7 +62,7 @@ h4 {
     background-color: #ffffff;
     background-image: url("http://loadinggif.com/images/image-selection/3.gif");
     background-size: 25px 25px;
-    background-position:right center;
+    background-position: right center;
     background-repeat: no-repeat;
   }
 }
@@ -130,3 +71,9 @@ h4 {
   z-index: 10 !important;
 }
 
+.spinner {
+  position: fixed;
+  z-index: 200;
+  bottom: 10px;
+  left: 10px;
+}

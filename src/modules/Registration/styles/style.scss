@@ -1,4 +1,4 @@
-@import "../../../styles/autocomplete.scss";
+@import "src/styles/autocomplete.scss";
 
 .dropzone {
   display: flex;
@@ -19,6 +19,10 @@
     border-color: rgb(102, 102, 102);
     border-style: dashed;
     border-radius: 5px;
+
+    > img {
+      height: 90%;
+    }
   }
 }
 

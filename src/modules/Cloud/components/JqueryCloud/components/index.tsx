@@ -7,7 +7,7 @@ import { ReactIgnore } from "./ReactIgnore";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
-import { urls } from "modules/urls";
+import { urls } from "urls";
 
 function tagCloudController() {
   try {
@@ -111,7 +111,7 @@ export class TagCloud extends React.Component {
     } = this.props;
 
     return (
-      <div className="main-container">
+      <div>
         {
           locationPath !== urls.index &&
           <div className="cloud-actions">

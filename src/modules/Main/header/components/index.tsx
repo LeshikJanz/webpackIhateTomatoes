@@ -3,8 +3,8 @@ import AuthBar from "../../auth/containers/AuthBar";
 import LogOutBar from "../../auth/containers/LogOutBar";
 import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
-import { urls } from "modules/urls";
-import { Navigation } from "../../navigation/components/index";
+import { urls } from "urls";
+import Navigation from "modules/Main/navigation/containers";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -13,11 +13,11 @@ const cx = classNames.bind(styles);
  * Main page's header
  */
 export const Header = (props) => {
-  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getCloudGroups, clouds, params } = props;
+  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getClouds, clouds, params } = props;
 
   const createKnowledge = () => {
     if(props.location.pathname !== `/${urls.board}`) {
-      getCloudGroups();
+      getClouds();
     }
     handleKnowledgeCreateModal();
   };

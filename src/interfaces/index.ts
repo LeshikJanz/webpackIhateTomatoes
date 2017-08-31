@@ -7,18 +7,6 @@ declare interface Identifiable {
 }
 
 /**
- * Cloud group interface
- */
-export
-declare interface ICloudGroup extends Identifiable {
-  name?: string,
-  accountId?: string,
-  createDate?: Date,
-  title?: string,
-  cloudOrders: string[]
-}
-
-/**
  * Cloud interface
  */
 export
@@ -26,7 +14,7 @@ declare interface ICloud extends Identifiable {
   name: string,
   createDate?: Date,
   updateDate?: Date,
-  text: string,
+  goal: string,
   cloudGroupId: string,
   accountId: string
 }
@@ -117,7 +105,7 @@ export
 declare interface IMenu {
   callback: string,
   placeholder?: string,
-  arg: string,
+  arg?: string,
   icon: string
 }
 
@@ -128,4 +116,25 @@ export
 declare interface IValidation {
   field: string,
   value: string,
+}
+
+/**
+ * Sky interface
+ */
+export
+declare interface ISky extends Identifiable {
+  zoom: number,
+  layout?: IGridItem[],
+  accountId: string
+}
+
+/**
+ * Sky layout item interface
+ */
+export
+declare interface IGridItem extends Identifiable {
+  height: number,
+  width: number,
+  x: number,
+  y: number
 }

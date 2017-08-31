@@ -2,9 +2,10 @@ import { compose, withState, withHandlers, lifecycle } from 'recompose';
 import { UserList } from "../components/UserList";
 import { getUsersInit } from "../actions";
 import { connect } from 'react-redux';
+import { IUser } from "interfaces";
 
 const mapStateToProps: any = (state): any => ({
-  users: state.Users
+  users: state.Users.filter((u: IUser) => u.id !== localStorage.getItem('UserId'))
 });
 
 export default compose(

@@ -3,34 +3,17 @@ import { addNewKnowledge, addNewCloud } from "api/cloud";
 import { Task } from "redux-saga";
 import {
   addTag, updateKnowledgeError, createNewKnowledgeInit, createNewKnowledgeDone,
-  fetchCloudInit
+  fetchCloudInit, createNewKnowledgeError
 } from "../../actions";
-import { IKnowledge, ICloudGroup, ICloud } from "interfaces/index";
+import { IKnowledge } from "interfaces";
 import { NotificationManager } from 'react-notifications';
 import { fetchCloudsInit } from "../actions";
 import { push } from "react-router-redux";
-import { urls } from "../../urls";
-import { fetchCloudGroupList } from "../../Board/sagas";
+import { urls } from "urls";
 
 const getFromState = (state: any) => state.form.knowledgeCreateForm.values;
 
 const getKnowledgeFromState = (state: any) => state.Knowledge;
-
-const getCloudGroupFromState: any = (state): any => state.Board.lists;
-
-function* createCloud(form): Iterator<Object | Task> {
-  yield fetchCloudGroupList();
-  const cloudGroups = yield select(getCloudGroupFromState);
-
-  const mainGroup = cloudGroups.find((cg: ICloudGroup) => cg.name === 'Main');
-
-  const newCloud = {
-    name: form.cloud.value,
-    accountId: localStorage.getItem('UserId')
-  };
-
-  return (yield addNewCloud(mainGroup.id, newCloud)).id;
-}
 
 /**
  * Handle creating new knowledge
@@ -74,7 +57,7 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');
     console.error(error);
-    yield put(updateKnowledgeError(error));
+    yield put(createNewKnowledgeError(error));
   }
 }
 

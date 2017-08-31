@@ -5,9 +5,8 @@ import {
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
 import { ICloudGroup, ICloud } from "interfaces/index";
-import { getCloudGroupsInit } from "../../Board/actions";
 import { push } from "react-router-redux";
-import { urls } from "../../urls";
+import { urls } from "urls";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -20,7 +19,7 @@ import { urls } from "../../urls";
 const mapStateToProps = (state) => ({
   knowledge: state.Knowledge,
   user: state.Knowledge.account,
-  clouds: state.Board.lists.reduce((sum: ICloud[], cg: ICloudGroup) => sum.concat(cg.clouds), [])
+  clouds: state.Sky.clouds
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({
@@ -36,7 +35,6 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(createNewKnowledgeInit({ fromExisting: true }));
     dispatch(handleModalAction());
   },
-  getCloudGroups: () => dispatch(getCloudGroupsInit(localStorage.getItem('UserId'))),
   goToUser: (accountId: string) => {
     dispatch(handleModalAction());
     dispatch(push(`${urls.user}/${accountId}/${urls.board}`))

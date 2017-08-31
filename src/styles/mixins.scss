@@ -72,7 +72,6 @@
 
 @mixin input-text {
   font-family: Cooper-Medium !important;
-  //font-family: WorkSans !important;
   font-size: 16px !important;
   color: #3d3d3d !important;
 }
@@ -93,4 +92,13 @@
   font-size: 16px !important;
   color: #343a40;
   border-top: solid 1px #f5f6f7;
+}
+
+@mixin ellipsis-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 17px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

@@ -1,0 +1,182 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+@import "src/styles/titles";
+
+.react-grid-item {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+  box-shadow: 1px 1px 5px 0 rgba(52, 58, 64, 0.09);
+  cursor: pointer;
+  border-radius: 50px;
+
+  &:hover {
+    box-shadow: 0 0 2px 2px #62aff7;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 5px #62aff7;
+  }
+
+  .sky-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+    > .item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 36px;
+
+      > .name {
+        font-family: Serif-Bold;
+        font-size: 18px;
+        align-self: flex-start;
+        @include ellipsis-container;
+      }
+
+      .open-cloud-collapsed {
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        right: 30px;
+        transform: rotate(0);
+        transition: visibility 0.3s, opacity 0.3s linear, transform 0.5s;
+        will-change: visibility, opacity, transform;
+      }
+
+      .open-cloud {
+        justify-content: flex-end;
+
+        .add {
+          visibility: hidden;
+          transform: scale(0.6) translate(20px, 0);
+          opacity: 0;
+          transition: visibility 0.2s, opacity 0.1s linear, transform 0.3s;
+          will-change: visibility, opacity, transform;
+        }
+
+        &:hover {
+          .open-cloud-collapsed {
+            visibility: hidden;
+            opacity: 0;
+            transform: rotate(-90deg);
+            transition: visibility 1s, opacity 0.5s linear, transform 0.5s;
+          }
+
+          .add {
+            visibility: visible;
+            transform: scale(1) translate(0, 0);
+            opacity: 1;
+            transition: visibility 0s, opacity 0.5s linear, transform 0.5s;
+          }
+        }
+      }
+    }
+
+    > .goal {
+      min-height: 40px;
+      text-align: center;
+      justify-content: center;
+      @include ellipsis-container;
+      -webkit-line-clamp: 4;
+    }
+
+    > .item-footer {
+      align-items: center;
+      justify-content: flex-start;
+      align-self: flex-end;
+      width: 100%;
+      min-height: 36px;
+      @include ellipsis-container;
+      display: flex;
+
+      > .views-counter, .reviews-counter {
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+      }
+
+      .counter-icon {
+        max-height: 20px;
+        max-width: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    .delete-icon {
+      position: absolute;
+      flex-direction: column;
+      display: none;
+      right: 20px;
+      bottom: 20px;
+
+      > div:first-child {
+        height: 16px;
+      }
+
+      &:hover {
+        .delete-hat {
+          transform: rotate(30deg) translate(3px, -5px);
+        }
+      }
+    }
+
+    &:hover .delete-icon {
+      display: flex;
+    }
+
+  }
+
+}
+
+.gooey-container {
+  top: $HEADER_HEIGHT;
+}
+
+.zoom-panel {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  right: 20px;
+
+  > h4 {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s linear;
+    align-self: flex-end;
+  }
+
+  &:hover {
+    > h4 {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0.2s, opacity 0.2s linear;
+    }
+  }
+
+  > div:first-child {
+    cursor: pointer;
+    display: flex;
+
+    > button {
+      cursor: pointer;
+      outline: none;
+      border-style: none !important;
+      background-color: transparent !important;
+
+      > img {
+        height: 40px;
+      }
+
+      &:not([disabled]) > img:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+}

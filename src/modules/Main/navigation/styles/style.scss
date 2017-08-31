@@ -1,12 +1,11 @@
-$headerHeight: 152px;
+@import "src/styles/variables";
 
 .navigation-container {
-  position: absolute;
+  position: fixed;
   display: flex;
-  padding-top: $headerHeight + 50px;
+  padding-top: $HEADER_HEIGHT + 50px;
   flex-direction: column;
   align-items: center;
-  //background-color: #343a40;
   background-color: transparent;
   height: 100%;
   width: 90px;
