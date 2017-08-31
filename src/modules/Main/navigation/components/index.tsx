@@ -8,8 +8,8 @@ export const Navigation = ({ goToUrl, goToBoard }) => (
   <div className="navigation-container">
     <Link to={urls.index}><SVG path="assets/icons/hamburger.svg" className="nav-hamburger"/></Link>
     <nav>
-      <Link activeClassName="active" onClick={goToBoard}>Board</Link>
-      <Link activeClassName="active" onClick={() => goToUrl(urls.users)}>Users</Link>
+      <Link to={urls.board} activeClassName="active" onClick={goToBoard}>Board</Link>
+      <Link to={urls.users} activeClassName="active">Users</Link>
     </nav>
   </div>
 );
