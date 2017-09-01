@@ -82,7 +82,7 @@ export class TagCloud extends React.Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !this.props.isModalOpen;
+    return !nextProps.isModalOpen;
   }
 
   componentDidUpdate = () => {
