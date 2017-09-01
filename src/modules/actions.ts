@@ -16,7 +16,9 @@ export const createCloudInit = createAction('CREATE_CLOUD_INIT');
 export const createCloudDone = createAction('CREATE_CLOUD_DONE');
 export const createCloudError = createAction('CREATE_CLOUD_ERROR');
 
-export const updateCloud = createAction('UPDATE_CLOUD');
+export const updateCloudInit = createAction('UPDATE_CLOUD_INIT');
+export const updateCloudDone = createAction('UPDATE_CLOUD_DONE');
+export const updateCloudError = createAction('UPDATE_CLOUD_ERROR');
 
 export const createCloudGroupInit = createAction('CREATE_CLOUD_GROUP_INIT');
 export const createCloudGroupDone = createAction('CREATE_CLOUD_GROUP_DONE');

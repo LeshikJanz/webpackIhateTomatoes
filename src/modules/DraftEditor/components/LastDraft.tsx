@@ -261,7 +261,8 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
         <div>
           <Editor
             editorState={this.state.editorState}
-            placeholder='Text'
+            placeholder='Start typing here...'
+            readOnly={knowledge.accountId !== localStorage.getItem('UserId')}
             plugins={plugins}
             customStyleMap={colorStyleMap}
             uploadImageAsync={this.uploadImageAsync}

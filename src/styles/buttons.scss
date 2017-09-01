@@ -42,7 +42,6 @@ button {
   }
 }
 
-
 .primary {
   color: white;
   font-family: Avenir-Bold;
@@ -163,5 +162,18 @@ button {
     color: #7a8693;
     background-color: rgba(216, 220, 225, 0.55);
     border: solid 2px rgba(216, 220, 225, 0.55);
+  }
+}
+
+.save-button {
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0.8;
+  transition: 0.2s opacity ease;
+  margin-left: 15px;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.2s opacity ease;
   }
 }

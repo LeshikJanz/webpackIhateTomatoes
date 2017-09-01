@@ -1,13 +1,18 @@
 import { createReducer } from 'utils/createReducer';
-import { IKnowledge } from "interfaces/index";
+import { ICloud, IKnowledge } from "interfaces/index";
 import {
   addTag, fetchCloudDone, fetchCloudError, saveKnowledge,
-  createNewKnowledgeDone
+  createNewKnowledgeDone, updateCloudInit, updateCloudDone
 } from "modules/actions";
 import { updateCloudName } from "../actions";
 
-const initialState: any = {
-  knowledge: []
+const initialState: ICloud = {
+  name: '',
+  initialName: '',
+  isNameSaved: true,
+  knowledge: [],
+  goal: '',
+  accountId: ''
 };
 
 export default createReducer({
@@ -21,7 +26,8 @@ export default createReducer({
   }),
   [fetchCloudDone]: (state: any, payload: IKnowledge[]) => ({
     ...state,
-    ...payload
+    ...payload,
+    initialName: payload.name
   }),
   [fetchCloudError]: (state: any, error: Error) => ([
     ...state,
@@ -36,6 +42,16 @@ export default createReducer({
   }),
   [updateCloudName]: (state, payload: string) => ({
     ...state,
-    name: payload
-  })
+    name: payload,
+    isNameSaved: false
+  }),
+  [updateCloudInit]: (state) => ({
+    ...state,
+    initialName: state.name,
+    isNameSaved: true
+  }),
+  [updateCloudDone]: (state, payload: ICloud) => ({
+    ...state,
+    ...payload
+  }),
 }, initialState);
