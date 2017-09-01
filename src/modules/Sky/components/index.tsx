@@ -13,7 +13,7 @@ import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, ...props }) => {
+export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, openCloud, ...props }) => {
   const actionMenu: IMenu[] = [
     {
       callback: 'handleModal', arg: { type: 'CloudAdd' }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
@@ -67,7 +67,9 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
         {
           sky.clouds.map((c: ICloud) =>
             <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10 } }
-                 ref={handleSize}>
+                 ref={handleSize}
+                 onDoubleClick={() => openCloud(c.id)}
+            >
               <SkyItem cloud={c}/>
             </div>)
         }
