@@ -15,7 +15,6 @@ declare interface ICloud extends Identifiable {
   createDate?: Date,
   updateDate?: Date,
   goal: string,
-  cloudGroupId: string,
   accountId: string
 }
 

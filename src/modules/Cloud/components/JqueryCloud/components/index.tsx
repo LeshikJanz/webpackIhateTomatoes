@@ -8,6 +8,7 @@ import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "urls";
+const SVG = require('react-svg');
 
 function tagCloudController() {
   try {
@@ -116,8 +117,20 @@ export class TagCloud extends React.Component {
           locationPath !== urls.index &&
           <div className="cloud-actions">
             <Search onChange={ handleSearch } name="name"/>
-            <input className="cloud-name-input" disabled={cloud.accountId !== localStorage.getItem('UserId')}
-                   value={cloud.name} onChange={updateCloudName} onBlur={() => updateCloud(cloud)}/>
+
+            <div className="cloud-name">
+              <input className="cloud-name-input" disabled={cloud.accountId !== localStorage.getItem('UserId')}
+                     value={cloud.name} onChange={updateCloudName} onBlur={this.handleBlur}/>
+
+              {
+                !(cloud.name === cloud.initialName && cloud.isNameSaved) &&
+                <div onClick={() => updateCloud(cloud.name)}>
+                  <SVG path="assets/icons/save-icon.svg"
+                       className="save-button" placeholder="save"
+                  />
+                </div>
+              }
+            </div>
           </div>
         }
         <ReactIgnore>
