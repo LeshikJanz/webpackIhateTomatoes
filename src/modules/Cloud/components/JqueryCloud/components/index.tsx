@@ -125,7 +125,7 @@ export class TagCloud extends React.Component {
               {
                 !(cloud.name === cloud.initialName && cloud.isNameSaved) &&
                 <div onClick={() => updateCloud(cloud.name)}>
-                  <SVG path="assets/icons/save-icon.svg"
+                  <SVG path="assets/icons/save-icon-mark.svg"
                        className="save-button" placeholder="save"
                   />
                 </div>
