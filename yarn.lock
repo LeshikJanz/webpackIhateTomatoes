@@ -1932,10 +1932,6 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-element-queries@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/css-element-queries/-/css-element-queries-0.4.0.tgz#cb5bcde9d980ac3699e7471f798e70600088d3de"
-
 css-loader@^0.28.4:
   version "0.28.4"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.4.tgz#6cf3579192ce355e8b38d5f42dd7a1f2ec898d0f"
@@ -4273,7 +4269,7 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-last-draft-js-sidebar-plugin@1.2.0:
+last-draft-js-sidebar-plugin@1.2.0, last-draft-js-sidebar-plugin@latest:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/last-draft-js-sidebar-plugin/-/last-draft-js-sidebar-plugin-1.2.0.tgz#29775428c3b8b70dbe37d215824777636cbdd32e"
   dependencies:
@@ -4284,7 +4280,7 @@ last-draft-js-sidebar-plugin@1.2.0:
     immutable "3.7.4"
     union-class-names "^1.0.0"
 
-last-draft-js-toolbar-plugin@1.2.0:
+last-draft-js-toolbar-plugin@1.2.0, last-draft-js-toolbar-plugin@latest:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/last-draft-js-toolbar-plugin/-/last-draft-js-toolbar-plugin-1.2.0.tgz#bdb7c59ef1c06b7c5cefaf1714fb5f42a8a4e33c"
   dependencies:
@@ -6170,6 +6166,10 @@ react-dropzone@^3.13.3:
   dependencies:
     attr-accept "^1.0.3"
     prop-types "^15.5.7"
+
+react-edit-inline@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-edit-inline/-/react-edit-inline-1.0.8.tgz#d144670b5217b5adc6c5bcb6976fc6b257f09b72"
 
 react-grid-layout@^0.15.0:
   version "0.15.0"

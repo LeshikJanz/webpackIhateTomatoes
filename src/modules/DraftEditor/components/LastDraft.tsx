@@ -5,7 +5,7 @@ import Editor, { composeDecorators } from 'draft-js-plugins-editor'
 import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { IKnowledge } from "interfaces/index";
 import { Subscription } from "./Subscription";
-import { CustomModal } from "../../../components/CustomModal/components/index";
+import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 
@@ -193,8 +193,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
   blockRenderer(block) {
     if ( block.getType() === 'atomic' ) {
       const entity = Entity.get(block.getEntityAt(0));
-
-      if ( entity.getType() === 'image' ) {
+      if ( entity.getType() === 'image' && entity.data.src.indexOf('blob') === 0 ) {
         this.toDataURL(entity.data.src, (dataUrl) => {
           this.uploadImageAsync(dataUrl)
             .then(result => {
@@ -277,7 +276,7 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
             onSearchChange={this.onSearchChange}
             suggestions={this.state.suggestions}
             onAddMention={this.onAddMention}
-            onClose={() => this.setState({suggestions: fromJS([])})}
+            onClose={() => this.setState({ suggestions: fromJS([]) })}
           />
         </div>
 
@@ -288,11 +287,11 @@ export default class LastDraft extends React.Component<ILastDraftProps, ILastDra
         >
           <KnowledgeCreateForm
             clouds={clouds.map(
-                        o => ({
-                              ...o,
-                              label: o.name,
-                              value: o.id,
-                              }))}
+              o => ({
+                ...o,
+                label: o.name,
+                value: o.id,
+              }))}
             handleModal={this.handleRenewingModal.bind(this)}
             onSubmit={handleRenewing}
           />
