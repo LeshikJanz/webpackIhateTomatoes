@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
 import { IModal } from "interfaces/index";
+import { push } from "react-router-redux";
+import { urls } from "urls";
 
 const mapStateToProps: any = (state): any => ({
   sky: state.Sky,
@@ -23,7 +25,8 @@ const mapDispatchToProps = (dispatch) => ({
   deleteCloud: (id: string) => {
     dispatch(deleteCloudInit(id));
     dispatch(handleModalAction());
-  }
+  },
+  openCloud: (id) => dispatch(push(urls.cloud + '/' + id))
 });
 
 export default compose(

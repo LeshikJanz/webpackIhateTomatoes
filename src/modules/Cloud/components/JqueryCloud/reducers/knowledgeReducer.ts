@@ -27,7 +27,8 @@ export default createReducer({
   [fetchCloudDone]: (state: any, payload: IKnowledge[]) => ({
     ...state,
     ...payload,
-    initialName: payload.name
+    initialName: payload.name,
+    isNameSaved: true
   }),
   [fetchCloudError]: (state: any, error: Error) => ([
     ...state,

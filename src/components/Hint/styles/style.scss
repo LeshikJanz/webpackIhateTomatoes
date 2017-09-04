@@ -1,0 +1,58 @@
+@keyframes hint-animation {
+  from {
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    transform: scale(0.9, 0.9);
+  }
+}
+
+.hint-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  > .hint-image {
+    transform: scaleX(0);
+    cursor: pointer;
+    transition: 1s transform ease;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1 !important;
+      filter: saturate(8);
+
+      & + .hint-block {
+        max-height: 300px;
+        transition: 2s max-height ease;
+      }
+    }
+  }
+
+  &:hover > .hint-image {
+    animation: hint-animation 1s infinite alternate;
+    opacity: 0.7;
+    transition: 1s opacity ease;
+  }
+
+  > .hint-block {
+    position: absolute;
+    background-color: #ffffff;
+    left: 50px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    min-width: 250px;
+    border-radius: 10px;
+
+    > .hint-text {
+      font-family: Cooper-Medium;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 15px;
+      letter-spacing: 0.8px;
+    }
+  }
+}
