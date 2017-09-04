@@ -8,7 +8,5 @@ export const DEFAULT_CLOUD_GROUP: ICloudGroup = {
   cloudOrders: []
 };
 
-export const DEFAULT_CLOUD_ID: string = "597b7608971b4d071a77a8bf";  // working mac
-// export const DEFAULT_CLOUD_ID: string = "5984dbb13f0ed53320a94b01";  // laptop
-
+export const DEFAULT_CLOUD_ID: string = "59ad3330ea973508092ef84c";
 export const DEFAULT_PROFILE_IMG = 'assets/img/default-user-icon.png';
