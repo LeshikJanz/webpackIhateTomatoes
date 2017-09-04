@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
 import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
-import { ICloudGroup, ICloud } from "interfaces/index";
-import { withRouter } from 'react-router';
+import { ICloudGroup } from "interfaces/index";
 import { getCloudGroupsInit } from "modules/Board/actions";
 import { getCloudsInit } from "../../../Sky/actions";
 
@@ -35,7 +34,13 @@ const mapDispatchToProps: any = dispatch => ({
   },
   handleModal: (tag) => dispatch(handleModalAction()),
   getClouds: () => dispatch(getCloudsInit()),
-  handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' }))
+  handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' })),
+  handleNotAuthorizedModal: () => dispatch(handleModalAction(
+    {
+      type: 'NotAuthorized',
+      title: 'You are not authorized',
+      text: 'You need to be authorized before you can start creating new knowledge'
+    }))
 });
 
 /**

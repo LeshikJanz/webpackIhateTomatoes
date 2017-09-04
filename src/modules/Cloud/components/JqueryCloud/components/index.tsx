@@ -8,7 +8,7 @@ import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "urls";
-import { Hint } from "../../../../../components/Hint/index";
+import { Hint } from "components/Hint/index";
 const SVG = require('react-svg');
 
 function tagCloudController() {
