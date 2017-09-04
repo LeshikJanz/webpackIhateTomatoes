@@ -5,6 +5,7 @@ import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
 import { urls } from "urls";
 import Navigation from "modules/Main/navigation/containers";
+import { Hint } from "../../../../components/Hint/index";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -16,7 +17,7 @@ export const Header = (props) => {
   const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getClouds, clouds, params } = props;
 
   const createKnowledge = () => {
-    if(props.location.pathname !== `/${urls.board}`) {
+    if ( props.location.pathname !== `/${urls.board}` ) {
       getClouds();
     }
     handleKnowledgeCreateModal();
@@ -35,9 +36,12 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a onClick={ createKnowledge }
-               className="navbar-brand"
-               href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
+            <Hint text="Use this button for creating new knowledge"
+            >
+              <a onClick={ createKnowledge }
+                 className="navbar-brand"
+                 href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
+            </Hint>
           </div>
           <div id="hello">
             <h2>Hurry up to fill your Big Head up. <br/>
@@ -59,11 +63,11 @@ export const Header = (props) => {
           <KnowledgeCreateForm
             cloudId={params && params.id}
             clouds={clouds.map(
-                        o => ({
-                              ...o,
-                              label: o.name,
-                              value: o.id,
-                              }))}
+              o => ({
+                ...o,
+                label: o.name,
+                value: o.id,
+              }))}
             handleModal={handleModal}
             onSubmit={addKnowledge}
           />
