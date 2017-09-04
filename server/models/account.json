@@ -19,10 +19,45 @@
     "email": {
       "type": "string"
     },
-    "cloudGroupOrders": {
+    "layout": {
       "type": [
-        "string"
+        "object",
+        {
+          "properties": {
+            "h": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number"
+            },
+            "x": {
+              "type": "number"
+            },
+            "maxH": {
+              "type": "number"
+            },
+            "maxW": {
+              "type": "number"
+            },
+            "minH": {
+              "type": "number"
+            },
+            "minW": {
+              "type": "number"
+            },
+            "moved": {
+              "type": "boolean"
+            },
+            "static": {
+              "type": "boolean"
+            }
+          }
+        }
       ]
+    },
+    "zoom": {
+      "type": "number",
+      "default": 1
     }
   },
   "validations": [],

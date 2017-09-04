@@ -1,5 +1,5 @@
 import { request } from "./base";
-import { ICloud, IKnowledge, ICloudGroup, IGridItem } from "../interfaces/index";
+import { ICloud, IKnowledge, ICloudGroup, IGridItem, ISky } from "../interfaces/index";
 
 /**
  * Fetching clouds
@@ -60,10 +60,27 @@ export const updateCloudGroupById = (id: string, cloudGroup: ICloudGroup) => {
     .then((cloudGroup: ICloudGroup) => <ICloudGroup> cloudGroup);
 };
 
+export const fetchAccountWithClouds = () =>
+  request
+    .get(`Accounts/${localStorage.getItem('UserId')}?filter={"include":"clouds"}`, {})
+    .then(a => a)
+/**
+ * Fetching clouds by account id
+ *
+ * See: .../explorer/#!/Clouds:GET
+ *
+ * @returns {ICloud[]} clouds - clouds
+ */
+export const fetchClouds = () => {
+  return request
+    .get(`Clouds?filter={"where": {"accountId": "${localStorage.getItem('UserId')}"}}`, {})
+    .then((clouds: ICloud[]) => <ICloud[]> clouds);
+};
+
 /**
  * Fetching cloud by id including knowledge
  *
- * See: .../explorer/#!/Clouds/{id}:POST
+ * See: .../explorer/#!/Clouds/{id}:GET
  * @param {string} id - cloud id
  *
  * @returns {ICloud} cloud - cloud
@@ -90,6 +107,11 @@ export const addNewCloud = (cloud: ICloud) => {
 
 /**
  * Update layout
+ *
+ * @param {IGridItem[]} layout - layout
+ * @param {number} zoom - layout zoom
+ *
+ * @returns {any} account - account
  */
 // export const updateGridLayout = (layout) => {
 //   return request
@@ -97,11 +119,10 @@ export const addNewCloud = (cloud: ICloud) => {
 //     .then((c) => c);
 // };
 
-export const updateSkyLayout = (id: string, sky) => {
-  return request
-    .patch(`Skies/${id}`, { layout: sky.layout, zoom: sky.zoom })
-    .then((c) => c);
-};
+export const updateLayout = ({ layout, zoom }) =>
+  request
+    .patch(`Accounts/${localStorage.getItem('UserId')}`, { layout, zoom })
+    .then((a: IGridItem[]) => a);
 
 /**
  * Creating new cloud group

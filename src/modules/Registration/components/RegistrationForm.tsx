@@ -45,9 +45,9 @@ let RegistrationForm = props => {
   /**
    * Dropzone input for Redux Form Field
    */
-  const dropzone = ({ avatar }) => {
+  const dropzone = ({ avatar, loading }) => {
     const onDrop = (acceptedFiles, rejectedFiles) => {
-      if(acceptedFiles.length) {
+      if ( acceptedFiles.length ) {
         props.handleImageUpload(acceptedFiles[0]);
       }
     };
@@ -61,9 +61,16 @@ let RegistrationForm = props => {
         {
           avatar ? <img src={avatar}/> :
             <div>
+              { !loading &&
               <p className="default">Drag n drop a profile picture here or&nbsp;
                 <ins>browse for one on your computer</ins>
               </p>
+              }
+              { loading &&
+              <p>
+                Uploading...
+              </p>
+              }
               <p className="reject-warning">
                 Supports only JPEG, PNG, SVG formats
               </p>

@@ -1,5 +1,5 @@
 import { compose, lifecycle, withState } from 'recompose';
-import { getUsersInit, getCloudsInit, updateLayout, deleteCloudInit } from "../actions";
+import { getCloudsInit, deleteCloudInit, updateLayoutAction } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
 import { handleModalAction, createCloudInit } from "../../actions";
@@ -16,7 +16,7 @@ const mapStateToProps: any = (state): any => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getClouds: (accountId) => dispatch(getCloudsInit(accountId)),
-  updateLayout: (layout) => layout.length && dispatch(updateLayout(layout)),
+  updateLayout: (layout) => layout.length && dispatch(updateLayoutAction(layout)),
   handleCloudFormSubmit: (action) => {
     dispatch(createCloudInit(action));
     dispatch(handleModalAction());

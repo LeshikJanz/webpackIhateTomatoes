@@ -37,7 +37,7 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
       treeId: new Date().getTime()
     };
 
-    if(payload && payload.fromExisting) {
+    if ( payload && payload.fromExisting ) {
       newKnowledge.text = knowledgeForCopy.text;
       newKnowledge.founderId = knowledgeForCopy.accountId;
       newKnowledge.treeId = knowledgeForCopy.treeId;
@@ -45,7 +45,11 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
 
     // check if cloud is not exist
     if ( !knowledgeCreateForm.cloud.id ) {
-      newKnowledge.cloudId = yield createCloud(knowledgeCreateForm);
+      const newCloud = yield addNewCloud({
+        name: knowledgeCreateForm.cloud.value,
+        accountId: localStorage.getItem('UserId')
+      });
+      newKnowledge.cloudId = newCloud.id;
     }
 
     const knowledge = yield addNewKnowledge(newKnowledge);
