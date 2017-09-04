@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import { Header } from "../components/index";
 import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
-import { ICloudGroup } from "interfaces/index";
-import { getCloudGroupsInit } from "modules/Board/actions";
-import { getCloudsInit } from "../../../Sky/actions";
+import { getCloudsInit } from "modules/Sky/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state

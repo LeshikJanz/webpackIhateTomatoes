@@ -8,21 +8,18 @@ export const handleModalAction = createAction('HANDLE_MODAL');
 
 export const handleConfirmModalAction = createAction('HANDLE_CONFIRM_MODAL');
 
-export const viewCloud = createAction('VIEW_CLOUD');
 export const fetchCloudInit = createAction('FETCH_CLOUD_INIT');
 export const fetchCloudDone = createAction('FETCH_CLOUD_DONE');
 export const fetchCloudError = createAction('FETCH_CLOUD_ERROR');
 export const createCloudInit = createAction('CREATE_CLOUD_INIT');
 export const createCloudDone = createAction('CREATE_CLOUD_DONE');
 export const createCloudError = createAction('CREATE_CLOUD_ERROR');
-
 export const updateCloudInit = createAction('UPDATE_CLOUD_INIT');
 export const updateCloudDone = createAction('UPDATE_CLOUD_DONE');
 export const updateCloudError = createAction('UPDATE_CLOUD_ERROR');
-
-export const createCloudGroupInit = createAction('CREATE_CLOUD_GROUP_INIT');
-export const createCloudGroupDone = createAction('CREATE_CLOUD_GROUP_DONE');
-export const createCloudGroupError = createAction('CREATE_CLOUD_GROUP_ERROR');
+export const deleteCloudInit = createAction('DELETE_CLOUD_INIT');
+export const deleteCloudDone = createAction('DELETE_CLOUD_DONE');
+export const deleteCloudError = createAction('DELETE_CLOUD_ERROR');
 
 export const createNewKnowledgeInit = createAction('CREATE_NEW_KNOWLEDGE_INIT');
 export const createNewKnowledgeDone = createAction('CREATE_NEW_KNOWLEDGE_DONE');

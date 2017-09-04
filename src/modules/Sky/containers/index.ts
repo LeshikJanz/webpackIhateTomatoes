@@ -1,8 +1,8 @@
 import { compose, lifecycle, withState } from 'recompose';
-import { getCloudsInit, deleteCloudInit, updateLayoutAction } from "../actions";
+import { getCloudsInit, updateLayoutAction } from "../actions";
 import { connect } from 'react-redux';
 import { GridLayout } from "../components/index";
-import { handleModalAction, createCloudInit } from "../../actions";
+import { handleModalAction, createCloudInit, deleteCloudInit } from "modules/actions";
 import { IModal } from "interfaces/index";
 import { push } from "react-router-redux";
 import { urls } from "urls";

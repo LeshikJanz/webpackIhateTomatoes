@@ -1,12 +1,13 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import {
-  getCloudsInit, getCloudsDone, getCloudsError, deleteCloudInit,
-  deleteCloudError, deleteCloudDone, updateLayoutAction
+  getCloudsInit, getCloudsDone, getCloudsError, updateLayoutAction
 } from "./actions";
 import { Task } from "redux-saga";
-import { addNewCloud, deleteCloud, fetchClouds, updateLayout, fetchAccountWithClouds } from "api/cloud";
-import { NotificationManager } from 'react-notifications';
-import { createCloudError, createCloudDone, createCloudInit } from "../actions";
+import { addNewCloud, deleteCloud, updateLayout, fetchAccountWithClouds } from "api/cloud";
+import {
+  createCloudError, createCloudDone, createCloudInit, deleteCloudInit, deleteCloudError,
+  deleteCloudDone
+} from "../actions";
 
 export const getSkyFromState: any = (state): any => state.Sky;
 
@@ -25,10 +26,9 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
     Cloud.accountId = Cloud.accountId || localStorage.getItem('UserId');
 
     const newCloud = yield addNewCloud(Cloud);
-    NotificationManager.success(`The cloud ${newCloud.name} has been successfully created`, 'Success!');
     yield put(createCloudDone(newCloud));
   } catch (error) {
-    NotificationManager.error(error.message, 'Error!');
+    console.error(error);
     yield put(createCloudError(error));
   }
 }
@@ -39,7 +39,7 @@ export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
     Sky.layout = payload;
     yield updateLayout(Sky);
   } catch (error) {
-    NotificationManager.error(error.message, 'Error!');
+    console.error(error);
   }
 }
 
@@ -47,10 +47,9 @@ export function* deleteCloudSaga({ payload }): Iterator<Object | Task> {
   try {
     yield deleteCloud(payload);
     yield put(getCloudsInit());
-    NotificationManager.success(`The cloud has been successfully deleted`, 'Success!');
     yield put(deleteCloudDone());
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
+  } catch (error) {
+    console.error(error);
     yield put(deleteCloudError(error));
   }
 }

@@ -26,11 +26,10 @@ export const uploadImage = (file: File) => {
  *
  * @returns {IUser[]} users - users
  */
-export const fetchUsers = (filter: string) => {
-  return request
+export const fetchUsers = (filter: string) =>
+  request
     .get("Accounts" + (filter ? `?filter={"where": {"username": {"regexp": "/${filter}%2B/"}}}` : ''), {})
     .then((users: IUser[]) => users);
-};
 
 /**
  * Update user by id

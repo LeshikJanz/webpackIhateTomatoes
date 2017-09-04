@@ -73,7 +73,8 @@ declare interface IUser extends Identifiable {
   email: string,
   emailVerified: boolean,
   accountId: string,
-  cloudGroupOrders: string[]
+  layout: IGridItem[],
+  zoom: number
 }
 
 /**

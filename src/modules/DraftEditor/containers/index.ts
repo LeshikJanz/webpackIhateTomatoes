@@ -4,7 +4,6 @@ import {
   editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction, createNewKnowledgeInit
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
-import { ICloudGroup, ICloud } from "interfaces/index";
 import { push } from "react-router-redux";
 import { urls } from "urls";
 
