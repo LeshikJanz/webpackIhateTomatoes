@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { urls } from "urls";
 import { Link } from 'react-router';
-import { Hint } from "../../../components/Hint/index";
+import { Hint } from "components/Hint/index";
 const SVG = require('react-svg');
 
 export const SkyItem = ({ cloud, handleModal, route }) => (

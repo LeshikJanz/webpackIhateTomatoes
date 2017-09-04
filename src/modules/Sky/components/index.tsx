@@ -11,7 +11,6 @@ import ZoomPanel from "../containers/zoomContainer";
 import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants";
 import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
-import { Hint } from "../../../components/Hint/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, openCloud, ...props }) => {

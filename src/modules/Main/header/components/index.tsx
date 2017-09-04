@@ -5,7 +5,8 @@ import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
 import { urls } from "urls";
 import Navigation from "modules/Main/navigation/containers";
-import { Hint } from "../../../../components/Hint/index";
+import { Hint } from "components/Hint/index";
+import ConfirmModal from "components/ConfirmModal/containers";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -14,13 +15,16 @@ const cx = classNames.bind(styles);
  * Main page's header
  */
 export const Header = (props) => {
-  const { modal, handleKnowledgeCreateModal, handleModal, addKnowledge, getClouds, clouds, params } = props;
+  const {
+    modal, handleKnowledgeCreateModal, handleNotAuthorizedModal,
+    handleModal, addKnowledge, getClouds, clouds, params
+  } = props;
 
   const createKnowledge = () => {
     if ( props.location.pathname !== `/${urls.board}` ) {
       getClouds();
     }
-    handleKnowledgeCreateModal();
+    localStorage.getItem('UserId') ? handleKnowledgeCreateModal() : handleNotAuthorizedModal();
   };
 
   return (
@@ -72,6 +76,12 @@ export const Header = (props) => {
             onSubmit={addKnowledge}
           />
         </CustomModal>
+        <ConfirmModal
+          handleConfirm={handleModal}
+          hideCancelButton={true}
+          confirmLabel='OK'
+          isModalOpen={modal.isOpen && modal.type === 'NotAuthorized'}
+        />
       </div>
       {props.children}
     </div>
