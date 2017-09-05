@@ -14,7 +14,7 @@ declare interface ICloud extends Identifiable {
   name: string,
   createDate?: Date,
   updateDate?: Date,
-  goal: string,
+  goal?: string,
   accountId: string
 }
 
@@ -73,7 +73,8 @@ declare interface IUser extends Identifiable {
   email: string,
   emailVerified: boolean,
   accountId: string,
-  cloudGroupOrders: string[]
+  layout: IGridItem[],
+  zoom: number
 }
 
 /**
@@ -115,16 +116,6 @@ export
 declare interface IValidation {
   field: string,
   value: string,
-}
-
-/**
- * Sky interface
- */
-export
-declare interface ISky extends Identifiable {
-  zoom: number,
-  layout?: IGridItem[],
-  accountId: string
 }
 
 /**

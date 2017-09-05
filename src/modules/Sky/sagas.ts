@@ -1,23 +1,22 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import {
-  getCloudsInit, getCloudsDone, getCloudsError, updateLayout, deleteCloudInit,
-  deleteCloudError, deleteCloudDone
+  getCloudsInit, getCloudsDone, getCloudsError, updateLayoutAction
 } from "./actions";
 import { Task } from "redux-saga";
-import { fetchSkiesByAccountId, addNewCloud, updateSkyLayout, deleteCloud } from "api/cloud";
-import { NotificationManager } from 'react-notifications';
-import { ICloud, ISky } from "../../interfaces/index";
-import { createCloudError, createCloudDone, createCloudInit } from "../actions";
+import { addNewCloud, deleteCloud, updateLayout, fetchAccountWithClouds } from "api/cloud";
+import {
+  createCloudError, createCloudDone, createCloudInit, deleteCloudInit, deleteCloudError,
+  deleteCloudDone
+} from "../actions";
 
 export const getSkyFromState: any = (state): any => state.Sky;
 
-export function* fetchSky(action): Iterator<Object | Task> {
+export function* fetchAccountWithCloudsSaga(): Iterator<Object | Task> {
   try {
-    const sky: ISky = yield fetchSkiesByAccountId(action.payload);
+    const sky = yield fetchAccountWithClouds();
     yield put(getCloudsDone(sky));
   } catch (error) {
-    NotificationManager.error(error.message, 'Error!');
-    yield put(getCloudsError(error));
+    yield put(getCloudsError(error))
   }
 }
 
@@ -26,14 +25,10 @@ export function* createCloudSaga(action): Iterator<Object | Task> {
     const Cloud = action.payload;
     Cloud.accountId = Cloud.accountId || localStorage.getItem('UserId');
 
-    const Sky = yield select(getSkyFromState)
-    Cloud.skyId = Cloud.skyId || Sky.id;
-
     const newCloud = yield addNewCloud(Cloud);
-    NotificationManager.success(`The cloud ${newCloud.name} has been successfully created`, 'Success!');
     yield put(createCloudDone(newCloud));
   } catch (error) {
-    NotificationManager.error(error.message, 'Error!');
+    console.error(error);
     yield put(createCloudError(error));
   }
 }
@@ -42,11 +37,9 @@ export function* updateLayoutSaga({ payload }): Iterator<Object | Task> {
   try {
     const Sky = yield select(getSkyFromState);
     Sky.layout = payload;
-    if ( Sky.id ) {
-      yield updateSkyLayout(Sky.id, Sky);
-    }
+    yield updateLayout(Sky);
   } catch (error) {
-    NotificationManager.error(error.message, 'Error!');
+    console.error(error);
   }
 }
 
@@ -54,19 +47,18 @@ export function* deleteCloudSaga({ payload }): Iterator<Object | Task> {
   try {
     yield deleteCloud(payload);
     yield put(getCloudsInit());
-    NotificationManager.success(`The cloud has been successfully deleted`, 'Success!');
     yield put(deleteCloudDone());
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
+  } catch (error) {
+    console.error(error);
     yield put(deleteCloudError(error));
   }
 }
 
 export function* skySaga() {
   yield [
-    takeEvery(getCloudsInit().type, fetchSky),
+    takeEvery(getCloudsInit().type, fetchAccountWithCloudsSaga),
     takeEvery(createCloudInit().type, createCloudSaga),
-    takeEvery(updateLayout().type, updateLayoutSaga),
+    takeEvery(updateLayoutAction().type, updateLayoutSaga),
     takeEvery(deleteCloudInit().type, deleteCloudSaga),
   ]
 }

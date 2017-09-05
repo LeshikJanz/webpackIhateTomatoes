@@ -21,7 +21,8 @@
     border-radius: 5px;
 
     > img {
-      height: 90%;
+      max-height: 90%;
+      max-width: 90%;
     }
   }
 
