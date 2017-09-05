@@ -1,21 +1,38 @@
 import * as React from "react";
-import {DraftJS, insertDataBlock} from "megadraft";
-const SVG = require('react-svg');
+import { DraftJS, insertDataBlock } from "megadraft";
+import { uploadImage } from "api/user";
 
 export default class BlockButton extends React.Component {
 
-  onClick = (e) => {
-    e.preventDefault();
-    const src = window.prompt("Enter a URL");
-    const data = {"type": "image", "src": src};
-    // Calls the onChange method with the new state.
-    this.props.onChange(insertDataBlock(this.props.editorState, data));
+  /**
+   * Async uploading images to Cloudinary
+   *
+   * See: https://www.youtube.com/watch?v=6uHfIv4981U
+   *
+   * @param {File} file - uploading file
+   * @returns {Promise}
+   */
+  uploadImageAsync(file: File): Promise<any> {
+    return new Promise(
+      (resolve, reject) =>
+        uploadImage(file)
+          .then((res) => resolve({ src: res.data.secure_url }))
+          .catch((err) => reject(err))
+    )
   }
+
+  onImageOpen = ({ target }) =>
+    this.uploadImageAsync(target.files[0])
+      .then(({ src }) => {
+        const data = { "type": "image", "src": src };
+        this.props.onChange(insertDataBlock(this.props.editorState, data));
+      });
 
   render() {
     return (
-      <button onClick={this.onClick} className="draft-leftmenu-button">
-        <SVG path="assets/icons/picture-icon.svg"/>
+      <button className="draft-leftmenu-button">
+        <img src="assets/icons/picture-icon.svg"/>
+        <input type="file" id="imgupload" onChange={this.onImageOpen}/>
       </button>
     );
   }

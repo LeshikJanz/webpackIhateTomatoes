@@ -1,6 +1,5 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import { uploadImage } from "api/user";
 import Editor, { composeDecorators } from 'draft-js-plugins-editor'
 import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { Subscription } from "./Subscription";
@@ -33,23 +32,6 @@ export default class MegaDraft extends React.Component<any, any> {
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
-
-  /**
-   * Async uploading images to Cloudinary
-   *
-   * See: https://www.youtube.com/watch?v=6uHfIv4981U
-   *
-   * @param {File} file - uploading file
-   * @returns {Promise}
-   */
-  uploadImageAsync(file: File): Promise<any> {
-    return new Promise(
-      (resolve, reject) =>
-        uploadImage(file)
-          .then((res) => resolve({ src: res.data.secure_url }))
-          .catch((err) => reject(err))
-    )
-  }
 
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });

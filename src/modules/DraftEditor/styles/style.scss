@@ -154,10 +154,30 @@
 }
 
 .draft-leftmenu-button {
+  position: relative;
+  cursor: pointer;
   padding: 0;
   opacity: 0.8;
+
+  > img {
+    cursor: pointer;
+  }
 
   &:hover {
     opacity: 1;
   }
+}
+
+input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
+#imgupload {
+  position: absolute;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  opacity: 0;
+  top: 0;
+  overflow: hidden;
 }
