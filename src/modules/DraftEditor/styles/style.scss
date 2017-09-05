@@ -111,7 +111,7 @@
     > .group-label {
       font-family: Avenir;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 26px;
       align-self: flex-start;
     }
 
@@ -143,8 +143,21 @@
   .toolbar__arrow {
     display: none !important;
   }
+  .DraftEditor-editorContainer {
+    font-size: 16px;
+    font-family: Serif-Light !important;
+  }
 }
 
 .draft-editor .ReactModal__Content {
   padding: 20px 100px !important;
+}
+
+.draft-leftmenu-button {
+  padding: 0;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 }

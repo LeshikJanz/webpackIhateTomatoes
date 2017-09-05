@@ -3,12 +3,17 @@ import '../styles/style.scss';
 import { uploadImage } from "api/user";
 import Editor, { composeDecorators } from 'draft-js-plugins-editor'
 import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
-import { IKnowledge } from "interfaces/index";
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
+
+import ImagePlugin from './plugins/imagePlugin';
+
+const plugins = [
+  ImagePlugin
+]
 
 export default class MegaDraft extends React.Component<any, any> {
 
@@ -46,9 +51,8 @@ export default class MegaDraft extends React.Component<any, any> {
     )
   }
 
-  handleRenewingModal() {
+  handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
-  }
 
   toDataURL(url, callback) {
     const xhr = new XMLHttpRequest();
@@ -65,7 +69,8 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
 
-  blockRenderer(block) {
+  blockRenderer = (block) => {
+    console.log('blockRenderer');
     if ( block.getType() === 'atomic' ) {
       const entity = Entity.get(block.getEntityAt(0));
       if ( entity.getType() === 'image' && entity.data.src.indexOf('blob') === 0 ) {
@@ -107,7 +112,7 @@ export default class MegaDraft extends React.Component<any, any> {
             { (knowledge.accountId !== localStorage.getItem('UserId')
             && !relations.find(r => r.accountId === localStorage.getItem('UserId')
             )) &&
-            <button onClick={this.handleRenewingModal.bind(this)}
+            <button onClick={this.handleRenewingModal}
                     className="tertiary small get-knowledge-button">
               Renew
             </button>
@@ -136,12 +141,15 @@ export default class MegaDraft extends React.Component<any, any> {
         <div>
           <MegadraftEditor
             editorState={this.state.editorState}
-            onChange={this.onChange}/>
+            onChange={this.onChange}
+            plugins={plugins}
+            blockRendererFn={this.blockRenderer}
+          />
         </div>
 
         <CustomModal
           title={ `Renewing ${knowledge.name}` }
-          handleModal={this.handleRenewingModal.bind(this)}
+          handleModal={this.handleRenewingModal}
           isModalOpen={this.state.isRenewingModalOpen}
         >
           <KnowledgeCreateForm
@@ -151,7 +159,7 @@ export default class MegaDraft extends React.Component<any, any> {
                 label: o.name,
                 value: o.id,
               }))}
-            handleModal={this.handleRenewingModal.bind(this)}
+            handleModal={this.handleRenewingModal}
             onSubmit={handleRenewing}
           />
         </CustomModal>
