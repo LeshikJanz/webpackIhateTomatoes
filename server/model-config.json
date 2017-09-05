@@ -52,9 +52,5 @@
   "Relation": {
     "dataSource": "mongodbDs",
     "public": true
-  },
-  "Sky": {
-    "dataSource": "mongodbDs",
-    "public": true
   }
 }
