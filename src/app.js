@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import 'react-notifications/lib/notifications.css';
 require('./app.scss');
 require('./styles/animations.scss');
+import 'megadraft/dist/css/megadraft.css';
 import 'react-select/dist/react-select.css';
 import 'axios/dist/axios.min.js';
 import { NotificationContainer } from 'react-notifications';
@@ -69,7 +70,7 @@ sagaMiddleware.run(rootSaga);
  */
 ReactDOM.render(
   <Provider store={store}>
-    <div style={{height: '100%'}}>
+    <div style={{ height: '100%' }}>
       <Router history={history} routes={routes}/>
       <Spinner />
       <NotificationContainer/>

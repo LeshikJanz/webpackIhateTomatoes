@@ -21,8 +21,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     height: '100%',
     overflow: 'scroll',
-    width: '85%',
-    maxWidth: '85%'
+    width: '95%',
+    maxWidth: '95%'
   }
 };
 

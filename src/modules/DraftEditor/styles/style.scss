@@ -131,3 +131,20 @@
   width: 60px;
   margin-left: 50px;
 }
+
+.megadraft {
+  padding: 20px 0 0 40px;
+}
+
+.megadraft-editor {
+  .toolbar__wrapper {
+    left: -100px !important;
+  }
+  .toolbar__arrow {
+    display: none !important;
+  }
+}
+
+.draft-editor .ReactModal__Content {
+  padding: 20px 100px !important;
+}
