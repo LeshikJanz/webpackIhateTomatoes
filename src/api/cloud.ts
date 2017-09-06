@@ -118,3 +118,16 @@ export const updateKnowledgeById = (id: string, knowledge: IKnowledge) =>
   request
     .put(`Knowledges/${id}`, knowledge)
     .then((knowledge: IKnowledge) => <IKnowledge> knowledge);
+
+/**
+ * Delete knowledge by id
+ *
+ * See: .../explorer/#!/Knowledges/{id}:DELETE
+ * @param {string} id - knowledge id
+ *
+ * @returns {number} count - counter of deleted elements
+ */
+export const deleteKnowledgeById = (id: string) =>
+  request
+    .delete(`Knowledges/${id}`)
+    .then((count: number) => count);

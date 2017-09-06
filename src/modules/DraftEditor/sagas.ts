@@ -4,6 +4,9 @@ import { IRelation, IKnowledge } from "interfaces/index";
 import { Task } from "redux-saga";
 import { NotificationManager } from 'react-notifications';
 import { addRenewer } from "api/relation";
+import { deleteKnowledgeDone, deleteKnowledgeInit, fetchCloudInit } from "../actions";
+import { deleteKnowledgeById, fetchKnowledgeById } from "api/cloud";
+import { getCloudsInit } from "../Sky/actions";
 
 const getFromState = (state: any) => state.Knowledge;
 
@@ -41,9 +44,28 @@ export function* createRenewerSaga(): Iterator<Object | Task> {
 }
 
 /**
+ * Deleting knowledge
+ *
+ * @param {IKnowledge} {payload} - deleting knowledge
+ *
+ * @returns {Iterator<Object | Task>}
+ */
+export function* deleteKnowledgeSaga({ payload }): Iterator<Object | Task> {
+  try {
+    yield deleteKnowledgeById(payload.id);
+    yield put(fetchCloudInit(payload.cloudId));
+    NotificationManager.success(`Knowledge has successfully deleted`, 'Success!');
+    yield put(deleteKnowledgeDone());
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/**
  * Draft modal saga
  */
 export function* editorSaga() {
   yield takeEvery(createRenewerInit().type, createRenewerSaga);
+  yield takeEvery(deleteKnowledgeInit().type, deleteKnowledgeSaga);
 }
 

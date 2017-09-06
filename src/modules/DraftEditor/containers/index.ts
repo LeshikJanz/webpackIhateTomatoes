@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import {
-  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction, createNewKnowledgeInit
+  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction, createNewKnowledgeInit, deleteKnowledgeInit
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
 import { push } from "react-router-redux";
 import { urls } from "urls";
 import MegaDraft from "../components/Megadraft";
+import { IKnowledge, IModal } from "../../../interfaces/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -18,7 +19,8 @@ import MegaDraft from "../components/Megadraft";
 const mapStateToProps = (state) => ({
   knowledge: state.Knowledge,
   user: state.Knowledge.account,
-  clouds: state.Sky.clouds
+  clouds: state.Sky.clouds,
+  modal: state.Modal
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({
@@ -37,7 +39,12 @@ const mergeProps: any = (props, { dispatch }): any => ({
   goToUser: (accountId: string) => {
     dispatch(handleModalAction());
     dispatch(push(`${urls.user}/${accountId}/${urls.board}`))
-  }
+  },
+  deleteKnowledge: (knowledge: IKnowledge) => {
+    dispatch(deleteKnowledgeInit(knowledge));
+    dispatch(handleModalAction());
+  },
+  handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
 });
 
 /**

@@ -25,6 +25,10 @@ export const createNewKnowledgeInit = createAction('CREATE_NEW_KNOWLEDGE_INIT');
 export const createNewKnowledgeDone = createAction('CREATE_NEW_KNOWLEDGE_DONE');
 export const createNewKnowledgeError = createAction('CREATE_NEW_KNOWLEDGE_ERROR');
 
+export const deleteKnowledgeInit = createAction('DELETE_KNOWLEDGE_INIT');
+export const deleteKnowledgeDone = createAction('DELETE_KNOWLEDGE_DONE');
+export const deleteKnowledgeError = createAction('DELETE_KNOWLEDGE_ERROR');
+
 export const openKnowledge = createAction('OPEN_KNOWLEDGE');
 export const clearKnowledge = createAction('CLEAR_KNOWLEDGE');
 export const updateKnowledge = createAction('UPDATE_KNOWLEDGE');

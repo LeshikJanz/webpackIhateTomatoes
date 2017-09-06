@@ -7,9 +7,11 @@ import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
+const SVG = require('react-svg');
 
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
+import { ConfirmModal } from "components/ConfirmModal/components";
 
 const plugins = [
   ImagePlugin,
@@ -67,6 +69,15 @@ export default class MegaDraft extends React.Component<any, any> {
         });
       }
     }
+  };
+
+  handleDeleteModal = () => {
+    this.setState({ isDeleteModalOpen: !this.state.isDeleteModalOpen });
+  }
+
+  handleDeleteKnowledge = () => {
+    this.handleDeleteModal();
+    this.props.deleteKnowledge(this.props.knowledge);
   }
 
   /**
@@ -76,7 +87,7 @@ export default class MegaDraft extends React.Component<any, any> {
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
+    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser, deleteKnowledge, modal } = this.props;
 
     const relations = knowledge.relations || [];
 
@@ -85,13 +96,23 @@ export default class MegaDraft extends React.Component<any, any> {
         <div className="modal-header draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
 
-          <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
-                 className="input-container"
-                 style={{ marginRight: 'auto', marginLeft: '5%' }}
-                 placeholder="Enter the name..."
-                 title="Knowledge name"
-                 value={knowledge.name}
-                 onChange={handleNameChange}/>
+          <div className="knowledge-name-container">
+            <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
+                   style={{ marginRight: 'auto', marginLeft: '5%' }}
+                   className="input-container"
+                   placeholder="Enter the name..."
+                   title="Knowledge name"
+                   value={knowledge.name}
+                   onChange={handleNameChange}/>
+
+            <div className="delete-icon"
+                 onClick={this.handleDeleteModal}
+            >
+              <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+              <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+            </div>
+
+          </div>
           <div className="renew-actions">
             { (knowledge.accountId !== localStorage.getItem('UserId')
             && !relations.find(r => r.accountId === localStorage.getItem('UserId')
@@ -147,6 +168,16 @@ export default class MegaDraft extends React.Component<any, any> {
             onSubmit={handleRenewing}
           />
         </CustomModal>
+
+        <ConfirmModal
+          handleConfirm={ this.handleDeleteKnowledge }
+          isModalOpen={this.state.isDeleteModalOpen}
+          modal={{
+            title: "Confirm?",
+            text: `Are you sure you want to delete <b>${knowledge.name}?</b> This cloud will be archive and you will not see it on the Cloud.`,
+            itemId: knowledge.id
+          }}
+        />
       </div>
     )
   }

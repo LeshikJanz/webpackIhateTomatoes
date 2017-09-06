@@ -189,3 +189,27 @@ input[type=file]::-webkit-file-upload-button {
   top: 0;
   overflow: hidden;
 }
+
+.knowledge-name-container {
+  display: flex;
+  margin-right: auto;
+
+  > img {
+    align-self: flex-start;
+  }
+}
+
+.delete-icon {
+  cursor: pointer;
+  margin-left: 15px;
+
+  > div:first-child {
+    height: 16px;
+  }
+
+  &:hover {
+    .delete-hat {
+      transform: rotate(30deg) translate(3px, -5px);
+    }
+  }
+}
