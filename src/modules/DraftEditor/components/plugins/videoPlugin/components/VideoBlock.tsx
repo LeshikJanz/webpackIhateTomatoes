@@ -7,6 +7,7 @@ import { IMAGE_POSITIONS } from "../constants";
 import '../styles/style.scss';
 import ReactPlayer from 'react-player';
 import { NotificationManager } from 'react-notifications';
+const SVG = require('react-svg');
 
 export const VideoBlock = ({ container: { updateData, remove }, data }) => {
 
@@ -21,8 +22,12 @@ export const VideoBlock = ({ container: { updateData, remove }, data }) => {
 
   return (
     <div className="video-draft-container">
-      <div className="delete-icon">
-        <img src="assets/icons/delete-box.svg" onClick={deleteCurBlock}/>
+      <div className="delete-icon"
+           placeholder="Delete Knowledge"
+           onClick={deleteCurBlock}
+      >
+        <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+        <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
       </div>
       <ReactPlayer
         url={data.src}

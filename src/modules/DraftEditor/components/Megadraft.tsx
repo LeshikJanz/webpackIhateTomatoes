@@ -107,6 +107,7 @@ export default class MegaDraft extends React.Component<any, any> {
                      onChange={handleNameChange}/>
 
               <div className="delete-icon"
+                   placeholder="Delete Knowledge"
                    onClick={this.handleDeleteModal}
               >
                 <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>

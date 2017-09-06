@@ -7,7 +7,7 @@ const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
-import { Spinner } from "../../../../../../components/Spinner/index";
+import { Spinner } from "components/Spinner/index";
 const SVG = require('react-svg');
 
 export const ImageBlock = ({ container: { updateData, remove }, data }) => {
@@ -21,13 +21,14 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF, SVG formats', 'Error!');
   };
 
-  console.log('data');
-  console.log(data);
-
   return (
     <div className="image-draft-container">
-      <div className="delete-icon">
-        <img src="assets/icons/delete-box.svg" onClick={deleteCurBlock}/>
+      <div className="delete-icon"
+           placeholder="Delete Knowledge"
+           onClick={deleteCurBlock}
+      >
+        <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+        <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
       </div>
       <div className={cx([{ 'loading-filter': data.isLoading }])}>
         <Spinner loading={data.isLoading}/>

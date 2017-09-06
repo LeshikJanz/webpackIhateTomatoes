@@ -2,7 +2,6 @@
 
 .input-container {
   padding: 6px 22px;
-  text-align: center;
   @include input-container;
   @include input-placeholder;
   @include input-text;
