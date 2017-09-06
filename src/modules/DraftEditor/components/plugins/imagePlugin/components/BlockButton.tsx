@@ -1,6 +1,6 @@
 import * as React from "react";
 import { DraftJS, insertDataBlock } from "megadraft";
-import { uploadImage } from "../../../../../../api/user";
+import { uploadImage } from "api/user";
 
 export const BlockButton = ({ editorState, onChange }) => {
 
@@ -18,7 +18,7 @@ export const BlockButton = ({ editorState, onChange }) => {
         uploadImage(file)
           .then((res) => resolve({ src: res.data.secure_url }))
           .catch((err) => reject(err))
-    )
+    );
 
   const onImageOpen = ({ target }) =>
     uploadImageAsync(target.files[0])
@@ -30,7 +30,7 @@ export const BlockButton = ({ editorState, onChange }) => {
   return (
     <button className="draft-leftmenu-button">
       <img src="assets/icons/picture-icon.svg"/>
-      <input type="file" id="imgupload" onChange={onImageOpen}/>
+      <input type="file" id="imgupload" onChange={onImageOpen} accept="image/jpeg,image/png,image/gif,image/svg"/>
     </button>
   );
 };

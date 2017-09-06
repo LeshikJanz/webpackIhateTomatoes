@@ -8,7 +8,6 @@ import '../styles/style.scss';
 import ReactPlayer from 'react-player';
 import { NotificationManager } from 'react-notifications';
 
-
 export const VideoBlock = ({ container: { updateData, remove }, data }) => {
 
   const handleCaptionChange = ({ target }) => updateData({ caption: target.value });
