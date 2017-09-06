@@ -24,7 +24,7 @@ export default class BlockButton extends React.Component {
   onImageOpen = ({ target }) =>
     this.uploadImageAsync(target.files[0])
       .then(({ src }) => {
-        const data = { "type": "image", "src": src };
+        const data = { "type": "image", "src": src, "caption": "" };
         this.props.onChange(insertDataBlock(this.props.editorState, data));
       });
 

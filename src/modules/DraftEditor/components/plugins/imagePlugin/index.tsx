@@ -12,9 +12,11 @@ export default {
   // React component for rendering the content block
   blockComponent: ImageBlock,
   options: {
-    defaultDisplay: "center",
+    defaultDisplay: "medium",
     displayOptions: [
-      { "key": "center", "icon": MegadraftIcons.MediaMediumIcon, "label": "CENTER" },
-      { "key": "left", "icon": MegadraftIcons.MediaSmallIcon, "label": "LEFT" }]
+      { "key": "small", "icon": MegadraftIcons.MediaSmallIcon, "label": "SMALL" },
+      { "key": "medium", "icon": MegadraftIcons.MediaMediumIcon, "label": "MEDIUM" },
+      { "key": "big", "icon": MegadraftIcons.MediaBigIcon, "label": "BIG" }
+    ]
   }
 };
