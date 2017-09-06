@@ -19,6 +19,7 @@ import 'axios/dist/axios.min.js';
 import { NotificationContainer } from 'react-notifications';
 import 'react-grid-layout/css/styles.css';
 import Spinner from './components/Spinner/index';
+import "video-react/dist/video-react.css";
 
 /**
  * Saga Middleware for Redux to Handle Side Effects

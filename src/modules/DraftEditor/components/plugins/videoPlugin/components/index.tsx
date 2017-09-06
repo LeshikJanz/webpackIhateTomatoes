@@ -1,16 +1,16 @@
-import ImageBlock from "./blockComponent";
-import BlockButton from "./BlockButton";
 import { MegadraftIcons } from "megadraft";
+import { BlockButton } from "./BlockButton";
+import { VideoBlock } from "./VideoBlock";
 
 export default {
   // Friendly plugin name
-  title: "Image",
+  title: "Video",
   // A unique plugin name used to identify the plugin and its blocks
-  type: "image",
+  type: "video",
   // React component to be rendered in the block sidebar
   buttonComponent: BlockButton,
   // React component for rendering the content block
-  blockComponent: ImageBlock,
+  blockComponent: VideoBlock,
   options: {
     defaultDisplay: "medium",
     displayOptions: [

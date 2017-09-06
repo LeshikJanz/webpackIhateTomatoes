@@ -8,11 +8,13 @@ import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
 
-import ImagePlugin from './plugins/imagePlugin';
+import ImagePlugin from './plugins/imagePlugin/components/index';
+import VideoPlugin from './plugins/videoPlugin/components/index';
 
 const plugins = [
-  ImagePlugin
-]
+  ImagePlugin,
+  VideoPlugin
+];
 
 export default class MegaDraft extends React.Component<any, any> {
 
