@@ -4,6 +4,7 @@
 const config = {
   baseUrl: '/api/'
 };
+import axios from 'axios';
 
 /**
  * Function for sending http requests

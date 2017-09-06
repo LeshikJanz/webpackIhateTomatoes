@@ -1,5 +1,5 @@
-import { createReducer } from 'utils/createReducer';
-import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "modules/actions";
+import { createReducer } from '../../../utils/createReducer';
+import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "../../actions";
 
 /**
  * Initial state for knowledge reducer

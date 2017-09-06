@@ -30,7 +30,8 @@
   //min-height: 80vh;
 
   span {
-    font-family: Cooper-Medium;
+    font-family: Arial;
+    letter-spacing: 0.1px;
   }
 }
 
@@ -111,7 +112,7 @@
     > .group-label {
       font-family: Avenir;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 18px;
       align-self: flex-start;
     }
 
@@ -130,4 +131,74 @@
   cursor: pointer;
   width: 60px;
   margin-left: 50px;
+}
+
+.megadraft {
+  padding: 20px 0 0 40px;
+}
+
+.megadraft-editor {
+  .toolbar__wrapper {
+    left: -100px !important;
+  }
+  .toolbar__arrow {
+    display: none !important;
+  }
+  .DraftEditor-editorContainer {
+    font-size: 16px;
+    font-family: Serif-Light !important;
+  }
+
+  .block__input {
+    font-size: 16px !important;
+    font-family: Serif-bold !important;
+    text-align: center;
+    outline: none !important;
+  }
+}
+
+.draft-editor .ReactModal__Content {
+  padding: 20px 100px !important;
+}
+
+.draft-leftmenu-button {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+
+  > img {
+    cursor: pointer;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
+#imgupload {
+  position: absolute;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  opacity: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.knowledge-name-container {
+  display: flex;
+  margin-right: auto;
+
+  > img {
+    align-self: flex-start;
+  }
+
+  .input-container {
+    text-align: center;
+  }
 }

@@ -1,0 +1,42 @@
+.image-draft-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FBFBFB;
+  text-align: center;
+
+  &:hover .delete-icon {
+    opacity: 0.8;
+  }
+
+  .delete-icon {
+    opacity: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: .3s opacity;
+
+    &:hover {
+      opacity: 1;
+      transition: .3s opacity;
+    }
+  }
+}
+
+.image-tools {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loading-filter {
+  position: relative;
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .spinner {
+    position: absolute !important;
+  }
+}

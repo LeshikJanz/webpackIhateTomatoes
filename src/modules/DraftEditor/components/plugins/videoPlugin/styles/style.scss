@@ -1,0 +1,29 @@
+.video-draft-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FBFBFB;
+  text-align: center;
+
+  &:hover .delete-icon {
+    opacity: 0.8;
+  }
+
+  .delete-icon {
+    opacity: 0;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: .3s opacity;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+
+    &:hover {
+      opacity: 1;
+      transition: .3s opacity;
+    }
+  }
+
+  > div:nth-child(2) {
+    margin: auto;
+  }
+}

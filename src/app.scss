@@ -77,3 +77,18 @@ h4 {
   bottom: 10px;
   left: 10px;
 }
+
+.delete-icon {
+  cursor: pointer;
+  margin-left: 15px;
+
+  > div:first-child {
+    height: 16px;
+  }
+
+  &:hover {
+    .delete-hat {
+      transform: rotate(30deg) translate(3px, -5px);
+    }
+  }
+}

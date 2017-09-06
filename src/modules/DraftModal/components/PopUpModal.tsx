@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Modal from 'react-modal';
-import LastDraft from 'modules/DraftEditor/containers';
 import customStyles from "../styles/style";
+import MegaDraft from "modules/DraftEditor/containers";
 
 /**
  * Modal for knowledge editor
@@ -13,14 +13,14 @@ export const PopUpModal = (props) => {
   };
 
   return (
-    <div>
+    <div className="draft-editor">
       <Modal
         isOpen={props.modal.isOpen && props.modal.type === 'Editor'}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <LastDraft/>
+        <MegaDraft/>
       </Modal>
     </div>
   );
