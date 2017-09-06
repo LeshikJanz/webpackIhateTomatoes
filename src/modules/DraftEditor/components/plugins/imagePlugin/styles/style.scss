@@ -28,3 +28,15 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.loading-filter {
+  position: relative;
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .spinner {
+    position: absolute !important;
+  }
+}

@@ -2,9 +2,12 @@ import * as React from "react";
 import { MegadraftPlugin } from "megadraft";
 const { BlockData, BlockInput } = MegadraftPlugin;
 import { DraftJS, insertDataBlock } from "megadraft";
-import '../styles/style.scss';
+const styles = require('../styles/style.scss');
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
+import { Spinner } from "../../../../../../components/Spinner/index";
 const SVG = require('react-svg');
 
 export const ImageBlock = ({ container: { updateData, remove }, data }) => {
@@ -18,12 +21,16 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF, SVG formats', 'Error!');
   };
 
+  console.log('data');
+  console.log(data);
+
   return (
     <div className="image-draft-container">
       <div className="delete-icon">
         <img src="assets/icons/delete-box.svg" onClick={deleteCurBlock}/>
       </div>
-      <div>
+      <div className={cx([{ 'loading-filter': data.isLoading }])}>
+        <Spinner loading={data.isLoading}/>
         <img src={data.src} onError={handleImageError}/>
       </div>
       <BlockData>

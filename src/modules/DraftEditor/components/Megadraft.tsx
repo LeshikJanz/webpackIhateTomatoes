@@ -12,6 +12,7 @@ const SVG = require('react-svg');
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
+import { Hint } from "../../../components/Hint/index";
 
 const plugins = [
   ImagePlugin,
@@ -95,23 +96,23 @@ export default class MegaDraft extends React.Component<any, any> {
       <div>
         <div className="modal-header draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
-
           <div className="knowledge-name-container">
-            <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
-                   style={{ marginRight: 'auto', marginLeft: '5%' }}
-                   className="input-container"
-                   placeholder="Enter the name..."
-                   title="Knowledge name"
-                   value={knowledge.name}
-                   onChange={handleNameChange}/>
+            <Hint text="This is current knowledge name">
+              <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
+                     style={{ marginRight: 'auto', marginLeft: '5%' }}
+                     className="input-container"
+                     placeholder="Enter the name..."
+                     title="Knowledge name"
+                     value={knowledge.name}
+                     onChange={handleNameChange}/>
 
-            <div className="delete-icon"
-                 onClick={this.handleDeleteModal}
-            >
-              <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
-              <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
-            </div>
-
+              <div className="delete-icon"
+                   onClick={this.handleDeleteModal}
+              >
+                <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
+                <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+              </div>
+            </Hint>
           </div>
           <div className="renew-actions">
             { (knowledge.accountId !== localStorage.getItem('UserId')
