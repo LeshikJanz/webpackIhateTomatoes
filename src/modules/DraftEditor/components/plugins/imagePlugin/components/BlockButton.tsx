@@ -15,7 +15,7 @@ export const BlockButton = ({ editorState, onChange }) => {
    */
   const uploadImageAsync = (file: File): Promise<any> => {
     const blobUrl = URL.createObjectURL(file);
-    const data = { "type": "image", "src": blobUrl, "caption": "", imgPosition: 'left', width: DEFAULT_WIDTH, isLoading: true };
+    const data = { "type": "image", "src": blobUrl, "caption": "", imgPosition: 'center', width: DEFAULT_WIDTH, isLoading: true };
     onChange(insertDataBlock(editorState, data));
 
     return new Promise(
@@ -29,7 +29,7 @@ export const BlockButton = ({ editorState, onChange }) => {
   const onImageOpen = ({ target }) =>
     uploadImageAsync(target.files[0])
       .then(({ src }) => {
-        const data = { "type": "image", "src": src, "caption": "", imgPosition: 'left', width: DEFAULT_WIDTH, isLoading: false };
+        const data = { "type": "image", "src": src, "caption": "", imgPosition: 'center', width: DEFAULT_WIDTH, isLoading: false };
         onChange(insertDataBlock(editorState, data));
       });
 

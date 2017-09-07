@@ -25,7 +25,7 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
       <div className="image-tools">
         <div className="image-zoom">
           <label htmlFor="width">Zoom: { data.width / 100 }</label>
-          <input type="range" min='1' max='150' step='1' name="width"
+          <input type="range" min='10' max='100' step='1' name="width"
                  defaultValue={data.width} onChange={handleChange}/>
         </div>
         <div className="image-position">
