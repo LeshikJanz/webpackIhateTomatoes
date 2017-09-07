@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DraftJS, insertDataBlock } from "megadraft";
 import { uploadImage } from "api/user";
+import { DEFAULT_WIDTH } from "../constants/index";
 
 export const BlockButton = ({ editorState, onChange }) => {
 
@@ -14,7 +15,7 @@ export const BlockButton = ({ editorState, onChange }) => {
    */
   const uploadImageAsync = (file: File): Promise<any> => {
     const blobUrl = URL.createObjectURL(file);
-    const data = { "type": "image", "src": blobUrl, "caption": "", imgPosition: 'left', isLoading: true };
+    const data = { "type": "image", "src": blobUrl, "caption": "", imgPosition: 'left', width: DEFAULT_WIDTH, isLoading: true };
     onChange(insertDataBlock(editorState, data));
 
     return new Promise(
@@ -28,14 +29,14 @@ export const BlockButton = ({ editorState, onChange }) => {
   const onImageOpen = ({ target }) =>
     uploadImageAsync(target.files[0])
       .then(({ src }) => {
-        const data = { "type": "image", "src": src, "caption": "", imgPosition: 'left', isLoading: false };
+        const data = { "type": "image", "src": src, "caption": "", imgPosition: 'left', width: DEFAULT_WIDTH, isLoading: false };
         onChange(insertDataBlock(editorState, data));
       });
 
   return (
     <button className="draft-leftmenu-button">
       <img src="assets/icons/picture-icon.svg"/>
-      <input type="file" id="imgupload" onChange={onImageOpen} accept="image/jpeg,image/png,image/gif,image/svg"/>
+      <input type="file" id="imgupload" onChange={onImageOpen} accept="image/jpeg,image/png,image/gif"/>
     </button>
   );
 };
