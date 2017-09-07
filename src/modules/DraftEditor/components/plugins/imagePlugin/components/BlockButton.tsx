@@ -20,7 +20,7 @@ export const BlockButton = ({ editorState, onChange }) => {
     return new Promise(
       (resolve, reject) =>
         uploadImage(file)
-          .then((res) => resolve({ src: res.data.secure_url }))
+          .then((res) => resolve({ src: res.data.link }))
           .catch((err) => reject(err))
     );
   };

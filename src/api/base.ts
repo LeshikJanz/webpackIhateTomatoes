@@ -1,3 +1,4 @@
+import { IMGUR_CLIENT_ID, IMGUR_URL } from "../constants/index";
 /**
  * Initial http configuration
  */
@@ -13,7 +14,7 @@ import axios from 'axios';
  *
  * @returns {Response} response - http response
  */
-declare function fetch( ...params );
+declare function fetch(...params);
 
 /**
  * Function for converting http response to JSON format
@@ -22,13 +23,13 @@ declare function fetch( ...params );
  *
  * @returns {any} response - http response
  */
-export const JSONResponse = ( response: any ) => {
+export const JSONResponse = (response: any) => {
   if ( response.ok ) {
     return response.json();
   }
 
   const json = response.json();
-  return json.then(( err: any ) => {
+  return json.then((err: any) => {
     throw err;
   });
 };
@@ -39,11 +40,11 @@ export const JSONResponse = ( response: any ) => {
  * @type {any}
  */
 export const request: any = new Object({
-  get: ( apiEndpoint: string, params?: any ) => {
+  get: (apiEndpoint: string, params?: any) => {
 
     const paramsString = Object
       .keys(params)
-      .map(( key ) => `${key}=${encodeURIComponent(params[ key ])}`)
+      .map((key) => `${key}=${encodeURIComponent(params[key])}`)
       .join("&");
 
     return fetch(config.baseUrl + apiEndpoint + ( paramsString ? `${paramsString}` : ""),
@@ -54,7 +55,7 @@ export const request: any = new Object({
       })
       .then(JSONResponse);
   },
-  post: ( apiEndpoint: string, params?: any ) => {
+  post: (apiEndpoint: string, params?: any) => {
     return fetch(config.baseUrl + apiEndpoint, {
       method: "POST",
       body: JSON.stringify(params),
@@ -66,7 +67,7 @@ export const request: any = new Object({
     })
       .then(JSONResponse);
   },
-  put: ( apiEndpoint: string, params?: any ) => {
+  put: (apiEndpoint: string, params?: any) => {
     return fetch(config.baseUrl + apiEndpoint, {
       method: "PUT",
       body: JSON.stringify(params),
@@ -78,7 +79,7 @@ export const request: any = new Object({
     })
       .then(JSONResponse);
   },
-  patch: ( apiEndpoint: string, params?: any ) => {
+  patch: (apiEndpoint: string, params?: any) => {
     return fetch(config.baseUrl + apiEndpoint, {
       method: "PATCH",
       body: JSON.stringify(params),
@@ -90,7 +91,7 @@ export const request: any = new Object({
     })
       .then(JSONResponse);
   },
-  delete: ( apiEndpoint: string, params?: any ) => {
+  delete: (apiEndpoint: string, params?: any) => {
     return fetch(config.baseUrl + apiEndpoint, {
       method: "DELETE",
       body: JSON.stringify(params),
@@ -102,7 +103,7 @@ export const request: any = new Object({
     })
       .then(JSONResponse);
   },
-  upload: ( apiEndpoint: string, file: File, formData: FormData ) => {
+  cloudinaryUpload: (apiEndpoint: string, file: File, formData: FormData) => {
     return axios({
       url: apiEndpoint,
       method: 'POST',
@@ -112,6 +113,15 @@ export const request: any = new Object({
       data: formData
     }).then(res => res)
       .catch(err => console.error(err));
+  },
+  imgurUpload: (formData: FormData) => {
+    return fetch(IMGUR_URL, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
+      }
+    }).then(JSONResponse)
   }
 });
 

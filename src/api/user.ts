@@ -10,13 +10,17 @@ import { IUser } from "../interfaces/index";
  */
 export const uploadImage = (file: File) => {
   const formData = new FormData();
-
-  formData.append('file', file);
-  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  formData.append('image', file);
 
   return request
-    .upload(CLOUDINARY_URL, file, formData)
-    .then((res) => res);
+    .imgurUpload(formData)
+    .then(res => res)
+
+  // For cloudinary uploading. All above except request is the same.
+  // formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  // return request
+  //   .upload(CLOUDINARY_URL, file, formData)
+  //   .then((res) => res);
 };
 
 /**
