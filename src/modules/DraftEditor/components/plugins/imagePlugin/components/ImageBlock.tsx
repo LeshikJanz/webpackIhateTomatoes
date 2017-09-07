@@ -20,9 +20,6 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF', 'Error!');
   };
 
-  console.log('data');
-  console.log(data);
-
   return (
     <div className="image-draft-container">
       <div className="image-tools">
@@ -50,7 +47,8 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
           <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
         </div>
       </div>
-      <div className={cx(['img-block',{ 'loading-filter': data.isLoading }])} style={{ textAlign: `${data.imgPosition}` }}>
+      <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
+           style={{ textAlign: `${data.imgPosition}` }}>
         <Spinner loading={data.isLoading}/>
         <img src={data.src} onError={handleImageError} style={{ width: `${data.width}%` }}/>
       </div>
