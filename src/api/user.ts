@@ -15,12 +15,6 @@ export const uploadImage = (file: File) => {
   return request
     .imgurUpload(formData)
     .then(res => res)
-
-  // For cloudinary uploading. All above except request is the same.
-  // formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-  // return request
-  //   .upload(CLOUDINARY_URL, file, formData)
-  //   .then((res) => res);
 };
 
 /**

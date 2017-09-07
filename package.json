@@ -174,6 +174,7 @@
     "megadraft": "^0.4.27",
     "moment": "^2.18.1",
     "net": "^1.0.2",
+    "nodemailer": "^4.1.0",
     "npm": "^5.4.0",
     "nsp": "^2.1.0",
     "postcss-loader": "^1.3.2",

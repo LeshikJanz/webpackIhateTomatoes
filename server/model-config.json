@@ -41,10 +41,6 @@
     "dataSource": "mongodbDs",
     "public": true
   },
-  "CloudGroup": {
-    "dataSource": "mongodbDs",
-    "public": true
-  },
   "Account": {
     "dataSource": "mongodbDs",
     "public": true

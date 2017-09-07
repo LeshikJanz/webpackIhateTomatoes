@@ -39,7 +39,7 @@ export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
   try {
     const response = yield uploadImage(payload);
     yield put(avatarUploadDone());
-    yield put(change("RegistrationForm", "avatar", response.data.secure_url))
+    yield put(change("RegistrationForm", "avatar", response.data.link))
   } catch (error) {
     console.error(error);
     yield put(avatarUploadError(error));
