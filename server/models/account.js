@@ -33,33 +33,7 @@ module.exports = function (Account) {
 
   });
 
-  Account.observe('access', function (ctx, next) {
-    console.log('ctx.req');
-    console.log(ctx.req);
-    if(ctx.args && ctx.args.request) {
-      console.log('catched')
-    }
-    next();
+  Account.beforeRemote('confirm', function (ctx) {
+    ctx.res.send('Your account has successfully confirmed');
   });
-
-
-  // Account.observe('after save', function (ctx, next) {
-  //   Account.generateVerificationToken(ctx.instance, Account.getVerifyOptions(), function (err, token) {
-  //     if (err) {
-  //       next(err);
-  //     }
-  //
-  //     email.transporter.sendMail({
-  //       from: 'BigHead <treshaalesha@gmail.com>',
-  //       to: ctx.instance.email,
-  //       subject: 'Welcome to BigHead!',
-  //       text: '',
-  //       html: email.getEmailTemplate(ctx.instance.username, email.getConfirmationLink(ctx.instance.id, token))
-  //     }, function (err, res) {
-  //       if (err) console.log(err);
-  //       else console.log('email sent');
-  //     });
-  //   });
-  //   next();
-  // })
 };
