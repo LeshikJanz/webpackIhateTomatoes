@@ -1,10 +1,16 @@
 const nodemailer = require('nodemailer');
-var fs = require('fs');
+const fs = require('fs');
 const NAME_SELECTOR = 'emailer-name';
+const CONFIRAMTION_LINK_SELECTOR = 'confirmation-link';
 
-function getEmailTemplate(name) {
+function getConfirmationLink(userId, token) {
+  return `http://localhost:3000/api/Accounts/confirm?uid=${userId}&token=${token}&redirect=https://google.com`;
+}
+
+function getEmailTemplate(name, confirmation_link) {
   return fs.readFileSync(__dirname + '/content/template.html', "utf8")
-    .replace(NAME_SELECTOR, name);
+    .replace(NAME_SELECTOR, name)
+    .replace(CONFIRAMTION_LINK_SELECTOR, confirmation_link);
 }
 
 const senderEmail = 'treshaalesha@gmail.com';
@@ -25,3 +31,4 @@ const transporter = nodemailer.createTransport({
 
 exports.transporter = transporter;
 exports.getEmailTemplate = getEmailTemplate;
+exports.getConfirmationLink = getConfirmationLink;

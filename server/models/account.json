@@ -3,20 +3,11 @@
   "plural": "Accounts",
   "base": "User",
   "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
   "properties": {
     "avatar": {
       "type": "string"
     },
     "address": {
-      "type": "string"
-    },
-    "password": {
-      "type": "string"
-    },
-    "email": {
       "type": "string"
     },
     "layout": {

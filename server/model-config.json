@@ -43,13 +43,16 @@
   },
   "Account": {
     "dataSource": "mongodbDs",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "Relation": {
     "dataSource": "mongodbDs",
     "public": true
   },
   "Email": {
-    "dataSource": "myEmailDataSource"
+    "dataSource": "emailDs"
   }
 }
