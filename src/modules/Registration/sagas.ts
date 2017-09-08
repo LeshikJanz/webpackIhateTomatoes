@@ -1,4 +1,4 @@
-import { put, takeEvery, call, take } from 'redux-saga/effects'
+import { put, takeEvery } from 'redux-saga/effects'
 import { IUser } from "interfaces";
 import { Task } from "redux-saga";
 import {
@@ -7,8 +7,9 @@ import {
 import { register } from "api/auth";
 import { change } from "redux-form";
 import { uploadImage } from "api/user";
-import { createCloudInit } from "../actions";
+import { createCloudInit, handleModalAction } from "../actions";
 import { DEFAULT_CLOUD } from "constants/index";
+import { NotificationManager } from 'react-notifications';
 
 /**
  * Handle user registration
@@ -24,6 +25,8 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
     yield put(createAccountDone());
     const defaultCloud = Object.assign({}, DEFAULT_CLOUD, { accountId: user.id });
     yield put(createCloudInit(defaultCloud));
+    NotificationManager.success(`User ${user.name} has successfully registered. Please log in to start using system`, 'Success!');
+    yield put(handleModalAction({ type: 'Auth' }))
   } catch (error) {
     console.error(error);
     yield put(createAccountError(error));

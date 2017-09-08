@@ -5,8 +5,7 @@ import { Task } from "redux-saga";
 import { NotificationManager } from 'react-notifications';
 import { addRenewer } from "api/relation";
 import { deleteKnowledgeDone, deleteKnowledgeInit, fetchCloudInit } from "../actions";
-import { deleteKnowledgeById, fetchKnowledgeById } from "api/cloud";
-import { getCloudsInit } from "../Sky/actions";
+import { deleteKnowledgeById } from "api/cloud";
 
 const getFromState = (state: any) => state.Knowledge;
 

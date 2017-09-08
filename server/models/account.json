@@ -19,9 +19,6 @@
     "email": {
       "type": "string"
     },
-    "isVerified": {
-      "type": "boolean"
-    },
     "layout": {
       "type": [
         "object",
