@@ -3,21 +3,12 @@ const styles = require('./../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 
-export const Hint = ({ children, highlight, name, text, style }) => {
-  console.log('highlight');
-  console.log(highlight);
-  console.log('name');
-  console.log(name);
-  console.log('highlight.enabled && highlight.name == name')
-  console.log(highlight.enabled && highlight.name == name)
-
-  return (
-    <div className={cx(['hint-container', { 'highlight': (highlight.enabled && highlight.name == name) }])}>
-      {children}
-      <img className="hint-image" style={...style} src="assets/icons/hints/hint-yellow.png"/>
-      <div className="hint-block">
-        <div className="hint-text">{text.split("\n").map((t, i) => <div key={i}>{t}</div>)}</div>
-      </div>
+export const Hint = ({ children, highlight, name, text, style }) => (
+  <div className={cx(['hint-container', { 'highlight': (highlight.enabled && highlight.name == name) }])}>
+    {children}
+    <img className="hint-image" style={...style} src="assets/icons/hints/hint-yellow.png"/>
+    <div className="hint-block">
+      <div className="hint-text">{text.split("\n").map((t, i) => <div key={i}>{t}</div>)}</div>
     </div>
-  );
-}
+  </div>
+);
