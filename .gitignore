@@ -10,12 +10,12 @@
 *.swo
 *.swp
 *.tgz
+*.lock
 .DS_Store
 .idea
 .project
 .awcache
 .strong-pm
-.lock
 coverage
 node_modules
 npm-debug.log

@@ -19,6 +19,8 @@
  * */
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
 /** Плагин достает css(или какие мы укажем файлы) в отдельный(не bundle.js) файл. Т.е. теперь стили содержаться в отдельном app.css, который подключен в bundle.js */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');

@@ -4,7 +4,8 @@
   "main": "server/server.js",
   "scripts": {
     "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
-    "start": "nodemon server/server.js --watch common --watch server --watch --content-base src/",
+    "start": "cross-env NODE_ENV=development nodemon server/server.js --watch common --watch server --watch --content-base src/",
+    "start:prod": "cross-env NODE_ENV=production nodemon server/server.js",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
     "typedoc": "typedoc",
@@ -133,6 +134,7 @@
     "bootstrap": "^3.3.7",
     "cloudinary": "^1.9.0",
     "cloudinary-react": "^1.0.4",
+    "cross-env": "^5.0.5",
     "dante": "^1.0.2",
     "draft-convert": "^1.4.9",
     "draft-js": "^0.10.1",
