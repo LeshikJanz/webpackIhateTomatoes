@@ -5,7 +5,7 @@
   "scripts": {
     "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
     "start": "cross-env NODE_ENV=production nodemon server/server.js --watch common --watch server --watch --content-base src/",
-    "start:prod": "cross-env NODE_ENV=production nodemon server/server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon server/server.js",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
     "typedoc": "typedoc",

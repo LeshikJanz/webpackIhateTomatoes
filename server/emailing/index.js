@@ -2,9 +2,10 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 const NAME_SELECTOR = 'emailer-name';
 const CONFIRAMTION_LINK_SELECTOR = 'confirmation-link';
+const { SERVER_URL } = require('../constants/index');
 
 function getConfirmationLink(userId, token) {
-  return `http://localhost:3000/api/Accounts/confirm?uid=${userId}&token=${token}&redirect=/login`;
+  return `${SERVER_URL}api/Accounts/confirm?uid=${userId}&token=${token}`;
 }
 
 function getEmailTemplate(name, confirmation_link) {

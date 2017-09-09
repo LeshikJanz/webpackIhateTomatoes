@@ -103,6 +103,10 @@ export class TagCloud extends React.Component {
 
   componentWillUnmount = () => {
     removeTagCloud();
+    console.log('componentWillUnmount');
+    if (this.props.highlight.enabled) {
+      this.props.disableHighlight('createKnowledge');
+    }
     document.removeEventListener('tagclick', this.handleTagClick);
   };
 
@@ -113,7 +117,7 @@ export class TagCloud extends React.Component {
   };
 
   handleKnowledgeCreateButtonHighlight = () => {
-    if (!this.props.cloud.knowledge.length) {
+    if (!this.props.cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0) {
       !this.props.highlight.enabled && this.props.enableHighlight('createKnowledge')
     } else {
       this.props.highlight.enabled && this.props.disableHighlight('createKnowledge')

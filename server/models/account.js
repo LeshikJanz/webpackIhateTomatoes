@@ -2,9 +2,7 @@
 const nodemailer = require('nodemailer');
 const email = require('../../server/emailing/index');
 const path = require('path');
-const variables = require('../constants/index');
-
-const URL = process.env.NODE_ENV == 'development' ? variables.URL_DEVELOPMENT : variables.URL_PRODUCTION;
+const { SERVER_URL } = require('../constants/index');
 
 module.exports = function (Account) {
   /**
@@ -36,7 +34,7 @@ module.exports = function (Account) {
 
   Account.beforeRemote('confirm', function (ctx, modelInstance, next) {
     Account.confirm(ctx.req.query.uid, ctx.req.query.token);
-    ctx.res.redirect(URL + '#/login?confirmed=true');
+    ctx.res.redirect(SERVER_URL + '#/login?confirmed=true');
     next();
   });
 };

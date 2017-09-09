@@ -46,5 +46,5 @@ const Login = ({ handleSubmit, invalid, handleModal, modal }) => (
 );
 
 export default reduxForm({
-  form: 'LoginForm',
+  form: 'AuthForm',
 })(Login);

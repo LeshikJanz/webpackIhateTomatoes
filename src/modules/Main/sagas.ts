@@ -7,16 +7,14 @@ import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit }
 import { urls } from "urls";
 import { NotificationManager } from 'react-notifications';
 
-const getCredentialsFromState = (state: any) => state.form.LoginForm.values;
+const getCredentialsFromState = (state: any) => state.form.AuthForm.values;
 
 /**
  * Log in saga handler
  *
- * @param {ILogin} payload - authorizing user
- *
  * @returns {Iterator<Object | Task>}
  */
-export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
+export function* loginInitSaga(): Iterator<Object | Task> {
   try {
     const credentials = yield select(getCredentialsFromState);
     const token: IToken = yield login(credentials);
@@ -30,7 +28,6 @@ export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
     yield put(replace(urls.board));
   } catch (error) {
     console.error(error);
-    NotificationManager.error(error.error.message, 'Error!');
     yield put(loginError());
   }
 }
