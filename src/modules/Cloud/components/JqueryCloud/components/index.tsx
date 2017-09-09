@@ -19,7 +19,7 @@ function tagCloudController() {
       textHeight: 25,
       outlineMethod: 'block',
       outlineColour: '#acf',
-      maxSpeed: 0.015,
+      maxSpeed: 0.035,
       minBrightness: 0.2,
       depth: 0.92,
       pulsateTo: 0.6,
@@ -33,7 +33,7 @@ function tagCloudController() {
       fadeIn: 1000,
       clickToFront: 600,
       noTagsMessage: false,
-      minSpeed: 1
+      minSpeed: 0.015
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');
