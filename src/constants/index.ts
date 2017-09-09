@@ -13,3 +13,16 @@ export const DEFAULT_PROFILE_IMG = 'assets/img/default-user-icon.png';
 
 // This variable hide beta functionality (not included to current release)
 export const IS_BETA_ENABLED = false;
+
+export const IMGUR_URL = 'https://api.imgur.com/3/image';
+export const IMGUR_CLIENT_ID = '25a73dd4a79fdb9';
+
+export const MODAL_TYPES = {
+  successfulRegistration: 'Successful Registration',
+  confirm: 'Confirm',
+  auth: 'Auth',
+  editor: 'Editor',
+  cloudAdd: 'CloudAdd',
+  knowledgeCreate: 'KnowledgeCreate',
+  notAuthorized: 'NotAuthorized'
+}

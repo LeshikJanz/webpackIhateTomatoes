@@ -41,13 +41,12 @@
     "dataSource": "mongodbDs",
     "public": true
   },
-  "CloudGroup": {
-    "dataSource": "mongodbDs",
-    "public": true
-  },
   "Account": {
     "dataSource": "mongodbDs",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "Relation": {
     "dataSource": "mongodbDs",

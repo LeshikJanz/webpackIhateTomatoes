@@ -12,7 +12,7 @@ const SVG = require('react-svg');
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
-import { Hint } from "../../../components/Hint/index";
+import Hint from "components/Hint/containers";
 
 const plugins = [
   ImagePlugin,

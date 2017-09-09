@@ -4,7 +4,9 @@ import {
   addTag, fetchCloudInit, openKnowledge, handleModalAction, clearKnowledge, updateCloudInit
 } from "modules/actions";
 import { filterTags, updateCloudName } from "../actions";
-import { IKnowledge } from "interfaces";
+import { IHighlight, IKnowledge } from "interfaces";
+import { MODAL_TYPES } from "constants/index";
+import { enableHighlight } from "components/Hint/actions";
 
 const mapStateToProps = (state: any) => ({
   tags: state.Cloud.knowledge && state.Cloud.knowledge.filter((k: IKnowledge) =>
@@ -16,7 +18,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps: any = (dispatch: any) => ({
   addTag: (tag: any) => dispatch(addTag(tag)),
-  openEditor: () => dispatch(handleModalAction({ type: "Editor" })),
+  openEditor: () => dispatch(handleModalAction({ type: MODAL_TYPES.editor })),
   fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
   openKnowledge: (id: string) => {
     dispatch(clearKnowledge());
@@ -24,10 +26,8 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   },
   handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value })),
   updateCloudName: ({ target }) => dispatch(updateCloudName(target.value)),
-  updateCloud: (name) => {
-    dispatch(updateCloudInit())
-    dispatch(updateCloudName({ target: { value: name } }))
-  }
+  updateCloud: () => dispatch(updateCloudInit()),
+  handleHighlight: (hintName: string) => dispatch(enableHighlight(hintName))
 });
 
 export default connect(

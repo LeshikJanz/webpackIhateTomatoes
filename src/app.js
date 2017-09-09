@@ -39,10 +39,11 @@ const sagaMiddleware = createSagaMiddleware();
  *
  * @returns {StoreCreator} store - Redux store
  */
-const store = createStore(reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(sagaMiddleware, routerMiddleware(hashHistory), thunk)
-);
+const
+  store = createStore(reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(sagaMiddleware, routerMiddleware(hashHistory), thunk)
+  );
 
 /**
  * Sync router history with Redux Saga

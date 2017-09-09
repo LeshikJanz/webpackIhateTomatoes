@@ -1,8 +1,9 @@
 'use strict';
+const imgur = require('imgur');
 
 module.exports = function(server) {
-  // // Install a `/` route that returns server status
-  // var router = server.loopback.Router();
-  // router.get('/', server.loopback.status());
-  // server.use(router);
+  /**
+   * Set up Imgur for uploading images to the clientId: 25a73dd4a79fdb9
+   */
+  imgur.setClientId('25a73dd4a79fdb9');
 };
