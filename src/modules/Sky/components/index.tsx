@@ -11,12 +11,13 @@ import ZoomPanel from "../containers/zoomContainer";
 import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "../constants";
 import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
+import { MODAL_TYPES } from "constants/index";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, openCloud, ...props }) => {
   const actionMenu: IMenu[] = [
     {
-      callback: 'handleModal', arg: { type: 'CloudAdd' }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
+      callback: 'handleModal', arg: { type: MODAL_TYPES.cloudAdd }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
     },
     // { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
@@ -81,7 +82,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
       <CustomModal
         title="Adding cloud"
         customStyles={{ height: '700px' }}
-        isModalOpen={modal.isOpen && modal.type == "CloudAdd"}
+        isModalOpen={modal.isOpen && modal.type == MODAL_TYPES.cloudAdd}
       >
         <CloudForm handleModalAction={handleModal}
                    onSubmit={handleCloudFormSubmit}
@@ -90,7 +91,7 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
 
       <ConfirmModal
         handleConfirm={ () => props[modal.callback](modal.itemId) }
-        isModalOpen={modal.isOpen && modal.type === 'Confirm'}
+        isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
       />
 
       <ZoomPanel/>

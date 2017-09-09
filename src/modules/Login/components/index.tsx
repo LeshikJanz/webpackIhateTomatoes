@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { renderField } from "components/RenderField";
 import { required } from "components/RenderField/validators";
 import ConfirmModal from "components/ConfirmModal/containers";
+import { MODAL_TYPES } from "constants/index";
 
 const Login = ({ handleSubmit, invalid, handleModal, modal }) => (
   <form className="form-container" onSubmit={ handleSubmit }>
@@ -39,7 +40,7 @@ const Login = ({ handleSubmit, invalid, handleModal, modal }) => (
       hideCancelButton={true}
       confirmLabel='OK'
       handleConfirm={ handleModal }
-      isModalOpen={modal.isOpen && modal.type === 'Confirm'}
+      isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
     />
   </form>
 );

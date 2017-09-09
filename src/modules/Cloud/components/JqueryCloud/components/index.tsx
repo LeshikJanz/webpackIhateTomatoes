@@ -8,7 +8,7 @@ import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "urls";
-import { Hint } from "components/Hint/index";
+import Hint from "components/Hint/containers";
 const SVG = require('react-svg');
 
 function tagCloudController() {
@@ -31,12 +31,16 @@ function tagCloudController() {
       weight: false,
       imageScale: null,
       fadeIn: 1000,
-      clickToFront: 600
+      clickToFront: 600,
+      noTagsMessage: false
     });
   } catch (e) {
-    document.getElementById('CanvasContainer').style.display = 'none';
+    const canvasContainer = document.getElementById('CanvasContainer');
+    if (canvasContainer) {
+      canvasContainer.style.display = 'none';
+    }
   }
-};
+}
 
 const getHtmlTag = (elem, number = '') =>
   `<li><a id="tag${number}" 
@@ -52,7 +56,7 @@ const generateTags = (tags: Array) => {
 }
 
 const setNewTag = (tag, number) => {
-  if ( tag ) {
+  if (tag) {
     $('#tags ul').append(getHtmlTag(tag, number));
     removeTagCloud();
   }
@@ -80,6 +84,7 @@ export class TagCloud extends React.Component {
   componentDidMount = () => {
     this.props.fetchCloudInit(this.props.cloudId || DEFAULT_CLOUD_ID);
     document.addEventListener('tagclick', this.handleTagClick);
+    this.handleKnowledgeCreateButtonHighlight();
     startCloud();
   };
 
@@ -88,8 +93,8 @@ export class TagCloud extends React.Component {
   }
 
   componentDidUpdate = () => {
-    if ( TagCloud.tagNumber != (this.props.tags && this.props.tags.length) ) {
-      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+    if (TagCloud.tagNumber != (this.props.tags && this.props.tags.length)) {
+      if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     removeTagCloud();
@@ -106,6 +111,12 @@ export class TagCloud extends React.Component {
     this.props.openEditor();
     stopCloud();
   };
+
+  handleKnowledgeCreateButtonHighlight = () => {
+    if (!this.props.cloud.knowledge.length) {
+      this.props.handleHighlight('createKnowledge')
+    }
+  }
 
   render() {
     const {
@@ -126,7 +137,7 @@ export class TagCloud extends React.Component {
                        value={cloud.name} onChange={updateCloudName} onBlur={this.handleBlur}/>
                 {
                   !(cloud.name === cloud.initialName && cloud.isNameSaved) &&
-                  <div onClick={() => updateCloud(cloud.name)}>
+                  <div onClick={updateCloud}>
                     <SVG path="assets/icons/save-icon-mark.svg"
                          className="save-button" placeholder="save"
                     />
@@ -136,9 +147,18 @@ export class TagCloud extends React.Component {
             </Hint>
           </div>
         }
-        <ReactIgnore>
-          <textarea style={{ opacity: 0 }} value={contents}/>
-        </ReactIgnore>
+        {
+          cloud.knowledge.length ?
+            <ReactIgnore>
+              <textarea style={{ opacity: 0 }} value={contents}/>
+            </ReactIgnore>
+            :
+            <div className="no-knowledge-label">
+              <h1>There is no one knowledge right now! </h1>
+              <h3>Click on the Lightning Bolt in the top left corner for creating
+                first one.</h3>
+            </div>
+        }
       </div>
     )
   }

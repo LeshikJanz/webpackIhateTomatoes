@@ -5,7 +5,7 @@ import { CustomModal } from "components/CustomModal/components/index";
 import KnowledgeCreateForm from "modules/Cloud/components/KnowledgeCreateForm";
 import { urls } from "urls";
 import Navigation from "modules/Main/navigation/containers";
-import { Hint } from "components/Hint/index";
+import Hint from "components/Hint/containers";
 import ConfirmModal from "components/ConfirmModal/containers";
 import { MODAL_TYPES } from "constants/index";
 const styles = require('../styles/main.scss');
@@ -22,7 +22,7 @@ export const Header = (props) => {
   } = props;
 
   const createKnowledge = () => {
-    if ( props.location.pathname !== `/${urls.board}` ) {
+    if (props.location.pathname !== `/${urls.board}`) {
       getClouds();
     }
     localStorage.getItem('UserId') ? handleKnowledgeCreateModal() : handleNotAuthorizedModal();
@@ -41,7 +41,8 @@ export const Header = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Hint text="Use this button for creating new knowledge"
+            <Hint name="createKnowledge"
+                  text="Use this button for creating new knowledge"
             >
               <a onClick={ createKnowledge }
                  className="navbar-brand"
@@ -62,7 +63,7 @@ export const Header = (props) => {
         </div>
         <CustomModal
           title="Adding knowledge"
-          isModalOpen={modal.isOpen && modal.type == 'KnowledgeCreate'}
+          isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.knowledgeCreate}
           handleModal={handleModal}
         >
           <KnowledgeCreateForm
@@ -81,7 +82,7 @@ export const Header = (props) => {
           handleConfirm={handleModal}
           hideCancelButton={true}
           confirmLabel='OK'
-          isModalOpen={modal.isOpen && modal.type === 'NotAuthorized'}
+          isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.notAuthorized}
         />
         <ConfirmModal
           handleConfirm={handleModal}

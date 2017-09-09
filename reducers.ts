@@ -6,6 +6,7 @@ import Users from "modules/Users/reducers/userReducer";
 import Filter from "modules/Cloud/components/JqueryCloud/reducers/filterReducer";
 import Loading from "components/Spinner/reducers/loadingReducer";
 import Sky from 'modules/Sky/reducers/skyReducer';
+import Highlight from 'components/Hint/reducers/highlightReducer'
 import { routerReducer } from "react-router-redux";
 import { reducer as formReducer } from 'redux-form';
 
@@ -18,5 +19,6 @@ export default combineReducers({
   Users,
   Filter,
   Loading,
+  Highlight,
   form: formReducer
 });

@@ -21,5 +21,8 @@ export const MODAL_TYPES = {
   successfulRegistration: 'Successful Registration',
   confirm: 'Confirm',
   auth: 'Auth',
-
+  editor: 'Editor',
+  cloudAdd: 'CloudAdd',
+  knowledgeCreate: 'KnowledgeCreate',
+  notAuthorized: 'NotAuthorized'
 }

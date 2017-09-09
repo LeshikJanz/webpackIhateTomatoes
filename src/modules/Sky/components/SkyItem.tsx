@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { urls } from "urls";
 import { Link } from 'react-router';
-import { Hint } from "components/Hint/index";
+import Hint from "components/Hint/containers";
 const SVG = require('react-svg');
 
 export const SkyItem = ({ cloud, handleModal, route }) => (
   <div className='sky-item-container'>
     <div className="item-header">
-     <Hint text={`This is your ${cloud.name} cloud! \n Hint: Double click for opening`} style={{paddingLeft: '10px', }}>
-      <span className="name">{cloud.name}</span>
-    </Hint>
-    <div className="open-cloud">
+      <Hint text={`This is your ${cloud.name} cloud! \n Hint: Double click for opening`}
+            style={{ paddingLeft: '10px', }}>
+        <span className="name">{cloud.name}</span>
+      </Hint>
+      <div className="open-cloud">
         <SVG path="assets/icons/open-cloud-collapsed.svg" className="open-cloud-collapsed"/>
         <Link to={ urls.cloud + '/' + cloud.id }>
           <button className="tertiary small add">

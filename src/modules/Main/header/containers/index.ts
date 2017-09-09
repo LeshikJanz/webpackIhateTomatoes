@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { Header } from "../components/index";
 import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
 import { getCloudsInit } from "modules/Sky/actions";
+import { MODAL_TYPES } from "constants/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -35,7 +36,7 @@ const mapDispatchToProps: any = dispatch => ({
   handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' })),
   handleNotAuthorizedModal: () => dispatch(handleModalAction(
     {
-      type: 'NotAuthorized',
+      type: MODAL_TYPES.notAuthorized,
       title: 'You are not authorized',
       text: 'You need to be authorized before you can start creating new knowledge'
     }))

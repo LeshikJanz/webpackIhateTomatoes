@@ -128,3 +128,12 @@ declare interface IGridItem extends Identifiable {
   x: number,
   y: number
 }
+
+/**
+ * Highlight item interface
+ */
+export
+declare interface IHighlight {
+  name: string,
+  enabled?: boolean
+}
