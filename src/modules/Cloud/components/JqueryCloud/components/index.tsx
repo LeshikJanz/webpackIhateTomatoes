@@ -84,7 +84,6 @@ export class TagCloud extends React.Component {
   componentDidMount = () => {
     this.props.fetchCloudInit(this.props.cloudId || DEFAULT_CLOUD_ID);
     document.addEventListener('tagclick', this.handleTagClick);
-    this.handleKnowledgeCreateButtonHighlight();
     startCloud();
   };
 
@@ -97,6 +96,7 @@ export class TagCloud extends React.Component {
       if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
+    this.handleKnowledgeCreateButtonHighlight();
     removeTagCloud();
     this.editor = tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags);
   };
@@ -114,9 +114,11 @@ export class TagCloud extends React.Component {
 
   handleKnowledgeCreateButtonHighlight = () => {
     if (!this.props.cloud.knowledge.length) {
-      this.props.handleHighlight('createKnowledge')
+      !this.props.highlight.enabled && this.props.enableHighlight('createKnowledge')
+    } else {
+      this.props.highlight.enabled && this.props.disableHighlight('createKnowledge')
     }
-  }
+  };
 
   render() {
     const {
@@ -148,17 +150,17 @@ export class TagCloud extends React.Component {
           </div>
         }
         {
-          cloud.knowledge.length ?
-            <ReactIgnore>
-              <textarea style={{ opacity: 0 }} value={contents}/>
-            </ReactIgnore>
-            :
-            <div className="no-knowledge-label">
-              <h1>There is no one knowledge right now! </h1>
-              <h3>Click on the Lightning Bolt in the top left corner for creating
-                first one.</h3>
-            </div>
+          !cloud.knowledge.length &&
+          <div className="no-knowledge-label">
+            <h1>There is no one knowledge right now! </h1>
+            <h3>Click on the Lightning Bolt in the top left corner for creating
+              first one.</h3>
+          </div>
         }
+        <ReactIgnore style={!cloud.knowledge.length ? { opacity: 0 } : {}}>
+          <textarea style={{ opacity: 0 }} value={contents}/>
+        </ReactIgnore>
+
       </div>
     )
   }

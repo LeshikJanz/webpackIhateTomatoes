@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes highlight-animation {
+  from {
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    transform: scale(1.2, 1.2);
+  }
+}
+
 .hint-container {
   position: relative;
   display: flex;
@@ -58,5 +67,5 @@
 }
 
 .highlight > *:first-child {
-  border: 10px solid;
+  animation: highlight-animation 1s infinite alternate;
 }

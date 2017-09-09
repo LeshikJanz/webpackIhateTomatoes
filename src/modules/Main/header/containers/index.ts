@@ -3,6 +3,7 @@ import { Header } from "../components/index";
 import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
 import { getCloudsInit } from "modules/Sky/actions";
 import { MODAL_TYPES } from "constants/index";
+import { disableHighlight } from "../../../../components/Hint/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
