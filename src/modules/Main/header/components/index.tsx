@@ -7,6 +7,7 @@ import { urls } from "urls";
 import Navigation from "modules/Main/navigation/containers";
 import { Hint } from "components/Hint/index";
 import ConfirmModal from "components/ConfirmModal/containers";
+import { MODAL_TYPES } from "constants/index";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -81,6 +82,12 @@ export const Header = (props) => {
           hideCancelButton={true}
           confirmLabel='OK'
           isModalOpen={modal.isOpen && modal.type === 'NotAuthorized'}
+        />
+        <ConfirmModal
+          handleConfirm={handleModal}
+          hideCancelButton={true}
+          confirmLabel='OK'
+          isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.successfulRegistration}
         />
       </div>
       {props.children}

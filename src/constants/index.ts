@@ -17,3 +17,10 @@ export const IS_BETA_ENABLED = false;
 
 export const IMGUR_URL = 'https://api.imgur.com/3/image';
 export const IMGUR_CLIENT_ID = '25a73dd4a79fdb9';
+
+export const MODAL_TYPES = {
+  successfulRegistration: 'Successful Registration',
+  confirm: 'Confirm',
+  auth: 'Auth',
+
+}

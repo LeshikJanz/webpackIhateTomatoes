@@ -32,10 +32,11 @@ module.exports = function (Account) {
     if (ctx.instance && !ctx.instance.emailVerified) {
       ctx.instance.verificationToken ? sendEmail() : verifyAccount();
     }
-
   });
 
-  Account.beforeRemote('confirm', function (ctx) {
-    ctx.res.redirect(URL);
+  Account.beforeRemote('confirm', function (ctx, modelInstance, next) {
+    Account.confirm(ctx.req.query.uid, ctx.req.query.token);
+    ctx.res.redirect(URL + '#/login?confirmed=true');
+    next();
   });
 };

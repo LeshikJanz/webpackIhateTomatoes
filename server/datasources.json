@@ -12,22 +12,5 @@
     "name": "mongodbDs",
     "user": "",
     "connector": "mongodb"
-  },
-  "emailDs": {
-    "connector": "mail",
-    "transports": [{
-      "type": "smtp",
-      "host": "smtp.gmail.com",
-      "secure": false,
-      "secureConnection": false,
-      "port": 587,
-      "auth": {
-        "type": "OAuth2",
-        "user": "treshaalesha@gmail.com",
-        "clientId": "533691920336-burelau4h4tlvbljpb0eoesjl65u03n4.apps.googleusercontent.com",
-        "clientSecret": "b0pGPP6z9nxWvWjLymrg_cO_",
-        "refreshToken": "1/kUB_lYplvTEY1iA39rY_9eTnaNZPFZXunL5ZIXy6cE0"
-      }
-    }]
   }
 }

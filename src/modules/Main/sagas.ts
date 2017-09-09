@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects'
+import { put, select, takeEvery } from 'redux-saga/effects'
 import { Task } from "redux-saga";
 import { ILogin, IToken, IUser } from "interfaces/index";
 import { login, logOut, getUserById } from "api/auth";
@@ -6,6 +6,8 @@ import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
 import { urls } from "urls";
 import { NotificationManager } from 'react-notifications';
+
+const getCredentialsFromState = (state: any) => state.form.LoginForm.values;
 
 /**
  * Log in saga handler
@@ -16,7 +18,8 @@ import { NotificationManager } from 'react-notifications';
  */
 export function* loginInitSaga({ payload } : ILogin): Iterator<Object | Task> {
   try {
-    const token: IToken = yield login(payload);
+    const credentials = yield select(getCredentialsFromState);
+    const token: IToken = yield login(credentials);
     localStorage.setItem('Token', token.id);
     localStorage.setItem('UserId', token.userId);
     const user: IUser = yield getUserById(token.userId);

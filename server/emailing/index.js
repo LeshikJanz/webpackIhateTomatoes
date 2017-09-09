@@ -4,11 +4,11 @@ const NAME_SELECTOR = 'emailer-name';
 const CONFIRAMTION_LINK_SELECTOR = 'confirmation-link';
 
 function getConfirmationLink(userId, token) {
-  return `http://localhost:3000/api/Accounts/confirm?uid=${userId}&token=${token}&redirect=https://google.com`;
+  return `http://localhost:3000/api/Accounts/confirm?uid=${userId}&token=${token}&redirect=/login`;
 }
 
 function getEmailTemplate(name, confirmation_link) {
-  return fs.readFileSync(__dirname + '/content/template.html', "utf8")
+  return fs.readFileSync(__dirname + '/content/email-template.html', "utf8")
     .replace(NAME_SELECTOR, name)
     .replace(CONFIRAMTION_LINK_SELECTOR, confirmation_link);
 }

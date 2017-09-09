@@ -9,6 +9,7 @@ import Registration from './Registration/containers/Registration';
 import UserList from './Users/containers/UserList';
 import Tree from './Tree/components/reviewersTree';
 import GridLayout from './Sky/containers';
+import Login from './Login/containers';
 
 /**
  * Routing between pages using React-Router-Redux
@@ -19,6 +20,7 @@ export default (
   <Route path={urls.index} component={Header}>
     <Route component={Base}>
       <IndexRoute component={Main}/>
+      <Route path={urls.login} component={Login}></Route>
       <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
       <Route path={urls.user + `/:id/` + urls.board} component={GridLayout}></Route>
       <Route path={urls.board} component={GridLayout}></Route>

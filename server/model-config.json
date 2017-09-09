@@ -51,8 +51,5 @@
   "Relation": {
     "dataSource": "mongodbDs",
     "public": true
-  },
-  "Email": {
-    "dataSource": "emailDs"
   }
 }

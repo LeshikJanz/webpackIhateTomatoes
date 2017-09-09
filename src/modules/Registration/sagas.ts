@@ -8,7 +8,7 @@ import { register } from "api/auth";
 import { change } from "redux-form";
 import { uploadImage } from "api/user";
 import { createCloudInit, handleModalAction } from "../actions";
-import { DEFAULT_CLOUD } from "constants/index";
+import { DEFAULT_CLOUD, MODAL_TYPES } from "constants/index";
 import { NotificationManager } from 'react-notifications';
 
 /**
@@ -26,7 +26,13 @@ export function* createAccountSaga({ payload }: IUser): Iterator<Object | Task> 
     const defaultCloud = Object.assign({}, DEFAULT_CLOUD, { accountId: user.id });
     yield put(createCloudInit(defaultCloud));
     NotificationManager.success(`User ${user.name} has successfully registered. Please log in to start using system`, 'Success!');
-    yield put(handleModalAction({ type: 'Auth' }))
+    yield put(handleModalAction({
+      type: MODAL_TYPES.successfulRegistration,
+      title: 'Successful registration!',
+      text: `You successfully registered account! 
+      We've sent a message to your ${user.email}.
+      Check out E-mail to find confirmation link to verify your account.`
+    }))
   } catch (error) {
     console.error(error);
     yield put(createAccountError(error));

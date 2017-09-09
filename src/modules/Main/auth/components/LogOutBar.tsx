@@ -5,7 +5,7 @@ require('../styles/style.scss');
 /**
  * Header's log out bar
  */
-export const LogOutBar = (props) => {
+export const LogOutBar = ({ logOut }) => {
   const user = JSON.parse(localStorage.getItem('Account'));
 
   return (
@@ -18,7 +18,7 @@ export const LogOutBar = (props) => {
         <button className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
 
         <button style={{ width: '100px' }}
-                onClick={ props.logOut }
+                onClick={ logOut }
                 className="tertiary small add">
           Log out
         </button>
