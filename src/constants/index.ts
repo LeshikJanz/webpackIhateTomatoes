@@ -8,8 +8,7 @@ export const DEFAULT_CLOUD: ICloud = {
   accountId: null
 };
 
-// export const DEFAULT_CLOUD_ID: string = "59ad3330ea973508092ef84c";
-export const DEFAULT_CLOUD_ID: string = "59a6c11c554c2c195030d701";
+export const DEFAULT_CLOUD_ID: string = "59ad3330ea973508092ef84c";
 export const DEFAULT_PROFILE_IMG = 'assets/img/default-user-icon.png';
 
 // This variable hide beta functionality (not included to current release)
