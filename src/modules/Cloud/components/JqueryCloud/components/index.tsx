@@ -103,7 +103,6 @@ export class TagCloud extends React.Component {
 
   componentWillUnmount = () => {
     removeTagCloud();
-    console.log('componentWillUnmount');
     if (this.props.highlight.enabled) {
       this.props.disableHighlight('createKnowledge');
     }
