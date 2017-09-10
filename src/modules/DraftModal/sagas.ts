@@ -5,7 +5,7 @@ import {
   updateKnowledgeDone
 } from "../actions";
 import { Task } from "redux-saga";
-import { ICloud, ISession } from "../../interfaces/index";
+import { ICloud } from "interfaces";
 import { NotificationManager } from 'react-notifications';
 
 const getFromState = (state: any) => state.Knowledge;

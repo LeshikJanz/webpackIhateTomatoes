@@ -37,14 +37,16 @@ export default class MegaDraft extends React.Component<any, any> {
    */
   onChange = (editorState) => {
     this.setState({ editorState });
-    this.handleTimer();
+    this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
 
-  handleTimer = () => {
+  handleTimer = (isFocused: boolean) => {
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
+    if (isFocused) {
+      typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
+    }
   };
 
   handleRenewingModal = () =>

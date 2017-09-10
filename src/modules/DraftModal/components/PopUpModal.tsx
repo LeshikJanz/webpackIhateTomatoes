@@ -7,22 +7,15 @@ import { MODAL_TYPES } from "constants/index";
 /**
  * Modal for knowledge editor
  */
-export const PopUpModal = (props) => {
-  const closeModal = () => {
-    props.closeEditor();
-    props.knowledge.accountId === localStorage.getItem('UserId') && props.updateKnowledge();
-  };
-
-  return (
-    <div className="draft-editor">
-      <Modal
-        isOpen={props.modal.isOpen && props.modal.type === MODAL_TYPES.editor}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <MegaDraft/>
-      </Modal>
-    </div>
-  );
-};
+export const PopUpModal = ({ closeEditor, modal }) => (
+  <div className="draft-editor">
+    <Modal
+      isOpen={modal.isOpen && modal.type === MODAL_TYPES.editor}
+      onRequestClose={closeEditor}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <MegaDraft/>
+    </Modal>
+  </div>
+);

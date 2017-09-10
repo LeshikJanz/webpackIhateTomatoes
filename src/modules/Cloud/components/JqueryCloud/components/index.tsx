@@ -14,26 +14,25 @@ const SVG = require('react-svg');
 function tagCloudController() {
   try {
     TagCanvas.Start('Canvas', 'tags', {
-      textFont: 'Trebuchet MS, Helvetica, sans-serif',
+      textFont: 'Raleway-Medium, Raleway, Cooper',
       textColour: '#337ab7',
       textHeight: 25,
       outlineMethod: 'block',
       outlineColour: '#acf',
-      maxSpeed: 0.035,
+      maxSpeed: 0.02,
       minBrightness: 0.2,
-      depth: 0.92,
+      depth: 0,
       pulsateTo: 0.6,
       initial: [0.2, -0.2],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
-      shadowBlur: 3,
       weight: false,
       imageScale: null,
       fadeIn: 1000,
       clickToFront: 600,
       noTagsMessage: false,
-      minSpeed: 0.025
+      minSpeed: 0.01
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');
