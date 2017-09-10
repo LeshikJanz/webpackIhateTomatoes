@@ -32,7 +32,7 @@ function tagCloudController() {
       fadeIn: 200,
       clickToFront: 600,
       noTagsMessage: false,
-      minSpeed: 0.010
+      minSpeed: 0.015
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');

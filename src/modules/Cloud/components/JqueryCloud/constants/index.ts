@@ -1,5 +1,4 @@
-const cloudWidth = window.innerWidth / 1.3;
-const cloudHeight = window.innerHeight - 200;
+const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 200;
 
 export const TAG_CLOUD_INIT = `
   <div id="cloud">
@@ -7,7 +6,8 @@ export const TAG_CLOUD_INIT = `
       <div>
         <div>
           <div id="CanvasContainer">
-            <canvas width="${cloudHeight}px" height="${cloudHeight}px" id="Canvas">
+            <canvas width=${dimension} height=${dimension}
+            id="Canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
           </div>
