@@ -29,10 +29,10 @@ function tagCloudController() {
       shadow: '#ccf',
       weight: false,
       imageScale: null,
-      fadeIn: 1000,
+      fadeIn: 200,
       clickToFront: 600,
       noTagsMessage: false,
-      minSpeed: 0.01
+      minSpeed: 0.010
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');
@@ -134,7 +134,7 @@ export class TagCloud extends React.Component {
           locationPath !== urls.index &&
           <div className="cloud-actions">
             <Hint text="You can search by knowledge name">
-              <Search onChange={ handleSearch } name="name"/>
+              <Search onChange={ handleSearch } name="name" numberFounded={this.props.tags.length} />
             </Hint>
             <Hint text="This is current cloud name">
               <div className="cloud-name">

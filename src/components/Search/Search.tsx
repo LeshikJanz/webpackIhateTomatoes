@@ -1,8 +1,23 @@
 import * as React from 'react';
-const styles = require('./style.scss');
+import { withState } from 'recompose';
+import './style.scss';
 
-export const Search = (props) => (
-  <div className="search-bar">
-    <input type="text" name={props.name} onChange={ props.onChange }/>
-  </div>
-);
+const enhance = withState('searchValue', 'setSearchValue');
+
+export const Search = enhance(({ name, onChange, searchValue, setSearchValue, numberFounded }) => {
+
+  const handleSearch = (e: Event) => {
+    onChange(e);
+    setSearchValue(e.target.value);
+  };
+
+  return (
+    <div className="search-bar">
+      <input type="text" name={name} onChange={ handleSearch }/>
+      {
+        !numberFounded && searchValue &&
+        <div className="search-hint-text">not found</div>
+      }
+    </div>
+  )
+});

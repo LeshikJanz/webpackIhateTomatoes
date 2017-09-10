@@ -11,7 +11,7 @@
   }
 
   input {
-    font-family: Avenir;
+    font-family: Cooper-Medium;
     font-size: 18px;
     padding: 10px 10px 10px 48px;
     border: 0 solid #62aff7;
@@ -37,6 +37,14 @@
 
   &:focus {
     opacity: 1;
+  }
+
+  .search-hint-text {
+    position: absolute;
+    font-family: Cooper;
+    top: 12px;
+    right: 10px;
+    font-style: italic;
   }
 }
 
