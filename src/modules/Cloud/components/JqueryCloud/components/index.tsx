@@ -134,7 +134,7 @@ export class TagCloud extends React.Component {
           locationPath !== urls.index &&
           <div className="cloud-actions">
             <Hint text="You can search by knowledge name">
-              <Search onChange={ handleSearch } name="name" numberFounded={this.props.tags.length} />
+              <Search onChange={ handleSearch } name="name" numberFounded={this.props.tags.length}/>
             </Hint>
             <Hint text="This is current cloud name">
               <div className="cloud-name">
