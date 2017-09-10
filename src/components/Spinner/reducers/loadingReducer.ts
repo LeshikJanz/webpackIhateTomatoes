@@ -3,7 +3,7 @@ import { avatarUploadInit, avatarUploadDone, avatarUploadError } from "modules/R
 import { getCloudsDone, getCloudsError, getCloudsInit } from "modules/Sky/actions";
 import {
   createNewKnowledgeDone, createNewKnowledgeError, createNewKnowledgeInit, updateCloudDone, updateCloudError,
-  updateCloudInit
+  updateCloudInit, updateKnowledgeDone, updateKnowledgeError, updateKnowledgeInit
 } from "modules/actions";
 
 /**
@@ -23,4 +23,7 @@ export default createReducer({
   [updateCloudInit]: (state: any) => true,
   [updateCloudDone]: (state: any) => false,
   [updateCloudError]: (state: any) => false,
+  [updateKnowledgeInit]: (state: any) => true,
+  [updateKnowledgeDone]: (state: any) => false,
+  [updateKnowledgeError]: (state: any) => false,
 }, initialState);

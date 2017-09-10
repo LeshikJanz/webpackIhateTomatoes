@@ -26,6 +26,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');  //используется для указания полных путей и для resolve путей
 var helpers = require('./helpers');
+const webpack = require('webpack');
 
 module.exports = {
   entry: ['babel-polyfill', './src/app.js'], //Исходный файл
@@ -119,7 +120,7 @@ module.exports = {
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
     new CopyWebpackPlugin([
-      {from: 'src/assets', to: 'assets'}
+      { from: 'src/assets', to: 'assets' }
     ]),
     new HtmlWebpackPlugin({  //Теперь нет необходимости подключать любые скрипты внутрь index.html
       title: 'Custom template',
@@ -135,6 +136,15 @@ module.exports = {
       disable: false,
       allChunks: true
     }),
-  ]
+
+    /*
+     *   Add access for environment variables on the client side
+     *
+     *   See: https://webpack.js.org/plugins/environment-plugin/
+     */
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+    })]
 
 }

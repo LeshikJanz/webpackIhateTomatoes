@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {
-  editKnowledge, changeKnowledgeName, updateKnowledge, handleModalAction, createNewKnowledgeInit, deleteKnowledgeInit
+  editKnowledge, changeKnowledgeName, updateKnowledgeInit, handleModalAction, createNewKnowledgeInit, deleteKnowledgeInit
 } from "modules/actions";
 import { createRenewerInit } from "../actions";
 import { push } from "react-router-redux";
@@ -29,7 +29,7 @@ const mergeProps: any = (props, { dispatch }): any => ({
   handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value)),
   closeEditor: () => {
     dispatch(handleModalAction());
-    props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledge());
+    props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledgeInit());
   },
   handleRenewing: () => {
     dispatch(createRenewerInit());
@@ -45,6 +45,7 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(handleModalAction());
   },
   handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
+  updateKnowledge: () => dispatch(updateKnowledgeInit())
 });
 
 /**

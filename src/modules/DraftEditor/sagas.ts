@@ -4,7 +4,7 @@ import { IRelation, IKnowledge } from "interfaces/index";
 import { Task } from "redux-saga";
 import { NotificationManager } from 'react-notifications';
 import { addRenewer } from "api/relation";
-import { deleteKnowledgeDone, deleteKnowledgeInit, fetchCloudInit } from "../actions";
+import { deleteKnowledgeDone, deleteKnowledgeError, deleteKnowledgeInit, fetchCloudInit } from "../actions";
 import { deleteKnowledgeById } from "api/cloud";
 
 const getFromState = (state: any) => state.Knowledge;
@@ -57,6 +57,7 @@ export function* deleteKnowledgeSaga({ payload }): Iterator<Object | Task> {
     yield put(deleteKnowledgeDone());
   } catch (error) {
     console.error(error);
+    yield put(deleteKnowledgeError(error));
   }
 }
 

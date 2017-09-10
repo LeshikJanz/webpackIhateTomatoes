@@ -66,7 +66,7 @@ const setNewTag = (tag, number) => {
 const removeTagCloud = () => {
   TagCanvas.Delete('Canvas', `tags`);
   $('#cloud').replaceWith('<textarea value={this.props.contents}/>');
-}
+};
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
@@ -154,7 +154,7 @@ export class TagCloud extends React.Component {
           </div>
         }
         {
-          !cloud.knowledge.length &&
+          !cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0 &&
           <div className="no-knowledge-label">
             <h1>There is no one knowledge right now! </h1>
             <h3>Click on the Lightning Bolt in the top left corner for creating
