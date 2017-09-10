@@ -14,26 +14,25 @@ const SVG = require('react-svg');
 function tagCloudController() {
   try {
     TagCanvas.Start('Canvas', 'tags', {
-      textFont: 'Trebuchet MS, Helvetica, sans-serif',
+      textFont: 'Raleway-Medium, Raleway, Cooper',
       textColour: '#337ab7',
       textHeight: 25,
       outlineMethod: 'block',
       outlineColour: '#acf',
-      maxSpeed: 0.035,
+      maxSpeed: 0.02,
       minBrightness: 0.2,
-      depth: 0.92,
+      depth: 0,
       pulsateTo: 0.6,
       initial: [0.2, -0.2],
       decel: 1,
       reverse: true,
       shadow: '#ccf',
-      shadowBlur: 3,
       weight: false,
       imageScale: null,
-      fadeIn: 1000,
+      fadeIn: 200,
       clickToFront: 600,
       noTagsMessage: false,
-      minSpeed: 0.025
+      minSpeed: 0.015
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');
@@ -66,7 +65,7 @@ const setNewTag = (tag, number) => {
 const removeTagCloud = () => {
   TagCanvas.Delete('Canvas', `tags`);
   $('#cloud').replaceWith('<textarea value={this.props.contents}/>');
-}
+};
 
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
@@ -135,7 +134,7 @@ export class TagCloud extends React.Component {
           locationPath !== urls.index &&
           <div className="cloud-actions">
             <Hint text="You can search by knowledge name">
-              <Search onChange={ handleSearch } name="name"/>
+              <Search onChange={ handleSearch } name="name" numberFounded={this.props.tags.length}/>
             </Hint>
             <Hint text="This is current cloud name">
               <div className="cloud-name">
@@ -154,7 +153,7 @@ export class TagCloud extends React.Component {
           </div>
         }
         {
-          !cloud.knowledge.length &&
+          !cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0 &&
           <div className="no-knowledge-label">
             <h1>There is no one knowledge right now! </h1>
             <h3>Click on the Lightning Bolt in the top left corner for creating

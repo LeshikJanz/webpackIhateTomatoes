@@ -1,10 +1,11 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { fetchCloud, updateKnowledgeById } from "api/cloud";
 import {
-  fetchCloudInit, fetchCloudDone, fetchCloudError, updateKnowledge, updateKnowledgeError, saveKnowledge
+  fetchCloudInit, fetchCloudDone, fetchCloudError, updateKnowledgeInit, updateKnowledgeError, saveKnowledge,
+  updateKnowledgeDone
 } from "../actions";
 import { Task } from "redux-saga";
-import { ICloud, ISession } from "../../interfaces/index";
+import { ICloud } from "interfaces";
 import { NotificationManager } from 'react-notifications';
 
 const getFromState = (state: any) => state.Knowledge;
@@ -39,9 +40,9 @@ export function* updateKnowledgeSaga(): Iterator<Object | Task> {
     const updatedKnowledge = yield updateKnowledgeById(knowledge.id, knowledge);
     updatedKnowledge.account = knowledge.account;
     yield put(saveKnowledge(updatedKnowledge));
-    NotificationManager.success(`Knowledge has been updated successfully`, 'Success!');
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
+    yield put(updateKnowledgeDone(updatedKnowledge));
+  } catch (error) {
+    console.error(error);
     yield put(updateKnowledgeError(error));
   }
 }
@@ -51,6 +52,6 @@ export function* updateKnowledgeSaga(): Iterator<Object | Task> {
  */
 export function* popUpSaga() {
   yield takeEvery(fetchCloudInit().type, fetchCloudSaga);
-  yield takeEvery(updateKnowledge().type, updateKnowledgeSaga);
+  yield takeEvery(updateKnowledgeInit().type, updateKnowledgeSaga);
 }
 

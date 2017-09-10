@@ -19,6 +19,9 @@ const plugins = [
   VideoPlugin
 ];
 
+let typingTimer;
+const doneTypingInterval = 1000;
+
 export default class MegaDraft extends React.Component<any, any> {
 
   constructor(props) {
@@ -34,52 +37,29 @@ export default class MegaDraft extends React.Component<any, any> {
    */
   onChange = (editorState) => {
     this.setState({ editorState });
+    this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
+  };
+
+  handleTimer = (isFocused: boolean) => {
+    clearTimeout(typingTimer);
+    if (isFocused) {
+      typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
+    }
   };
 
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
 
-  toDataURL(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        callback(reader.result);
-      };
-      reader.readAsDataURL(xhr.response);
-    };
-    xhr.open('GET', url);
-    xhr.responseType = 'blob';
-    xhr.send();
-  };
-
-
-  blockRenderer = (block) => {
-    console.log('blockRenderer');
-    if ( block.getType() === 'atomic' ) {
-      const entity = Entity.get(block.getEntityAt(0));
-      if ( entity.getType() === 'image' && entity.data.src.indexOf('blob') === 0 ) {
-        this.toDataURL(entity.data.src, (dataUrl) => {
-          this.uploadImageAsync(dataUrl)
-            .then(result => {
-              entity.data.src = result.src;
-              Entity.mergeData(block.getEntityAt(0), entity);
-            })
-        });
-      }
-    }
-  };
-
   handleDeleteModal = () => {
     this.setState({ isDeleteModalOpen: !this.state.isDeleteModalOpen });
-  }
+  };
 
   handleDeleteKnowledge = () => {
     this.handleDeleteModal();
     this.props.deleteKnowledge(this.props.knowledge);
-  }
+  };
 
   /**
    * Renders the component.
@@ -88,7 +68,7 @@ export default class MegaDraft extends React.Component<any, any> {
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser, deleteKnowledge, modal } = this.props;
+    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
 
     const relations = knowledge.relations || [];
 
@@ -150,7 +130,6 @@ export default class MegaDraft extends React.Component<any, any> {
             editorState={this.state.editorState}
             onChange={this.onChange}
             plugins={plugins}
-            blockRendererFn={this.blockRenderer}
           />
         </div>
 
