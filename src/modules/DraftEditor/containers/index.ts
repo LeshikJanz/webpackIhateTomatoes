@@ -7,6 +7,7 @@ import { push } from "react-router-redux";
 import { urls } from "urls";
 import MegaDraft from "../components/Megadraft";
 import { IKnowledge, IModal } from "../../../interfaces/index";
+import DraftEditor from "../components/index";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -62,4 +63,4 @@ export default connect(
   mapStateToProps,
   null,
   mergeProps
-)(MegaDraft);
+)(DraftEditor);

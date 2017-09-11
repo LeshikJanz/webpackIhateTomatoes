@@ -27,6 +27,7 @@ export function* loginInitSaga(): Iterator<Object | Task> {
     NotificationManager.success(`You are successfully logged in`, 'Success!');
     yield put(replace(urls.board));
   } catch (error) {
+    NotificationManager.error(`${error.error.message}`, 'Error!');
     console.error(error);
     yield put(loginError());
   }

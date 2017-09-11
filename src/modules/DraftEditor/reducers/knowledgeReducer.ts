@@ -1,23 +1,14 @@
-import { createReducer } from '../../../utils/createReducer';
+import { createReducer } from 'utils/createReducer';
 import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "../../actions";
+import { State } from 'slate'
+import { INITIAL_SLATE_STATE } from "../constants";
 
 /**
  * Initial state for knowledge reducer
  */
 const initialState = {
   name: "",
-  text: {
-    "entityMap": {},
-    "blocks": [{
-      "key": "9gm3s",
-      "text": "",
-      "type": "unstyled",
-      "depth": 0,
-      "inlineStyleRanges": [],
-      "entityRanges": [],
-      "data": {}
-    }]
-  },
+  text: 'A string of plain text.',
   createDate: "",
   updateDate: "",
   cloudId: ""

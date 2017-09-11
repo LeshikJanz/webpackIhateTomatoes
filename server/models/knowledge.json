@@ -12,7 +12,7 @@
       "required": true
     },
     "text": {
-      "type": "object"
+      "type": "string"
     },
     "createDate": {
       "type": "date"

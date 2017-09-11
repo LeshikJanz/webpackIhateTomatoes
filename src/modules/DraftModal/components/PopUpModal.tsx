@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Modal from 'react-modal';
 import customStyles from "../styles/style";
 import MegaDraft from "modules/DraftEditor/containers";
+import DraftEditor from "modules/DraftEditor/containers";
 import { MODAL_TYPES } from "constants/index";
 
 /**
@@ -15,7 +16,8 @@ export const PopUpModal = ({ closeEditor, modal }) => (
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <MegaDraft/>
+      <DraftEditor/>
+      {/*<MegaDraft/>*/}
     </Modal>
   </div>
 );
