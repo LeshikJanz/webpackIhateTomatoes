@@ -36,6 +36,7 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
+    console.log('onChange')
     this.setState({ editorState });
     this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
@@ -60,6 +61,14 @@ export default class MegaDraft extends React.Component<any, any> {
     this.handleDeleteModal();
     this.props.deleteKnowledge(this.props.knowledge);
   };
+
+  handleDrop = ({ nativeEvent }, ...e) => {
+    console.log('nativeEvent')
+    console.log(nativeEvent)
+    console.log('e');
+    console.log(e);
+    // console.log(this.props.knowledge.text.blocks.indexOf(this.props.knowledge.text.blocks.find(({text}) => text == nativeEvent.target.innerText )));
+  }
 
   /**
    * Renders the component.
@@ -125,7 +134,7 @@ export default class MegaDraft extends React.Component<any, any> {
           </button>
         </div>
 
-        <div>
+        <div onDrop={this.handleDrop}>
           <MegadraftEditor
             editorState={this.state.editorState}
             onChange={this.onChange}

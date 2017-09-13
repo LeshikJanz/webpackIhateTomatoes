@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
 import { Spinner } from "components/Spinner/index";
+import { HEADER_HEIGHT, PARAGRAPH_HEIGHT } from "../constants/index";
 const SVG = require('react-svg');
 
 export const ImageBlock = ({ container: { updateData, remove }, data }) => {
@@ -20,8 +21,18 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF', 'Error!');
   };
 
+  const detectRow = (x, y = 0) => x - HEADER_HEIGHT / PARAGRAPH_HEIGHT;
+
+
+  const handleDragEnd = ({ nativeEvent: { clientY } }) => {
+    console.log('clientY');
+    console.log(clientY);
+    console.log(detectRow(clientY))
+  };
+
   return (
-    <div className="image-draft-container">
+    <div onDragEnd={handleDragEnd}
+      className="image-draft-container">
       <div className="image-tools">
         <div className="image-zoom">
           <label htmlFor="width">Zoom: { data.width / 100 }</label>

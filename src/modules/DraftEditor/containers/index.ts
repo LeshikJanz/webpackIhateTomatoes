@@ -27,10 +27,7 @@ const mergeProps: any = (props, { dispatch }): any => ({
   ...props,
   editKnowledge: (text) => dispatch(editKnowledge(text)),
   handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value)),
-  closeEditor: () => {
-    dispatch(handleModalAction());
-    // props.knowledge.accountId === localStorage.getItem('UserId') && dispatch(updateKnowledgeInit());
-  },
+  closeEditor: () => dispatch(handleModalAction()),
   handleRenewing: () => {
     dispatch(createRenewerInit());
     dispatch(createNewKnowledgeInit({ fromExisting: true }));
