@@ -10,6 +10,7 @@
 
 .ReactModal__Content {
   padding: 20px 50px !important;
+  overflow-x: hidden !important;
 }
 
 .draft-editor-container {
@@ -200,5 +201,33 @@ input[type=file]::-webkit-file-upload-button {
 
   .input-container {
     text-align: center;
+  }
+}
+
+.megadraft-container {
+  .accepted-upload, .rejected-upload {
+    position:sticky;
+    display: none;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+    width: 100%;
+    opacity: 0.9;
+    padding: 10px 0;
+  }
+}
+
+.dropzone-area-active {
+  .accepted-upload {
+    display: block;
+    background-color: #f8f8f8;
+  }
+}
+
+.dropzone-area-reject {
+  .rejected-upload {
+    display: block;
+    background-color: #ff3328;
+    color: white;
   }
 }

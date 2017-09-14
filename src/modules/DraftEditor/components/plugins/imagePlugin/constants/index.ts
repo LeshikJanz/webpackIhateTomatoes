@@ -5,3 +5,5 @@ export const IMAGE_POSITIONS = {
 };
 
 export const DEFAULT_WIDTH = 30;
+export const HEADER_HEIGHT = 120;
+export const PARAGRAPH_HEIGHT = 50;

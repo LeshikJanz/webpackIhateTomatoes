@@ -1,6 +1,5 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import Editor, { composeDecorators } from 'draft-js-plugins-editor'
 import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
@@ -8,11 +7,15 @@ import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
 const SVG = require('react-svg');
-
+const Dropzone = require('react-dropzone');
+import { DraftJS, insertDataBlock, container } from "megadraft";
+import { NotificationManager } from 'react-notifications';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
 import Hint from "components/Hint/containers";
+import { uploadImageAsync } from "api/upload";
+import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 
 const plugins = [
   ImagePlugin,
@@ -44,22 +47,40 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleTimer = (isFocused: boolean) => {
     clearTimeout(typingTimer);
-    if (isFocused) {
+    if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
 
+  onDrop = (e) =>
+    uploadImageAsync(e[0], this.state.editorState, this.onChange)
+      .then(({ src }) => {
+        const data = {
+          "type": "image",
+          "src": src,
+          "caption": "",
+          imgPosition: 'center',
+          width: DEFAULT_WIDTH,
+          isLoading: false
+        };
+        this.onChange(insertDataBlock(this.state.editorState, data));
+      });
+
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
 
-  handleDeleteModal = () => {
+  handleDeleteModal = () =>
     this.setState({ isDeleteModalOpen: !this.state.isDeleteModalOpen });
-  };
 
   handleDeleteKnowledge = () => {
     this.handleDeleteModal();
     this.props.deleteKnowledge(this.props.knowledge);
   };
+
+  handleDropRejectred = () => {
+    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
+    return false;
+  }
 
   /**
    * Renders the component.
@@ -124,14 +145,29 @@ export default class MegaDraft extends React.Component<any, any> {
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-
-        <div>
-          <MegadraftEditor
-            editorState={this.state.editorState}
-            onChange={this.onChange}
-            plugins={plugins}
-          />
-        </div>
+        <Dropzone onDropAccepted={ this.onDrop }
+                  onDropRejected={ this.handleDropRejectred }
+                  disableClick={true}
+                  accept="image/jpeg, image/png, image/gif"
+                  className="dropzone-area"
+                  activeClassName="dropzone-area-active"
+                  rejectClassName="dropzone-area-reject">
+          <div className="megadraft-container">
+            <MegadraftEditor
+              editorState={this.state.editorState}
+              onChange={this.onChange}
+              plugins={plugins}
+            />
+            <div className="accepted-upload">
+              <h1>Drag file</h1>
+              <h3>to add it to the current cursor position</h3>
+            </div>
+            <div className="rejected-upload">
+              <h1>Unsupported file format</h1>
+              <h3>Use images in JPG, GIF or PNG formats</h3>
+            </div>
+          </div>
+        </Dropzone>
 
         <CustomModal
           title={ `Renewing ${knowledge.name}` }
