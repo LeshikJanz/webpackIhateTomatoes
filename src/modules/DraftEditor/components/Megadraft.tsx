@@ -17,6 +17,8 @@ import Hint from "components/Hint/containers";
 import { uploadImageAsync } from "api/upload";
 import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 import { CustomToolbar } from "./CustomToolbar";
+import SideBar from "./Sidebar";
+import Toolbar from "./Toolbar";
 
 const plugins = [
   ImagePlugin,
@@ -144,7 +146,7 @@ export default class MegaDraft extends React.Component<any, any> {
             </button>
             }
             <div className="group-renewers">
-              <div className="group-label">There are { relations.length } Renewers</div>
+              <div className="group-label">{ relations.length } Renewers</div>
               <div className="group_renewers_images">
                 {
                   relations.map((item, i) =>
@@ -175,7 +177,7 @@ export default class MegaDraft extends React.Component<any, any> {
               editorState={this.state.editorState}
               onChange={this.onChange}
               plugins={plugins}
-              Toolbar={CustomToolbar}
+              Toolbar={Toolbar}
               blockStyleFn={this.getBlockStyle}
               customStyleMap={styleMap}
             />

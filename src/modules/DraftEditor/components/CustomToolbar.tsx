@@ -1,46 +1,60 @@
 import * as React from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
+const styles = require('../styles/toolbar.scss');
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 
-export const CustomToolbar = (props) => {
+export const CustomToolbar = ({ editorState, onChange }) => {
+  const selectionState = editorState.getSelection();
+  const anchorKey = selectionState.getAnchorKey();
+  const currentContent = editorState.getCurrentContent();
+  const currentContentBlock = currentContent.getBlockForKey(anchorKey);
+  const start = selectionState.getStartOffset();
+  const end = selectionState.getEndOffset();
+  const selectedText = currentContentBlock.getText().slice(start, end);
+  if (selectedText.length) {
+    const currentBlockKey = editorState.getSelection().getStartKey()
+    const currentBlockIndex = editorState.getCurrentContent().getBlockMap()
+      .keySeq().findIndex(k => k === currentBlockKey)
+  }
 
   const handleKeyCommand = (command) => {
-    const { editorState } = props;
     const newState = RichUtils.handleKeyCommand(editorState, command);
-    if ( newState ) {
-      props.onChange(newState);
+    if (newState) {
+      onChange(newState);
       return true;
     }
     return false;
   }
 
   const toggleBlockType = (blockType) => {
-    props.onChange(
+    onChange(
       RichUtils.toggleBlockType(
-        props.editorState,
+        editorState,
         blockType
       )
     );
   }
 
   const toggleInlineStyle = (inlineStyle) => {
-    props.onChange(
+    onChange(
       RichUtils.toggleInlineStyle(
-        props.editorState,
+        editorState,
         inlineStyle
       )
     );
   }
 
   return (
-    <div className="toolbar toolbar--open">
+    <div className={cx(['toolbar', { 'toolbar--open': selectedText.length }])}>
       <div>
         <div className="toolbar__wrapper">
           <BlockStyleControls
-            editorState={props.editorState}
+            editorState={editorState}
             onToggle={toggleBlockType}
           />
           <InlineStyleControls
-            editorState={props.editorState}
+            editorState={editorState}
             onToggle={toggleInlineStyle}
           />
         </div>
@@ -60,7 +74,7 @@ class StyleButton extends React.Component {
 
   render() {
     let classNameName = 'toolbar__button';
-    if ( this.props.active ) {
+    if (this.props.active) {
       classNameName = 'toolbar__item--active';
     }
 
@@ -87,8 +101,7 @@ const BLOCK_TYPES = [
   { label: 'Code Block', style: 'code-block' },
 ];
 
-const BlockStyleControls = (props) => {
-  const { editorState } = props;
+const BlockStyleControls = ({ editorState, onToggle }) => {
   const selection = editorState.getSelection();
   const blockType = editorState
     .getCurrentContent()
@@ -102,7 +115,7 @@ const BlockStyleControls = (props) => {
           key={type.label}
           active={type.style === blockType}
           label={type.label}
-          onToggle={props.onToggle}
+          onToggle={onToggle}
           style={type.style}
         />
       )}
@@ -117,8 +130,8 @@ const INLINE_STYLES = [
   { label: 'Monospace', style: 'CODE' },
 ];
 
-const InlineStyleControls = (props) => {
-  const currentStyle = props.editorState.getCurrentInlineStyle();
+const InlineStyleControls = ({ editorState, onToggle }) => {
+  const currentStyle = editorState.getCurrentInlineStyle();
   return (
     <ul className="toolbar__list">
       {INLINE_STYLES.map(type =>
@@ -126,7 +139,7 @@ const InlineStyleControls = (props) => {
           key={type.label}
           active={currentStyle.has(type.style)}
           label={type.label}
-          onToggle={props.onToggle}
+          onToggle={onToggle}
           style={type.style}
         />
       )}
