@@ -46,8 +46,8 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
              placeholder="Delete Knowledge"
              onClick={deleteCurBlock}
         >
-          <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
-          <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+          <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
+          <img src="assets/icons/deleteBox.svg" className="delete-box"/>
         </div>
       </div>
       <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
