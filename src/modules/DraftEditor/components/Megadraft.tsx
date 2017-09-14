@@ -1,6 +1,5 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import Editor, { composeDecorators } from 'draft-js-plugins-editor'
 import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
@@ -8,11 +7,15 @@ import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
 const SVG = require('react-svg');
+const Dropzone = require('react-dropzone');
+import { DraftJS, insertDataBlock, container } from "megadraft";
 
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
 import Hint from "components/Hint/containers";
+import { uploadImageAsync } from "api/upload";
+import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 
 const plugins = [
   ImagePlugin,
@@ -36,7 +39,6 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
-    console.log('onChange')
     this.setState({ editorState });
     this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
@@ -45,10 +47,24 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleTimer = (isFocused: boolean) => {
     clearTimeout(typingTimer);
-    if (isFocused) {
+    if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
+
+  onDrop = (e) =>
+    uploadImageAsync(e[0], this.state.editorState, this.onChange)
+      .then(({ src }) => {
+        const data = {
+          "type": "image",
+          "src": src,
+          "caption": "",
+          imgPosition: 'center',
+          width: DEFAULT_WIDTH,
+          isLoading: false
+        };
+        this.onChange(insertDataBlock(this.state.editorState, data));
+      });
 
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
@@ -62,12 +78,8 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.deleteKnowledge(this.props.knowledge);
   };
 
-  handleDrop = ({ nativeEvent }, ...e) => {
-    console.log('nativeEvent')
-    console.log(nativeEvent)
-    console.log('e');
-    console.log(e);
-    // console.log(this.props.knowledge.text.blocks.indexOf(this.props.knowledge.text.blocks.find(({text}) => text == nativeEvent.target.innerText )));
+  updateData = () => {
+    console.log('updateData');
   }
 
   /**
@@ -133,14 +145,21 @@ export default class MegaDraft extends React.Component<any, any> {
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-
-        <div onDrop={this.handleDrop}>
-          <MegadraftEditor
-            editorState={this.state.editorState}
-            onChange={this.onChange}
-            plugins={plugins}
-          />
-        </div>
+        <Dropzone onDrop={ this.onDrop }
+                  disableClick={true}
+                  accept="image/jpeg, image/png, image/gif"
+                  className="dropzone-area"
+                  activeClassName="dropzone-area-active"
+                  rejectClassName="dropzone-area-reject">
+          <div>
+            <MegadraftEditor
+              editorState={this.state.editorState}
+              onChange={this.onChange}
+              updateDate={this.updateData}
+              plugins={plugins}
+            />
+          </div>
+        </Dropzone>
 
         <CustomModal
           title={ `Renewing ${knowledge.name}` }

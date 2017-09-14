@@ -12,27 +12,23 @@ import { HEADER_HEIGHT, PARAGRAPH_HEIGHT } from "../constants/index";
 const SVG = require('react-svg');
 
 export const ImageBlock = ({ container: { updateData, remove }, data }) => {
-  const handleChange = ({ target }) => updateData({ [target.name]: target.value });
+  const handleChange = ({ target }) => {
+    console.log('handleChange');
+    updateData({ [target.name]: target.value });
+  }
 
-  const deleteCurBlock = () => remove(data);
+  const deleteCurBlock = () => {
+    console.log('deleteCurBlock');
+    remove(data);
+  }
 
   const handleImageError = () => {
     deleteCurBlock();
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF', 'Error!');
   };
 
-  const detectRow = (x, y = 0) => x - HEADER_HEIGHT / PARAGRAPH_HEIGHT;
-
-
-  const handleDragEnd = ({ nativeEvent: { clientY } }) => {
-    console.log('clientY');
-    console.log(clientY);
-    console.log(detectRow(clientY))
-  };
-
   return (
-    <div onDragEnd={handleDragEnd}
-      className="image-draft-container">
+    <div className="image-draft-container">
       <div className="image-tools">
         <div className="image-zoom">
           <label htmlFor="width">Zoom: { data.width / 100 }</label>
