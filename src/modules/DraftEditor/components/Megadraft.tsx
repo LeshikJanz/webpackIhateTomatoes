@@ -156,7 +156,6 @@ export default class MegaDraft extends React.Component<any, any> {
             <MegadraftEditor
               editorState={this.state.editorState}
               onChange={this.onChange}
-              updateDate={this.updateData}
               plugins={plugins}
             />
             <div className="accepted-upload">

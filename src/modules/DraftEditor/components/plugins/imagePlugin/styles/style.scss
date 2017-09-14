@@ -1,7 +1,6 @@
 .image-draft-container {
   display: flex;
   flex-direction: column;
-  background-color: #FBFBFB;
   text-align: center;
 
   .image-tools {
@@ -88,8 +87,12 @@
     }
   }
 
-  &:hover .delete-icon, &:hover .image-zoom, &:hover .image-position {
-    opacity: 0.8;
+  &:hover {
+    background-color: #FBFBFB;
+
+    .delete-icon, .image-zoom, .image-position {
+      opacity: 0.8;
+    }
   }
 
   .img-block > img {
