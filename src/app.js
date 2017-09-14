@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import 'react-notifications/lib/notifications.css';
 require('./app.scss');
 require('./styles/animations.scss');
+require('./styles/toolbar.scss');
 import 'megadraft/dist/css/megadraft.css';
 import 'react-select/dist/react-select.css';
 import 'axios/dist/axios.min.js';

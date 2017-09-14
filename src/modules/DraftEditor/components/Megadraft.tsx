@@ -16,6 +16,7 @@ import { ConfirmModal } from "components/ConfirmModal/components";
 import Hint from "components/Hint/containers";
 import { uploadImageAsync } from "api/upload";
 import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
+import { CustomToolbar } from "./CustomToolbar";
 
 const plugins = [
   ImagePlugin,
@@ -24,6 +25,16 @@ const plugins = [
 
 let typingTimer;
 const doneTypingInterval = 1000;
+
+// Custom overrides for "code" style.
+const styleMap = {
+  CODE: {
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+    fontSize: 16,
+    padding: 2,
+  },
+};
 
 export default class MegaDraft extends React.Component<any, any> {
 
@@ -77,9 +88,16 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.deleteKnowledge(this.props.knowledge);
   };
 
-  handleDropRejectred = () => {
+  handleDropRejectred = () =>
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
-    return false;
+
+  getBlockStyle(block) {
+    switch ( block.getType() ) {
+      case 'blockquote':
+        return 'RichEditor-blockquote';
+      default:
+        return null;
+    }
   }
 
   /**
@@ -157,6 +175,9 @@ export default class MegaDraft extends React.Component<any, any> {
               editorState={this.state.editorState}
               onChange={this.onChange}
               plugins={plugins}
+              Toolbar={CustomToolbar}
+              blockStyleFn={this.getBlockStyle}
+              customStyleMap={styleMap}
             />
             <div className="accepted-upload">
               <h1>Drag file</h1>
