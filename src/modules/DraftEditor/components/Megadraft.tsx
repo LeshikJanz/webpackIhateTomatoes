@@ -102,6 +102,8 @@ export default class MegaDraft extends React.Component<any, any> {
     }
   }
 
+
+
   /**
    * Renders the component.
    *

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016, Globo.com (https://github.com/globocom)
- *
- * License: MIT
- */
-
 import * as React from "react";
 const styles = require('../styles/toolbar.scss');
 const classNames = require('classnames/bind');

@@ -11,6 +11,8 @@ const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import ToolbarItem from "./ToolbarItem";
 import { getSelectionCoords } from "./utils";
+import h1 from './icons/h1';
+import { BLOCK_TYPES } from "../constants/index";
 
 
 export default class Toolbar extends React.Component {
@@ -260,7 +262,8 @@ export default class Toolbar extends React.Component {
       <ul className="toolbar__list" onMouseDown={(x) => {
         x.preventDefault();
       }}>
-        {this.props.actions.map(this.renderButton)}
+        {BLOCK_TYPES.map(this.renderButton)}
+        {/*{this.props.actions.map(this.renderButton)}*/}
       </ul>
     );
   }

@@ -30,7 +30,7 @@
 
 @mixin heading-2 {
   font-family: Avenir-Book;
-  font-size: 26px;
+  font-size: 26px !important;
   line-height: 1.85;
   letter-spacing: 0.5px;
   color: #343a40;

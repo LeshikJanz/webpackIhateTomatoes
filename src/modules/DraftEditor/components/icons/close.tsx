@@ -4,7 +4,7 @@
  * License: MIT
  */
 
-import React from "react";
+import * as React from "react";
 
 
 export default class extends React.Component {
