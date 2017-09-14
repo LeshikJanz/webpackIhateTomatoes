@@ -9,7 +9,7 @@ import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraf
 const SVG = require('react-svg');
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
-
+import { NotificationManager } from 'react-notifications';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
@@ -69,17 +69,17 @@ export default class MegaDraft extends React.Component<any, any> {
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
 
-  handleDeleteModal = () => {
+  handleDeleteModal = () =>
     this.setState({ isDeleteModalOpen: !this.state.isDeleteModalOpen });
-  };
 
   handleDeleteKnowledge = () => {
     this.handleDeleteModal();
     this.props.deleteKnowledge(this.props.knowledge);
   };
 
-  updateData = () => {
-    console.log('updateData');
+  handleDropRejectred = () => {
+    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
+    return false;
   }
 
   /**
@@ -145,19 +145,28 @@ export default class MegaDraft extends React.Component<any, any> {
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-        <Dropzone onDrop={ this.onDrop }
+        <Dropzone onDropAccepted={ this.onDrop }
+                  onDropRejected={ this.handleDropRejectred }
                   disableClick={true}
                   accept="image/jpeg, image/png, image/gif"
                   className="dropzone-area"
                   activeClassName="dropzone-area-active"
                   rejectClassName="dropzone-area-reject">
-          <div>
+          <div className="megadraft-container">
             <MegadraftEditor
               editorState={this.state.editorState}
               onChange={this.onChange}
               updateDate={this.updateData}
               plugins={plugins}
             />
+            <div className="accepted-upload">
+              <h1>Drag file</h1>
+              <h3>to add it to the current cursor position</h3>
+            </div>
+            <div className="rejected-upload">
+              <h1>Unsupported file format</h1>
+              <h3>Use images in JPG, GIF or PNG formats</h3>
+            </div>
           </div>
         </Dropzone>
 

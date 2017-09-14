@@ -13,10 +13,9 @@ import { insertDataBlock } from "megadraft";
  * @returns {Promise}
  */
 export const uploadImageAsync = (file: File, editorState, onChange): Promise<any> => {
-  const blobUrl = URL.createObjectURL(file);
   const data = {
     "type": "image",
-    "src": blobUrl,
+    "src": URL.createObjectURL(file),
     "caption": "",
     imgPosition: 'center',
     width: DEFAULT_WIDTH,

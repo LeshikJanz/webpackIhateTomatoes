@@ -8,23 +8,29 @@ const cx = classNames.bind(styles);
 import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
 import { Spinner } from "components/Spinner/index";
-import { HEADER_HEIGHT, PARAGRAPH_HEIGHT } from "../constants/index";
+import { ImgPositioning } from "./tools/imagePositioning";
 const SVG = require('react-svg');
+import { EditorState, SelectionState, Modifier } from "draft-js";
 
-export const ImageBlock = ({ container: { updateData, remove }, data }) => {
+const doneTypingInterval = 1000;
+let typingTimer;
+
+export const ImageBlock = ({ container, data, updateKnowledge }) => {
+  const handleTimer = () => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(updateKnowledge, doneTypingInterval);
+  };
+
   const handleChange = ({ target }) => {
-    console.log('handleChange');
-    updateData({ [target.name]: target.value });
-  }
+    container.updateData({ [target.name]: target.value });
+    handleTimer();
+  };
 
-  const deleteCurBlock = () => {
-    console.log('deleteCurBlock');
-    remove(data);
-  }
+  const deleteCurBlock = () => container.remove(data);
 
   const handleImageError = () => {
     deleteCurBlock();
-    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF', 'Error!');
+    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
   };
 
   return (
@@ -35,17 +41,7 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
           <input type="range" min='10' max='100' step='1' name="width"
                  defaultValue={data.width} onChange={handleChange}/>
         </div>
-        <div className="image-position">
-          <button name="imgPosition" value='left' className={cx([{ 'active': data.imgPosition === 'left' }])}
-                  onClick={handleChange}>L
-          </button>
-          <button name="imgPosition" value='center' className={cx([{ 'active': data.imgPosition === 'center' }])}
-                  onClick={handleChange}>C
-          </button>
-          <button name="imgPosition" value='right' className={cx([{ 'active': data.imgPosition === 'right' }])}
-                  onClick={handleChange}>R
-          </button>
-        </div>
+        <ImgPositioning imgPosition={data.imgPosition} handleChange={handleChange}/>
         <div className="delete-icon"
              placeholder="Delete Knowledge"
              onClick={deleteCurBlock}
@@ -57,6 +53,7 @@ export const ImageBlock = ({ container: { updateData, remove }, data }) => {
       <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
            style={{ textAlign: `${data.imgPosition}` }}>
         <Spinner loading={data.isLoading}/>
+        { data.isLoading && <h5>Uploading...</h5> }
         <img src={data.src} onError={handleImageError} style={{ width: `${data.width}%` }}/>
       </div>
       <BlockData>

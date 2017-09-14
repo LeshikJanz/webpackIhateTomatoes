@@ -89,6 +89,10 @@
   &:hover .delete-icon, &:hover .image-zoom, &:hover .image-position {
     opacity: 0.8;
   }
+
+  .img-block > img {
+    pointer-events: none;
+  }
 }
 
 .loading-filter {
