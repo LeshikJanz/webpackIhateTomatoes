@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2016, Globo.com (https://github.com/globocom)
- *
- * License: MIT
- */
-
 import * as React from "react";
 import { EditorState, RichUtils } from "draft-js";
 const styles = require('../styles/toolbar.scss');
@@ -11,7 +5,6 @@ const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import ToolbarItem from "./ToolbarItem";
 import { getSelectionCoords } from "./utils";
-import h1 from './icons/h1';
 import { BLOCK_TYPES } from "../constants/index";
 
 
@@ -33,11 +26,17 @@ export default class Toolbar extends React.Component {
   }
 
   toggleInlineStyle = (inlineStyle) => {
+    console.log('toggleInlineStyle');
+    console.log(inlineStyle);
+
     const newEditorState = RichUtils.toggleInlineStyle(this.props.editorState, inlineStyle);
     this.props.onChange(newEditorState);
   }
 
   toggleBlockStyle = (blockType) => {
+    console.log('toggleBlockStyle');
+    console.log(blockType);
+
     this.props.onChange(
       RichUtils.toggleBlockType(this.props.editorState, blockType)
     );
@@ -57,6 +56,7 @@ export default class Toolbar extends React.Component {
       case "custom": {
         key = "custom-" + position;
         toggle = () => item.action(this.props.editorState);
+        active = this.props.editorState.getCurrentInlineStyle();
         break;
       }
       case "inline": {
@@ -89,7 +89,10 @@ export default class Toolbar extends React.Component {
     }
 
     return (
-      <ToolbarItem key={key} active={active} toggle={toggle} item={item}/>
+      <ToolbarItem key={key} active={active} toggle={toggle} item={item}
+                   toggleInlineStyle={ this.toggleInlineStyle }
+                   toggleBlockStyle={ this.toggleBlockStyle }
+      />
     );
   }
 

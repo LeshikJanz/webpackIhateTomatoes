@@ -6,7 +6,6 @@ import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
-const SVG = require('react-svg');
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
 import { NotificationManager } from 'react-notifications';
@@ -19,6 +18,7 @@ import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 import { CustomToolbar } from "./CustomToolbar";
 import SideBar from "./Sidebar";
 import Toolbar from "./Toolbar";
+import { styleMap } from "../constants/index";
 
 const plugins = [
   ImagePlugin,
@@ -29,14 +29,14 @@ let typingTimer;
 const doneTypingInterval = 1000;
 
 // Custom overrides for "code" style.
-const styleMap = {
-  CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-    fontSize: 16,
-    padding: 2,
-  },
-};
+// const styleMap = {
+//   'CODE': {
+//     backgroundColor: 'rgba(0, 0, 0, 0.05)',
+//     fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+//     fontSize: 86,
+//     padding: 42,
+//   },
+// };
 
 export default class MegaDraft extends React.Component<any, any> {
 
@@ -60,7 +60,7 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleTimer = (isFocused: boolean) => {
     clearTimeout(typingTimer);
-    if ( isFocused ) {
+    if (isFocused) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -94,14 +94,13 @@ export default class MegaDraft extends React.Component<any, any> {
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
 
   getBlockStyle(block) {
-    switch ( block.getType() ) {
+    switch (block.getType()) {
       case 'blockquote':
-        return 'RichEditor-blockquote';
+        return 'MyRichEditor-blockquote';
       default:
         return null;
     }
   }
-
 
 
   /**
@@ -128,13 +127,12 @@ export default class MegaDraft extends React.Component<any, any> {
                      title="Knowledge name"
                      value={knowledge.name}
                      onChange={handleNameChange}/>
-
               <div className="delete-icon"
                    placeholder="Delete Knowledge"
                    onClick={this.handleDeleteModal}
               >
-                <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
-                <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+                <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
+                <img src="assets/icons/deleteBox.svg" className="delete-box"/>
               </div>
             </Hint>
           </div>
@@ -219,6 +217,7 @@ export default class MegaDraft extends React.Component<any, any> {
             text: `Are you sure you want to delete <b>${knowledge.name}?</b> This cloud will be archive and you will not see it on the Cloud.`,
             itemId: knowledge.id
           }}
+          handleModal={this.handleDeleteModal}
         />
       </div>
     )

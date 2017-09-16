@@ -1,0 +1,21 @@
+.fontPicker-container {
+
+  .Select-control {
+    background-color: transparent !important;
+    height: 50px !important;
+    border: none !important;
+
+    .Select-value {
+      display: flex;
+      align-items: center;
+
+      .Select-value-label {
+        color: white !important;
+      }
+    }
+  }
+
+  .Select-clear-zone {
+    display: none;
+  }
+}

@@ -19,10 +19,17 @@ export default class ToolbarItem extends React.Component {
   render() {
     const Icon = this.props.item.icon;
 
-    if (this.props.item.type == "separator") {
+    if (this.props.item.type === "separator") {
       return (
         <Separator />
       );
+    }
+
+    if (this.props.item.type === 'custom') {
+      return <Icon active={this.props.active}
+                   toggleInlineStyle={ this.props.toggleInlineStyle }
+                   toggleBlockStyle={ this.props.toggleBlockStyle }
+      />
     }
 
     return (

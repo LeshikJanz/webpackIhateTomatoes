@@ -1,0 +1,9 @@
+<svg width="24" height="24" >
+    <g fill="currentColor" fillRule="evenodd">
+        <text fill="currentColor" transform="matrix(1.098084765372235,0,0,1.0646223876416911,-0.06693948811477557,0.10492490864594828) " text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_1" y="18.026697" x="1.382163" stroke-width="0">S</text>
+        <line fill="currentColor" stroke="currentColor" id="svg_3" y2="11.741381" x2="23.833155" y1="11.741381"
+              x1="0.36207" />
+        <line fill="currentColor" stroke="currentColor" stroke-width="2" id="svg_5" y2="9.844829"
+              x2="23.648623" y1="9.844829" x1="0.189655" />
+    </g>
+</svg>
