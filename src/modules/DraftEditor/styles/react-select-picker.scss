@@ -8,14 +8,48 @@
     .Select-value {
       display: flex;
       align-items: center;
+      padding: 10px !important;
 
       .Select-value-label {
         color: white !important;
       }
     }
+
+    .Select-input {
+      padding: 15px !important;
+    }
+
+    .Select-arrow {
+      border-width: 7px 6px 2.5px !important;
+    }
+
+    .Select-clear-zone {
+      display: none;
+    }
   }
 
-  .Select-clear-zone {
-    display: none;
+  .is-open {
+    .Select-arrow-zone {
+      display: table-cell !important;
+      opacity: 0;
+    }
+  }
+
+  .Select-menu-outer > .Select-menu {
+    .Select-option {
+      background-color: black !important;
+      color: white !important;
+      height: 30px !important;
+
+      &:hover {
+        background-color: #b2bac4 !important;
+        color: white !important;
+      }
+
+      &.is-focused {
+        background-color: #b2bac4 !important;
+        color: white !important;
+      }
+    }
   }
 }

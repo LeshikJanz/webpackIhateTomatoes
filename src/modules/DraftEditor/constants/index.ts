@@ -25,22 +25,22 @@ export const styleMap = {
     color: 'red'
   },
   'FONT_SIZE_8': {
-    fontSize: 8
+    fontSize: '8px'
   },
   'FONT_SIZE_12': {
-    fontSize: 12
+    fontSize: '12px'
   },
   'FONT_SIZE_16': {
-    fontSize: 16
+    fontSize: '16px'
   },
-  'FONT_SIZE_18': {
-    fontSize: 20
+  'FONT_SIZE_20': {
+    fontSize: '20px'
   },
   'FONT_SIZE_24': {
-    fontSize: 24
+    fontSize: '24px'
   },
   'FONT_SIZE_32': {
-    fontSize: 32
+    fontSize: '32px'
   },
   red: {
     color: 'rgba(255, 0, 0, 1.0)',
