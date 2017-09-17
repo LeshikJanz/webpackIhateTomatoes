@@ -36,6 +36,10 @@
   }
 
   .Select-menu-outer > .Select-menu {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     .Select-option {
       background-color: black !important;
       color: white !important;

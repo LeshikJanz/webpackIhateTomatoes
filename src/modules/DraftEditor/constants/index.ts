@@ -1,5 +1,6 @@
 import bold from '../components/toolbarToggles/bold';
 import italic from '../components/toolbarToggles/italic';
+import strikeThrough from '../components/toolbarToggles/strikethrough';
 import link from '../components/toolbarToggles/link';
 import ul from '../components/toolbarToggles/ul';
 import ol from '../components/toolbarToggles/ol';
@@ -10,6 +11,7 @@ import { FontPicker } from '../components/toolbarToggles/fontPicker';
 export const BLOCK_TYPES = [
   { type: "inline", label: "B", style: "BOLD", icon: bold },
   { type: "inline", label: "I", style: "ITALIC", icon: italic },
+  { type: "inline", label: "S", style: "STRIKETHROUGH", icon: strikeThrough },
   { type: "custom", label: 'Font Picker', icon: FontPicker },
   { type: "entity", label: "Link", style: "link", entity: "LINK", icon: link },
   { type: "separator" },
@@ -22,13 +24,9 @@ export const BLOCK_TYPES = [
 export const styleMap = {
   'STRIKETHROUGH': {
     textDecoration: 'line-through',
-    color: 'red'
   },
   'CODE': {
     textDecoration: 'none'
-  },
-  'FONT_SIZE_8': {
-    fontSize: '8px'
   },
   'FONT_SIZE_12': {
     fontSize: '12px'
@@ -44,6 +42,12 @@ export const styleMap = {
   },
   'FONT_SIZE_32': {
     fontSize: '32px'
+  },
+  'FONT_SIZE_48': {
+    fontSize: '48px'
+  },
+  'FONT_SIZE_72': {
+    fontSize: '72px'
   },
   red: {
     color: 'rgba(255, 0, 0, 1.0)',
