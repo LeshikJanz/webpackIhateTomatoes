@@ -177,7 +177,7 @@ export default class MegaDraft extends React.Component<any, any> {
         <Dropzone onDropAccepted={ this.onDropAccepted }
                   onDropRejected={ this.handleDropRejectred }
                   disableClick={true}
-                  accept="image/jpeg, image/png, image/gif"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   className="dropzone-area"
                   activeClassName="dropzone-area-active"
                   rejectClassName="dropzone-area-reject">
