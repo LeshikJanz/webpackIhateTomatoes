@@ -33,6 +33,13 @@ export default class MegaDraft extends React.Component<any, any> {
     this.state = { editorState: editorStateFromRaw(this.props.knowledge.text) };
   }
 
+  isContentChanged = (newState) => {
+    const currentContentState = this.state.editorState.getCurrentContent()
+    const newContentState = newState.getCurrentContent()
+
+    return currentContentState !== newContentState;
+  };
+
   /**
    * On change editor text
    *
@@ -40,8 +47,12 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
+    // Save to the server only if content was changed
+    if (this.isContentChanged(editorState)) {
+      this.setState({ editorState });
+      this.handleTimer(editorState.getSelection().getHasFocus());
+    }
     this.setState({ editorState });
-    this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
