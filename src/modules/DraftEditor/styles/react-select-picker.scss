@@ -1,4 +1,4 @@
-.fontPicker-container {
+.picker-container {
 
   .Select-control {
     background-color: transparent !important;
@@ -98,5 +98,20 @@
 
   .Select-menu-outer > .Select-menu {
     width: 170px !important;
+  }
+}
+
+.align-picker {
+  cursor: pointer;
+  width: 60px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .Select-value-label {
+    cursor: pointer;
+    display: flex;
   }
 }

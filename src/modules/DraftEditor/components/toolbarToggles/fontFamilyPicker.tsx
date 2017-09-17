@@ -19,7 +19,7 @@ export const FontFamilyPicker = ({ active, toggleInlineStyle }) => {
   const selectedFont = active.find(a => options.find(({ value }) => value == a)) || 'FONT_FAMILY_Raleway_Medium';
 
   return (
-    <div className="fontPicker-container fontFamilyPicker">
+    <div className="picker-container fontFamilyPicker">
       <Select
         name="form-field-name"
         value={selectedFont}

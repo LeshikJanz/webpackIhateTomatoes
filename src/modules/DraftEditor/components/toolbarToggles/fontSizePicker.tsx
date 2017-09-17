@@ -16,7 +16,7 @@ export const FontSizePicker = ({ active, toggleInlineStyle }) => {
   const selectedFont = active.find(a => options.find(({ value }) => value == a)) || 'FONT_SIZE_16';
 
   return (
-    <div className="fontPicker-container">
+    <div className="picker-container">
       <Select
         name="form-field-name"
         value={selectedFont}

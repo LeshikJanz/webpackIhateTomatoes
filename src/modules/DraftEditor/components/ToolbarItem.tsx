@@ -27,6 +27,7 @@ export default class ToolbarItem extends React.Component {
 
     if (this.props.item.type === 'custom') {
       return <Icon active={this.props.active}
+                   editorState={this.props.editorState}
                    toggleInlineStyle={ this.props.toggleInlineStyle }
                    toggleBlockStyle={ this.props.toggleBlockStyle }
       />

@@ -1,18 +1,27 @@
 import * as React from "react";
 import '../../styles/react-select-picker.scss';
+import { AlignLeft } from "./alignLeft";
+import { AlignCenter } from "./alignCenter";
+import { AlignRight } from "./alignRight";
 const Select = require('react-select');
 
 const options = [
-  { value: 'section-left', label: 'Left' },
-  { value: 'section-center', label: 'Center' },
-  { value: 'section-right', label: 'Right' },
+  { value: 'section-left', label: (<AlignLeft/>) },
+  { value: 'section-center', label: ( <AlignCenter/> ) },
+  { value: 'section-right', label: (<AlignRight/>) },
 ];
 
-export const TextAlignPicker = ({ active, toggleBlockStyle }) => {
-  const selectedAlign = active.find(a => options.find(({ value }) => value == a)) || 'section-left';
+export const TextAlignPicker = ({ toggleBlockStyle, editorState }) => {
+  const selection = editorState.getSelection();
+  const currentStyle = editorState
+    .getCurrentContent()
+    .getBlockForKey(selection.getStartKey())
+    .getType();
+
+  const selectedAlign = options.find(({ value }) => value === currentStyle) || 'section-left';
 
   return (
-    <div className="fontPicker-container fontFamilyPicker">
+    <div className="picker-container align-picker">
       <Select
         name="form-field-name"
         value={selectedAlign}

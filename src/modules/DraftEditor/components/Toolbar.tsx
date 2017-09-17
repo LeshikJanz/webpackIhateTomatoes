@@ -73,11 +73,7 @@ export default class Toolbar extends React.Component {
       case "custom": {
         key = "custom-" + position;
         toggle = () => item.action(this.props.editorState);
-        active = this.props.editorState.getCurrentInlineStyle() ||
-          this.props.editorState
-            .getCurrentContent()
-            .getBlockForKey(selection.getStartKey())
-            .getType();
+        active = this.props.editorState.getCurrentInlineStyle();
         break;
       }
       case "inline": {
@@ -113,6 +109,7 @@ export default class Toolbar extends React.Component {
       <ToolbarItem key={key} active={active} toggle={toggle} item={item}
                    toggleInlineStyle={ this.toggleInlineStyle }
                    toggleBlockStyle={ this.toggleBlockStyle }
+                   editorState={ this.props.editorState }
       />
     );
   }
