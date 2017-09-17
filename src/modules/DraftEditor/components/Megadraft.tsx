@@ -1,6 +1,6 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
+import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
@@ -15,10 +15,8 @@ import { ConfirmModal } from "components/ConfirmModal/components";
 import Hint from "components/Hint/containers";
 import { uploadImageAsync } from "api/upload";
 import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
-import { CustomToolbar } from "./CustomToolbar";
-import SideBar from "./Sidebar";
 import Toolbar from "./Toolbar";
-import { styleMap } from "../constants/index";
+import { blockRenderMap, styleMap } from "../constants/index";
 
 const plugins = [
   ImagePlugin,
@@ -27,16 +25,6 @@ const plugins = [
 
 let typingTimer;
 const doneTypingInterval = 1000;
-
-// Custom overrides for "code" style.
-// const styleMap = {
-//   'CODE': {
-//     backgroundColor: 'rgba(0, 0, 0, 0.05)',
-//     fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-//     fontSize: 86,
-//     padding: 42,
-//   },
-// };
 
 export default class MegaDraft extends React.Component<any, any> {
 
@@ -95,8 +83,14 @@ export default class MegaDraft extends React.Component<any, any> {
 
   getBlockStyle(block) {
     switch (block.getType()) {
-      case 'blockquote':
-        return 'MyRichEditor-blockquote';
+      case 'section-left':
+        return 'section-left';
+      case 'section-center':
+        return 'section-center';
+      case 'section-right':
+        return 'section-right';
+      case 'unstyled':
+        return 'unstyled-text';
       default:
         return null;
     }
@@ -111,6 +105,7 @@ export default class MegaDraft extends React.Component<any, any> {
    */
   render() {
     const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
+    const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
     const relations = knowledge.relations || [];
 
@@ -175,10 +170,12 @@ export default class MegaDraft extends React.Component<any, any> {
           <div className="megadraft-container">
             <MegadraftEditor
               editorState={this.state.editorState}
+              resetStyleNewLine={true}
               onChange={this.onChange}
               plugins={plugins}
               Toolbar={Toolbar}
               blockStyleFn={this.getBlockStyle}
+              blockRenderMap={extendedBlockRenderMap}
               customStyleMap={styleMap}
             />
             <div className="accepted-upload">

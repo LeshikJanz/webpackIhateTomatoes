@@ -6,27 +6,43 @@ import ul from '../components/toolbarToggles/ul';
 import ol from '../components/toolbarToggles/ol';
 import bq from '../components/toolbarToggles/blockquote';
 import code from '../components/toolbarToggles/code';
-import { FontPicker } from '../components/toolbarToggles/fontPicker';
+import { FontSizePicker } from '../components/toolbarToggles/fontSizePicker';
+import { FontFamilyPicker } from '../components/toolbarToggles/fontFamilyPicker';
+import { TextAlignPicker } from '../components/toolbarToggles/textAlignPicker';
+import { Map } from 'immutable';
 
 export const BLOCK_TYPES = [
   { type: "inline", label: "B", style: "BOLD", icon: bold },
   { type: "inline", label: "I", style: "ITALIC", icon: italic },
   { type: "inline", label: "S", style: "STRIKETHROUGH", icon: strikeThrough },
-  { type: "custom", label: 'Font Picker', icon: FontPicker },
+  { type: "custom", label: 'Font Size Picker', icon: FontSizePicker },
+  { type: "custom", label: 'Font Family Picker', icon: FontFamilyPicker },
   { type: "entity", label: "Link", style: "link", entity: "LINK", icon: link },
   { type: "separator" },
   { type: "block", label: "UL", style: "unordered-list-item", icon: ul },
   { type: "block", label: "OL", style: "ordered-list-item", icon: ol },
   { type: "block", label: "QT", style: "blockquote", icon: bq },
+  { type: "custom", label: 'Align', icon: TextAlignPicker },
   { type: "block", label: 'Code Block', style: 'code-block', icon: code },
 ];
 
 export const styleMap = {
   'STRIKETHROUGH': {
-    textDecoration: 'line-through',
+    textDecoration: 'line-through'
   },
   'CODE': {
     textDecoration: 'none'
+  },
+  'TEXT_ALIGN_LEFT': {
+    textAlign: 'left'
+  },
+  'TEXT_ALIGN_CENTER': {
+    textAlign: 'center',
+    textDecoration: 'line-through',
+    color: 'red'
+  },
+  'TEXT_ALIGN_RIGHT': {
+    textAlign: 'right'
   },
   'FONT_SIZE_12': {
     fontSize: '12px'
@@ -49,25 +65,46 @@ export const styleMap = {
   'FONT_SIZE_72': {
     fontSize: '72px'
   },
-  red: {
-    color: 'rgba(255, 0, 0, 1.0)',
+  'FONT_FAMILY_Arial': {
+    fontFamily: 'Arial'
   },
-  orange: {
-    color: 'rgba(255, 127, 0, 1.0)',
+  'FONT_FAMILY_Cooper_Light': {
+    fontFamily: 'Cooper',
   },
-  yellow: {
-    color: 'rgba(180, 180, 0, 1.0)',
+  'FONT_FAMILY_Cooper_Medium': {
+    fontFamily: 'Cooper-Medium'
   },
-  green: {
-    color: 'rgba(0, 180, 0, 1.0)',
+  'FONT_FAMILY_Cooper_Bold': {
+    fontFamily: 'Cooper-Bold'
   },
-  blue: {
-    color: 'rgba(0, 0, 255, 1.0)',
+  'FONT_FAMILY_Serif': {
+    fontFamily: 'Serif',
   },
-  indigo: {
-    color: 'rgba(75, 0, 130, 1.0)',
+  'FONT_FAMILY_Serif_Medium': {
+    fontFamily: 'Serif-Medium'
   },
-  violet: {
-    color: 'rgba(127, 0, 255, 1.0)',
+  'FONT_FAMILY_Serif_Bold': {
+    fontFamily: 'Serif-Bold'
+  },
+  'FONT_FAMILY_Raleway': {
+    fontFamily: 'Raleway',
+  },
+  'FONT_FAMILY_Raleway_Medium': {
+    fontFamily: 'Raleway-Medium'
+  },
+  'FONT_FAMILY_Raleway_Bold': {
+    fontFamily: 'Raleway-Bold'
   },
 };
+
+export const blockRenderMap = Map({
+  'section-left': {
+    element: 'section'
+  },
+  'section-center': {
+    element: 'section'
+  },
+  'section-right': {
+    element: 'section'
+  },
+});

@@ -28,19 +28,33 @@
     }
   }
 
+  .Select-menu-outer, .Select-menu {
+    border-top: none !important;
+    border: none !important;
+  }
+
   .is-open {
+    .Select-control {
+      border: none !important;
+    }
     .Select-arrow-zone {
       display: table-cell !important;
-      opacity: 0;
+      opacity: 0 !important;
     }
   }
 
   .Select-menu-outer > .Select-menu {
+    border-top: none !important;
+
     &::-webkit-scrollbar {
       display: none;
     }
 
     .Select-option {
+      &:first-child {
+        border-top: none !important;
+      }
+
       background-color: black !important;
       color: white !important;
       height: 30px !important;
@@ -55,5 +69,34 @@
         color: white !important;
       }
     }
+  }
+}
+
+.fontFamilyPicker {
+  width: 60px;
+  transition: .3s linear width;
+
+  .Select-arrow-zone {
+    opacity: 0;
+  }
+
+  &:hover {
+    width: 175px;
+    transition: .3s linear width;
+
+    .Select-arrow-zone {
+      opacity: 1;
+    }
+  }
+
+  .Select-value-label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .Select-menu-outer > .Select-menu {
+    width: 170px !important;
   }
 }

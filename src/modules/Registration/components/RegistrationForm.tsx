@@ -11,6 +11,7 @@ import {
 } from "components/RenderField/validators";
 import { renderField } from "components/RenderField/index";
 import { Spinner } from "../../../components/Spinner/index";
+import Link from "../../DraftEditor/components/Link";
 
 /**
  * Google place autocomplete for Redux Form Field

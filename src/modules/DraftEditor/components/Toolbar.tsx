@@ -7,6 +7,7 @@ import ToolbarItem from "./ToolbarItem";
 import { getSelectionCoords } from "./utils";
 import { BLOCK_TYPES } from "../constants/index";
 
+const clearTypes = ['FONT_SIZE', 'FONT_FAMILY'];
 
 export default class Toolbar extends React.Component {
   static defaultProps = {
@@ -25,26 +26,24 @@ export default class Toolbar extends React.Component {
     };
   }
 
-  removePreviousFonts = () => {
+  removePreviousFontSizes = (type) => {
     const { editorState } = this.props;
     const selection = editorState.getSelection();
 
     return editorState.getCurrentInlineStyle()
-      .reduce((contentState, st) => (
-        st.indexOf('FONT') === 0 ?
-          Modifier.removeInlineStyle(contentState, selection, st) : contentState
-      ), editorState.getCurrentContent())
-  }
+      .reduce((contentState, st) => st.indexOf(type) == 0 ?
+        Modifier.removeInlineStyle(contentState, selection, st) :
+        contentState, editorState.getCurrentContent())
+  };
 
   clearEditorState = (inlineStyle) => {
-    // Let's just allow one font size at a time. Turn off all active font sizes.
-    if (inlineStyle.indexOf('FONT') === 0) {
-      return EditorState.push(
+    const type = clearTypes.find(ct => inlineStyle.indexOf(ct) === 0);
+    // Let's just allow one font size/family at a time. Turn off all active font sizes/families.
+    return type && EditorState.push(
         this.props.editorState,
-        this.removePreviousFonts(),
+        this.removePreviousFontSizes(type),
         'change-inline-style'
       )
-    }
   };
 
   toggleInlineStyle = (inlineStyle) => {
@@ -74,7 +73,11 @@ export default class Toolbar extends React.Component {
       case "custom": {
         key = "custom-" + position;
         toggle = () => item.action(this.props.editorState);
-        active = this.props.editorState.getCurrentInlineStyle();
+        active = this.props.editorState.getCurrentInlineStyle() ||
+          this.props.editorState
+            .getCurrentContent()
+            .getBlockForKey(selection.getStartKey())
+            .getType();
         break;
       }
       case "inline": {

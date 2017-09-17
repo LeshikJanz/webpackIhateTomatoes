@@ -31,7 +31,7 @@
   //min-height: 80vh;
 
   span {
-    font-family: Arial;
+    //font-family: Arial;
     letter-spacing: 0.1px;
   }
 }
@@ -147,7 +147,7 @@
   }
   .DraftEditor-editorContainer {
     font-size: 16px;
-    font-family: Serif-Light !important;
+    font-family: Raleway-medium !important;
   }
 
   .block__input {
@@ -206,7 +206,7 @@ input[type=file]::-webkit-file-upload-button {
 
 .megadraft-container {
   .accepted-upload, .rejected-upload {
-    position:sticky;
+    position: sticky;
     display: none;
     bottom: 0;
     z-index: 100;
@@ -232,14 +232,19 @@ input[type=file]::-webkit-file-upload-button {
   }
 }
 
-.superFancyBlockquote {
-  color: #999;
-  font-size: 30px;
-  font-family: 'Hoefler Text', Georgia, serif;
-  font-style: italic;
+.unstyled-text {
+  font-family: Raleway-Medium;
+  font-size: 16px;
+}
+
+.section-left {
+  text-align: left;
+}
+
+.section-center {
   text-align: center;
 }
 
-.MyRichEditor-blockquote {
-  font-size: 50px;
+.section-right {
+  text-align: right;
 }

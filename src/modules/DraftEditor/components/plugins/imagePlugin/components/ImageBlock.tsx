@@ -52,8 +52,9 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
       </div>
       <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
            style={{ textAlign: `${data.imgPosition}` }}>
-        <Spinner loading={data.isLoading}/>
-        { data.isLoading && <h5>Uploading...</h5> }
+        <Spinner loading={data.isLoading}>
+          <h5>Uploading...</h5>
+        </Spinner>
         <img src={data.src} onError={handleImageError} style={{ width: `${data.width}%` }}/>
       </div>
       <BlockData>
