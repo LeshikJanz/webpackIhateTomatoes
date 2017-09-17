@@ -1,0 +1,117 @@
+.picker-container {
+
+  .Select-control {
+    background-color: transparent !important;
+    height: 50px !important;
+    border: none !important;
+
+    .Select-value {
+      display: flex;
+      align-items: center;
+      padding: 10px !important;
+
+      .Select-value-label {
+        color: white !important;
+      }
+    }
+
+    .Select-input {
+      padding: 15px !important;
+    }
+
+    .Select-arrow {
+      border-width: 7px 6px 2.5px !important;
+    }
+
+    .Select-clear-zone {
+      display: none;
+    }
+  }
+
+  .Select-menu-outer, .Select-menu {
+    border-top: none !important;
+    border: none !important;
+  }
+
+  .is-open {
+    .Select-control {
+      border: none !important;
+    }
+    .Select-arrow-zone {
+      display: table-cell !important;
+      opacity: 0 !important;
+    }
+  }
+
+  .Select-menu-outer > .Select-menu {
+    border-top: none !important;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .Select-option {
+      &:first-child {
+        border-top: none !important;
+      }
+
+      background-color: black !important;
+      color: white !important;
+      height: 30px !important;
+
+      &:hover {
+        background-color: #b2bac4 !important;
+        color: white !important;
+      }
+
+      &.is-focused {
+        background-color: #b2bac4 !important;
+        color: white !important;
+      }
+    }
+  }
+}
+
+.fontFamilyPicker {
+  width: 60px;
+  transition: .3s linear width;
+
+  .Select-arrow-zone {
+    opacity: 0;
+  }
+
+  &:hover {
+    width: 175px;
+    transition: .3s linear width;
+
+    .Select-arrow-zone {
+      opacity: 1;
+    }
+  }
+
+  .Select-value-label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .Select-menu-outer > .Select-menu {
+    width: 170px !important;
+  }
+}
+
+.align-picker {
+  cursor: pointer;
+  width: 60px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .Select-value-label {
+    cursor: pointer;
+    display: flex;
+  }
+}

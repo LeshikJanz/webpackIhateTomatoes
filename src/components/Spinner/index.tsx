@@ -2,11 +2,14 @@ import * as React from 'react';
 import { connect } from "react-redux";
 const SVG = require('react-svg');
 
-export const Spinner = ({ loading }) => (
+export const Spinner = ({ loading, children }) => (
   <div className="spinner">
     {
       loading &&
-      <SVG path="assets/icons/spinner.svg"/>
+      <div>
+        <SVG path="assets/icons/spinner.svg"/>
+        {children}
+      </div>
     }
   </div>
 )

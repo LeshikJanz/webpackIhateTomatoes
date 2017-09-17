@@ -1,12 +1,11 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import { Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
+import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
 import KnowledgeCreateForm from "../../Cloud/components/KnowledgeCreateForm";
 import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraft";
-const SVG = require('react-svg');
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
 import { NotificationManager } from 'react-notifications';
@@ -16,6 +15,8 @@ import { ConfirmModal } from "components/ConfirmModal/components";
 import Hint from "components/Hint/containers";
 import { uploadImageAsync } from "api/upload";
 import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
+import Toolbar from "./Toolbar";
+import { blockRenderMap, styleMap } from "../constants/index";
 
 const plugins = [
   ImagePlugin,
@@ -32,6 +33,13 @@ export default class MegaDraft extends React.Component<any, any> {
     this.state = { editorState: editorStateFromRaw(this.props.knowledge.text) };
   }
 
+  isContentChanged = (newState) => {
+    const currentContentState = this.state.editorState.getCurrentContent()
+    const newContentState = newState.getCurrentContent()
+
+    return currentContentState !== newContentState;
+  };
+
   /**
    * On change editor text
    *
@@ -39,15 +47,19 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
+    // Save to the server only if content was changed
+    if (this.isContentChanged(editorState)) {
+      this.setState({ editorState });
+      this.handleTimer(editorState.getSelection().getHasFocus());
+    }
     this.setState({ editorState });
-    this.handleTimer(editorState.getSelection().getHasFocus());
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
 
   handleTimer = (isFocused: boolean) => {
     clearTimeout(typingTimer);
-    if ( isFocused ) {
+    if (isFocused) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -77,10 +89,24 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.deleteKnowledge(this.props.knowledge);
   };
 
-  handleDropRejectred = () => {
+  handleDropRejectred = () =>
     NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
-    return false;
+
+  getBlockStyle(block) {
+    switch (block.getType()) {
+      case 'section-left':
+        return 'section-left';
+      case 'section-center':
+        return 'section-center';
+      case 'section-right':
+        return 'section-right';
+      case 'unstyled':
+        return 'unstyled-text';
+      default:
+        return null;
+    }
   }
+
 
   /**
    * Renders the component.
@@ -90,6 +116,7 @@ export default class MegaDraft extends React.Component<any, any> {
    */
   render() {
     const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
+    const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
     const relations = knowledge.relations || [];
 
@@ -106,13 +133,12 @@ export default class MegaDraft extends React.Component<any, any> {
                      title="Knowledge name"
                      value={knowledge.name}
                      onChange={handleNameChange}/>
-
               <div className="delete-icon"
                    placeholder="Delete Knowledge"
                    onClick={this.handleDeleteModal}
               >
-                <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
-                <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
+                <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
+                <img src="assets/icons/deleteBox.svg" className="delete-box"/>
               </div>
             </Hint>
           </div>
@@ -126,7 +152,7 @@ export default class MegaDraft extends React.Component<any, any> {
             </button>
             }
             <div className="group-renewers">
-              <div className="group-label">There are { relations.length } Renewers</div>
+              <div className="group-label">{ relations.length } Renewers</div>
               <div className="group_renewers_images">
                 {
                   relations.map((item, i) =>
@@ -155,8 +181,13 @@ export default class MegaDraft extends React.Component<any, any> {
           <div className="megadraft-container">
             <MegadraftEditor
               editorState={this.state.editorState}
+              resetStyleNewLine={true}
               onChange={this.onChange}
               plugins={plugins}
+              Toolbar={Toolbar}
+              blockStyleFn={this.getBlockStyle}
+              blockRenderMap={extendedBlockRenderMap}
+              customStyleMap={styleMap}
             />
             <div className="accepted-upload">
               <h1>Drag file</h1>
@@ -194,6 +225,7 @@ export default class MegaDraft extends React.Component<any, any> {
             text: `Are you sure you want to delete <b>${knowledge.name}?</b> This cloud will be archive and you will not see it on the Cloud.`,
             itemId: knowledge.id
           }}
+          handleModal={this.handleDeleteModal}
         />
       </div>
     )
