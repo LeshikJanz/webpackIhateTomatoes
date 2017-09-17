@@ -940,7 +940,7 @@ namespace React {
         display?: any;
 
         /**
-         * The ‘fill’ property paints the interior of the given graphical element. The area to be painted consists of any areas inside the outline of the shape. To determine the inside of the shape, all subpaths are considered, and the interior is determined according to the rules associated with the current value of the ‘fill-rule’ property. The zero-width geometric outline of a shape is included in the area to be painted.
+         * The ‘fill’ property paints the interior of the given graphical element. The area to be painted consists of any areas inside the outline of the shape. To determine the inside of the shape, all subpaths are considered, and the interior is determined according to the rules associated with the current value of the ‘fillRule’ property. The zero-width geometric outline of a shape is included in the area to be painted.
          */
         fill?: any;
 
@@ -950,8 +950,8 @@ namespace React {
         fillOpacity?: number;
 
         /**
-         * The ‘fill-rule’ property indicates the algorithm which is to be used to determine what parts of the canvas are included inside the shape. For a simple, non-intersecting path, it is intuitively clear what region lies "inside"; however, for a more complex path, such as a path that intersects itself or where one subpath encloses another, the interpretation of "inside" is not so obvious.
-         * The ‘fill-rule’ property provides two options for how the inside of a shape is determined:
+         * The ‘fillRule’ property indicates the algorithm which is to be used to determine what parts of the canvas are included inside the shape. For a simple, non-intersecting path, it is intuitively clear what region lies "inside"; however, for a more complex path, such as a path that intersects itself or where one subpath encloses another, the interpretation of "inside" is not so obvious.
+         * The ‘fillRule’ property provides two options for how the inside of a shape is determined:
          */
         fillRule?: any;
 
