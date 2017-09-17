@@ -11,6 +11,9 @@ import { FontFamilyPicker } from '../components/toolbarToggles/fontFamilyPicker'
 import { TextAlignPicker } from '../components/toolbarToggles/textAlignPicker';
 import { Map } from 'immutable';
 
+export const TOOLBAR_WIDTH = 530;
+export const MODAL_PADDING = 0.15;
+
 export const BLOCK_TYPES = [
   { type: "inline", label: "B", style: "BOLD", icon: bold },
   { type: "inline", label: "I", style: "ITALIC", icon: italic },

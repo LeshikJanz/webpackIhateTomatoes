@@ -5,7 +5,7 @@ const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import ToolbarItem from "./ToolbarItem";
 import { getSelectionCoords } from "./utils";
-import { BLOCK_TYPES } from "../constants/index";
+import { BLOCK_TYPES, MODAL_PADDING, TOOLBAR_WIDTH } from "../constants/index";
 
 const clearTypes = ['FONT_SIZE', 'FONT_FAMILY'];
 
@@ -21,6 +21,10 @@ export default class Toolbar extends React.Component {
     this.state = {
       show: false,
       editingEntity: null,
+      position: {
+        bottom: 0,
+        left: 0
+      },
       link: "",
       error: null
     };
@@ -281,19 +285,29 @@ export default class Toolbar extends React.Component {
         x.preventDefault();
       }}>
         {BLOCK_TYPES.map(this.renderButton)}
-        {/*{this.props.actions.map(this.renderButton)}*/}
       </ul>
     );
   }
+
+  getToolbarRightPadding = () =>
+  window.innerWidth - TOOLBAR_WIDTH - window.innerWidth * MODAL_PADDING;
+
+  getToolbarPosition = () =>
+    this.getToolbarRightPadding() < this.state.position.left ?
+      {
+        bottom: this.state.position.bottom,
+        left: this.getToolbarRightPadding()
+      } : this.state.position;
 
   render() {
     if (this.props.readOnly) {
       return null;
     }
 
+
     return (
       <div className={cx(['toolbar', { 'toolbar--open': this.state.show }, { "toolbar--error": this.state.error }])}
-           style={this.state.position}>
+           style={this.getToolbarPosition()}>
         <div style={{ position: "absolute", bottom: 0 }}>
           <div className="toolbar__wrapper" ref={(el) => {
             this.toolbarEl = el;
