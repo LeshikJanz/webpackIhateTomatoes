@@ -1,5 +1,5 @@
 import * as React from "react";
-import { EditorState, RichUtils } from "draft-js";
+import { EditorState, RichUtils, Modifier } from "draft-js";
 const styles = require('../styles/toolbar.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -25,9 +25,33 @@ export default class Toolbar extends React.Component {
     };
   }
 
+  removePreviousFonts = () => {
+    const { editorState } = this.props;
+    const selection = editorState.getSelection();
+
+    return editorState.getCurrentInlineStyle()
+      .reduce((contentState, st) => (
+        st.indexOf('FONT') === 0 ?
+          Modifier.removeInlineStyle(contentState, selection, st) : contentState
+      ), editorState.getCurrentContent())
+  }
+
+  clearEditorState = (inlineStyle) => {
+    // Let's just allow one font size at a time. Turn off all active font sizes.
+    if (inlineStyle.indexOf('FONT') === 0) {
+      return EditorState.push(
+        this.props.editorState,
+        this.removePreviousFonts(),
+        'change-inline-style'
+      )
+    }
+  };
+
   toggleInlineStyle = (inlineStyle) => {
-    const newEditorState = RichUtils.toggleInlineStyle(this.props.editorState, inlineStyle);
-    this.props.onChange(newEditorState);
+    const clearEditorState = this.clearEditorState(inlineStyle);
+
+    const nextEditorState = RichUtils.toggleInlineStyle(clearEditorState || this.props.editorState, inlineStyle);
+    this.props.onChange(nextEditorState);
   }
 
   toggleBlockStyle = (blockType) => {
@@ -177,10 +201,7 @@ export default class Toolbar extends React.Component {
 
   hasEntity = (entityType) => {
     const entity = this.getCurrentEntity();
-    if (entity && entity.getType() === entityType) {
-      return true;
-    }
-    return false;
+    return !!(entity && entity.getType() === entityType);
   }
 
   setEntity = (entityType, data, mutability = "MUTABLE") => {
@@ -208,7 +229,7 @@ export default class Toolbar extends React.Component {
       this.props.onChange(RichUtils.toggleLink(editorState, selection, null));
     }
     this.cancelEntity();
-  }
+  };
 
   cancelEntity = () => {
     this.props.editor && this.props.editor.focus();
@@ -216,7 +237,7 @@ export default class Toolbar extends React.Component {
       editingEntity: null,
       error: null
     });
-  }
+  };
 
   renderEntityInput = (entityType) => {
     if (!this.props.entityInputs) {

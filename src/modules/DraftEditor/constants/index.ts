@@ -24,6 +24,9 @@ export const styleMap = {
     textDecoration: 'line-through',
     color: 'red'
   },
+  'CODE': {
+    textDecoration: 'none'
+  },
   'FONT_SIZE_8': {
     fontSize: '8px'
   },

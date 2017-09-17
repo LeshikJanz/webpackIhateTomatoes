@@ -13,9 +13,6 @@ const options = [
 
 export const FontPicker = ({ active, toggleInlineStyle }) => {
   const selectedFont = active.find(a => options.find(({ value }) => value == a)) || 'FONT_SIZE_12';
-  console.log('selectedFont');
-  console.log(selectedFont);
-
 
   return (
     <div className="fontPicker-container">
