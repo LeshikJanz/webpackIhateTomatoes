@@ -64,7 +64,7 @@ export default class MegaDraft extends React.Component<any, any> {
     }
   };
 
-  onDrop = (e) =>
+  onDropAccepted = (e) =>
     uploadImageAsync(e[0], this.state.editorState, this.onChange)
       .then(({ src }) => {
         const data = {
@@ -89,8 +89,11 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.deleteKnowledge(this.props.knowledge);
   };
 
-  handleDropRejectred = () =>
-    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
+  handleDropRejectred = (e) => {
+    if (e[0].kind !== 'string') {
+      NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
+    }
+  }
 
   getBlockStyle(block) {
     switch (block.getType()) {
@@ -171,7 +174,7 @@ export default class MegaDraft extends React.Component<any, any> {
             <img src="assets/icons/close.svg"/>
           </button>
         </div>
-        <Dropzone onDropAccepted={ this.onDrop }
+        <Dropzone onDropAccepted={ this.onDropAccepted }
                   onDropRejected={ this.handleDropRejectred }
                   disableClick={true}
                   accept="image/jpeg, image/png, image/gif"
@@ -192,10 +195,6 @@ export default class MegaDraft extends React.Component<any, any> {
             <div className="accepted-upload">
               <h1>Drag file</h1>
               <h3>to add it to the current cursor position</h3>
-            </div>
-            <div className="rejected-upload">
-              <h1>Unsupported file format</h1>
-              <h3>Use images in JPG, GIF or PNG formats</h3>
             </div>
           </div>
         </Dropzone>
