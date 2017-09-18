@@ -92,24 +92,6 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "create"
-    },
-    {
-      "accessType": "WRITE",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "DELETE",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "EDIT",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
     }
   ],
   "methods": {}
