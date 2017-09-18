@@ -34,8 +34,8 @@ export default class MegaDraft extends React.Component<any, any> {
   }
 
   isContentChanged = (newState) => {
-    const currentContentState = this.state.editorState.getCurrentContent()
-    const newContentState = newState.getCurrentContent()
+    const currentContentState = this.state.editorState.getCurrentContent();
+    const newContentState = newState.getCurrentContent();
 
     return currentContentState !== newContentState;
   };

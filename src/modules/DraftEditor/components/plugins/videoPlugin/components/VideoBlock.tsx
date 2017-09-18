@@ -1,5 +1,6 @@
 import * as React from "react";
 import { MegadraftPlugin } from "megadraft";
+import { EditorState } from "draft-js";
 const { BlockData, BlockInput } = MegadraftPlugin;
 import { DraftJS, insertDataBlock } from "megadraft";
 import { withState } from 'recompose';
@@ -9,9 +10,19 @@ import ReactPlayer from 'react-player';
 import { NotificationManager } from 'react-notifications';
 const SVG = require('react-svg');
 
-export const VideoBlock = ({ container: { updateData, remove }, data }) => {
+const doneTypingInterval = 1000;
+let typingTimer;
 
-  const handleCaptionChange = ({ target }) => updateData({ caption: target.value });
+export const VideoBlock = ({ container: { updateData, remove }, data, updateKnowledge }) => {
+  const handleTimer = () => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(updateKnowledge, doneTypingInterval);
+  };
+
+  const handleCaptionChange = ({ target }) => {
+    updateData({ caption: target.value });
+    handleTimer();
+  };
 
   const deleteCurBlock = () => remove(data);
 
