@@ -1,9 +1,9 @@
 import * as React from 'react';
 import '../styles/field.scss';
 
-export const ProfileField = ({ name, value, isEditable }) => (
+export const ProfileField = ({ name, value, disabled }) => (
   <div className="profile-field-container">
-    <div className="field-name">{name}</div>
-    <div className="field-value">{value}</div>
+    <label htmlFor={name} className="field-name">{name}</label>
+    <input name={name} className="field-value" disabled={disabled} value={value}/>
   </div>
-)
+);

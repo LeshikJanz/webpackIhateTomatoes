@@ -12,7 +12,7 @@ export const Profile = ({ user }) => {
           <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
         </div>
         <ProfileCategory name="PERSONAL">
-          <ProfileField name="Name" value="Petya"/>
+          <ProfileField name="Name" value="Petya asdg asdgaw egaw gasdgawe gasdg"/>
           <ProfileField name="Birthday" value="Petya"/>
           <ProfileField name="Relationship" value="Petya"/>
           <ProfileField name="Nationality" value="Petya"/>

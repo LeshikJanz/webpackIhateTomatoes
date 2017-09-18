@@ -1,11 +1,12 @@
 .profile-field-container {
   display: flex;
-  padding: 8px 0 2px 0;
   border-bottom: 1px solid;
 
   > .field-name {
     font-family: Cooper-Medium;
-    width: 50%;
+    font-weight: initial;
+    padding: 8px 0 0 0;
+    width: 35%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -13,10 +14,22 @@
 
   > .field-value {
     font-family: Cooper-Medium;
-    width: 50%;
+    width: 65%;
     font-style: italic;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 5px;
+    transition: background-color .5s ease;
+    padding: 8px 0 3px 10px;
+
+    &:focus {
+      background-color: white;
+      border: 1px dotted;
+      transition: background-color .5s ease;
+    }
   }
 }
