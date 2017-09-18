@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(getCloudsInit);
     dispatch(push(`user/${userId}/${urls.board}`))
   }
-})
+});
 
 export default connect(
   mapStateToProps,

@@ -19,7 +19,7 @@
     cursor: pointer;
     width: 80%;
     border-radius: 6px;
-    height: 100px;
+    height: 120px;
     background-color: #ffffff;
     box-shadow: 1px 1px 5px 0 rgba(52, 58, 64, 0.09);
     align-items: center;
@@ -39,11 +39,19 @@
   left: -35px;
 
   > img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     display: block;
     margin: 0 auto;
     border-radius: 50%;
     border: 1px solid #dbdbdb;
+  }
+}
+
+.user-data {
+  padding: 20px;
+
+  > .user-name {
+    font-family: Raleway-Bold;
   }
 }

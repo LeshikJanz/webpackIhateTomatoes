@@ -1,6 +1,6 @@
 import { MegadraftIcons } from "megadraft";
 import { BlockButton } from "./BlockButton";
-import { VideoBlock } from "./VideoBlock";
+import VideoBlock from "../containers";
 
 export default {
   // Friendly plugin name

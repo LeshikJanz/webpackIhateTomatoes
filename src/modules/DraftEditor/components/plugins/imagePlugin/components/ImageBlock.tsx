@@ -9,13 +9,12 @@ import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
 import { Spinner } from "components/Spinner/index";
 import { ImgPositioning } from "./tools/imagePositioning";
-const SVG = require('react-svg');
-import { EditorState, SelectionState, Modifier } from "draft-js";
+import { EditorState, SelectionStsate, Modifier } from "draft-js";
 
 const doneTypingInterval = 1000;
 let typingTimer;
 
-export const ImageBlock = ({ container, data, updateKnowledge }) => {
+export const ImageBlock = ({ container, data, updateKnowledge, knowledge }) => {
   const handleTimer = () => {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(updateKnowledge, doneTypingInterval);
@@ -26,6 +25,8 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
     handleTimer();
   };
 
+  const isOwner = () => knowledge.accountId === localStorage.getItem('UserId');
+
   const deleteCurBlock = () => container.remove(data);
 
   const handleImageError = () => {
@@ -35,6 +36,7 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
 
   return (
     <div className="image-draft-container">
+      { isOwner() &&
       <div className="image-tools">
         <div className="image-zoom">
           <label htmlFor="width">Zoom: { data.width / 100 }</label>
@@ -50,6 +52,7 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
           <img src="assets/icons/deleteBox.svg" className="delete-box"/>
         </div>
       </div>
+      }
       <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
            style={{ textAlign: `${data.imgPosition}` }}>
         <Spinner loading={data.isLoading}>
@@ -57,12 +60,16 @@ export const ImageBlock = ({ container, data, updateKnowledge }) => {
         </Spinner>
         <img src={data.src} onError={handleImageError} style={{ width: `${data.width}%` }}/>
       </div>
+
+      { ((isOwner()) || (!isOwner() && data.caption)) &&
       <BlockData>
         <BlockInput placeholder="Enter an image caption"
+                    disabled={!isOwner()}
                     value={data.caption}
                     name="caption"
                     onChange={handleChange}/>
       </BlockData>
+      }
     </div>
   );
 };
