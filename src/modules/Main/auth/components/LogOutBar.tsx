@@ -5,12 +5,13 @@ require('../styles/style.scss');
 /**
  * Header's log out bar
  */
-export const LogOutBar = ({ logOut }) => {
+export const LogOutBar = ({ logOut, goToUserProfile }) => {
   const user = JSON.parse(localStorage.getItem('Account'));
 
   return (
     <div className="profile">
       <img className="user-img profile-img"
+           onClick={() => goToUserProfile(user.id)}
            src={ user && (user.avatar || DEFAULT_PROFILE_IMG) }
            alt={user && (user.realm || user.username)}
       />

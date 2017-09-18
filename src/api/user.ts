@@ -1,5 +1,4 @@
 import { request } from "./base";
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from "../constants/index";
 import { IUser } from "../interfaces/index";
 
 /**
@@ -40,5 +39,19 @@ export const fetchUsers = (filter: string) =>
 export const updateUserById = (userId: string, user: IUser) => {
   return request
     .patch(`Accounts/${userId}`, user)
+    .then((user: IUser) => user);
+};
+
+/**
+ * Api for getting user
+ *
+ * See: .../explorer/#!/Accounts/{id}:GET
+ *
+ * @param {string} userId - user id
+ * @returns {IUser} user - current user
+ */
+export const getUserById = (userId: string) => {
+  return request
+    .get(`Accounts/${userId}`, {})
     .then((user: IUser) => user);
 };

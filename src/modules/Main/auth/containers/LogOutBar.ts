@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { LogOutBar } from "../components/LogOutBar";
 import { logOutInit } from "../../actions";
+import { urls } from "../../../../urls";
+import { push } from "react-router-redux";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -10,7 +12,7 @@ import { logOutInit } from "../../actions";
  *
  * @param: {any} state - App state
  */
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
   isModalOpen: state.Modal.isModalOpen
 });
@@ -24,7 +26,8 @@ const mapStateToProps = ( state ) => ({
  * @param: {any} dispatch - dispatch
  */
 const mapDispatchToProps: any = dispatch => ({
-  logOut: () => dispatch(logOutInit())
+  logOut: () => dispatch(logOutInit()),
+  goToUserProfile: (userId: string) => dispatch(push(urls.profile + '/' + userId))
 });
 
 /**

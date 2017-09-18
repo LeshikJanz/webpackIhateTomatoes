@@ -20,7 +20,7 @@ export default compose(
   }),
   lifecycle({
     componentDidMount() {
-      if (this.props.location.query.confirmed) {
+      if ( this.props.location.query.confirmed ) {
         this.props.handleModal({
           type: MODAL_TYPES.confirm,
           title: 'Great!',

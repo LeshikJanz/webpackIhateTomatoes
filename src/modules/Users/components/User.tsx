@@ -20,7 +20,7 @@ export const User = (props) => {
         </div>
         <button className="gray small add"
                 onClick={ () => props.goToUserBoard(user.id) }>
-          View user
+          View sky
         </button>
       </div>
     </div>
