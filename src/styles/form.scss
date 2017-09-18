@@ -32,3 +32,27 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   font-size: 16px !important;
   color: #b2bac4 !important;
 }
+
+.name-input {
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 15px;
+  justify-content: center;
+  outline: none;
+  background-color: transparent;
+  font-family: Cooper-Medium;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  height: 50px;
+  letter-spacing: 2px;
+  color: #7a8693;
+  transition: background-color .5s ease;
+
+  &:focus {
+    background-color: #f8f8f8;
+    border: 2px solid #62aff7;
+  }
+}

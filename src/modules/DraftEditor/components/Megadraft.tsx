@@ -12,11 +12,11 @@ import { NotificationManager } from 'react-notifications';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
-import Hint from "components/Hint/containers";
 import { uploadImageAsync } from "api/upload";
 import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 import Toolbar from "./Toolbar";
 import { blockRenderMap, styleMap } from "../constants/index";
+import RenewBlock from "../containers/renewBlock";
 
 const plugins = [
   ImagePlugin,
@@ -48,7 +48,7 @@ export default class MegaDraft extends React.Component<any, any> {
    */
   onChange = (editorState) => {
     // Save to the server only if content was changed
-    if (this.isContentChanged(editorState)) {
+    if ( this.isContentChanged(editorState) ) {
       this.setState({ editorState });
       this.handleTimer(editorState.getSelection().getHasFocus());
     }
@@ -57,9 +57,9 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.editKnowledge(JSON.parse(content));
   };
 
-  handleTimer = (isFocused: boolean) => {
+  handleTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
-    if (isFocused) {
+    if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -90,13 +90,13 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleDropRejectred = (e) => {
-    if (e[0].kind !== 'string') {
+    if ( e[0].kind !== 'string' ) {
       NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
     }
   }
 
   getBlockStyle(block) {
-    switch (block.getType()) {
+    switch ( block.getType() ) {
       case 'section-left':
         return 'section-left';
       case 'section-center':
@@ -110,6 +110,10 @@ export default class MegaDraft extends React.Component<any, any> {
     }
   }
 
+  onKnowledgeNameChange = (e) => {
+    this.handleTimer();
+    this.props.handleNameChange(e);
+  };
 
   /**
    * Renders the component.
@@ -118,7 +122,7 @@ export default class MegaDraft extends React.Component<any, any> {
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, handleNameChange, closeEditor, clouds, goToUser } = this.props;
+    const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser } = this.props;
     const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
     const relations = knowledge.relations || [];
@@ -128,48 +132,22 @@ export default class MegaDraft extends React.Component<any, any> {
         <div className="modal-header draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
           <div className="knowledge-name-container">
-            <Hint text="This is current knowledge name">
-              <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
-                     style={{ marginRight: 'auto', marginLeft: '5%' }}
-                     className="input-container"
-                     placeholder="Enter the name..."
-                     title="Knowledge name"
-                     value={knowledge.name}
-                     onChange={handleNameChange}/>
-              <div className="delete-icon"
-                   placeholder="Delete Knowledge"
-                   onClick={this.handleDeleteModal}
-              >
-                <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
-                <img src="assets/icons/deleteBox.svg" className="delete-box"/>
-              </div>
-            </Hint>
-          </div>
-          <div className="renew-actions">
-            { (knowledge.accountId !== localStorage.getItem('UserId')
-            && !relations.find(r => r.accountId === localStorage.getItem('UserId')
-            )) &&
-            <button onClick={this.handleRenewingModal}
-                    className="tertiary small get-knowledge-button">
-              Renew
-            </button>
-            }
-            <div className="group-renewers">
-              <div className="group-label">{ relations.length } Renewers</div>
-              <div className="group_renewers_images">
-                {
-                  relations.map((item, i) =>
-                    <img key={i}
-                         onClick={ () => goToUser(item.accountId) }
-                         src={item.account.avatar}
-                         title={item.account.realm || item.account.username}
-                         alt={item.account.realm || item.account.username}
-                    />
-                  )
-                }
-              </div>
+            <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
+                   style={{ marginRight: 'auto', marginLeft: '5%' }}
+                   className="name-input"
+                   placeholder="Enter the name..."
+                   title="Knowledge name"
+                   value={knowledge.name}
+                   onChange={this.onKnowledgeNameChange}/>
+            <div className="delete-icon"
+                 placeholder="Delete Knowledge"
+                 onClick={this.handleDeleteModal}
+            >
+              <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
+              <img src="assets/icons/deleteBox.svg" className="delete-box"/>
             </div>
           </div>
+          <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
           <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
