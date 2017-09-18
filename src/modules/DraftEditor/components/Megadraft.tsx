@@ -64,19 +64,19 @@ export default class MegaDraft extends React.Component<any, any> {
     }
   };
 
-  onDropAccepted = (e) =>
-    uploadImageAsync(e[0], this.state.editorState, this.onChange)
-      .then(({ src }) => {
-        const data = {
-          "type": "image",
-          "src": src,
-          "caption": "",
-          imgPosition: 'center',
-          width: DEFAULT_WIDTH,
-          isLoading: false
-        };
-        this.onChange(insertDataBlock(this.state.editorState, data));
-      });
+  onDropAccepted = (e) => this.isOwner() &&
+  uploadImageAsync(e[0], this.state.editorState, this.onChange)
+    .then(({ src }) => {
+      const data = {
+        "type": "image",
+        "src": src,
+        "caption": "",
+        imgPosition: 'center',
+        width: DEFAULT_WIDTH,
+        isLoading: false
+      };
+      this.onChange(insertDataBlock(this.state.editorState, data));
+    });
 
   handleRenewingModal = () =>
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
@@ -115,6 +115,8 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.handleNameChange(e);
   };
 
+  isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
+
   /**
    * Renders the component.
    *
@@ -132,7 +134,7 @@ export default class MegaDraft extends React.Component<any, any> {
         <div className="modal-header draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
           <div className="knowledge-name-container">
-            <input disabled={knowledge.accountId !== localStorage.getItem('UserId')}
+            <input disabled={!this.isOwner()}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
                    className="name-input"
                    placeholder="Enter the name..."
@@ -140,6 +142,7 @@ export default class MegaDraft extends React.Component<any, any> {
                    value={knowledge.name}
                    onChange={this.onKnowledgeNameChange}/>
             <div className="delete-icon"
+                 hidden={!this.isOwner()}
                  placeholder="Delete Knowledge"
                  onClick={this.handleDeleteModal}
             >
@@ -163,6 +166,7 @@ export default class MegaDraft extends React.Component<any, any> {
             <MegadraftEditor
               editorState={this.state.editorState}
               resetStyleNewLine={true}
+              readOnly={!this.isOwner()}
               onChange={this.onChange}
               plugins={plugins}
               Toolbar={Toolbar}
@@ -170,10 +174,12 @@ export default class MegaDraft extends React.Component<any, any> {
               blockRenderMap={extendedBlockRenderMap}
               customStyleMap={styleMap}
             />
+            {this.isOwner() &&
             <div className="accepted-upload">
               <h1>Drag file</h1>
               <h3>to add it to the current cursor position</h3>
             </div>
+            }
           </div>
         </Dropzone>
 

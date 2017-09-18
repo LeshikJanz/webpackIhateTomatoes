@@ -13,7 +13,7 @@ const SVG = require('react-svg');
 const doneTypingInterval = 1000;
 let typingTimer;
 
-export const VideoBlock = ({ container: { updateData, remove }, data, updateKnowledge }) => {
+export const VideoBlock = ({ container: { updateData, remove }, data, updateKnowledge, knowledge }) => {
   const handleTimer = () => {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(updateKnowledge, doneTypingInterval);
@@ -26,6 +26,8 @@ export const VideoBlock = ({ container: { updateData, remove }, data, updateKnow
 
   const deleteCurBlock = () => remove(data);
 
+  const isOwner = () => knowledge.accountId === localStorage.getItem('UserId');
+
   const handlePlayerError = (error) => {
     deleteCurBlock();
     NotificationManager.error('Entered link is not valid', 'Error!');
@@ -33,6 +35,7 @@ export const VideoBlock = ({ container: { updateData, remove }, data, updateKnow
 
   return (
     <div className="video-draft-container">
+      { isOwner() &&
       <div className="delete-icon"
            placeholder="Delete Knowledge"
            onClick={deleteCurBlock}
@@ -40,16 +43,20 @@ export const VideoBlock = ({ container: { updateData, remove }, data, updateKnow
         <SVG path="assets/icons/deleteHat.svg" className="delete-hat"/>
         <SVG path="assets/icons/deleteBox.svg" className="delete-box"/>
       </div>
+      }
       <ReactPlayer
         url={data.src}
         onError={handlePlayerError}
       />
 
+      { ((isOwner()) || (!isOwner() && data.caption)) &&
       <BlockData>
         <BlockInput placeholder="Enter an video caption"
+                    disabled={!isOwner()}
                     value={data.caption}
                     onChange={handleCaptionChange}/>
       </BlockData>
+      }
     </div>
   );
 };
