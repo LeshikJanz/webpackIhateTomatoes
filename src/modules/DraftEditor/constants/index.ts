@@ -51,22 +51,28 @@ export const styleMap = {
     fontSize: '12px'
   },
   'FONT_SIZE_16': {
-    fontSize: '16px'
+    fontSize: '16px',
+    lineHeight: '1.58'
   },
   'FONT_SIZE_20': {
-    fontSize: '20px'
+    fontSize: '20px',
+    lineHeight: '1.58'
   },
   'FONT_SIZE_24': {
-    fontSize: '24px'
+    fontSize: '24px',
+    lineHeight: '1.3'
   },
   'FONT_SIZE_32': {
-    fontSize: '32px'
+    fontSize: '32px',
+    lineHeight: '1.3'
   },
   'FONT_SIZE_48': {
-    fontSize: '48px'
+    fontSize: '48px',
+    lineHeight: '1.2'
   },
   'FONT_SIZE_72': {
-    fontSize: '72px'
+    fontSize: '72px',
+    lineHeight: '1.3'
   },
   'FONT_FAMILY_Arial': {
     fontFamily: 'Arial'
