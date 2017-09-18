@@ -23,9 +23,9 @@ export const updateCloudById = (id: string, cloud: ICloud) =>
  *
  * @returns
  */
-export const fetchAccountWithClouds = () =>
+export const fetchAccountWithClouds = (accountId: string) =>
   request
-    .get(`Accounts/${localStorage.getItem('UserId')}?filter={"include":"clouds"}`, {})
+    .get(`Accounts/${accountId}?filter={"include":"clouds"}`, {})
     .then((a: IUser) => <IUser> a)
 
 /**

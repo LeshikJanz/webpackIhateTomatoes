@@ -10,7 +10,7 @@ export const User = (props) => {
         <div className="user-avatar-small">
           <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
         </div>
-        <div>
+        <div className="user-data">
           <div className="user-name">
             { user.username }
           </div>

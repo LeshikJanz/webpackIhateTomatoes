@@ -11,9 +11,9 @@ import {
 
 export const getSkyFromState: any = (state): any => state.Sky;
 
-export function* fetchAccountWithCloudsSaga(): Iterator<Object | Task> {
+export function* fetchAccountWithCloudsSaga(action): Iterator<Object | Task> {
   try {
-    const sky = yield fetchAccountWithClouds();
+    const sky = yield fetchAccountWithClouds(action.payload || localStorage.getItem('UserId'));
     yield put(getCloudsDone(sky));
   } catch (error) {
     yield put(getCloudsError(error))
