@@ -92,7 +92,7 @@ export const Header = (props) => {
           isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.successfulRegistration}
         />
       </div>
-      <Profile style={{ position: 'absolute', right: 0, width: isProfileSidebarOpened ? '40%' : 0 }}/>
+      <Profile style={{ position: 'fixed', right: 0, width: isProfileSidebarOpened ? '40%' : 0 }}/>
       {props.children}
     </div>
   )

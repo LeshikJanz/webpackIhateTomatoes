@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose, withHandlers } from 'recompose';
+import { compose, lifecycle, withHandlers } from 'recompose';
 import Profile from "../components/index";
 import { getUserInit, handleProfileSidebar } from "../actions";
 import '../styles/style.scss';
@@ -28,6 +28,7 @@ const mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, null, null),
   withHandlers({
+    getUserProfile: ({ dispatch }) => (userId) => dispatch(getUserInit(userId)),
     handleProfileSidebar: ({ dispatch }) => () => dispatch(handleProfileSidebar())
   })
 )
