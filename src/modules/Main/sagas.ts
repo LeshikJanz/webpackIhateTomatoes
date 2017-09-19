@@ -1,11 +1,12 @@
 import { put, select, takeEvery } from 'redux-saga/effects'
 import { Task } from "redux-saga";
-import { ILogin, IToken, IUser } from "interfaces/index";
-import { login, logOut, getUserById } from "api/auth";
+import { IToken, IUser } from "interfaces/index";
+import { login, logOut } from "api/auth";
 import { push, replace } from "react-router-redux";
 import { logOutInit, logOutError, logOutDone, loginDone, loginError, loginInit } from "./actions";
 import { urls } from "urls";
 import { NotificationManager } from 'react-notifications';
+import { getUserById } from "api/user";
 
 const getCredentialsFromState = (state: any) => state.form.AuthForm.values;
 
@@ -47,7 +48,7 @@ export function* logOutSaga(): Iterator<Object | Task> {
     yield put(logOutDone());
     NotificationManager.success(`You are successfully logged out`, 'Success!');
     yield put(push(urls.index));
-  }catch ({ error }) {
+  } catch ({ error }) {
     NotificationManager.error(error.message, 'Error!');
     yield put(logOutError());
   }

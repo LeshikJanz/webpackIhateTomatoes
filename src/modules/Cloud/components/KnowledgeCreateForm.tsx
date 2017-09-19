@@ -2,8 +2,8 @@ import * as React from 'react';
 import { lifecycle } from 'recompose';
 import { Field, reduxForm } from 'redux-form'
 import { ICloud } from "interfaces/index";
-import { renderField } from "components/RenderField/index";
-import { required } from "components/RenderField/validators";
+import { renderField } from "../../../components/ReduxFormFields/RenderField/index";
+import { required } from "../../../components/ReduxFormFields/RenderField/validators";
 const Select = require('react-select');
 
 const enhance = lifecycle({

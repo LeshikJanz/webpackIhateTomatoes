@@ -15,21 +15,6 @@ export const login = (params: ILogin) => {
     .then((token: IToken) => token);
 };
 
-
-/**
- * Api for getting user
- *
- * See: .../explorer/#!/Accounts/{id}:GET
- *
- * @param {string} userId - user id
- * @returns {IUser} user - current user
- */
-export const getUserById = (userId: string) => {
-  return request
-    .get(`Accounts/${userId}`, {})
-    .then((user: IUser) => user);
-};
-
 /**
  * Api for user log out POST /Accounts/logout
  *

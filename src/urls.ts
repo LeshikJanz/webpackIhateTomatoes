@@ -10,5 +10,6 @@ export const urls = {
   user: 'user',
   users: 'users',
   test: 'test',
+  profile: 'profile',
   registration: 'registration'
 };

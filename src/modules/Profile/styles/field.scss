@@ -1,0 +1,56 @@
+.profile-field-container > div {
+  display: flex;
+  border-bottom: 1px solid gray;
+  align-items: center;
+
+  > .field-name {
+    font-family: Cooper-Medium;
+    font-weight: initial;
+    padding: 8px 0 0 0;
+    width: 35%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    & + div {
+      width: 65%;
+    }
+
+    & > * {
+      max-height: 35px;
+    }
+  }
+
+  .link-name {
+    width: 50px;
+
+    & + div {
+      width: 100%;
+    }
+  }
+
+  .link-value {
+    width: 100%;
+  }
+
+  .field-value {
+    font-family: Cooper-Medium;
+    width: 100%;
+    font-style: italic;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 5px;
+    transition: background-color .5s ease;
+    padding: 8px 0 3px 10px;
+
+    &:focus {
+      background-color: white;
+      border: 1px dotted;
+      transition: background-color .5s ease;
+    }
+  }
+}

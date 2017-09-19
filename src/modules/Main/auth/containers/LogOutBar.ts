@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { LogOutBar } from "../components/LogOutBar";
 import { logOutInit } from "../../actions";
+import { urls } from "../../../../urls";
+import { push } from "react-router-redux";
+import { getUserInit, handleProfileSidebar } from "../../../Profile/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -10,9 +13,10 @@ import { logOutInit } from "../../actions";
  *
  * @param: {any} state - App state
  */
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
-  isModalOpen: state.Modal.isModalOpen
+  isModalOpen: state.Modal.isModalOpen,
+  isProfileOpened: state.Profile.isOpened
 });
 
 /**
@@ -23,8 +27,16 @@ const mapStateToProps = ( state ) => ({
  *
  * @param: {any} dispatch - dispatch
  */
-const mapDispatchToProps: any = dispatch => ({
-  logOut: () => dispatch(logOutInit())
+const mergeProps: any = (props, { dispatch }): any => ({
+  ...props,
+  logOut: () => dispatch(logOutInit()),
+  goToUserProfile: (userId: string) => dispatch(push(urls.profile + '/' + userId)),
+  handleProfileSidebar: (userId: string) => {
+    if ( !props.isProfileOpened ) {
+      dispatch(getUserInit(userId));
+    }
+    dispatch(handleProfileSidebar(userId));
+  }
 });
 
 /**
@@ -39,6 +51,6 @@ const mapDispatchToProps: any = dispatch => ({
  */
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  null
+  null,
+  mergeProps
 )(LogOutBar);

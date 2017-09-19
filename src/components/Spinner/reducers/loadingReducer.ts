@@ -5,6 +5,7 @@ import {
   createNewKnowledgeDone, createNewKnowledgeError, createNewKnowledgeInit, updateCloudDone, updateCloudError,
   updateCloudInit, updateKnowledgeDone, updateKnowledgeError, updateKnowledgeInit
 } from "modules/actions";
+import { getUserDone, getUserError, getUserInit } from "modules/Profile/actions";
 
 /**
  * Initial state for knowledge reducer
@@ -26,4 +27,7 @@ export default createReducer({
   [updateKnowledgeInit]: (state: any) => true,
   [updateKnowledgeDone]: (state: any) => false,
   [updateKnowledgeError]: (state: any) => false,
+  [getUserInit]: (state: any) => true,
+  [getUserDone]: (state: any) => false,
+  [getUserError]: (state: any) => false,
 }, initialState);

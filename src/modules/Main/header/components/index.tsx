@@ -8,6 +8,8 @@ import Navigation from "modules/Main/navigation/containers";
 import Hint from "components/Hint/containers";
 import ConfirmModal from "components/ConfirmModal/containers";
 import { MODAL_TYPES } from "constants/index";
+import Profile from 'modules/Profile/containers';
+import { HEADER_HEIGHT } from "modules/DraftEditor/components/plugins/imagePlugin/constants";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -18,11 +20,11 @@ const cx = classNames.bind(styles);
 export const Header = (props) => {
   const {
     modal, handleKnowledgeCreateModal, handleNotAuthorizedModal,
-    handleModal, addKnowledge, getClouds, clouds, params
+    handleModal, addKnowledge, getClouds, clouds, params, isProfileSidebarOpened
   } = props;
 
   const createKnowledge = () => {
-    if (props.location.pathname !== `/${urls.board}`) {
+    if ( props.location.pathname !== `/${urls.board}` ) {
       getClouds();
     }
     localStorage.getItem('UserId') ? handleKnowledgeCreateModal() : handleNotAuthorizedModal();
@@ -33,19 +35,14 @@ export const Header = (props) => {
       {
         localStorage.getItem('UserId') && <Navigation />
       }
-      <div className="navbar navbar-default">
+      <div className="navbar-container">
         <div className="header-container">
           <div>
-            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
             <Hint name="createKnowledge"
                   text="Use this button for creating new knowledge"
             >
               <a onClick={ createKnowledge }
-                 className="navbar-brand"
+                 className="navbar-lightning"
                  href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
             </Hint>
           </div>
@@ -90,8 +87,10 @@ export const Header = (props) => {
           confirmLabel='OK'
           isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.successfulRegistration}
         />
+        <Profile
+          style={{ position: 'fixed', top: `${HEADER_HEIGHT}`, right: 0, width: isProfileSidebarOpened ? '40%' : 0 }}/>
+        {props.children}
       </div>
-      {props.children}
     </div>
   )
 };

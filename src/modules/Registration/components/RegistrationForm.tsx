@@ -1,42 +1,16 @@
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 const Dropzone = require('react-dropzone');
-import PlacesAutocomplete from 'react-places-autocomplete'
 const styles = require('../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import { Link, browserHistory } from 'react-router';
 import {
   email, required, minValue18, minLength4, minLength8, asyncValidate
-} from "components/RenderField/validators";
-import { renderField } from "components/RenderField/index";
-import { Spinner } from "../../../components/Spinner/index";
-import Link from "../../DraftEditor/components/Link";
-
-/**
- * Google place autocomplete for Redux Form Field
- */
-const places = ({ input }) => {
-  const placesCssClasses = {
-    root: 'form-group',
-    input: 'input-container input-modal',
-    autocompleteContainer: 'my-autocomplete-container'
-  };
-
-  const inputProps = {
-    value: input.value,
-    onChange: input.onChange,
-    placeholder: 'Search Places...'
-  };
-
-  return (
-    <div>
-      <PlacesAutocomplete
-        classNames={placesCssClasses}
-        inputProps={inputProps}/>
-    </div>
-  )
-};
+} from "components/ReduxFormFields/RenderField/validators";
+import { renderField } from "components/ReduxFormFields/RenderField/index";
+import Link from "DraftEditor/components/LinkPicker";
+import { Places } from "components/ReduxFormFields/Places/index";
 
 /**
  * Registration form
@@ -129,7 +103,7 @@ let RegistrationForm = props => {
           <label htmlFor="address">Address</label>
           <div>
             <Field name="address"
-                   component={places} label="address"/>
+                   component={Places} label="address"/>
           </div>
         </div>
         <div className="registration-actions">

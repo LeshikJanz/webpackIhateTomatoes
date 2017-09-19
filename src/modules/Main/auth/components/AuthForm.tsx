@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { renderField } from "components/RenderField/index";
-import { required } from "components/RenderField/validators";
+import { renderField } from "../../../../components/ReduxFormFields/RenderField/index";
+import { required } from "../../../../components/ReduxFormFields/RenderField/validators";
 
 /**
  * Authorization form

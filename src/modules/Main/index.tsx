@@ -2,6 +2,7 @@ import * as React from "react";
 import { Cloud } from "../Cloud/components/Cloud";
 import { Link } from 'react-router';
 import { urls } from "urls";
+import Link from "../DraftEditor/components/LinkPicker";
 require('./styles/style.scss');
 
 export const Base = (props) => (

@@ -5,12 +5,13 @@ require('../styles/style.scss');
 /**
  * Header's log out bar
  */
-export const LogOutBar = ({ logOut }) => {
+export const LogOutBar = ({ logOut, handleProfileSidebar }) => {
   const user = JSON.parse(localStorage.getItem('Account'));
 
   return (
     <div className="profile">
       <img className="user-img profile-img"
+           onClick={() => handleProfileSidebar(user.id)}
            src={ user && (user.avatar || DEFAULT_PROFILE_IMG) }
            alt={user && (user.realm || user.username)}
       />
@@ -18,7 +19,7 @@ export const LogOutBar = ({ logOut }) => {
         <button className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
 
         <button style={{ width: '100px' }}
-                onClick={ logOut }
+                onClick={logOut}
                 className="tertiary small add">
           Log out
         </button>

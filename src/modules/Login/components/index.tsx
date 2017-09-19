@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Field, reduxForm } from "redux-form";
-import { renderField } from "components/RenderField";
-import { required } from "components/RenderField/validators";
+import { required } from "components/ReduxFormFields/RenderField/validators";
 import ConfirmModal from "components/ConfirmModal/containers";
 import { MODAL_TYPES } from "constants/index";
+import { renderField } from "components/ReduxFormFields/RenderField/index";
 
 const Login = ({ handleSubmit, invalid, handleModal, modal }) => (
   <form className="form-container" onSubmit={ handleSubmit }>

@@ -1,0 +1,14 @@
+.profile-category-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  .profile-category {
+    width: 100%;
+    border-bottom: 2px solid black;
+
+    > h4 {
+      font-family: Raleway-Bold;
+    }
+  }
+}
