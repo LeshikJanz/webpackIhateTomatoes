@@ -5,7 +5,7 @@ import { renderField } from "components/RenderField";
 
 export const ProfileField = ({ name, value, disabled, icon, labelClassName, classNames }) => (
   <div className="profile-field-container">
-    <Field name={name}
+    <Field name={name.toLowerCase()}
            label={icon || name}
            labelClassName={labelClassName || 'field-name'}
            className={classNames || 'field-value'}

@@ -4,7 +4,7 @@ import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 
-const Profile = ({ user, style, handleProfileSidebar }) => {
+const Profile = ({ user, style, handleProfileSidebar, dirty }) => {
 
   const handleSubmit = (e) => {
     console.log('handleSubmit');
@@ -12,9 +12,14 @@ const Profile = ({ user, style, handleProfileSidebar }) => {
   }
 
   return (
-    <form className="profile-container" style={style} onSubmit={handleSubmit} onMouseLeave={handleProfileSidebar}>
+    <form className="profile-container" style={style} onSubmit={handleSubmit}>
       <div className="short-info">
         <div className="user-avatar">
+          <button type="button"
+                  onClick={handleProfileSidebar}
+                  className="close" aria-label="Close">
+            <img src="assets/icons/swipe-right.svg"/>
+          </button>
           <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
         </div>
         <ProfileCategory name="PERSONAL">
@@ -45,12 +50,16 @@ const Profile = ({ user, style, handleProfileSidebar }) => {
                         classNames="field-value link-value"
                         icon={<img src="assets/icons/social/twitter.svg"/>}/>
         </ProfileCategory>
+        <div className="modal-footer btn-actions">
+          <button className="primary" type="submit" disabled={!dirty}>Save</button>
+        </div>
       </div>
     </form>
   )
 };
 
 export default reduxForm({
+  enableReinitialize: true,
   form: 'ProfileForm'
 })(Profile);
 

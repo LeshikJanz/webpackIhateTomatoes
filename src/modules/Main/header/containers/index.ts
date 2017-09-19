@@ -42,7 +42,7 @@ const mapDispatchToProps: any = dispatch => ({
       title: 'You are not authorized',
       text: 'You need to be authorized before you can start creating new knowledge'
     })),
-  handleProfileSidebar: () => dispatch(handleProfileSidebar)
+  handleProfileSidebar: () => dispatch(handleProfileSidebar())
 });
 
 /**

@@ -1,16 +1,8 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, withHandlers } from 'recompose';
 import Profile from "../components/index";
-import { getUserInit, handleProfileSidebar } from "../actions";
+import { handleProfileSidebar } from "../actions";
 import '../styles/style.scss';
-
-const data = {  // used to populate "account" reducer when "Load" is clicked
-  Name: 'Jane',
-  Birthday: '1 February 2000',
-  Relationship: 'Single',
-  Nationality: 'American',
-  Language: 'English'
-}
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -22,14 +14,13 @@ const data = {  // used to populate "account" reducer when "Load" is clicked
  */
 const mapStateToProps = (state) => ({
   user: state.Profile,
-  initialValues: data
+  initialValues: state.Profile
 });
 
 export default compose(
   connect(mapStateToProps, null, null),
   withHandlers({
-    getUserProfile: ({ dispatch }) => (userId) => dispatch(getUserInit(userId)),
-    handleProfileSidebar: ({ dispatch }) => () => dispatch(handleProfileSidebar())
+    handleProfileSidebar: ({ dispatch }) => () => dispatch(handleProfileSidebar()),
   })
 )
 (Profile);

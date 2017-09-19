@@ -7,6 +7,39 @@
     "avatar": {
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "relationship": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "home": {
+      "type": "string"
+    },
+    "skype": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "vk": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
     "address": {
       "type": "string"
     },

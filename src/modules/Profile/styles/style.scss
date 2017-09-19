@@ -6,13 +6,18 @@
   overflow-y: auto;
   background-color: #f2f2f2;
   transition: .4s width ease;
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
+  -ms-overflow-style: none; // IE 10+
+  overflow: -moz-scrollbars-none; // Firefox
   &::-webkit-scrollbar {
-    display: none;  // Safari and Chrome
+    display: none; // Safari and Chrome
+  }
+
+  .btn-actions {
+    justify-content: flex-end;
   }
 
   .close {
+    left: 35px;
     padding-top: 20px;
   }
 
@@ -22,7 +27,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    min-height: 1050px;
+    min-height: 1100px;
     background-color: transparent;
     border-left: 1px dashed gray;
 
