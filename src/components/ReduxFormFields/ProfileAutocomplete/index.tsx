@@ -28,14 +28,13 @@ export const ProfileAutocomplete =
     };
 
     return (
-      <div>
+      <div style={disabled ? { pointerEvents: 'none' } : {}}>
         <label style={ touched && ( error || warning) ? { color: '#ff0000' } : {} }
                className={labelClassName}>{label}</label>
         <PlacesAutocomplete classNames={placesCssClasses}
                             placeholder={placeholder}
                             inputProps={inputProps}
-                            disabled={disabled}
-                            style={ touched && ( error || warning) ? { border: '1px solid #ff0000' } : {} }/>
+        />
         <br/>
         {touched &&
         ((error &&

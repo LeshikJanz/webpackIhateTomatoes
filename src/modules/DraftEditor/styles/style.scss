@@ -178,6 +178,9 @@
   }
 }
 
+input[value='Invalid date']::-webkit-datetime-edit{ color: transparent; }
+input[type=date]:focus::-webkit-datetime-edit{ color: #000; }
+
 input[type=file]::-webkit-file-upload-button {
   cursor: pointer;
 }

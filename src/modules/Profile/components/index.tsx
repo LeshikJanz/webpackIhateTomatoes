@@ -4,8 +4,9 @@ import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
+import { email } from "components/ReduxFormFields/RenderField/validators";
 
-const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => {
+const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');
 
   return (
@@ -21,7 +22,8 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => 
         </div>
         <ProfileCategory name="PERSONAL">
           <ProfileField name="Name" disabled={!isOwner()}/>
-          <ProfileField name="Birthday" disabled={!isOwner()}/>
+          <ProfileField name="Username" disabled={true}/>
+          <ProfileField name="Birthday" type="date" disabled={!isOwner()}/>
           <ProfileField name="Relationship" disabled={!isOwner()}/>
           <ProfileField name="Nationality" disabled={!isOwner()}/>
           <ProfileField name="Language" disabled={!isOwner()}/>
@@ -29,7 +31,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => 
         <ProfileCategory name="Contact">
           <ProfileField name="Mobile" disabled={!isOwner()}/>
           <ProfileField name="Home" disabled={!isOwner()}/>
-          <ProfileField name="Email" disabled={!isOwner()}/>
+          <ProfileField name="Email" disabled={true} placeholder=""/>
           <ProfileField name="Skype" disabled={!isOwner()}/>
           <ProfileField name="Address" component={ProfileAutocomplete} disabled={!isOwner()}/>
         </ProfileCategory>
@@ -38,7 +40,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => 
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
                         classNames="field-value link-value"
-                        icon={<img src="assets/icons/social/facebook.svg"/>}/>
+                        icon={<img src="assets/icons/social/facebook.svg" />}/>
           <ProfileField name="VK"
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
@@ -51,7 +53,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => 
                         icon={<img src="assets/icons/social/twitter.svg"/>}/>
         </ProfileCategory>
         <div className="modal-footer btn-actions">
-          <button className="primary" hidden={!isOwner()} type="submit" disabled={!dirty}>Save</button>
+          <button className="primary" hidden={!isOwner()} type="submit" disabled={!dirty || invalid}>Save</button>
         </div>
       </div>
     </form>
