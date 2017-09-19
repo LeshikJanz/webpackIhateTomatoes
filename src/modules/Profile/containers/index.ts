@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, withHandlers } from 'recompose';
 import Profile from "../components/index";
-import { handleProfileSidebar } from "../actions";
+import { handleProfileSidebar, updateUserInit } from "../actions";
 import '../styles/style.scss';
+import { IUser } from "interfaces";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -21,6 +22,10 @@ export default compose(
   connect(mapStateToProps, null, null),
   withHandlers({
     handleProfileSidebar: ({ dispatch }) => () => dispatch(handleProfileSidebar()),
+    onSubmit: ({ dispatch }) => (user: IUser) => {
+      dispatch(updateUserInit(user));
+      dispatch(handleProfileSidebar());
+    }
   })
 )
 (Profile);
