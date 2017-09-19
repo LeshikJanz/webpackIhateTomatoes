@@ -12,7 +12,7 @@ const Profile = ({ user, style, handleProfileSidebar }) => {
   }
 
   return (
-    <form className="profile-container" style={style} onSubmit={handleSubmit}>
+    <form className="profile-container" style={style} onSubmit={handleSubmit} onMouseLeave={handleProfileSidebar}>
       <div className="short-info">
         <div className="user-avatar">
           <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
@@ -46,11 +46,6 @@ const Profile = ({ user, style, handleProfileSidebar }) => {
                         icon={<img src="assets/icons/social/twitter.svg"/>}/>
         </ProfileCategory>
       </div>
-      <button type="button"
-              onClick={handleProfileSidebar}
-              className="close" aria-label="Close">
-        <img src="assets/icons/close.svg"/>
-      </button>
     </form>
   )
 };
