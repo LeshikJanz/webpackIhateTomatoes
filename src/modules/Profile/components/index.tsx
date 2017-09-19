@@ -3,6 +3,7 @@ import '../styles/style.scss';
 import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
+import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
 
 const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');
@@ -30,7 +31,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, handleSubmit }) => 
           <ProfileField name="Home" disabled={!isOwner()}/>
           <ProfileField name="Email" disabled={!isOwner()}/>
           <ProfileField name="Skype" disabled={!isOwner()}/>
-          <ProfileField name="Address" disabled={!isOwner()}/>
+          <ProfileField name="Address" component={ProfileAutocomplete} disabled={!isOwner()}/>
         </ProfileCategory>
         <ProfileCategory name="Links">
           <ProfileField name="Facebook"

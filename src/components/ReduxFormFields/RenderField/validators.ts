@@ -1,4 +1,4 @@
-import { request } from "../../api/base";
+import { request } from "api/base";
 
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined;
@@ -23,7 +23,7 @@ const minValue = min => value =>
  * @returns {void | Error}
  */
 export const asyncValidate = (values, dispatch, props, field) =>
-  request.get(`Accounts?filter={"where":{"${field}":"${values[ field ]}"}}`, {}).then((res) => {
+  request.get(`Accounts?filter={"where":{"${field}":"${values[field]}"}}`, {}).then((res) => {
     if ( res.length !== 0 ) {
       throw { [field]: `That ${field} is taken` }
     }
