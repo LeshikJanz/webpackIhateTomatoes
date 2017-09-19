@@ -1,6 +1,7 @@
 .profile-field-container > div {
   display: flex;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid gray;
+  align-items: center;
 
   > .field-name {
     font-family: Cooper-Medium;
@@ -14,6 +15,22 @@
     & + div {
       width: 65%;
     }
+
+    & > * {
+      max-height: 35px;
+    }
+  }
+
+  .link-name {
+    width: 50px;
+
+    & + div {
+      width: 100%;
+    }
+  }
+
+  .link-value {
+    width: 100%;
   }
 
   .field-value {

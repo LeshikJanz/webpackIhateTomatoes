@@ -3,6 +3,7 @@ import { LogOutBar } from "../components/LogOutBar";
 import { logOutInit } from "../../actions";
 import { urls } from "../../../../urls";
 import { push } from "react-router-redux";
+import { getUserInit, handleProfileSidebar } from "../../../Profile/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -27,7 +28,11 @@ const mapStateToProps = (state) => ({
  */
 const mapDispatchToProps: any = dispatch => ({
   logOut: () => dispatch(logOutInit()),
-  goToUserProfile: (userId: string) => dispatch(push(urls.profile + '/' + userId))
+  goToUserProfile: (userId: string) => dispatch(push(urls.profile + '/' + userId)),
+  handleProfileSidebar: (userId: string) => {
+    dispatch(handleProfileSidebar(userId));
+    dispatch(getUserInit(userId));
+  }
 });
 
 /**

@@ -3,12 +3,12 @@ import '../styles/field.scss';
 import { Field } from "redux-form";
 import { renderField } from "components/RenderField";
 
-export const ProfileField = ({ name, value, disabled }) => (
+export const ProfileField = ({ name, value, disabled, icon, labelClassName, classNames }) => (
   <div className="profile-field-container">
     <Field name={name}
-           label={name}
-           labelClassName="field-name"
-           className="field-value"
+           label={icon || name}
+           labelClassName={labelClassName || 'field-name'}
+           className={classNames || 'field-value'}
            disabled={disabled}
            value={value}
            component={renderField}/>
