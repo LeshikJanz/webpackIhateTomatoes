@@ -16,8 +16,8 @@ const Styles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     overflow: 'hidden',
-    width: '573px',
-    maxWidth: '573px',
+    width: '100%',
+    maxWidth: '500px',
     borderRadius: '20px',
     boxShadow: '0 3px 14px 0 rgba(122, 134, 147, 0.17)',
     border: 'solid 2px #d8dce1'

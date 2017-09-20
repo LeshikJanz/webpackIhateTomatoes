@@ -3,7 +3,14 @@
 button.close {
   outline: none;
   position: absolute;
-  right: 35px;
+  right: 25px;
+  opacity: 0.5;
+  transition: 0.2s opacity;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.2s opacity;
+  }
 
   img {
     height: 33px;
@@ -17,9 +24,11 @@ button.close {
 .modal-header {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #d7d7d7;
 }
 
 .modal-footer {
+  border-top: 1px solid #d7d7d7;
   padding: 25px 15px 0 15px !important;
 }
 
@@ -28,7 +37,6 @@ button.close {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
 
   p {
     @include regular-text;
@@ -37,7 +45,10 @@ button.close {
 }
 
 .modal-title {
-  font-family: Avenir-Book;
+  font-family: Raleway;
+  padding-left: 20px;
+  font-size: 30px;
+  justify-content: center;
 }
 
 .btn-actions {

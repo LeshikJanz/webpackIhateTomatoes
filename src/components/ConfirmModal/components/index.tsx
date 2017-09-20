@@ -11,9 +11,9 @@ export const ConfirmModal = ({ handleModal, handleConfirm, modal, isModalOpen, h
   >
     <div>
       <div className="modal-header">
-        <h1 className="modal-title">
+        <div className="modal-title">
           { modal.title }
-        </h1>
+        </div>
         <button type="button" className="close" onClick={ handleModal } aria-label="Close">
           <img src="assets/icons/close.svg"/>
         </button>
