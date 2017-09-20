@@ -25,7 +25,7 @@ export const updateCloudById = (id: string, cloud: ICloud) =>
  */
 export const fetchAccountWithClouds = (accountId: string) =>
   request
-    .get(`Accounts/${accountId}?filter={"include":"clouds"}`, {})
+    .get(`Accounts/${accountId}?filter={"include": {"clouds": "views"}}`, {})
     .then((a: IUser) => <IUser> a)
 
 /**

@@ -51,5 +51,9 @@
   "Relation": {
     "dataSource": "mongodbDs",
     "public": true
+  },
+  "View": {
+    "dataSource": "mongodbDs",
+    "public": true
   }
 }

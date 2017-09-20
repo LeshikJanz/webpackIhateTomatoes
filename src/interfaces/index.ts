@@ -78,6 +78,16 @@ declare interface IUser extends Identifiable {
 }
 
 /**
+ * View interface
+ */
+export
+declare interface IView extends Identifiable {
+  accountId: string,
+  cloudId: string,
+  date: Date
+}
+
+/**
  * Relation interface
  */
 export

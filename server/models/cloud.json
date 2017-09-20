@@ -40,6 +40,11 @@
       "type": "hasMany",
       "model": "Relation",
       "foreignKey": "cloudId"
+    },
+    "views": {
+      "type": "hasMany",
+      "model": "View",
+      "foreignKey": "cloudId"
     }
   },
   "acls": [],
