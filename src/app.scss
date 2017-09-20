@@ -9,6 +9,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   color: #555;
+  margin: 0 !important;
 
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
@@ -22,6 +23,10 @@ h1 {
 
 h2 {
   font-size: 30px !important;
+}
+
+h3 {
+  letter-spacing: 1px;
 }
 
 h4 {
@@ -50,10 +55,20 @@ h4 {
 
 .navbar-lightning {
   font-size: 55px;
+  outline: none !important;
   padding-left: 40px;
+  cursor: default;
 
   > i {
+    cursor: pointer;
     color: gray;
+    opacity: 0.8;
+    transition: .3s opacity;
+
+    &:hover {
+      opacity: 1;
+      transition: .3s opacity;
+    }
   }
 }
 

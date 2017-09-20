@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import "../styles/font-awesome.min.css";
 import "../styles/main.scss";
 import TagCloud from './JqueryCloud/containers/index';

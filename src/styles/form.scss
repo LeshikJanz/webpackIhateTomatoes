@@ -2,24 +2,30 @@
 
 .input-container {
   padding: 6px 22px;
+  height: 55px;
+  margin-top: 10px;
   @include input-container;
   @include input-placeholder;
   @include input-text;
+}
 
-  &.input-modal {
-    width: 460px;
-  }
+.input-modal {
+  max-width: 460px;
+  width: 90%;
 }
 
 .input-label {
   @include input-label;
 }
 
+.input-select {
+  width: 85%;
+}
+
 label {
   font-family: Lato;
   letter-spacing: 0.7px;
 }
-
 
 .form-element {
   display: flex;
@@ -65,4 +71,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 .block__data {
   width: 100%;
+}
+
+a {
+  text-decoration: none !important;
 }

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { lifecycle } from 'recompose';
 import { Field, reduxForm } from 'redux-form'
-import { ICloud } from "interfaces/index";
-import { renderField } from "../../../components/ReduxFormFields/RenderField/index";
-import { required } from "../../../components/ReduxFormFields/RenderField/validators";
+import { ICloud } from "interfaces";
+import { renderField } from "components/ReduxFormFields/RenderField/index";
+import { required } from "components/ReduxFormFields/RenderField/validators";
 const Select = require('react-select');
 
 const enhance = lifecycle({
@@ -20,7 +20,8 @@ const reactSelect = enhance(({ input, options, hint }) => (
     <Select.Creatable
       {...input}
       value={input.value}
-      onChange={(value) => {return input.onChange(value)}}
+      className="select-container"
+      onChange={(value) => input.onChange(value)}
       onBlur={() => input.onBlur(input.value)}
       options={options}
       clearableValue={false}
@@ -37,25 +38,21 @@ let KnowledgeCreateForm = (props) => {
     <form onSubmit={ handleSubmit }>
       <div className="modal-body">
         <div className="form-element">
-          <div>
-            <Field placeholder="Enter knowledge name..." name="name" className="input-container input-modal"
-                   label="Knowledge Name"
-                   component={renderField}
-                   validate={required}
-                   type="text"/>
-          </div>
+          <Field placeholder="Enter knowledge name..." name="name" className="input-container input-modal"
+                 label="Knowledge Name"
+                 component={renderField}
+                 validate={required}
+                 type="text"/>
         </div>
-        <div className="form-element" style={{ height: '160px' }}>
+        <div className="form-element" style={{ height: '160px', width: '85%' }}>
           <label className="input-label">Cloud</label>
-          <div>
-            <Field className="input-container input-modal" name="cloud"
-                   component={reactSelect}
-                   options={clouds}
-                   cloudId={cloudId}
-                   validate={required}
-                   hint="*Select existing cloud name or write down new name for adding knowledge to the fresh cloud"
-            />
-          </div>
+          <Field name="cloud"
+                 component={reactSelect}
+                 options={clouds}
+                 cloudId={cloudId}
+                 validate={required}
+                 hint="*Select existing cloud name or write down new name for adding knowledge to the fresh cloud"
+          />
         </div>
       </div>
       <div className="modal-footer btn-actions">

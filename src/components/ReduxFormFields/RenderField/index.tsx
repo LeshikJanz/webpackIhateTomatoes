@@ -25,7 +25,7 @@ export const renderField =
     return (
       <div>
         <label style={ touched && ( error || warning) ? { color: '#ff0000' } : {} }
-               className={labelClassName}>{label}</label>
+               className={labelClassName || "input-label" }>{label}</label><br/>
         <div className={asyncValidating ? 'async-validating' : ''}>
           <input {...input}
                  placeholder={placeholder}

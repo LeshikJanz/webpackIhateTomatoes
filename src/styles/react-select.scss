@@ -6,6 +6,7 @@
 .Select-control {
   @include input-container;
   border: solid 1px #3d3d3d !important;
+  height: 65px !important;
   width: 105% !important;
 
   .Select-placeholder {
