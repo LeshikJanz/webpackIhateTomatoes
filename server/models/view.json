@@ -1,0 +1,27 @@
+{
+  "name": "View",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cloud": {
+      "type": "belongsTo",
+      "model": "Cloud",
+      "foreignKey": "cloudId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
