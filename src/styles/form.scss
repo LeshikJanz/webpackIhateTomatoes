@@ -15,6 +15,12 @@
   @include input-label;
 }
 
+label {
+  font-family: Lato;
+  letter-spacing: 0.7px;
+}
+
+
 .form-element {
   display: flex;
   position: relative;
