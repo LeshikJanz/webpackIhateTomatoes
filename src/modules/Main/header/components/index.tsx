@@ -41,9 +41,8 @@ export const Header = (props) => {
             <Hint name="createKnowledge"
                   text="Use this button for creating new knowledge"
             >
-              <a onClick={ createKnowledge }
-                 className="navbar-lightning"
-                 href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
+              <a className="navbar-lightning"
+                 href="javascript:void(0)"><i onClick={ createKnowledge } className="fa fa-bolt"></i></a>
             </Hint>
           </div>
           <div id="hello">

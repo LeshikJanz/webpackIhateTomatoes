@@ -20,7 +20,6 @@ label {
   letter-spacing: 0.7px;
 }
 
-
 .form-element {
   display: flex;
   position: relative;
@@ -30,6 +29,10 @@ label {
 
   &:last-child {
     margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 15.5px;
   }
 }
 

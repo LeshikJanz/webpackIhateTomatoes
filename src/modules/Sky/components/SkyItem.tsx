@@ -26,7 +26,7 @@ export const SkyItem = ({ cloud, handleModal, route }) => (
     <div className="item-footer">
       <div className="views-counter">
         <SVG path="assets/icons/views.svg" className="counter-icon"/>
-        <div className="thin-label">{cloud.views.length}</div>
+        <div className="thin-label">{ (cloud.views && cloud.views.length) || 0 }</div>
       </div>
       <div className="reviews-counter">
         <SVG path="assets/icons/review.svg" className="counter-icon"/>

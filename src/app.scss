@@ -28,6 +28,10 @@ h4 {
   @include heading-4;
 }
 
+label {
+  font-family: Lato;
+}
+
 .navbar-container {
   background-color: white;
   height: $HEADER_HEIGHT;
@@ -51,9 +55,19 @@ h4 {
 .navbar-lightning {
   font-size: 55px;
   padding-left: 40px;
+  outline: none !important;
+  cursor: default;
 
   > i {
+    cursor: pointer;
     color: gray;
+    opacity: 0.8;
+    transition: .2s opacity;
+
+    &:hover {
+      opacity: 1;
+      transition: .2s opacity;
+    }
   }
 }
 

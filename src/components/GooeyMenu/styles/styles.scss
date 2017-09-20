@@ -88,6 +88,7 @@ $hamburger-spacing:8px;
   }
   @for $i from 1 through $menu-items{
     &:nth-child(#{$i+2}){
+      outline: none;
       transition-duration:180ms;
     }
   }
@@ -127,7 +128,7 @@ $hamburger-spacing:8px;
 
 a {
   color: #900;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a[title]:hover:after {

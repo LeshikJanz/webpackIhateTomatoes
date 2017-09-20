@@ -13,6 +13,10 @@
 
   &:hover {
     box-shadow: 0 0 2px 2px #62aff7;
+
+    .delete-icon {
+      display: flex;
+    }
   }
 
   &.active {
@@ -112,8 +116,8 @@
       position: absolute;
       flex-direction: column;
       display: none;
-      right: 20px;
-      bottom: 20px;
+      right: 30px;
+      bottom: 30px;
 
       > div:first-child {
         height: 16px;
