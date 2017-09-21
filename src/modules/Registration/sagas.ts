@@ -48,9 +48,11 @@ export function* avatarUploadSaga({ payload }: File): Iterator<Object | Task> {
   try {
     const response = yield uploadImage(payload);
     yield put(avatarUploadDone());
-    yield put(change("RegistrationForm", "avatar", response.data.link))
+    yield put(change("RegistrationForm", "avatar", response.data.link));
+    yield put(change("ProfileForm", "avatar", response.data.link));
   } catch (error) {
     console.error(error);
+    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Fail');
     yield put(avatarUploadError(error));
   }
 }

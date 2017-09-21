@@ -31,7 +31,14 @@ export function* getUserSaga({ payload }: string): Iterator<Object | Task> {
  */
 export function* updateUserSaga({ payload }: IUser): Iterator<Object | Task> {
   try {
-    yield updateUserById(payload.id, payload);
+    const updatedUser = yield updateUserById(payload.id, payload);
+
+    // Updating avatar of already existing user
+    if ( localStorage.getItem('Account') ) {
+      const user = JSON.parse(localStorage.getItem('Account'));
+      user.avatar = updatedUser.avatar;
+      localStorage.setItem('Account', JSON.stringify(user));
+    }
     NotificationManager.success('Successfully updated', 'Success!');
     yield put(updateUserDone());
   } catch (error) {

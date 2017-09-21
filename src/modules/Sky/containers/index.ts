@@ -6,7 +6,6 @@ import { handleModalAction, createCloudInit, deleteCloudInit } from "modules/act
 import { IModal } from "interfaces/index";
 import { push } from "react-router-redux";
 import { urls } from "urls";
-import { getUserInit, handleProfileSidebar } from "../../Profile/actions";
 
 const mapStateToProps: any = (state): any => ({
   sky: state.Sky,

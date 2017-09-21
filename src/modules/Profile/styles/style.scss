@@ -45,12 +45,65 @@
   .user-avatar {
     width: 170px;
 
-    > img {
+    .avatar-uploading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      input[type=file] {
+        position: absolute;
+        width: 0.1px;
+        height: 0.1px;
+        overflow: hidden;
+        z-index: -1;
+        padding: 10px;
+        opacity: 0;
+        transition: .3s opacity;
+        display: block;
+      }
+
+      label.secondary {
+        cursor: pointer;
+        position: absolute;
+        align-self: center;
+        opacity: 0;
+        transition: .3s opacity;
+        padding: 10px;
+        display: block;
+      }
+
+      &:hover {
+
+        .avatar-img {
+          opacity: .3;
+          transition: .3s opacity;
+        }
+
+        label.secondary {
+          opacity: 0.9;
+          transition: .3s opacity;
+
+          &:hover {
+            opacity: 1;
+            color: #f56c17;
+            border: solid 2px #f56c17;
+          }
+        }
+      }
+    }
+
+    input[type=file], label.secondary {
+      display: none;
+    }
+
+    .avatar-img {
       width: 100%;
+      opacity: 1;
       display: block;
       margin: 0 auto;
       border-radius: 50%;
       border: 1px solid #dbdbdb;
+      transition: .3s opacity;
     }
   }
 }
