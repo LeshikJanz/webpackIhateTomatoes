@@ -5,7 +5,7 @@ import { addTag } from "../../actions";
 const mapStateToProps = (state) => ({
   trackNumber: state.trackNumber,
   isModalOpen: state.Modal.isModalOpen,
-  clouds: state.Cloud
+  knowledges: state.Cloud.knowledge
 });
 
 const mapDispatchToProps = (dispatch) => {

@@ -28,5 +28,4 @@ export default compose(
       dispatch(handleProfileSidebar());
     }
   })
-)
-(onClickOutside(Profile));
+)(onClickOutside(Profile));

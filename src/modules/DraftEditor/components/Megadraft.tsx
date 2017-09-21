@@ -110,8 +110,14 @@ export default class MegaDraft extends React.Component<any, any> {
   }
 
   onKnowledgeNameChange = (e) => {
-    this.handleTimer();
+    this.handleSaveTimer();
     this.props.handleNameChange(e);
+  };
+
+  handleKeyPress = ({ key }) => {
+    if ( key === 'Enter' ) {
+      this.cloudNameInput.blur();
+    }
   };
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
@@ -134,11 +140,13 @@ export default class MegaDraft extends React.Component<any, any> {
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
           <div className="knowledge-name-container">
             <input disabled={!this.isOwner()}
+                   ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
                    className="name-input"
                    placeholder="Enter the name..."
                    title="Knowledge name"
                    value={knowledge.name}
+                   onKeyPress={this.handleKeyPress}
                    onChange={this.onKnowledgeNameChange}/>
             <div className="delete-icon"
                  hidden={!this.isOwner()}

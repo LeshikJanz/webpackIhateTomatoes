@@ -36,7 +36,7 @@ function tagCloudController() {
     });
   } catch (e) {
     const canvasContainer = document.getElementById('CanvasContainer');
-    if (canvasContainer) {
+    if ( canvasContainer ) {
       canvasContainer.style.display = 'none';
     }
   }
@@ -56,7 +56,7 @@ const generateTags = (tags: Array) => {
 }
 
 const setNewTag = (tag, number) => {
-  if (tag) {
+  if ( tag ) {
     $('#tags ul').append(getHtmlTag(tag, number));
     removeTagCloud();
   }
@@ -92,8 +92,8 @@ export class TagCloud extends React.Component {
   }
 
   componentDidUpdate = () => {
-    if (TagCloud.tagNumber != (this.props.tags && this.props.tags.length)) {
-      if (TagCloud.tagNumber) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
+    if ( TagCloud.tagNumber != (this.props.tags && this.props.tags.length) ) {
+      if ( TagCloud.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
       TagCloud.tagNumber = this.props.tags.length;
     }
     this.handleKnowledgeCreateButtonHighlight();
@@ -103,7 +103,7 @@ export class TagCloud extends React.Component {
 
   componentWillUnmount = () => {
     removeTagCloud();
-    if (this.props.highlight.enabled) {
+    if ( this.props.highlight.enabled ) {
       this.props.disableHighlight('createKnowledge');
     }
     document.removeEventListener('tagclick', this.handleTagClick);
@@ -116,10 +116,17 @@ export class TagCloud extends React.Component {
   };
 
   handleKnowledgeCreateButtonHighlight = () => {
-    if (!this.props.cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0) {
+    if ( !this.props.cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0 ) {
       !this.props.highlight.enabled && this.props.enableHighlight('createKnowledge')
     } else {
       this.props.highlight.enabled && this.props.disableHighlight('createKnowledge')
+    }
+  };
+
+  handleKeyPress = ({ key }) => {
+    if ( key === 'Enter' ) {
+      this.props.updateCloud();
+      this.cloudNameInput.blur();
     }
   };
 
@@ -138,8 +145,10 @@ export class TagCloud extends React.Component {
             </Hint>
             <Hint text="This is current cloud name">
               <div className="cloud-name">
-                <input className="cloud-name-input" disabled={cloud.accountId !== localStorage.getItem('UserId')}
-                       value={cloud.name} onChange={updateCloudName} onBlur={this.handleBlur}/>
+                <input className="cloud-name-input"
+                       ref={(input) => this.cloudNameInput = input}
+                       disabled={cloud.accountId !== localStorage.getItem('UserId')}
+                       value={cloud.name} onChange={updateCloudName} onKeyPress={this.handleKeyPress}/>
                 {
                   !(cloud.name === cloud.initialName && cloud.isNameSaved) &&
                   <div onClick={updateCloud}>
