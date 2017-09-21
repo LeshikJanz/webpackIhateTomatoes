@@ -47,17 +47,16 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
-    // Save to the server only if content was changed
-    if ( this.isContentChanged(editorState) ) {
-      this.setState({ editorState });
-      this.handleTimer(editorState.getSelection().getHasFocus());
-    }
     this.setState({ editorState });
+    // Save to the server only if content was changed
+    if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
+      this.handleSaveTimer();
+    }
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
 
-  handleTimer = (isFocused: boolean = true) => {
+  handleSaveTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
     if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
