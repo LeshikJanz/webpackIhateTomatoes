@@ -1,0 +1,24 @@
+@import "src/styles/variables";
+
+.sky-user-profile {
+  cursor: pointer;
+  max-width: 140px;
+  position: absolute;
+  right: 30px;
+  top: $HEADER_HEIGHT + 20px;
+  text-align: center;
+
+  label {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+
+  > img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+  }
+}

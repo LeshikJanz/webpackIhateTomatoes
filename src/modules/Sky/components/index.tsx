@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withState } from 'recompose';
-import '../styles/style.module.scss';
+import '../styles/style.scss';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { ICloud, IMenu } from "interfaces";
 import SkyItem from "../containers/skyItemContainer";
@@ -12,12 +12,19 @@ import { OPEN_BUTTON_HEIGHT, OPEN_BUTTON_WIDTH, VIEW_CONTAINER_HEIGHT } from "..
 import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
 import { MODAL_TYPES } from "constants/index";
+import SkyUserProfile from "../containers/skyUserProfile";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom, route, openCloud, ...props }) => {
+export const GridLayout = ({
+                             sky, modal, params, handleModal, handleCloudFormSubmit, updateLayout, zoom,
+                             route, openCloud, ...props
+                           }) => {
   const actionMenu: IMenu[] = [
     {
-      callback: 'handleModal', arg: { type: MODAL_TYPES.cloudAdd }, placeholder: 'Create cloud', icon: 'fa fa-menu fa-cloud'
+      callback: 'handleModal',
+      arg: { type: MODAL_TYPES.cloudAdd },
+      placeholder: 'Create cloud',
+      icon: 'fa fa-menu fa-cloud'
     },
     // { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
@@ -76,8 +83,9 @@ export const GridLayout = ({ sky, modal, params, handleModal, handleCloudFormSub
         }
       </ResponsiveReactGridLayout>
       {
-        !params.id &&
-        <GooeyMenu onSelect={ (callback, arg) => eval(callback)(arg) } menuItems={actionMenu}/>
+        params.id ?
+          <SkyUserProfile/> :
+          <GooeyMenu onSelect={ (callback, arg) => eval(callback)(arg) } menuItems={actionMenu}/>
       }
       <CustomModal
         title="Adding cloud"
