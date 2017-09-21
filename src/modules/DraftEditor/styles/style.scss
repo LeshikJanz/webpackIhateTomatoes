@@ -66,6 +66,12 @@
     flex-direction: column;
   }
 
+  .draft-editor-profile-img {
+    cursor: pointer;
+    width: 250px;
+    border-radius: 5px;
+  }
+
   .user-img {
     cursor: pointer;
     width: 50px;

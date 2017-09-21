@@ -26,8 +26,12 @@ export const GridLayout = ({
       placeholder: 'Create cloud',
       icon: 'fa fa-menu fa-cloud'
     },
-    // { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
+    { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
+
+  const handleSettings = () => {
+    console.log('handleSettings');
+  }
 
   const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");

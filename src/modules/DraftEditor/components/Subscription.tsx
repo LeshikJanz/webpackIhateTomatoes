@@ -7,7 +7,7 @@ export const Subscription = (props) => {
   return (
     <div className="profile">
       <img onClick={() => goToUser(user.id)}
-           className="user-img"
+           className="draft-editor-profile-img"
            src={ user && user.avatar || DEFAULT_PROFILE_IMG }
            alt={user.realm || user.username}
       />

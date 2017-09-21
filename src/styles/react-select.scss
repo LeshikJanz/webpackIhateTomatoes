@@ -6,7 +6,7 @@
 .Select-control {
   @include input-container;
   border: solid 1px #3d3d3d !important;
-  width: 105% !important;
+  width: 100% !important;
 
   .Select-placeholder {
     @include input-placeholder;
@@ -20,7 +20,7 @@
   }
 
   .Select-arrow {
-    border-width: 13px 10px 2.5px !important;
+    border-width: 10px 8px 0 !important;
     margin: 10px 10px 0 0 !important;
   }
 
@@ -46,7 +46,7 @@
 .Select-menu-outer {
   @include input-text;
   z-index: 2000;
-  width: 105% !important;
+  width: 100% !important;
 
   > .Select-menu {
 
