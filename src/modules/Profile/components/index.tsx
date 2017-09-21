@@ -4,7 +4,6 @@ import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
-import { email } from "components/ReduxFormFields/RenderField/validators";
 
 const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');
@@ -40,7 +39,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
                         classNames="field-value link-value"
-                        icon={<img src="assets/icons/social/facebook.svg" />}/>
+                        icon={<img src="assets/icons/social/facebook.svg"/>}/>
           <ProfileField name="VK"
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
@@ -58,7 +57,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
       </div>
     </form>
   )
-}
+};
 
 export default reduxForm({
   enableReinitialize: true,

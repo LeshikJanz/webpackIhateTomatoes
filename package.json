@@ -190,6 +190,7 @@
     "react-grid-layout": "^0.15.0",
     "react-hover": "^1.1.0",
     "react-modal-dialog": "^4.0.7",
+    "react-onclickoutside": "^6.5.0",
     "react-player": "^0.22.0",
     "react-redux": "^5.0.3",
     "react-resizable-box": "^2.0.6",

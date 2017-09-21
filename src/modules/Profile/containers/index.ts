@@ -4,6 +4,7 @@ import Profile from "../components/index";
 import { handleProfileSidebar, updateUserInit } from "../actions";
 import '../styles/style.scss';
 import { IUser } from "interfaces";
+import onClickOutside from 'react-onclickoutside';
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -28,4 +29,4 @@ export default compose(
     }
   })
 )
-(Profile);
+(onClickOutside(Profile));
