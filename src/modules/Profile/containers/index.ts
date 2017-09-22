@@ -4,6 +4,8 @@ import Profile from "../components/index";
 import { handleProfileSidebar, updateUserInit } from "../actions";
 import '../styles/style.scss';
 import { IUser } from "interfaces";
+import onClickOutside from 'react-onclickoutside';
+import { avatarUploadInit } from "../../Registration/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -14,8 +16,9 @@ import { IUser } from "interfaces";
  * @param: {any} state - App state
  */
 const mapStateToProps = (state) => ({
-  user: state.Profile,
-  initialValues: state.Profile
+  user: (state.form.ProfileForm && state.form.ProfileForm.values) || state.Profile,
+  initialValues: state.Profile,
+  loading: state.Loading
 });
 
 export default compose(
@@ -25,7 +28,7 @@ export default compose(
     onSubmit: ({ dispatch }) => (user: IUser) => {
       dispatch(updateUserInit(user));
       dispatch(handleProfileSidebar());
-    }
+    },
+    handleImageUpload: ({ dispatch }) => ({ files }) => dispatch(avatarUploadInit(files[0]))
   })
-)
-(Profile);
+)(onClickOutside(Profile));

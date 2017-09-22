@@ -47,17 +47,16 @@ export default class MegaDraft extends React.Component<any, any> {
    * @returns {void}
    */
   onChange = (editorState) => {
-    // Save to the server only if content was changed
-    if ( this.isContentChanged(editorState) ) {
-      this.setState({ editorState });
-      this.handleTimer(editorState.getSelection().getHasFocus());
-    }
     this.setState({ editorState });
+    // Save to the server only if content was changed
+    if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
+      this.handleSaveTimer();
+    }
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
 
-  handleTimer = (isFocused: boolean = true) => {
+  handleSaveTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
     if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
@@ -111,8 +110,14 @@ export default class MegaDraft extends React.Component<any, any> {
   }
 
   onKnowledgeNameChange = (e) => {
-    this.handleTimer();
+    this.handleSaveTimer();
     this.props.handleNameChange(e);
+  };
+
+  handleKeyPress = ({ key }) => {
+    if ( key === 'Enter' ) {
+      this.cloudNameInput.blur();
+    }
   };
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
@@ -135,11 +140,13 @@ export default class MegaDraft extends React.Component<any, any> {
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
           <div className="knowledge-name-container">
             <input disabled={!this.isOwner()}
+                   ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
                    className="name-input"
                    placeholder="Enter the name..."
                    title="Knowledge name"
                    value={knowledge.name}
+                   onKeyPress={this.handleKeyPress}
                    onChange={this.onKnowledgeNameChange}/>
             <div className="delete-icon"
                  hidden={!this.isOwner()}

@@ -29,6 +29,7 @@ export function* loginInitSaga(): Iterator<Object | Task> {
     yield put(replace(urls.board));
   } catch (error) {
     console.error(error);
+    NotificationManager.error(error.error && error.error.message, 'Failed!');
     yield put(loginError());
   }
 }

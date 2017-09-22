@@ -1,12 +1,15 @@
 import * as React from 'react';
-import '../styles/style.scss';
+const styles = require('../styles/style.scss');
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
-import { email } from "components/ReduxFormFields/RenderField/validators";
+import { Simulate } from "react-dom/test-utils";
+import input = Simulate.input;
 
-const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit }) => {
+const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit, handleImageUpload, loading }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');
 
   return (
@@ -18,7 +21,14 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
                   className="close" aria-label="Close">
             <img src="assets/icons/swipe-right.svg"/>
           </button>
-          <img src={user.avatar || `https://randomuser.me/api/portraits/med/men/1.jpg`}/>
+          <div className={cx({ 'avatar-uploading': isOwner() })}>
+            <img className="avatar-img" src={user.avatar || `assets/icons/spinner.svg`}/>
+            <input type="file" name="avatar" id="avatar"
+                   accept="image/jpeg, image/jpg, image/png, image/gif"
+                   onChange={({ target }) => handleImageUpload(target)}/>
+            <label htmlFor="avatar" className="secondary">Upload new</label>
+            <label style={{ textAlign: 'center' }} hidden={!loading}>Uploading...</label>
+          </div>
         </div>
         <ProfileCategory name="PERSONAL">
           <ProfileField name="Name" disabled={!isOwner()}/>
@@ -40,7 +50,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
                         classNames="field-value link-value"
-                        icon={<img src="assets/icons/social/facebook.svg" />}/>
+                        icon={<img src="assets/icons/social/facebook.svg"/>}/>
           <ProfileField name="VK"
                         disabled={!isOwner()}
                         labelClassName="field-name link-name"
@@ -56,9 +66,10 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
           <button className="primary" hidden={!isOwner()} type="submit" disabled={!dirty || invalid}>Save</button>
         </div>
       </div>
-    </form>
+    </
+      form >
   )
-}
+};
 
 export default reduxForm({
   enableReinitialize: true,

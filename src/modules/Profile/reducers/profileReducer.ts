@@ -1,6 +1,6 @@
 import { createReducer } from 'utils/createReducer';
 import { IModal, IUser } from "interfaces/index";
-import { getUserDone, getUserInit, handleProfileSidebar } from "../actions";
+import { closeProfileSidebar, getUserDone, getUserInit, handleProfileSidebar } from "../actions";
 
 /**
  * Initial state for modal reducer
@@ -15,6 +15,10 @@ export default createReducer({
     ...state,
     isOpened: !state.isOpened,
     id: payload
+  }),
+  [closeProfileSidebar]: (state: any, payload: string) => ({
+    ...state,
+    isOpened: false
   }),
   [getUserInit]: (state: any) => ({
     ...initialState,

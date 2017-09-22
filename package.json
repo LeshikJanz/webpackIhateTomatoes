@@ -4,8 +4,8 @@
   "main": "server/server.js",
   "scripts": {
     "elint": "eslint . — ext .js — ext .ts — ext .tsx — cache || true",
-    "start": "cross-env NODE_ENV=production nodemon server/server.js --watch common --watch server --watch --content-base src/",
-    "start:dev": "cross-env NODE_ENV=development nodemon server/server.js",
+    "start": "cross-env NODE_ENV=development nodemon server/server.js --watch common --watch server --watch --content-base src/",
+    "prod": "cross-env NODE_ENV=production node server/server.js",
     "posttest": "npm run lint && nsp check",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.test.ts' ./src/",
     "typedoc": "typedoc",
@@ -190,6 +190,7 @@
     "react-grid-layout": "^0.15.0",
     "react-hover": "^1.1.0",
     "react-modal-dialog": "^4.0.7",
+    "react-onclickoutside": "^6.5.0",
     "react-player": "^0.22.0",
     "react-redux": "^5.0.3",
     "react-resizable-box": "^2.0.6",

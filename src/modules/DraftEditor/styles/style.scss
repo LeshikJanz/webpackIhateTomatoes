@@ -1,7 +1,6 @@
 .name-input {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
 }
 
 .name-input .name {
@@ -65,6 +64,12 @@
     display: flex;
     padding-left: 15px;
     flex-direction: column;
+  }
+
+  .draft-editor-profile-img {
+    cursor: pointer;
+    width: 250px;
+    border-radius: 5px;
   }
 
   .user-img {

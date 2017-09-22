@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { LogOutBar } from "../components/LogOutBar";
 import { logOutInit } from "../../actions";
-import { urls } from "../../../../urls";
+import { urls } from "urls";
 import { push } from "react-router-redux";
-import { getUserInit, handleProfileSidebar } from "../../../Profile/actions";
+import { getUserInit, handleProfileSidebar } from "modules/Profile/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state

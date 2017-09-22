@@ -3,7 +3,7 @@ import { Header } from "../components/index";
 import { createNewKnowledgeInit, handleModalAction } from "modules/actions";
 import { getCloudsInit } from "modules/Sky/actions";
 import { MODAL_TYPES } from "constants/index";
-import { handleProfileSidebar } from "modules/Profile/actions";
+import { closeProfileSidebar, handleProfileSidebar } from "modules/Profile/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -28,7 +28,8 @@ const mapStateToProps = (state) => ({
  *
  * @param: {any} dispatch - dispatch
  */
-const mapDispatchToProps: any = dispatch => ({
+
+const mapDispatchToProps: any = (dispatch): any => ({
   addKnowledge: () => {
     dispatch(createNewKnowledgeInit());
     dispatch(handleModalAction());
@@ -42,7 +43,8 @@ const mapDispatchToProps: any = dispatch => ({
       title: 'You are not authorized',
       text: 'You need to be authorized before you can start creating new knowledge'
     })),
-  handleProfileSidebar: () => dispatch(handleProfileSidebar())
+  handleProfileSidebar: () => dispatch(handleProfileSidebar()),
+  closeProfileSidebar: () => dispatch(closeProfileSidebar())
 });
 
 /**

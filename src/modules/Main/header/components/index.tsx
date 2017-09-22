@@ -20,8 +20,16 @@ const cx = classNames.bind(styles);
 export const Header = (props) => {
   const {
     modal, handleKnowledgeCreateModal, handleNotAuthorizedModal,
-    handleModal, addKnowledge, getClouds, clouds, params, isProfileSidebarOpened
+    handleModal, addKnowledge, getClouds, clouds, params, isProfileSidebarOpened,
+    closeProfileSidebar
   } = props;
+
+  const handleSidebar = () => {
+    const profileContainer = document.querySelector('.profile-container');
+    if ( profileContainer && profileContainer.style.width !== '0px' ) {
+      closeProfileSidebar();
+    }
+  };
 
   const createKnowledge = () => {
     if ( props.location.pathname !== `/${urls.board}` ) {
@@ -41,9 +49,8 @@ export const Header = (props) => {
             <Hint name="createKnowledge"
                   text="Use this button for creating new knowledge"
             >
-              <a onClick={ createKnowledge }
-                 className="navbar-lightning"
-                 href="javascript:void(0)"><i className="fa fa-bolt"></i></a>
+              <a className="navbar-lightning"
+                 href="javascript:void(0)"><i onClick={ createKnowledge } className="fa fa-bolt"></i></a>
             </Hint>
           </div>
           <div id="hello">
@@ -87,8 +94,13 @@ export const Header = (props) => {
           confirmLabel='OK'
           isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.successfulRegistration}
         />
-        <Profile
-          style={{ position: 'fixed', top: `${HEADER_HEIGHT}`, right: 0, width: isProfileSidebarOpened ? '40%' : 0 }}/>
+        <Profile handleClickOutside={ handleSidebar }
+                 style={{
+                   position: 'fixed',
+                   top: `${HEADER_HEIGHT}`,
+                   right: 0,
+                   width: isProfileSidebarOpened ? '40%' : 0
+                 }}/>
         {props.children}
       </div>
     </div>

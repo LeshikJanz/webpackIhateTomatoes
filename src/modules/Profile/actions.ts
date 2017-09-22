@@ -9,3 +9,4 @@ export const updateUserDone = createAction('UPDATE_USER_DONE');
 export const updateUserError = createAction('UPDATE_USER_ERROR');
 
 export const handleProfileSidebar = createAction('HANDLE_PROFILE_SIDEBAR');
+export const closeProfileSidebar = createAction('CLOSE_PROFILE_SIDEBAR');

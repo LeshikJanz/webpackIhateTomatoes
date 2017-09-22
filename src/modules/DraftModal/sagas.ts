@@ -7,6 +7,7 @@ import {
 import { Task } from "redux-saga";
 import { ICloud } from "interfaces";
 import { NotificationManager } from 'react-notifications';
+import { addView } from "api/view";
 
 const getFromState = (state: any) => state.Knowledge;
 
@@ -20,7 +21,7 @@ const getFromState = (state: any) => state.Knowledge;
 export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
   try {
     const cloud: ICloud = yield fetchCloud(payload);
-
+    yield addView({ accountId: localStorage.getItem('UserId'), cloudId: cloud.id });
     yield put(fetchCloudDone(cloud));
   } catch ({ error }) {
     NotificationManager.error(error.message, 'Error!');

@@ -29,7 +29,7 @@ module.exports = function (Account) {
 
     if (ctx.instance && !ctx.instance.emailVerified) {
       ctx.instance.verificationToken ? sendEmail() : verifyAccount();
-    }
+    } else next();
   });
 
   Account.beforeRemote('confirm', function (ctx, modelInstance, next) {
