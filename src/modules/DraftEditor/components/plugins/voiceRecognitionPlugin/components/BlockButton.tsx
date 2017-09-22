@@ -5,9 +5,14 @@ import { uploadImageAsync } from "../../../../../../api/upload";
 
 export const BlockButton = ({ editorState, onChange }) => {
 
+  const handleVoiceRecognition = () => {
+    const data = { "type": "voiceRecognition" };
+    onChange(insertDataBlock(editorState, data));
+  }
+
   return (
     <button className="draft-leftmenu-button">
-      <img src="assets/icons/draft-plugins/voice-recognition.svg"/>
+      <img src="assets/icons/draft-plugins/voice-recognition.svg" onClick={handleVoiceRecognition}/>
     </button>
   );
 };

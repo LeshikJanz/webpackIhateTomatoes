@@ -128,7 +128,7 @@
   }
 }
 
-:global .megadraft-editor {
+.megadraft-editor {
   .sidebar__menu {
     left: -70px !important;
   }
@@ -138,6 +138,10 @@
   }
 
   .sidemenu__item {
-    height: 55px !important;
+    height: 50px !important;
+  }
+
+  .draft-leftmenu-button > img {
+    height: 40px;
   }
 }

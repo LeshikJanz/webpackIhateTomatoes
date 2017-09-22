@@ -1,70 +1,29 @@
 import * as React from "react";
 import { MegadraftPlugin } from "megadraft";
-const { BlockData, BlockInput } = MegadraftPlugin;
+const { BlockData, CommonBlock, BlockContent, BlockWrapper } = MegadraftPlugin;
 import { DraftJS, insertDataBlock } from "megadraft";
 import { withState } from 'recompose';
 import { NotificationManager } from 'react-notifications';
-import { Spinner } from "components/Spinner/index";
 import { EditorState, SelectionStsate, Modifier } from "draft-js";
+import '../styles/style.scss';
 
 const doneTypingInterval = 1000;
 let typingTimer;
 
-export const VoiceBlock = ({ container, data, updateKnowledge, knowledge }) => {
+export const VoiceBlock = (props) => {
   const handleTimer = () => {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(updateKnowledge, doneTypingInterval);
   };
 
   const handleChange = ({ target }) => {
-    container.updateData({ [target.name]: target.value });
+    props.container.updateData({ [target.name]: target.value });
     handleTimer();
   };
 
-  const isOwner = () => knowledge.accountId === localStorage.getItem('UserId');
-
-  const deleteCurBlock = () => container.remove(data);
-
-  const handleImageError = () => {
-    deleteCurBlock();
-    NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
-  };
-
   return (
-    <div className="image-draft-container">
-      { isOwner() &&
-      <div className="image-tools">
-        <div className="image-zoom">
-          <label htmlFor="width">Zoom: { data.width / 100 }</label>
-          <input type="range" min='10' max='100' step='1' name="width"
-                 defaultValue={data.width} onChange={handleChange}/>
-        </div>
-        <div className="delete-icon"
-             placeholder="Delete Knowledge"
-             onClick={deleteCurBlock}
-        >
-          <img src="assets/icons/deleteHat.svg" className="delete-hat"/>
-          <img src="assets/icons/deleteBox.svg" className="delete-box"/>
-        </div>
-      </div>
-      }
-      <div className={cx(['img-block', { 'loading-filter': data.isLoading }])}
-           style={{ textAlign: `${data.imgPosition}` }}>
-        <Spinner loading={data.isLoading}>
-          <h5>Uploading...</h5>
-        </Spinner>
-        <img src={data.src} onError={handleImageError} style={{ width: `${data.width}%` }}/>
-      </div>
+    <div className="voice-recognition-container">
 
-      { ((isOwner()) || (!isOwner() && data.caption)) &&
-      <BlockData>
-        <BlockInput placeholder="Enter an image caption"
-                    disabled={!isOwner()}
-                    value={data.caption}
-                    name="caption"
-                    onChange={handleChange}/>
-      </BlockData>
-      }
     </div>
   );
 };

@@ -68,7 +68,7 @@
 
   .draft-editor-profile-img {
     cursor: pointer;
-    width: 50px;
+    min-width: 50px;
     border-radius: 5px;
   }
 
@@ -145,7 +145,7 @@
 
 .megadraft-editor {
   .toolbar__wrapper {
-    left: -100px !important;
+    left: -120px !important;
   }
   .toolbar__arrow {
     display: none !important;
@@ -256,4 +256,8 @@ input[type=file]::-webkit-file-upload-button {
 
 .section-right {
   text-align: right;
+}
+
+.voice-recognition {
+  background-color: green;
 }

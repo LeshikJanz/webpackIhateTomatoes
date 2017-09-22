@@ -1,6 +1,6 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
+import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw, Modifier } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
@@ -18,6 +18,8 @@ import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 import Toolbar from "./Toolbar";
 import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
+import * as annyang from 'annyang';
+import { OrderedSet } from "immutable";
 
 const plugins = [
   VoiceRecognitionPlugin,
@@ -122,6 +124,23 @@ export default class MegaDraft extends React.Component<any, any> {
     }
   };
 
+  saveRecognized = (recognizedText) => {
+    // this.onChange(EditorState.moveSelectionToEnd(this.state.editorState));
+    const currentContentState = this.state.editorState.getCurrentContent();
+    const selection = this.state.editorState.getSelection();
+    const ncs = Modifier.insertText(currentContentState, selection, recognizedText);
+    const es = EditorState.push(this.state.editorState, ncs, 'insert-fragment');
+    this.onChange(es);
+  };
+
+  handleRecognitionStart = () => {
+    annyang.addCallback('resultNoMatch', (userSaid, commandText, phrases) => {
+      this.saveRecognized(userSaid[0]);
+    });
+
+    annyang.start();
+  };
+
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
 
   /**
@@ -160,6 +179,7 @@ export default class MegaDraft extends React.Component<any, any> {
             </div>
           </div>
           <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
+          <button onClick={this.handleRecognitionStart}>Start Recognition</button>
           <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>

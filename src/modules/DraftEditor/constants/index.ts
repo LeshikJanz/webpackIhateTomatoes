@@ -74,6 +74,13 @@ export const styleMap = {
     fontSize: '72px',
     lineHeight: '1.3'
   },
+  'RECOGNITION_TEXT': {
+    fontSize: '16px',
+    lineHeight: '1.58',
+    backgroundColor: '#d7d7d7'
+
+
+  },
   'FONT_FAMILY_Arial': {
     fontFamily: 'Arial'
   },
@@ -115,5 +122,5 @@ export const blockRenderMap = Map({
   },
   'section-right': {
     element: 'section'
-  },
+  }
 });
