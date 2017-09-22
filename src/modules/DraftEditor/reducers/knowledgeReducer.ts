@@ -1,5 +1,6 @@
-import { createReducer } from '../../../utils/createReducer';
+import { createReducer } from 'utils/createReducer';
 import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "../../actions";
+import { handleRecognition } from "../actions";
 
 /**
  * Initial state for knowledge reducer
@@ -20,7 +21,8 @@ const initialState = {
   },
   createDate: "",
   updateDate: "",
-  cloudId: ""
+  cloudId: "",
+  isRecognitionRunning: false
 };
 
 export default createReducer({
@@ -38,5 +40,9 @@ export default createReducer({
   }),
   [clearKnowledge]: (state: any, payload: string) => ({
     ...initialState
+  }),
+  [handleRecognition]: (state: any) => ({
+    ...state,
+    isRecognitionRunning: !state.isRecognitionRunning
   })
 }, initialState);

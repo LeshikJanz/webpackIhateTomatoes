@@ -1,4 +1,4 @@
-import { BlockButton } from "./BlockButton";
+import BlockButton from "../containers/index";
 import { MegadraftIcons } from "megadraft";
 import { VoiceBlock } from "./voiceBlock";
 

@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import {
-  editKnowledge, changeKnowledgeName, updateKnowledgeInit, handleModalAction, createNewKnowledgeInit, deleteKnowledgeInit
+  editKnowledge,
+  changeKnowledgeName,
+  updateKnowledgeInit,
+  handleModalAction,
+  createNewKnowledgeInit,
+  deleteKnowledgeInit
 } from "modules/actions";
-import { createRenewerInit } from "../actions";
+import { createRenewerInit, handleRecognition } from "../actions";
 import { push } from "react-router-redux";
 import { urls } from "urls";
 import MegaDraft from "../components/Megadraft";
@@ -42,7 +47,8 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(handleModalAction());
   },
   handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
-  updateKnowledge: () => dispatch(updateKnowledgeInit())
+  updateKnowledge: () => dispatch(updateKnowledgeInit()),
+  handleRecognition: () => dispatch(handleRecognition())
 });
 
 /**

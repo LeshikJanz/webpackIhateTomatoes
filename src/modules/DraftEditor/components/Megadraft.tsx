@@ -19,7 +19,7 @@ import Toolbar from "./Toolbar";
 import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
 import * as annyang from 'annyang';
-import { OrderedSet } from "immutable";
+import RecognitionToolbar from "../containers/recognitionToolbar";
 
 const plugins = [
   VoiceRecognitionPlugin,
@@ -139,6 +139,12 @@ export default class MegaDraft extends React.Component<any, any> {
     });
 
     annyang.start();
+    this.props.handleRecognition();
+  };
+
+  handleRecognitionStop = () => {
+    annyang.abort();
+    this.props.handleRecognition();
   };
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
@@ -152,14 +158,17 @@ export default class MegaDraft extends React.Component<any, any> {
   render() {
     const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser } = this.props;
     const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
-
     const relations = knowledge.relations || [];
 
     return (
       <div>
-        <div className="modal-header draft-editor-container">
+        <div className="draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
+
           <div className="knowledge-name-container">
+            <img className="tree-view"
+                 title="Open renewing tree"
+                 src="assets/icons/tree-map-icon.svg"/>
             <input disabled={!this.isOwner()}
                    ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -178,8 +187,10 @@ export default class MegaDraft extends React.Component<any, any> {
               <img src="assets/icons/deleteBox.svg" className="delete-box"/>
             </div>
           </div>
-          <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
-          <button onClick={this.handleRecognitionStart}>Start Recognition</button>
+          {/*<RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>*/}
+          <RecognitionToolbar startRecognition={this.handleRecognitionStart}
+                              stopRecognition={this.handleRecognitionStop}
+          />
           <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
