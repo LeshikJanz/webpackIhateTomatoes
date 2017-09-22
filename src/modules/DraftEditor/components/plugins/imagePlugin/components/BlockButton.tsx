@@ -14,7 +14,7 @@ export const BlockButton = ({ editorState, onChange }) => {
 
   return (
     <button className="draft-leftmenu-button">
-      <img src="assets/icons/picture-icon.svg"/>
+      <img src="assets/icons/draft-plugins/image-icon.svg"/>
       <input type="file" id="imgupload" onChange={onImageOpen} accept="image/jpeg,image/png,image/gif"/>
     </button>
   );

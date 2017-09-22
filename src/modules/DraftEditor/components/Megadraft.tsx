@@ -9,6 +9,7 @@ import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraf
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
 import { NotificationManager } from 'react-notifications';
+import VoiceRecognitionPlugin from './plugins/voiceRecognitionPlugin/components/index';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
@@ -19,6 +20,7 @@ import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
 
 const plugins = [
+  VoiceRecognitionPlugin,
   ImagePlugin,
   VideoPlugin
 ];

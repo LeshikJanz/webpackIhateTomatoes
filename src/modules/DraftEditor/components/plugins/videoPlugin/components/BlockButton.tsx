@@ -12,7 +12,7 @@ export const BlockButton = ({ editorState, onChange }) => {
 
   return (
     <button className="draft-leftmenu-button">
-      <img src="assets/icons/video-icon.svg" onClick={onMovieOpen}/>
+      <img src="assets/icons/draft-plugins/video-icon.svg" onClick={onMovieOpen}/>
     </button>
   );
 };
