@@ -135,10 +135,13 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleRecognitionStart = () => {
     annyang.addCallback('resultNoMatch', (userSaid, commandText, phrases) => {
+      console.log('resultNoMatch');
       this.saveRecognized(userSaid[0]);
     });
 
     annyang.start();
+    console.log('annyang');
+    console.log(annyang);
     this.props.handleRecognition();
   };
 
