@@ -31,6 +31,7 @@
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
 .hvr-icon-wobble-horizontal:before {
   content: "\f060";
   position: absolute;
@@ -39,6 +40,7 @@
   padding: 0 1px;
   font-family: FontAwesome;
 }
+
 .hvr-icon-wobble-horizontal:hover:before, .hvr-icon-wobble-horizontal:focus:before, .hvr-icon-wobble-horizontal:active:before {
   -webkit-animation-name: hvr-icon-wobble-horizontal;
   animation-name: hvr-icon-wobble-horizontal;
@@ -104,6 +106,7 @@
     transform: translateX(0);
   }
 }
+
 @keyframes hvr-icon-wobble-horizontal-right {
   16.65% {
     -webkit-transform: translateX(6px);
@@ -130,6 +133,7 @@
     transform: translateX(0);
   }
 }
+
 .hvr-icon-wobble-horizontal-right {
   display: inline-block;
   vertical-align: middle;
@@ -141,6 +145,7 @@
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
 .hvr-icon-wobble-horizontal-right:before {
   content: "\f061";
   position: absolute;
@@ -150,6 +155,7 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 .hvr-icon-wobble-horizontal-right:hover:before, .hvr-icon-wobble-horizontal-right:focus:before, .hvr-icon-wobble-horizontal-right:active:before {
   -webkit-animation-name: hvr-icon-wobble-horizontal-right;
   animation-name: hvr-icon-wobble-horizontal-right;
@@ -160,7 +166,6 @@
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
 
 //Modal
 .modal-backdrop {
@@ -235,5 +240,26 @@
     opacity: 0;
     -webkit-transform: scale3d(0.5, 0.5, 1);
     transform: scale3d(0.5, 0.5, 1);
+  }
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(6, end) 2s infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 20px;
   }
 }

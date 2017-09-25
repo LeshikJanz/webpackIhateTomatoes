@@ -23,7 +23,7 @@ export const RecognitionPlayer =
             <div className="play-button">
               {
                 isActive ?
-                  <img src="assets/icons/draft-plugins/voice-recognition-loading.svg"
+                  <img src="assets/icons/draft-plugins/stop-voice-recognition.svg"
                        onClick={stopRecognition}
                        alt="Stop recogniting"/> :
                   <img src="assets/icons/recognition-play.svg"
@@ -42,7 +42,7 @@ export const RecognitionPlayer =
                 </select>
               </div>
               <div className="cursor-actions">
-                <label hidden={!isActive}>Recognition in progress</label>
+                <label className="loading" hidden={!isActive}>Recognition in progress</label>
                 <label hidden={isActive}>Recognition stopped</label>
                 <img className="cursor-position-button tertiary" src="assets/icons/i-beam-pointer.svg"
                      alt="Go to cursor"/>
