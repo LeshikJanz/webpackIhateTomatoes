@@ -25,7 +25,8 @@ const mapStateToProps = (state) => ({
   knowledge: state.Knowledge,
   user: state.Knowledge.account,
   clouds: state.Sky.clouds,
-  modal: state.Modal
+  modal: state.Modal,
+  isRecognitionRunning: state.Knowledge.isRecognitionRunning
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({

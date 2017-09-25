@@ -169,7 +169,7 @@ export default class MegaDraft extends React.Component<any, any> {
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser } = this.props;
+    const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser, isRecognitionRunning } = this.props;
     const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
     const relations = knowledge.relations || [];
 
@@ -233,7 +233,7 @@ export default class MegaDraft extends React.Component<any, any> {
               <h3>to add it to the current cursor position</h3>
             </div>
             }
-            <RecognitionPlayer/>
+            <RecognitionPlayer isActive={isRecognitionRunning} />
           </div>
         </Dropzone>
 
