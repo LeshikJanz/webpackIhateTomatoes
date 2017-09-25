@@ -6,3 +6,4 @@ export const createRenewerError = createAction('CREATE_RENEWER_ERROR');
 
 export const handleRecognition = createAction('HANDLE_RECOGNITION');
 export const handlePlayer = createAction('HANDLE_PLAYER');
+export const handleCollapsePlayer = createAction('HANDLE_COLLAPSE_PLAYER');

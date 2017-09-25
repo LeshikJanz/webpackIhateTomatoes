@@ -212,7 +212,8 @@ export default class MegaDraft extends React.Component<any, any> {
             </div>
           </div>
           {/*<RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>*/}
-          <RecognitionToolbar startRecognition={this.handleRecognitionStart}
+          <RecognitionToolbar handlePlayerCollapse={this.props.handlePlayerCollapse}
+                              startRecognition={this.handleRecognitionStart}
                               stopRecognition={this.handleRecognitionStop}
           />
           <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
@@ -245,6 +246,7 @@ export default class MegaDraft extends React.Component<any, any> {
             </div>
             }
             <RecognitionPlayer isActive={isRecognitionRunning}
+                               handlePlayerCollapse={this.props.handlePlayerCollapse}
                                scrollTop={this.state.scrollPositionTop}
                                startRecognition={this.handleRecognitionStart}
                                stopRecognition={this.handleRecognitionStop}

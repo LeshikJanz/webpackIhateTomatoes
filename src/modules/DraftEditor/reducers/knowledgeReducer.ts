@@ -1,6 +1,6 @@
 import { createReducer } from 'utils/createReducer';
 import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "../../actions";
-import { handlePlayer, handleRecognition } from "../actions";
+import { handleCollapsePlayer, handlePlayer, handleRecognition } from "../actions";
 
 /**
  * Initial state for knowledge reducer
@@ -23,7 +23,8 @@ const initialState = {
   updateDate: "",
   cloudId: "",
   isRecognitionRunning: false,
-  isPlayerOpen: false
+  isPlayerOpen: false,
+  isPlayerCollapsed: false
 };
 
 export default createReducer({
@@ -49,5 +50,9 @@ export default createReducer({
   [handlePlayer]: (state: any) => ({
     ...state,
     isPlayerOpen: !state.isPlayerOpen
+  }),
+  [handleCollapsePlayer]: (state: any) => ({
+    ...state,
+    isPlayerCollapsed: !state.isPlayerCollapsed
   })
 }, initialState);
