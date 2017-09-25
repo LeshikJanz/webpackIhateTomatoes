@@ -34,8 +34,19 @@ export default class MegaDraft extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    this.state = { editorState: editorStateFromRaw(this.props.knowledge.text) };
+    this.state = {
+      editorState: editorStateFromRaw(this.props.knowledge.text),
+      editorScrollTop: 0
+    };
   }
+
+  componentDidMount = () => {
+    this.enableScrollTracing();
+  };
+
+  componentWillUnmount = () => {
+    this.disableScrollTracing();
+  };
 
   isContentChanged = (newState) => {
     const currentContentState = this.state.editorState.getCurrentContent();
@@ -96,9 +107,9 @@ export default class MegaDraft extends React.Component<any, any> {
     if ( e[0].kind !== 'string' ) {
       NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
     }
-  }
+  };
 
-  getBlockStyle(block) {
+  getBlockStyle = (block) => {
     switch ( block.getType() ) {
       case 'section-left':
         return 'section-left';
@@ -145,12 +156,22 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.handleRecognition();
   };
 
+  handleScroll = ({ target }) => this.setState({ editorScrollTop: target.scrollTop });
+
+  enableScrollTracing = () =>
+    document.querySelector('.ReactModal__Content')
+      .addEventListener('scroll', this.handleScroll);
+
+  disableScrollTracing = () =>
+    document.querySelector('.ReactModal__Content')
+      .removeEventListener('scroll', this.handleScroll, false);
+
   handleRecognitionStop = () => {
     annyang.abort();
     this.props.handleRecognition();
   };
 
-  isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
+  isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
 
   /**
    * Renders the component.

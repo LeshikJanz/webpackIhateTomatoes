@@ -1,4 +1,5 @@
 @import "mixins.scss";
+@import "variables.scss";
 
 button {
   font-size: inherit;
@@ -8,14 +9,14 @@ button {
   outline: none;
 
   &:disabled {
-    background-color: #919191;
-    border: solid 2px #919191;
+    background-color: $DISABLED_COLOR;
+    border: solid 2px $DISABLED_COLOR;
     cursor: not-allowed;
   }
 
   &:hover:disabled {
-    background-color: #919191;
-    border: solid 2px #919191;
+    background-color: $DISABLED_COLOR;
+    border: solid 2px $DISABLED_COLOR;
     cursor: not-allowed;
   }
 
@@ -46,23 +47,23 @@ button {
   color: white;
   font-family: Avenir-Bold;
   border-radius: 6px;
-  background-color: #f57f17;
+  background-color: $PRIMARY_COLOR;
 
   &:hover {
     transition: .3s all;
-    background-color: #ffb536;
+    background-color: $PRIMARY_HOVER_COLOR;
   }
 
   &:active {
     transition: .3s all;
-    background-color: #f56c17;
+    background-color: $PRIMARY_ACTIVE_COLOR;
   }
 }
 
 .secondary {
   border-radius: 6px;
   background-color: transparent;
-  border: solid 2px #f37726;
+  border: solid 2px $PRIMARY_COLOR;
   font-family: Helvetica;
   font-weight: bold;
   line-height: 1;
@@ -72,22 +73,22 @@ button {
 
   &:hover {
     transition: .3s all;
-    color: #ffb536;
+    color: $PRIMARY_HOVER_COLOR;
     border-radius: 6px;
-    border: solid 2px #ffb536;
+    border: solid 2px $PRIMARY_HOVER_COLOR;
   }
 
   &:active {
     transition: .3s all;
-    color: #f56c17;
-    border: solid 2px #f56c17;
+    color: $PRIMARY_ACTIVE_COLOR;
+    border: solid 2px $PRIMARY_ACTIVE_COLOR;
   }
 }
 
 .tertiary {
   border-radius: 6px;
   background-color: transparent;
-  border: solid 2px #62aff7;
+  border: solid 2px $TERTIARY_COLOR;
   font-family: WorkSans;
   font-weight: bold;
   line-height: 1;
@@ -99,22 +100,22 @@ button {
     transition: .3s all;
     color: white;
     border-radius: 6px;
-    background-color: rgba(98, 175, 247, 0.45);
-    border: solid 2px #62aff7;
+    background-color: $TERTIARY_HOVER_COLOR;
+    border: solid 2px $TERTIARY_COLOR;
   }
 
   &:active {
     transition: .3s all;
     color: white;
-    background-color: #62aff7;
-    border: solid 2px #62aff7;
+    background-color: $TERTIARY_COLOR;
+    border: solid 2px $TERTIARY_COLOR;
   }
 }
 
 .special {
   border-radius: 6px;
-  background-color: #2fd976;
-  border: solid 2px #2fd976;
+  background-color: $SPECIAL_COLOR;
+  border: solid 2px $SPECIAL_COLOR;
   color: white;
   font-family: WorkSans;
   font-weight: bold;
@@ -126,21 +127,21 @@ button {
     transition: .3s all;
     color: white;
     border-radius: 6px;
-    background-color: #7de2a7;
-    border: solid 2px #7de2a7;
+    background-color: $SPECIAL_HOVER_COLOR;
+    border: solid 2px $SPECIAL_HOVER_COLOR;
   }
 
   &:active {
     transition: .3s all;
     color: white;
-    background-color: #26bb65;
-    border: solid 2px #26bb65;
+    background-color: $SPECIAL_ACTIVE_COLOR;
+    border: solid 2px $SPECIAL_ACTIVE_COLOR;
   }
 }
 
 .gray {
   border-radius: 6px;
-  background-color: rgba(216, 220, 225, 0.55);;
+  background-color: $GRAY_COLOR;
   border: solid 2px #f8f8f8;
   font-family: WorkSans-Medium;
   font-weight: bold;
@@ -153,15 +154,15 @@ button {
     transition: .3s all;
     color: #7a8693;
     border-radius: 6px;
-    background-color: rgba(216, 220, 225, 0.42);
-    border: solid 2px rgba(216, 220, 225, 0.42);
+    background-color: $GRAY_HOVER_COLOR;
+    border: solid 2px $GRAY_HOVER_COLOR;
   }
 
   &:active {
     transition: .3s all;
     color: #7a8693;
-    background-color: rgba(216, 220, 225, 0.55);
-    border: solid 2px rgba(216, 220, 225, 0.55);
+    background-color: $GRAY_ACTIVE_COLOR;
+    border: solid 2px $GRAY_ACTIVE_COLOR;
   }
 }
 

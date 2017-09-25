@@ -11,6 +11,10 @@ import PopUpModal from 'modules/DraftModal/containers/index';
 export const Cloud = (props) => (
   <div>
     <TagCloud cloudId={props.params && props.params.id} contents={props.trackNumber}/>
-    <PopUpModal/>
+    <PopUpModal
+      onScroll={() => {
+        console.log('Scroll');
+      }}
+      onWheel={(e)=>console.log('WHEEL!!',e)}/>
   </div>
 );
