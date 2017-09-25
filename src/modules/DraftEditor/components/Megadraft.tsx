@@ -20,6 +20,7 @@ import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
 import * as annyang from 'annyang';
 import RecognitionToolbar from "../containers/recognitionToolbar";
+import { RecognitionPlayer } from "./RecognitionPlayer";
 
 const plugins = [
   VoiceRecognitionPlugin,
@@ -31,6 +32,7 @@ let typingTimer;
 const doneTypingInterval = 1000;
 
 export default class MegaDraft extends React.Component<any, any> {
+  reactModal: HTMLDivElement;
 
   constructor(props) {
     super(props);
@@ -41,11 +43,7 @@ export default class MegaDraft extends React.Component<any, any> {
   }
 
   componentDidMount = () => {
-    this.enableScrollTracing();
-  };
-
-  componentWillUnmount = () => {
-    this.disableScrollTracing();
+    this.reactModal = document.querySelector('.ReactModal__Content');
   };
 
   isContentChanged = (newState) => {
@@ -67,6 +65,7 @@ export default class MegaDraft extends React.Component<any, any> {
     if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
       this.handleSaveTimer();
     }
+
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
@@ -156,16 +155,6 @@ export default class MegaDraft extends React.Component<any, any> {
     this.props.handleRecognition();
   };
 
-  handleScroll = ({ target }) => this.setState({ editorScrollTop: target.scrollTop });
-
-  enableScrollTracing = () =>
-    document.querySelector('.ReactModal__Content')
-      .addEventListener('scroll', this.handleScroll);
-
-  disableScrollTracing = () =>
-    document.querySelector('.ReactModal__Content')
-      .removeEventListener('scroll', this.handleScroll, false);
-
   handleRecognitionStop = () => {
     annyang.abort();
     this.props.handleRecognition();
@@ -244,6 +233,7 @@ export default class MegaDraft extends React.Component<any, any> {
               <h3>to add it to the current cursor position</h3>
             </div>
             }
+            <RecognitionPlayer/>
           </div>
         </Dropzone>
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import '../styles/recognition-toolbar.scss';
+import { RecognitionPlayer } from "./RecognitionPlayer";
 
 export const RecognitionToolbar = ({ stopRecognition, startRecognition, isRunning }) => {
 

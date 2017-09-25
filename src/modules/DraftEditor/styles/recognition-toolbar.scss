@@ -1,8 +1,56 @@
+@import "src/styles/variables.scss";
+
 .recognition-toolbar-container {
   cursor: pointer;
+  opacity: 0.8;
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+  }
 
   button > img {
     cursor: pointer;
     height: 55px;
+  }
+}
+
+.player-container {
+  position: sticky;
+  bottom: calc(100% - 100px);
+  left: 80%;
+  width: 250px;
+  justify-content: space-around;
+  padding: 10px;
+  z-index: 100;
+  display: flex;
+  background-color: $GRAY_COLOR;
+  border-radius: 10%;
+
+  .play-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .player-actions {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .player-language-select {
+      display: flex;
+      flex-direction: column;
+    }
+
+    > div:first-child {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      .cursor-position-button {
+        height: 30px;
+      }
+    }
   }
 }
