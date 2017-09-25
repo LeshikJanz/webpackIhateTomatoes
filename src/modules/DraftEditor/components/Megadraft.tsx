@@ -20,7 +20,7 @@ import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
 import * as annyang from 'annyang';
 import RecognitionToolbar from "../containers/recognitionToolbar";
-import { RecognitionPlayer } from "./RecognitionPlayer";
+import RecognitionPlayer from "../containers/recognitionPlayer";
 
 const plugins = [
   VoiceRecognitionPlugin,
@@ -32,19 +32,19 @@ let typingTimer;
 const doneTypingInterval = 1000;
 
 export default class MegaDraft extends React.Component<any, any> {
-  reactModal: HTMLDivElement;
-
   constructor(props) {
     super(props);
     this.state = {
       editorState: editorStateFromRaw(this.props.knowledge.text),
-      editorScrollTop: 0
+      scrollPositionTop: 0
     };
   }
 
-  componentDidMount = () => {
-    this.reactModal = document.querySelector('.ReactModal__Content');
-  };
+  componentDidMount = () =>
+    this.addScrollListener();
+
+  componentWillUnmount = () =>
+    this.removeScrollListener();
 
   isContentChanged = (newState) => {
     const currentContentState = this.state.editorState.getCurrentContent();
@@ -162,6 +162,17 @@ export default class MegaDraft extends React.Component<any, any> {
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
 
+  handleScroll = ({ target }) =>
+    this.setState({ scrollPositionTop: target.scrollTop });
+
+  addScrollListener = () =>
+    document.querySelector('.ReactModal__Content')
+      .addEventListener('scroll', this.handleScroll);
+
+  removeScrollListener = () =>
+    document.querySelector('.ReactModal__Content')
+      .removeEventListener('scroll', this.handleScroll);
+
   /**
    * Renders the component.
    *
@@ -233,7 +244,11 @@ export default class MegaDraft extends React.Component<any, any> {
               <h3>to add it to the current cursor position</h3>
             </div>
             }
-            <RecognitionPlayer isActive={isRecognitionRunning} />
+            <RecognitionPlayer isActive={isRecognitionRunning}
+                               scrollTop={this.state.scrollPositionTop}
+                               startRecognition={this.handleRecognitionStart}
+                               stopRecognition={this.handleRecognitionStop}
+            />
           </div>
         </Dropzone>
 
