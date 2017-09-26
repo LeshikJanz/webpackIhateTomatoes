@@ -76,7 +76,7 @@ export const GridLayout = ({
                                  onLayoutChange={route === `/${urls.board}` ? updateLayout : () => null}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                                 cols={{ lg: 50 / zoom, md: 45 / zoom, sm: 40 / zoom, xs: 35 / zoom, xxs: 30 / zoom }}
+                                 cols={{ lg: 50 / zoom, md: 45 / zoom, sm: 40 / zoom, xs: 25 / zoom, xxs: 5 / zoom }}
                                  rowHeight={ 10 * zoom }
       >
         {
