@@ -13,6 +13,7 @@ import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
 import { MODAL_TYPES } from "constants/index";
 import SkyUserProfile from "../containers/skyUserProfile";
+import Settings from "../containers/settings";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({
@@ -30,7 +31,7 @@ export const GridLayout = ({
   ];
 
   const handleSettings = () => {
-    console.log('handleSettings');
+    handleModal({ type: MODAL_TYPES.settings });
   }
 
   const fitByWidth = (element: HTMLElement) => {
@@ -78,7 +79,8 @@ export const GridLayout = ({
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10, minW: 5, minH: 5 } }
+            <div key={c.id}
+                 data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10, minW: 5, minH: 5 } }
                  ref={handleSize}
                  onDoubleClick={() => openCloud(c.id)}
             >
@@ -105,6 +107,7 @@ export const GridLayout = ({
         handleConfirm={ () => props[modal.callback](modal.itemId) }
         isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
       />
+      <Settings/>
 
       {/*<ZoomPanel/>*/}
     </div>
