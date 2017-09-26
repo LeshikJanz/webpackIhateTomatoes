@@ -152,12 +152,12 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleRecognitionLanguageChange = ({ target }) => {
-    // const isListened = annyang.isListening();
+    const isListened = annyang.isListening();
     this.handleRecognitionStop();
     annyang.setLanguage(target.value);
-    // if (isListened) {
-    //   setTimeout(this.handleRecognitionStart(), 1000);
-    // }
+    if (isListened) {
+      setTimeout(this.handleRecognitionStart, 500);
+    }
   };
 
   handleRecognitionStart = () => {
