@@ -74,6 +74,7 @@ declare interface IUser extends Identifiable {
   emailVerified: boolean,
   accountId: string,
   layout: IGridItem[],
+  settings: any,
   zoom: number
 }
 

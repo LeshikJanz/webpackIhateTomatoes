@@ -11,7 +11,10 @@ const mapStateToProps: any = (state): any => ({
   sky: state.Sky,
   modal: state.Modal,
   zoom: state.Sky.zoom,
-  route: state.routing.locationBeforeTransitions.pathname
+  route: state.routing.locationBeforeTransitions.pathname,
+
+  // subscribing on the settings form for real time updating Hint component(without page reloading)
+  settingsForm: state.form && state.form.SettingsForm
 });
 
 const mapDispatchToProps = (dispatch) => ({

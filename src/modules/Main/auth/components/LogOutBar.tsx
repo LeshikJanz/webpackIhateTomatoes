@@ -16,7 +16,8 @@ export const LogOutBar = ({ logOut, handleProfileSidebar, isProfileOpened }) => 
            alt={ user && (user.realm || user.username) }
       />
       <div className="user-labels">
-        <button className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
+        <button onClick={() => handleProfileSidebar(user.id)}
+                className="user-name user-name-dropdown">{ user && (user.realm || user.username)}</button>
 
         <button style={{ width: '100px' }}
                 onClick={logOut}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { required } from "../../../../components/ReduxFormFields/RenderField/validators";
-import { renderField } from "../../../../components/ReduxFormFields/RenderField/index";
+import { required } from "components/ReduxFormFields/RenderField/validators";
+import { renderField } from "components/ReduxFormFields/RenderField";
 require('styles/form.scss');
 
 let CloudForm = props => {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import '../styles/style.scss';
-import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw } from 'draft-js'
+import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw, Modifier } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
 import { Link } from 'react-router-redux';
@@ -9,6 +9,7 @@ import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraf
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
 import { NotificationManager } from 'react-notifications';
+import VoiceRecognitionPlugin from './plugins/voiceRecognitionPlugin/components/index';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
@@ -17,8 +18,12 @@ import { DEFAULT_WIDTH } from "./plugins/imagePlugin/constants/index";
 import Toolbar from "./Toolbar";
 import { blockRenderMap, styleMap } from "../constants/index";
 import RenewBlock from "../containers/renewBlock";
+import * as annyang from 'annyang';
+import RecognitionToolbar from "../containers/recognitionToolbar";
+import RecognitionPlayer from "../containers/recognitionPlayer";
 
 const plugins = [
+  VoiceRecognitionPlugin,
   ImagePlugin,
   VideoPlugin
 ];
@@ -27,11 +32,21 @@ let typingTimer;
 const doneTypingInterval = 1000;
 
 export default class MegaDraft extends React.Component<any, any> {
-
   constructor(props) {
     super(props);
-    this.state = { editorState: editorStateFromRaw(this.props.knowledge.text) };
+    this.state = {
+      editorState: editorStateFromRaw(this.props.knowledge.text),
+      scrollPositionTop: 0
+    };
   }
+
+  componentDidMount = () =>
+    this.addScrollListener();
+
+  componentWillUnmount = () => {
+    this.removeScrollListener();
+    this.handleRecognitionStop();
+  };
 
   isContentChanged = (newState) => {
     const currentContentState = this.state.editorState.getCurrentContent();
@@ -49,16 +64,17 @@ export default class MegaDraft extends React.Component<any, any> {
   onChange = (editorState) => {
     this.setState({ editorState });
     // Save to the server only if content was changed
-    if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
+    if (this.isContentChanged(editorState) && this.props.modal.isOpen) {
       this.handleSaveTimer();
     }
+
     const content = editorStateToJSON(editorState);
     this.props.editKnowledge(JSON.parse(content));
   };
 
   handleSaveTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
-    if ( isFocused ) {
+    if (isFocused) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -89,13 +105,13 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleDropRejectred = (e) => {
-    if ( e[0].kind !== 'string' ) {
+    if (e[0].kind !== 'string') {
       NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
     }
-  }
+  };
 
-  getBlockStyle(block) {
-    switch ( block.getType() ) {
+  getBlockStyle = (block) => {
+    switch (block.getType()) {
       case 'section-left':
         return 'section-left';
       case 'section-center':
@@ -107,7 +123,7 @@ export default class MegaDraft extends React.Component<any, any> {
       default:
         return null;
     }
-  }
+  };
 
   onKnowledgeNameChange = (e) => {
     this.handleSaveTimer();
@@ -115,12 +131,64 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleKeyPress = ({ key }) => {
-    if ( key === 'Enter' ) {
+    if (key === 'Enter') {
       this.cloudNameInput.blur();
     }
   };
 
-  isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId')
+  handleRecognitionStop = () => {
+    annyang.removeCallback();
+    annyang.abort();
+    this.props.stopRecognition();
+  };
+
+  saveRecognized = (recognizedText) => {
+    // this.onChange(EditorState.moveSelectionToEnd(this.state.editorState));
+    const currentEditorState = this.state.editorState;
+    const currentContentState = currentEditorState.getCurrentContent();
+    const selection = currentEditorState.getSelection();
+    const ncs = Modifier.insertText(currentContentState, selection, recognizedText);
+    const es = EditorState.push(currentEditorState, ncs, 'insert-fragment');
+    this.onChange(es);
+    this.handleSaveTimer();
+  };
+
+  handleRecognitionLanguageChange = ({ target }) => {
+    const isListened = annyang.isListening();
+    this.handleRecognitionStop();
+    annyang.setLanguage(target.value);
+    if (isListened) {
+      setTimeout(this.handleRecognitionStart, 500);
+    }
+  };
+
+  handleRecognitionStart = () => {
+    annyang.addCallback('resultNoMatch', (userSaid, commandText, phrases) => {
+      this.saveRecognized(userSaid[0]);
+    });
+
+    annyang.addCallback('error', (e) => {
+      this.handleRecognitionStop();
+      console.error(e);
+      NotificationManager.warning('Recognition Stopped', e.error);
+    });
+
+    annyang.start();
+    this.props.startRecognition();
+  };
+
+  isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
+
+  handleScroll = ({ target }) =>
+    this.setState({ scrollPositionTop: target.scrollTop });
+
+  addScrollListener = () =>
+    document.querySelector('.ReactModal__Content')
+      .addEventListener('scroll', this.handleScroll);
+
+  removeScrollListener = () =>
+    document.querySelector('.ReactModal__Content')
+      .removeEventListener('scroll', this.handleScroll);
 
   /**
    * Renders the component.
@@ -129,16 +197,19 @@ export default class MegaDraft extends React.Component<any, any> {
    * @return {string} - HTML markup for the component
    */
   render() {
-    const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser } = this.props;
+    const { handleRenewing, user, knowledge, closeEditor, clouds, goToUser, isRecognitionRunning } = this.props;
     const extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
-
     const relations = knowledge.relations || [];
 
     return (
       <div>
-        <div className="modal-header draft-editor-container">
+        <div className="draft-editor-container">
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
+
           <div className="knowledge-name-container">
+            {/*<img className="tree-view"*/}
+            {/*title="Open renewing tree"*/}
+            {/*src="assets/icons/tree-map-icon.svg"/>*/}
             <input disabled={!this.isOwner()}
                    ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -157,7 +228,11 @@ export default class MegaDraft extends React.Component<any, any> {
               <img src="assets/icons/deleteBox.svg" className="delete-box"/>
             </div>
           </div>
-          <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
+          {/*<RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>*/}
+          <RecognitionToolbar handlePlayerCollapse={this.props.handlePlayerCollapse}
+                              startRecognition={this.handleRecognitionStart}
+                              stopRecognition={this.handleRecognitionStop}
+          />
           <button type="button" className="close" onClick={ closeEditor } aria-label="Close">
             <img src="assets/icons/close.svg"/>
           </button>
@@ -187,6 +262,12 @@ export default class MegaDraft extends React.Component<any, any> {
               <h3>to add it to the current cursor position</h3>
             </div>
             }
+            <RecognitionPlayer handlePlayerCollapse={this.props.handlePlayerCollapse}
+                               handleLanguageChange={this.handleRecognitionLanguageChange}
+                               scrollTop={this.state.scrollPositionTop}
+                               startRecognition={this.handleRecognitionStart}
+                               stopRecognition={this.handleRecognitionStop}
+            />
           </div>
         </Dropzone>
 

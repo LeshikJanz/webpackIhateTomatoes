@@ -122,6 +122,7 @@
   "devDependencies": {
     "@types/react-router": "^4.0.4",
     "@types/react-router-redux": "^5.0.0",
+    "annyang": "^2.6.0",
     "awesome-typescript-loader": "^3.0.8",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",

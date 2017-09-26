@@ -28,7 +28,6 @@ const mapStateToProps = (state) => ({
  *
  * @param: {any} dispatch - dispatch
  */
-
 const mapDispatchToProps: any = (dispatch): any => ({
   addKnowledge: () => {
     dispatch(createNewKnowledgeInit());

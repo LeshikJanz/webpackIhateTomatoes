@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import {
-  editKnowledge, changeKnowledgeName, updateKnowledgeInit, handleModalAction, createNewKnowledgeInit, deleteKnowledgeInit
+  editKnowledge,
+  changeKnowledgeName,
+  updateKnowledgeInit,
+  handleModalAction,
+  createNewKnowledgeInit,
+  deleteKnowledgeInit
 } from "modules/actions";
-import { createRenewerInit } from "../actions";
+import { createRenewerInit, handleRecognition, startRecognition, stopRecognition } from "../actions";
 import { push } from "react-router-redux";
 import { urls } from "urls";
 import MegaDraft from "../components/Megadraft";
@@ -20,14 +25,18 @@ const mapStateToProps = (state) => ({
   knowledge: state.Knowledge,
   user: state.Knowledge.account,
   clouds: state.Sky.clouds,
-  modal: state.Modal
+  modal: state.Modal,
+  isRecognitionRunning: state.Knowledge.isRecognitionRunning
 });
 
 const mergeProps: any = (props, { dispatch }): any => ({
   ...props,
   editKnowledge: (text) => dispatch(editKnowledge(text)),
   handleNameChange: (e) => dispatch(changeKnowledgeName(e.target.value)),
-  closeEditor: () => dispatch(handleModalAction()),
+  closeEditor: () => {
+    dispatch(stopRecognition());
+    dispatch(handleModalAction());
+  },
   handleRenewing: () => {
     dispatch(createRenewerInit());
     dispatch(createNewKnowledgeInit({ fromExisting: true }));
@@ -42,7 +51,9 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(handleModalAction());
   },
   handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
-  updateKnowledge: () => dispatch(updateKnowledgeInit())
+  updateKnowledge: () => dispatch(updateKnowledgeInit()),
+  startRecognition: () => dispatch(startRecognition()),
+  stopRecognition: () => dispatch(stopRecognition())
 });
 
 /**

@@ -24,5 +24,6 @@ export const MODAL_TYPES = {
   editor: 'Editor',
   cloudAdd: 'CloudAdd',
   knowledgeCreate: 'KnowledgeCreate',
-  notAuthorized: 'NotAuthorized'
-}
+  notAuthorized: 'NotAuthorized',
+  settings: 'Settings'
+};

@@ -13,6 +13,7 @@ import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
 import { MODAL_TYPES } from "constants/index";
 import SkyUserProfile from "../containers/skyUserProfile";
+import Settings from "../containers/settings";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({
@@ -29,9 +30,10 @@ export const GridLayout = ({
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
-  const handleSettings = () => {
-    console.log('handleSettings');
-  }
+  const globalSettings = JSON.parse(localStorage.getItem('Account')).settings;
+
+  const handleSettings = () =>
+    handleModal({ type: MODAL_TYPES.settings });
 
   const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");
@@ -60,7 +62,7 @@ export const GridLayout = ({
   };
 
   const handleSize = (element: HTMLElement) => {
-    if ( element ) {
+    if (element) {
       fitByWidth(element);
       fitByHeight(element);
     }
@@ -70,6 +72,7 @@ export const GridLayout = ({
     <div>
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
+                                 verticalCompact={globalSettings.verticalCompactEnabled}
                                  onLayoutChange={route === `/${urls.board}` ? updateLayout : () => null}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
@@ -78,7 +81,8 @@ export const GridLayout = ({
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10 } }
+            <div key={c.id}
+                 data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10, minW: 5, minH: 5 } }
                  ref={handleSize}
                  onDoubleClick={() => openCloud(c.id)}
             >
@@ -105,8 +109,9 @@ export const GridLayout = ({
         handleConfirm={ () => props[modal.callback](modal.itemId) }
         isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
       />
+      <Settings/>
 
-      <ZoomPanel/>
+      {/*<ZoomPanel/>*/}
     </div>
   )
 };

@@ -2,6 +2,7 @@
   "name": "Knowledge",
   "plural": "Knowledges",
   "base": "PersistedModel",
+  "strict": "filter",
   "idInjection": true,
   "options": {
     "validateUpsert": true
