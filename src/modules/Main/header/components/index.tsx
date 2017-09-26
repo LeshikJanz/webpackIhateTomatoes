@@ -97,7 +97,7 @@ export const Header = (props) => {
         <Profile handleClickOutside={ handleSidebar }
                  style={{
                    position: 'fixed',
-                   top: `${HEADER_HEIGHT}`,
+                   top: `${HEADER_HEIGHT}px`,
                    right: 0,
                    width: isProfileSidebarOpened ? '40%' : 0
                  }}/>

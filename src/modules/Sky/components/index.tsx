@@ -78,7 +78,7 @@ export const GridLayout = ({
       >
         {
           sky.clouds.map((c: ICloud) =>
-            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10 } }
+            <div key={c.id} data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10, minW: 5, minH: 5 } }
                  ref={handleSize}
                  onDoubleClick={() => openCloud(c.id)}
             >
@@ -106,7 +106,7 @@ export const GridLayout = ({
         isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
       />
 
-      <ZoomPanel/>
+      {/*<ZoomPanel/>*/}
     </div>
   )
 };

@@ -6,8 +6,6 @@ import { ProfileField } from "./ProfileField";
 import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
-import { Simulate } from "react-dom/test-utils";
-import input = Simulate.input;
 
 const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit, handleImageUpload, loading }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');

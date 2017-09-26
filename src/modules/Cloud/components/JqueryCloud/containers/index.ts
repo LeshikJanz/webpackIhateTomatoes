@@ -14,7 +14,8 @@ const mapStateToProps = (state: any) => ({
   isModalOpen: state.Modal.isOpen,
   locationPath: state.routing.locationBeforeTransitions.pathname,
   cloud: state.Cloud,
-  highlight: state.Highlight
+  highlight: state.Highlight,
+  loading: state.Loading
 });
 
 const mapDispatchToProps: any = (dispatch: any) => ({
