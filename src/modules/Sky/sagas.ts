@@ -1,6 +1,7 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import {
-  getCloudsInit, getCloudsDone, getCloudsError, updateLayoutAction
+  getCloudsInit, getCloudsDone, getCloudsError, updateLayoutAction, updateSettingsInit, updateSettingsDone,
+  updateSettingsError
 } from "./actions";
 import { Task } from "redux-saga";
 import { addNewCloud, deleteCloud, updateLayout, fetchAccountWithClouds } from "api/cloud";
@@ -8,8 +9,12 @@ import {
   createCloudError, createCloudDone, createCloudInit, deleteCloudInit, deleteCloudError,
   deleteCloudDone
 } from "../actions";
+import { NotificationManager } from 'react-notifications';
+import { updateUserById } from "api/user";
+import { initialize } from "redux-form";
 
 export const getSkyFromState: any = (state): any => state.Sky;
+const getSettingsFromState = (state: any) => state.form.SettingsForm.values;
 
 export function* fetchAccountWithCloudsSaga(action): Iterator<Object | Task> {
   try {
@@ -54,11 +59,27 @@ export function* deleteCloudSaga({ payload }): Iterator<Object | Task> {
   }
 }
 
+export function* updateSettingsSaga(): Iterator<Object | Task> {
+  try {
+    const settings = yield select(getSettingsFromState);
+    const updatedUser = yield updateUserById(localStorage.getItem('UserId'), { settings });
+    localStorage.setItem('Account', JSON.stringify(updatedUser));
+    yield put(updateSettingsDone());
+    yield put(initialize('SettingsForm', updatedUser.settings));
+    NotificationManager.success('Success!', 'Settings has been updated successfully');
+  } catch (error) {
+    console.error(error);
+    NotificationManager.error('Error!', 'Settings has not been updated');
+    yield put(updateSettingsError())
+  }
+}
+
 export function* skySaga() {
   yield [
     takeEvery(getCloudsInit().type, fetchAccountWithCloudsSaga),
     takeEvery(createCloudInit().type, createCloudSaga),
     takeEvery(updateLayoutAction().type, updateLayoutSaga),
     takeEvery(deleteCloudInit().type, deleteCloudSaga),
+    takeEvery(updateSettingsInit().type, updateSettingsSaga),
   ]
 }

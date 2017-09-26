@@ -30,9 +30,8 @@ export const GridLayout = ({
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
-  const handleSettings = () => {
+  const handleSettings = () =>
     handleModal({ type: MODAL_TYPES.settings });
-  }
 
   const fitByWidth = (element: HTMLElement) => {
     const nameBlock = element.querySelector(".name");
@@ -61,7 +60,7 @@ export const GridLayout = ({
   };
 
   const handleSize = (element: HTMLElement) => {
-    if ( element ) {
+    if (element) {
       fitByWidth(element);
       fitByHeight(element);
     }

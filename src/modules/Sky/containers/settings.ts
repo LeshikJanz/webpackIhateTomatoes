@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { handleModalAction } from "../../actions";
 import { IModal } from "interfaces";
 import { Settings } from "../components/Settings";
+import { updateSettingsInit } from "../actions";
 
 const mapStateToProps: any = (state): any => ({
   modal: state.Modal
@@ -9,6 +10,10 @@ const mapStateToProps: any = (state): any => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleModal: (modal: IModal) => dispatch(handleModalAction(modal)),
+  handleSettingsSubmit: () => {
+    dispatch(updateSettingsInit());
+    dispatch(handleModalAction());
+  }
 });
 
 /**

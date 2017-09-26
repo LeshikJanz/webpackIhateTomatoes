@@ -7,8 +7,10 @@ const cx = classNames.bind(styles);
 
 
 export const RecognitionPlayer =
-  ({ isActive, isCollapsed, handlePlayerCollapse, startRecognition, stopRecognition, scrollTop, isOpened,
-     handlePlayer, handleLanguageChange }) => (
+  ({
+     isActive, isCollapsed, handlePlayerCollapse, startRecognition, stopRecognition, scrollTop, isOpened,
+     handlePlayer, handleLanguageChange
+   }) => (
     <div
       className={cx(['player-container', { 'opened': isOpened }, { 'collapsed': isCollapsed }, { 'uncollapsed': !isCollapsed }])}>
       {
@@ -41,6 +43,13 @@ export const RecognitionPlayer =
                   <option value="en-GB">English (UK)</option>
                   <option value="de-DE">German</option>
                   <option value="fr-FR">French</option>
+                  <option value="es-ES">Spanish</option>
+                  <option value="it-IT">Italian</option>
+                  <option value="zh-yue">Chinese</option>
+                  <option value="pl">Polish</option>
+                  <option value="sv-SE">Swedish</option>
+                  <option value="ko">Korean</option>
+                  <option value="tr">Turkish</option>
                 </select>
               </div>
               <div className="cursor-actions">

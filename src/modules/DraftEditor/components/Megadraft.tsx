@@ -45,7 +45,7 @@ export default class MegaDraft extends React.Component<any, any> {
 
   componentWillUnmount = () => {
     this.removeScrollListener();
-    annyang.abort();
+    this.handleRecognitionStop();
   };
 
   isContentChanged = (newState) => {
@@ -144,11 +144,13 @@ export default class MegaDraft extends React.Component<any, any> {
 
   saveRecognized = (recognizedText) => {
     // this.onChange(EditorState.moveSelectionToEnd(this.state.editorState));
-    const currentContentState = this.state.editorState.getCurrentContent();
-    const selection = this.state.editorState.getSelection();
+    const currentEditorState = this.state.editorState;
+    const currentContentState = currentEditorState.getCurrentContent();
+    const selection = currentEditorState.getSelection();
     const ncs = Modifier.insertText(currentContentState, selection, recognizedText);
-    const es = EditorState.push(this.state.editorState, ncs, 'insert-fragment');
+    const es = EditorState.push(currentEditorState, ncs, 'insert-fragment');
     this.onChange(es);
+    this.handleSaveTimer();
   };
 
   handleRecognitionLanguageChange = ({ target }) => {
@@ -168,7 +170,7 @@ export default class MegaDraft extends React.Component<any, any> {
     annyang.addCallback('error', (e) => {
       this.handleRecognitionStop();
       console.error(e);
-      NotificationManager.error('Recognition Error', e.error);
+      NotificationManager.warning('Recognition Stopped', e.error);
     });
 
     annyang.start();
@@ -205,9 +207,9 @@ export default class MegaDraft extends React.Component<any, any> {
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
 
           <div className="knowledge-name-container">
-            <img className="tree-view"
-                 title="Open renewing tree"
-                 src="assets/icons/tree-map-icon.svg"/>
+            {/*<img className="tree-view"*/}
+            {/*title="Open renewing tree"*/}
+            {/*src="assets/icons/tree-map-icon.svg"/>*/}
             <input disabled={!this.isOwner()}
                    ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
