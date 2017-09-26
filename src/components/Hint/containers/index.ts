@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
-import { Hint } from "../components/index";
+import { Hint } from "../components";
 
 const mapStateToProps: any = (state): any => ({
-  highlight: state.Highlight
+  highlight: state.Highlight,
+
+  // subscribing on the settings form for real time updating Hint component(without page reloading)
+  settingsForm: state.form && state.form.SettingsForm
 });
 
 /**
@@ -15,8 +18,4 @@ const mapStateToProps: any = (state): any => ({
  * @param mergeProps
  * @param options
  */
-export default connect(
-  mapStateToProps,
-  null,
-  null
-)(Hint);
+export default connect(mapStateToProps)(Hint);

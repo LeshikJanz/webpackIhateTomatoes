@@ -30,6 +30,8 @@ export const GridLayout = ({
     { callback: 'handleSettings', placeholder: 'Settings', icon: 'fa fa-menu fa-cog' }
   ];
 
+  const globalSettings = JSON.parse(localStorage.getItem('Account')).settings;
+
   const handleSettings = () =>
     handleModal({ type: MODAL_TYPES.settings });
 
@@ -70,6 +72,7 @@ export const GridLayout = ({
     <div>
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
+                                 verticalCompact={globalSettings.verticalCompactEnabled}
                                  onLayoutChange={route === `/${urls.board}` ? updateLayout : () => null}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
                                  breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
