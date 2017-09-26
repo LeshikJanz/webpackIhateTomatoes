@@ -3,8 +3,9 @@ const styles = require('./../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 
-export const Hint = ({ children, highlight, name, text, style }) => (
-  <div className={cx(['hint-container', { 'highlight': (highlight.enabled && highlight.name == name) }])}>
+export const Hint = ({ children, highlight, name, text, style, disableAnimation }) => (
+  <div className={cx(['hint-container', { 'disable-animation': disableAnimation },
+    { 'highlight': (highlight.enabled && highlight.name == name) }])}>
     {children}
     <img className="hint-image" style={...style} src="assets/icons/hints/hint-yellow.png"/>
     <div className="hint-block">

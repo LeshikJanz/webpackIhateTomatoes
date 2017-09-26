@@ -13,7 +13,7 @@ export const RecognitionToolbar = ({ isRunning, scrollTop, ...props }) => {
   };
 
   return (
-    <Hint text="Voice recognition">
+    <Hint text="Voice recognition" disableAnimation={true}>
       <div className="recognition-toolbar-container">
         <button className="recognition-button">
           {

@@ -1,6 +1,9 @@
 import { createReducer } from 'utils/createReducer';
 import { openKnowledge, editKnowledge, changeKnowledgeName, updateCloud, clearKnowledge } from "../../actions";
-import { handleCollapsePlayer, handlePlayer, handleRecognition } from "../actions";
+import {
+  changeRecognitionLanguage, handleCollapsePlayer, handlePlayer, startRecognition,
+  stopRecognition
+} from "../actions";
 
 /**
  * Initial state for knowledge reducer
@@ -24,7 +27,8 @@ const initialState = {
   cloudId: "",
   isRecognitionRunning: false,
   isPlayerOpen: false,
-  isPlayerCollapsed: false
+  isPlayerCollapsed: false,
+  recognitionLang: 'en'
 };
 
 export default createReducer({
@@ -43,9 +47,13 @@ export default createReducer({
   [clearKnowledge]: (state: any, payload: string) => ({
     ...initialState
   }),
-  [handleRecognition]: (state: any) => ({
+  [startRecognition]: (state: any) => ({
     ...state,
-    isRecognitionRunning: !state.isRecognitionRunning
+    isRecognitionRunning: true
+  }),
+  [stopRecognition]: (state: any) => ({
+    ...state,
+    isRecognitionRunning: false
   }),
   [handlePlayer]: (state: any) => ({
     ...state,
@@ -54,5 +62,10 @@ export default createReducer({
   [handleCollapsePlayer]: (state: any) => ({
     ...state,
     isPlayerCollapsed: !state.isPlayerCollapsed
-  })
+  }),
+  [changeRecognitionLanguage]: (state: any, payload: string) => ({
+    ...state,
+    recognitionLang: payload
+  }),
+
 }, initialState);

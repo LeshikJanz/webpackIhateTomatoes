@@ -121,7 +121,7 @@ export default class MegaDraft extends React.Component<any, any> {
       default:
         return null;
     }
-  }
+  };
 
   onKnowledgeNameChange = (e) => {
     this.handleSaveTimer();
@@ -143,6 +143,10 @@ export default class MegaDraft extends React.Component<any, any> {
     this.onChange(es);
   };
 
+  handleRecognitionLanguageChange = ({ target }) => {
+    annyang.setLanguage(target.value);
+  };
+
   handleRecognitionStart = () => {
     annyang.addCallback('resultNoMatch', (userSaid, commandText, phrases) => {
       console.log('resultNoMatch');
@@ -150,14 +154,12 @@ export default class MegaDraft extends React.Component<any, any> {
     });
 
     annyang.start();
-    console.log('annyang');
-    console.log(annyang);
-    this.props.handleRecognition();
+    this.props.startRecognition();
   };
 
   handleRecognitionStop = () => {
     annyang.abort();
-    this.props.handleRecognition();
+    this.props.stopRecognition();
   };
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
@@ -245,8 +247,8 @@ export default class MegaDraft extends React.Component<any, any> {
               <h3>to add it to the current cursor position</h3>
             </div>
             }
-            <RecognitionPlayer isActive={isRecognitionRunning}
-                               handlePlayerCollapse={this.props.handlePlayerCollapse}
+            <RecognitionPlayer handlePlayerCollapse={this.props.handlePlayerCollapse}
+                               handleLanguageChange={this.handleRecognitionLanguageChange}
                                scrollTop={this.state.scrollPositionTop}
                                startRecognition={this.handleRecognitionStart}
                                stopRecognition={this.handleRecognitionStop}

@@ -69,3 +69,18 @@
 .highlight > *:first-child {
   animation: highlight-animation 1s infinite alternate;
 }
+
+.disable-animation {
+
+  .hint-image {
+    transition: none !important;
+    &:hover {
+      transition: none !important;
+    }
+  }
+
+  &:hover > .hint-image {
+    animation: none;
+    transform: scale(1, 1);
+  }
+}

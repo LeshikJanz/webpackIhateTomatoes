@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePlayer: () => dispatch(handlePlayer()),
-  handlePlayerCollapse: () => dispatch(handleCollapsePlayer())
+  handlePlayer: (value: boolean) => dispatch(handlePlayer(value)),
+  handlePlayerCollapse: (value: boolean) => dispatch(handleCollapsePlayer(value))
 });
 
 export default connect

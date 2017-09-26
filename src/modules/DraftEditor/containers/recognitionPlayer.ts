@@ -4,12 +4,13 @@ import { handleCollapsePlayer, handlePlayer } from "../actions";
 
 const mapStateToProps = (state) => ({
   isOpened: state.Knowledge.isPlayerOpen,
+  isActive: state.Knowledge.isRecognitionRunning,
   isCollapsed: state.Knowledge.isPlayerCollapsed
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePlayer: () => dispatch(handlePlayer()),
-  handlePlayerCollapse: () => dispatch(handleCollapsePlayer()),
+  handlePlayer: (value: boolean) => dispatch(handlePlayer(value)),
+  handlePlayerCollapse: (value: boolean) => dispatch(handleCollapsePlayer(value))
 });
 
 export default connect

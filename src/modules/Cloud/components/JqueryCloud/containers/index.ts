@@ -21,9 +21,9 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   addTag: (tag: any) => dispatch(addTag(tag)),
   openEditor: () => dispatch(handleModalAction({ type: MODAL_TYPES.editor })),
   fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
-  openKnowledge: (id: string) => {
+  openKnowledge: (knowledge: IKnowledge) => {
     dispatch(clearKnowledge());
-    dispatch(openKnowledge(id));
+    dispatch(openKnowledge(knowledge));
   },
   handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value })),
   updateCloudName: ({ target }) => dispatch(updateCloudName(target.value)),
