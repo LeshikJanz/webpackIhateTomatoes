@@ -43,8 +43,10 @@ export default class MegaDraft extends React.Component<any, any> {
   componentDidMount = () =>
     this.addScrollListener();
 
-  componentWillUnmount = () =>
+  componentWillUnmount = () => {
     this.removeScrollListener();
+    annyang.abort();
+  };
 
   isContentChanged = (newState) => {
     const currentContentState = this.state.editorState.getCurrentContent();
@@ -62,7 +64,7 @@ export default class MegaDraft extends React.Component<any, any> {
   onChange = (editorState) => {
     this.setState({ editorState });
     // Save to the server only if content was changed
-    if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
+    if (this.isContentChanged(editorState) && this.props.modal.isOpen) {
       this.handleSaveTimer();
     }
 
@@ -72,7 +74,7 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleSaveTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
-    if ( isFocused ) {
+    if (isFocused) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -103,13 +105,13 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleDropRejectred = (e) => {
-    if ( e[0].kind !== 'string' ) {
+    if (e[0].kind !== 'string') {
       NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
     }
   };
 
   getBlockStyle = (block) => {
-    switch ( block.getType() ) {
+    switch (block.getType()) {
       case 'section-left':
         return 'section-left';
       case 'section-center':
@@ -129,9 +131,15 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleKeyPress = ({ key }) => {
-    if ( key === 'Enter' ) {
+    if (key === 'Enter') {
       this.cloudNameInput.blur();
     }
+  };
+
+  handleRecognitionStop = () => {
+    annyang.removeCallback();
+    annyang.abort();
+    this.props.stopRecognition();
   };
 
   saveRecognized = (recognizedText) => {
@@ -144,22 +152,27 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleRecognitionLanguageChange = ({ target }) => {
+    // const isListened = annyang.isListening();
+    this.handleRecognitionStop();
     annyang.setLanguage(target.value);
+    // if (isListened) {
+    //   setTimeout(this.handleRecognitionStart(), 1000);
+    // }
   };
 
   handleRecognitionStart = () => {
     annyang.addCallback('resultNoMatch', (userSaid, commandText, phrases) => {
-      console.log('resultNoMatch');
       this.saveRecognized(userSaid[0]);
+    });
+
+    annyang.addCallback('error', (e) => {
+      this.handleRecognitionStop();
+      console.error(e);
+      NotificationManager.error('Recognition Error', e.error);
     });
 
     annyang.start();
     this.props.startRecognition();
-  };
-
-  handleRecognitionStop = () => {
-    annyang.abort();
-    this.props.stopRecognition();
   };
 
   isOwner = () => this.props.knowledge.accountId === localStorage.getItem('UserId');
