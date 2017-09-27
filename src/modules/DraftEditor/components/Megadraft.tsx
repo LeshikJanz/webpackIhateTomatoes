@@ -10,7 +10,6 @@ import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from "megadraf
 const Dropzone = require('react-dropzone');
 import { DraftJS, insertDataBlock, container } from "megadraft";
 import { NotificationManager } from 'react-notifications';
-import VoiceRecognitionPlugin from './plugins/voiceRecognitionPlugin/components/index';
 import ImagePlugin from './plugins/imagePlugin/components/index';
 import VideoPlugin from './plugins/videoPlugin/components/index';
 import { ConfirmModal } from "components/ConfirmModal/components";
@@ -25,7 +24,6 @@ import RecognitionPlayer from "../containers/recognitionPlayer";
 import Hint from "components/Hint/containers";
 
 const plugins = [
-  VoiceRecognitionPlugin,
   ImagePlugin,
   VideoPlugin
 ];
@@ -286,6 +284,7 @@ export default class MegaDraft extends React.Component<any, any> {
           isModalOpen={this.state.isRenewingModalOpen}
         >
           <KnowledgeCreateForm
+            knowledgeNamePlaceholder={`E.g. Renewed ${knowledge.name}`}
             clouds={clouds.map(
               o => ({
                 ...o,

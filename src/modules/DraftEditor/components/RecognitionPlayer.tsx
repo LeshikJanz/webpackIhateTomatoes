@@ -55,8 +55,9 @@ export const RecognitionPlayer =
               <div className="cursor-actions">
                 <label className="loading" hidden={!isActive}>Recognition in progress</label>
                 <label hidden={isActive}>Recognition stopped</label>
-                <img className="cursor-position-button tertiary" src="assets/icons/i-beam-pointer.svg"
-                     alt="Go to cursor"/>
+                {/*TODO: Find cursor and cursor position into text*/}
+                {/*<img className="cursor-position-button tertiary" src="assets/icons/i-beam-pointer.svg"*/}
+                {/*alt="Go to cursor"/>*/}
               </div>
             </div>
           </div>

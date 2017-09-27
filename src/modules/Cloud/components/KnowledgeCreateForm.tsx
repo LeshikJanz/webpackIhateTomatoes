@@ -20,7 +20,9 @@ const reactSelect = enhance(({ input, options, hint }) => (
     <Select.Creatable
       {...input}
       value={input.value}
-      onChange={(value) => {return input.onChange(value)}}
+      onChange={(value) => {
+        return input.onChange(value)
+      }}
       onBlur={() => input.onBlur(input.value)}
       options={options}
       clearableValue={false}
@@ -31,14 +33,17 @@ const reactSelect = enhance(({ input, options, hint }) => (
 ));
 
 let KnowledgeCreateForm = (props) => {
-  const { handleSubmit, clouds, handleModal, cloudId } = props;
+  const {
+    handleSubmit, clouds, handleModal, cloudId,
+    knowledgeNamePlaceholder = "Enter knowledge name..."
+  } = props;
 
   return (
     <form onSubmit={ handleSubmit }>
       <div className="modal-body">
         <div className="form-element">
           <div>
-            <Field placeholder="Enter knowledge name..." name="name" className="input-container input-modal"
+            <Field placeholder={knowledgeNamePlaceholder} name="name" className="input-container input-modal"
                    label="Knowledge Name"
                    component={renderField}
                    validate={required}
