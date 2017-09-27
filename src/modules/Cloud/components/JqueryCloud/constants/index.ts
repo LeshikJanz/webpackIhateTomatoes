@@ -1,4 +1,4 @@
-const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 200;
+const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 220;
 
 export const TAG_CLOUD_INIT = `
   <div id="cloud">
