@@ -143,7 +143,6 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   saveRecognized = (recognizedText) => {
-    // this.onChange(EditorState.moveSelectionToEnd(this.state.editorState));
     const currentEditorState = this.state.editorState;
     const currentContentState = currentEditorState.getCurrentContent();
     const selection = currentEditorState.getSelection();
@@ -207,9 +206,9 @@ export default class MegaDraft extends React.Component<any, any> {
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
 
           <div className="knowledge-name-container">
-            {/*<img className="tree-view"*/}
-            {/*title="Open renewing tree"*/}
-            {/*src="assets/icons/tree-map-icon.svg"/>*/}
+            <img className="tree-view"
+                 title="Open renewing tree"
+                 src="assets/icons/tree-map-icon.svg"/>
             <input disabled={!this.isOwner()}
                    ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -228,7 +227,7 @@ export default class MegaDraft extends React.Component<any, any> {
               <img src="assets/icons/deleteBox.svg" className="delete-box"/>
             </div>
           </div>
-          {/*<RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>*/}
+          <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
           <RecognitionToolbar handlePlayerCollapse={this.props.handlePlayerCollapse}
                               startRecognition={this.handleRecognitionStart}
                               stopRecognition={this.handleRecognitionStop}

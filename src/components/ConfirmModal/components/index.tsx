@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Modal from 'react-modal';
 import Styles from "../style";
 
-export const ConfirmModal = ({ handleModal, handleConfirm, modal, isModalOpen, hideCancelButton, confirmLabel }) => (
+export const ConfirmModal = ({ handleModal, handleConfirm, modal, isModalOpen, hideCancelButton = false, confirmLabel = 'Confirm' }) => (
   <Modal
     isOpen={ isModalOpen }
     onRequestClose={ handleModal }
@@ -22,7 +22,7 @@ export const ConfirmModal = ({ handleModal, handleConfirm, modal, isModalOpen, h
         <p dangerouslySetInnerHTML={{ __html: modal.text }}></p>
       </div>
       <div className="modal-footer btn-actions">
-        <button className="primary" type="submit" onClick={ () => handleConfirm(modal.itemId) }>{confirmLabel || 'Confirm'}</button>
+        <button className="primary" type="submit" onClick={ () => handleConfirm(modal.itemId) }>{confirmLabel}</button>
         <button className="secondary" hidden={hideCancelButton} onClick={ handleModal }>Cancel</button>
       </div>
     </div>

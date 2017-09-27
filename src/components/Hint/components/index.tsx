@@ -4,7 +4,9 @@ const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 
 export const Hint = ({ children, highlight, name, text, style, disableAnimation, settingsForm }) => {
-  const isHintEnable = JSON.parse(localStorage.getItem('Account')).settings.hintsEnabled;
+  const account = JSON.parse(localStorage.getItem('Account'));
+  const settings = account && account.settings;
+  const isHintEnable = settings && settings.hintsEnabled;
 
   return ( isHintEnable ?
       <div className={cx(['hint-container', { 'disable-animation': disableAnimation },
