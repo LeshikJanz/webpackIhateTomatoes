@@ -23,9 +23,9 @@ export function* fetchCloudSaga({ payload } : string): Iterator<Object | Task> {
     const cloud: ICloud = yield fetchCloud(payload);
     yield addView({ accountId: localStorage.getItem('UserId'), cloudId: cloud.id });
     yield put(fetchCloudDone(cloud));
-  } catch ({ error }) {
-    NotificationManager.error(error.message, 'Error!');
+  } catch (error) {
     yield put(fetchCloudError(error));
+    NotificationManager.error(error.error && error.error.message, 'Error!');
   }
 }
 

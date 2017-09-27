@@ -17,7 +17,8 @@ const initialState = false;
 
 export default createReducer({
   [avatarUploadInit]: (state: any) => true,
-  [avatarUploadDone || avatarUploadError]: (state: any) => false,
+  [avatarUploadDone]: (state: any) => false,
+  [avatarUploadError]: (state: any) => false,
   [getCloudsInit]: (state: any) => true,
   [getCloudsDone]: (state: any) => false,
   [getCloudsError]: (state: any) => false,

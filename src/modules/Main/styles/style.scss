@@ -3,14 +3,18 @@
   display: flex;
   flex-direction: column;
   z-index: 10;
-  height: 100%;
-  justify-content: center;
-  padding-bottom: 150px;
 
   > h2 {
     font-weight: 400;
     text-shadow: -1px -1px 19px rgba(150, 150, 150, 1);
   }
+}
+
+.main-block {
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .get-started-button {

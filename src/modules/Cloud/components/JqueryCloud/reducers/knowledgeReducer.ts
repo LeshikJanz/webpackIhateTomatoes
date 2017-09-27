@@ -30,10 +30,6 @@ export default createReducer({
     initialName: payload.name,
     isNameSaved: true
   }),
-  [fetchCloudError]: (state: any, error: Error) => ([
-    ...state,
-    error.message
-  ]),
   [saveKnowledge]: (state, payload: IKnowledge) => ({
     ...state,
     knowledge: [
