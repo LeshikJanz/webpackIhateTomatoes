@@ -9,6 +9,7 @@ import { DEFAULT_CLOUD_ID } from "constants/index";
 import { Search } from "components/Search/Search";
 import { urls } from "urls";
 import Hint from "components/Hint/containers";
+import { CloudLoading } from "./CloudLoading";
 const SVG = require('react-svg');
 
 function tagCloudController() {
@@ -169,11 +170,14 @@ export class TagCloud extends React.Component {
               first one.</h3>
           </div>
         }
-        <ReactIgnore style={!cloud.knowledge.length ? { opacity: 0 } : {}}>
-          <textarea style={{ opacity: 0 }} value={contents}/>
-        </ReactIgnore>
-
+        {
+          loading ? <CloudLoading/> :
+            <ReactIgnore style={!cloud.knowledge.length ? { opacity: 0 } : {}}>
+              <textarea style={{ opacity: 0 }} value={contents}/>
+            </ReactIgnore>
+        }
       </div>
+
     )
   }
 }
