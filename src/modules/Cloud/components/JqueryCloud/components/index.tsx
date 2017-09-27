@@ -6,11 +6,9 @@ import "../style.scss";
 import { ReactIgnore } from "./ReactIgnore";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
-import { Search } from "components/Search/Search";
 import { urls } from "urls";
-import Hint from "components/Hint/containers";
 import { CloudLoading } from "./CloudLoading";
-const SVG = require('react-svg');
+import CloudActions from "../containers/cloudActions";
 
 function tagCloudController() {
   try {
@@ -133,34 +131,15 @@ export class TagCloud extends React.Component {
 
   render() {
     const {
-      contents, handleSearch, locationPath, cloud, updateCloud, updateCloudName, loading
+      contents, locationPath, cloud, loading
     } = this.props;
 
     return (
       <div>
         {
           locationPath !== urls.index &&
-          <div className="cloud-actions">
-            <Hint text="You can search by knowledge name">
-              <Search onChange={ handleSearch } name="name" numberFounded={this.props.tags.length}/>
-            </Hint>
-            <Hint text="This is current cloud name">
-              <div className="cloud-name">
-                <input className="cloud-name-input"
-                       ref={(input) => this.cloudNameInput = input}
-                       disabled={cloud.accountId !== localStorage.getItem('UserId')}
-                       value={cloud.name} onChange={updateCloudName} onKeyPress={this.handleKeyPress}/>
-                {
-                  !(cloud.name === cloud.initialName && cloud.isNameSaved) &&
-                  <div onClick={updateCloud}>
-                    <SVG path="assets/icons/save-icon-mark.svg"
-                         className="save-button" placeholder="save"
-                    />
-                  </div>
-                }
-              </div>
-            </Hint>
-          </div>
+          <CloudActions cloudNameInput={this.cloudNameInput}
+                        handleKeyPress={this.handleKeyPress}/>
         }
         {
           (!cloud.knowledge.length && this.props.locationPath.indexOf('/cloud') === 0 && !loading) &&
