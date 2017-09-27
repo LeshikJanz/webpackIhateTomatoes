@@ -12,7 +12,7 @@ const getFromState = (state: any) => state.Knowledge;
 /**
  * Generating Renew relation
  */
-function *generateRenewer(knowledge: IKnowledge): Iterator<IRelation | Task> {
+function* generateRenewer(knowledge: IKnowledge): Iterator<IRelation | Task> {
   return {
     accountId: localStorage.getItem('UserId'),
     founderId: knowledge.accountId,
@@ -33,7 +33,7 @@ export function* createRenewerSaga(): Iterator<Object | Task> {
 
     const createdRenewer: IRelation = yield addRenewer(renewer.accountId, renewer);
 
-    NotificationManager.success(`You have been successfully renewed ${curKnowledge.name}`, 'Error!');
+    NotificationManager.success(`You have been successfully renewed ${curKnowledge.name}`, 'Success!');
     yield put(createRenewerDone(createdRenewer));
   } catch (error) {
     NotificationManager.error(error.message, 'Error!');

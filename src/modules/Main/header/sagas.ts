@@ -37,6 +37,7 @@ export function* createNewKnowledgeSaga({ payload }): Iterator<Object | Task> {
     if ( payload && payload.fromExisting ) {
       newKnowledge.text = knowledgeForCopy.text;
       newKnowledge.founderId = knowledgeForCopy.accountId;
+      newKnowledge.founderKnowledgeId = knowledgeForCopy.id;
       newKnowledge.treeId = knowledgeForCopy.treeId;
     }
 

@@ -30,6 +30,7 @@ declare interface IKnowledge extends Identifiable {
   updateDate: Date,
   cloudId: string,
   treeId: string,
+  founderId?: string,
   relations?: IRelation[]
 }
 

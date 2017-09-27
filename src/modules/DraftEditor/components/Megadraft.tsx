@@ -1,5 +1,6 @@
 import * as React from 'react'
 import '../styles/style.scss';
+import '../styles/renewer.scss';
 import { DefaultDraftBlockRenderMap, Entity, EditorState, convertFromRaw, convertToRaw, Modifier } from 'draft-js'
 import { Subscription } from "./Subscription";
 import { CustomModal } from "components/CustomModal/components/index";
@@ -21,6 +22,7 @@ import RenewBlock from "../containers/renewBlock";
 import * as annyang from 'annyang';
 import RecognitionToolbar from "../containers/recognitionToolbar";
 import RecognitionPlayer from "../containers/recognitionPlayer";
+import Hint from "components/Hint/containers";
 
 const plugins = [
   VoiceRecognitionPlugin,
@@ -64,7 +66,7 @@ export default class MegaDraft extends React.Component<any, any> {
   onChange = (editorState) => {
     this.setState({ editorState });
     // Save to the server only if content was changed
-    if (this.isContentChanged(editorState) && this.props.modal.isOpen) {
+    if ( this.isContentChanged(editorState) && this.props.modal.isOpen ) {
       this.handleSaveTimer();
     }
 
@@ -74,7 +76,7 @@ export default class MegaDraft extends React.Component<any, any> {
 
   handleSaveTimer = (isFocused: boolean = true) => {
     clearTimeout(typingTimer);
-    if (isFocused) {
+    if ( isFocused ) {
       typingTimer = setTimeout(this.props.updateKnowledge, doneTypingInterval);
     }
   };
@@ -93,8 +95,11 @@ export default class MegaDraft extends React.Component<any, any> {
       this.onChange(insertDataBlock(this.state.editorState, data));
     });
 
-  handleRenewingModal = () =>
+  handleRenewingModal = () => {
+    // Fetching clouds for renewing modal
+    this.props.fetchClouds();
     this.setState({ isRenewingModalOpen: !this.state.isRenewingModalOpen });
+  };
 
   handleDeleteModal = () =>
     this.setState({ isDeleteModalOpen: !this.state.isDeleteModalOpen });
@@ -105,13 +110,13 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleDropRejectred = (e) => {
-    if (e[0].kind !== 'string') {
+    if ( e[0].kind !== 'string' ) {
       NotificationManager.error('Selected image is not valid. System accepts only JPEG, PNG, GIF formats', 'Error!');
     }
   };
 
   getBlockStyle = (block) => {
-    switch (block.getType()) {
+    switch ( block.getType() ) {
       case 'section-left':
         return 'section-left';
       case 'section-center':
@@ -131,7 +136,7 @@ export default class MegaDraft extends React.Component<any, any> {
   };
 
   handleKeyPress = ({ key }) => {
-    if (key === 'Enter') {
+    if ( key === 'Enter' ) {
       this.cloudNameInput.blur();
     }
   };
@@ -156,7 +161,7 @@ export default class MegaDraft extends React.Component<any, any> {
     const isListened = annyang.isListening();
     this.handleRecognitionStop();
     annyang.setLanguage(target.value);
-    if (isListened) {
+    if ( isListened ) {
       setTimeout(this.handleRecognitionStart, 500);
     }
   };
@@ -206,9 +211,15 @@ export default class MegaDraft extends React.Component<any, any> {
           <Subscription user={user} knowledge={knowledge} goToUser={goToUser}/>
 
           <div className="knowledge-name-container">
-            <img className="tree-view"
-                 title="Open renewing tree"
-                 src="assets/icons/tree-map-icon.svg"/>
+            <Hint disableAnimation={true} text={`Renewer's tree.
+             There's ${relations.length} renewers`}>
+              <div className="editor-renewers-block">
+                <img className="tree-view"
+                     title="Open renewing tree"
+                     src="assets/icons/tree-map-icon.svg"/>
+                <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
+              </div>
+            </Hint>
             <input disabled={!this.isOwner()}
                    ref={(input) => this.cloudNameInput = input}
                    style={{ marginRight: 'auto', marginLeft: '5%' }}
@@ -227,7 +238,6 @@ export default class MegaDraft extends React.Component<any, any> {
               <img src="assets/icons/deleteBox.svg" className="delete-box"/>
             </div>
           </div>
-          <RenewBlock relations={relations} handleModal={this.handleRenewingModal}/>
           <RecognitionToolbar handlePlayerCollapse={this.props.handlePlayerCollapse}
                               startRecognition={this.handleRecognitionStart}
                               stopRecognition={this.handleRecognitionStop}

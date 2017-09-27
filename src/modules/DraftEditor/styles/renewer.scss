@@ -1,0 +1,16 @@
+.editor-renewers-block {
+  display: flex;
+  height: 60px;
+
+  .reviews-counter {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.renew-button {
+  width: 70px;
+  height: 26px;
+  font-family: Avenir;
+  font-size: 14px;
+}

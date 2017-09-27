@@ -12,6 +12,7 @@ import { push } from "react-router-redux";
 import { urls } from "urls";
 import MegaDraft from "../components/Megadraft";
 import { IKnowledge, IModal } from "interfaces";
+import { getCloudsInit } from "modules/Sky/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -37,6 +38,7 @@ const mergeProps: any = (props, { dispatch }): any => ({
     dispatch(stopRecognition());
     dispatch(handleModalAction());
   },
+  fetchClouds: () => dispatch(getCloudsInit()),
   handleRenewing: () => {
     dispatch(createRenewerInit());
     dispatch(createNewKnowledgeInit({ fromExisting: true }));

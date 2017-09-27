@@ -108,9 +108,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 240px;
   margin-right: 5%;
-  align-self: flex-start;
+  align-self: flex-end;
 
   > .group-renewers {
     display: flex;
@@ -125,6 +124,8 @@
     }
 
     > .group_renewers_images {
+      display: flex;
+      max-height: 25px;
 
       > img {
         cursor: pointer;
@@ -184,8 +185,13 @@
   }
 }
 
-input[value='Invalid date']::-webkit-datetime-edit{ color: transparent; }
-input[type=date]:focus::-webkit-datetime-edit{ color: #000; }
+input[value='Invalid date']::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+  color: #000;
+}
 
 input[type=file]::-webkit-file-upload-button {
   cursor: pointer;
@@ -206,6 +212,12 @@ input[type=file]::-webkit-file-upload-button {
 
   > img {
     align-self: flex-start;
+  }
+
+  .name-input {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .input-container {
@@ -261,3 +273,4 @@ input[type=file]::-webkit-file-upload-button {
 .voice-recognition {
   background-color: green;
 }
+

@@ -21,6 +21,12 @@
     "updateDate": {
       "type": "date"
     },
+    "founderId": {
+      "type": "string"
+    },
+    "founderKnowledgeId": {
+      "type": "string"
+    },
     "treeId": {
       "type": "string"
     }
