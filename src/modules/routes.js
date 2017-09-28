@@ -11,7 +11,7 @@ import Tree from './Tree/components/reviewersTree';
 import GridLayout from './Sky/containers';
 import Login from './Login/containers';
 import Profile from './Profile/containers';
-import Settings from './Settings/components';
+import Settings from './Settings/containers';
 
 /**
  * Routing between pages using React-Router-Redux

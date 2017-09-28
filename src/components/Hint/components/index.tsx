@@ -3,7 +3,7 @@ const styles = require('./../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 
-export const Hint = ({ children, highlight, name, text, style, disableAnimation }) => {
+export const Hint = ({ children, highlight, name, text, style, disableAnimation, SettingsForm }) => {
   const account = JSON.parse(localStorage.getItem('Account'));
   const settings = account && account.settings;
   const isHintEnable = settings && settings.hintsEnabled;

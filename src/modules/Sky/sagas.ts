@@ -14,7 +14,8 @@ import { updateUserById } from "api/user";
 import { initialize } from "redux-form";
 
 export const getSkyFromState: any = (state): any => state.Sky;
-const getSettingsFromState = (state: any) => state.form.SettingsShortForm.values;
+const getSettingsFromState = (state: any) => state.form.SettingsShortForm ?
+  state.form.SettingsShortForm.values : state.form.SettingsFullForm.values;
 
 export function* fetchAccountWithCloudsSaga(action): Iterator<Object | Task> {
   try {
@@ -66,6 +67,7 @@ export function* updateSettingsSaga(): Iterator<Object | Task> {
     localStorage.setItem('Account', JSON.stringify(updatedUser));
     yield put(updateSettingsDone());
     yield put(initialize('SettingsShortForm', updatedUser.settings));
+    yield put(initialize('SettingsFullForm', updatedUser.settings));
     NotificationManager.success('Success!', 'Settings has been updated successfully');
   } catch (error) {
     console.error(error);
