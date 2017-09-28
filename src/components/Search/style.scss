@@ -14,14 +14,13 @@
     font-family: Cooper-Medium;
     font-size: 18px;
     padding: 10px 10px 10px 48px;
-    border: 0 solid #62aff7;
+    background-color: transparent;
+    border: 2px solid lightgray;
     border-radius: 15px;
     display: block;
     width: inherit;
-    border: none;
     float: right;
     outline: none;
-    background-color: transparent;
     color: #7a8693;
     transition: background-color .2s ease;
     background-image: url(~assets/icons/column-search.svg);
