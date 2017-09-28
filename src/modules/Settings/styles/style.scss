@@ -1,0 +1,17 @@
+.settings-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .settings-container {
+    width: 80%;
+    margin: 20px 0;
+    padding: 20px 60px;
+    border-radius: 30px;
+    background-color: white;
+
+    .settings-header {
+      text-align: center;
+    }
+  }
+}

@@ -3,6 +3,8 @@ import { handleModalAction } from "../../actions";
 import { IModal } from "interfaces";
 import { SettingsModal } from "../components/SettingsModal";
 import { updateSettingsInit } from "../actions";
+import { push } from "react-router-redux";
+import { urls } from "urls";
 
 const mapStateToProps: any = (state): any => ({
   modal: state.Modal
@@ -13,6 +15,10 @@ const mapDispatchToProps = (dispatch) => ({
   handleSettingsSubmit: () => {
     dispatch(updateSettingsInit());
     dispatch(handleModalAction());
+  },
+  goToSettings: () => {
+    dispatch(handleModalAction());
+    dispatch(push(urls.settings))
   }
 });
 

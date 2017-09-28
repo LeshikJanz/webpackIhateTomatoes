@@ -69,7 +69,7 @@ export const GridLayout = ({
   };
 
   return (
-    <div>
+    <div style={{ marginRight: '60px' }}>
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
                                  verticalCompact={globalSettings.verticalCompactEnabled}

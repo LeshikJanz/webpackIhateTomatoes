@@ -5,7 +5,7 @@ const mapStateToProps: any = (state): any => ({
   highlight: state.Highlight,
 
   // subscribing on the settings form for real time updating Hint component(without page reloading)
-  settingsForm: state.form && state.form.SettingsForm
+  SettingsShortForm: state.form && state.form.SettingsForm
 });
 
 /**

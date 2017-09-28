@@ -2,10 +2,9 @@ import * as React from 'react';
 import { reduxForm } from 'redux-form'
 import { Toggle } from "components/Toggle";
 import '../../styles/settings-form.scss';
-import { urls } from "urls";
 import { Link } from 'react-router';
 
-let SettingsForm = ({ handleModalAction, handleSubmit, invalid, resetForm }) => (
+let SettingsShortForm = ({ handleModalAction, handleSubmit, invalid, resetForm, goToSettings }) => (
   <form className="settings-form" onSubmit={ handleSubmit }>
     <div className="settings-group">
       <h3>General</h3>
@@ -24,9 +23,9 @@ let SettingsForm = ({ handleModalAction, handleSubmit, invalid, resetForm }) => 
         <label>Private: </label>
         <Toggle name="privateSky"/>
       </div>
-      <Link to={ urls.registration } className="all-settings-link">
-        <h4>Go to all settings</h4>
-      </Link>
+      <div className="all-settings-link" onClick={goToSettings}>
+        <h4>Go to all settings&nbsp;</h4>
+      </div>
     </div>
     <div className="modal-footer btn-actions">
       <button className="primary" type="submit" disabled={invalid}>Save</button>
@@ -35,9 +34,9 @@ let SettingsForm = ({ handleModalAction, handleSubmit, invalid, resetForm }) => 
   </form>
 );
 
-SettingsForm = reduxForm({
-  form: 'SettingsForm',
+SettingsShortForm = reduxForm({
+  form: 'SettingsShortForm',
   initialValues: localStorage.getItem('Account') && JSON.parse(localStorage.getItem('Account')).settings
-})(SettingsForm);
+})(SettingsShortForm);
 
-export default SettingsForm;
+export default SettingsShortForm;
