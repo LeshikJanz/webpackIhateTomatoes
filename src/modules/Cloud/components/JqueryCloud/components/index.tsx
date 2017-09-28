@@ -2,9 +2,11 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import "assets/js/tagcanvas.min.js";
-import "../style.scss";
+const styles = require("../style.scss");
+const classNames = require('classnames/bind');
+const cx = classNames.bind(styles);
 import { ReactIgnore } from "./ReactIgnore";
-import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
+import { TAG_CLOUD_INIT, TAG_CLOUD_END, dimensionMultiplier } from "../constants/index";
 import { DEFAULT_CLOUD_ID } from "constants/index";
 import { urls } from "urls";
 import { CloudLoading } from "./CloudLoading";
@@ -28,7 +30,8 @@ function tagCloudController() {
       shadow: '#ccf',
       weight: false,
       imageScale: null,
-      fadeIn: 200,
+      fadeIn: 10,
+      radiusX: dimensionMultiplier,
       clickToFront: 600,
       noTagsMessage: false,
       minSpeed: 0.015
@@ -131,7 +134,7 @@ export class TagCloud extends React.Component {
 
   render() {
     const {
-      contents, locationPath, cloud, loading
+      contents, locationPath, cloud, loading, disabledAnimation
     } = this.props;
 
     return (
@@ -152,7 +155,9 @@ export class TagCloud extends React.Component {
         {
           loading ? <CloudLoading/> :
             <ReactIgnore style={!cloud.knowledge.length ? { opacity: 0 } : {}}>
-              <textarea style={{ opacity: 0 }} value={contents}/>
+              <div className={cx({ 'cloud-animation': !disabledAnimation })}>
+                <textarea style={{ opacity: 0 }} value={contents}/>
+              </div>
             </ReactIgnore>
         }
       </div>

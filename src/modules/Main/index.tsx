@@ -31,4 +31,4 @@ export const Main = (props) => (
       <Cloud/>
     </div>
   </div>
-)
+);

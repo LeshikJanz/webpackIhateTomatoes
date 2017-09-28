@@ -6,4 +6,28 @@
       text-align: left;
     }
   }
+
+  .all-settings-link {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    > h4 {
+      font-family: Raleway-Medium;
+      color: #337ab7;
+      font-size: 18px;
+      cursor: pointer;
+
+      &:hover, &:focus {
+        color: #23527c;
+      }
+    }
+  }
+
+  .settings-actions {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: flex-end;
+  }
 }

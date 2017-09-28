@@ -1,12 +1,13 @@
 const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 220;
+export const dimensionMultiplier = window.innerWidth / window.innerHeight;
 
 export const TAG_CLOUD_INIT = `
   <div id="cloud">
     <div>
       <div>
         <div>
-          <div id="CanvasContainer">
-            <canvas width=${dimension} height=${dimension}
+          <div id="CanvasContainer" >
+            <canvas width=${dimension * dimensionMultiplier} height=${dimension}
             id="Canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>

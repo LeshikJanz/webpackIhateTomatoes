@@ -4,8 +4,8 @@ import { Hint } from "../components";
 const mapStateToProps: any = (state): any => ({
   highlight: state.Highlight,
 
-  // subscribing on the settings form for real time updating Hint component(without page reloading)
-  settingsForm: state.form && state.form.SettingsForm
+  // subscribing on the setting's forms for real time updating Hint component(without page reloading)
+  SettingsForm: state.form && state.form.SettingsShortForm ? state.form.SettingsShortForm : state.form.SettingsFullForm
 });
 
 /**
