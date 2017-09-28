@@ -11,5 +11,6 @@ export const urls = {
   users: 'users',
   test: 'test',
   profile: 'profile',
-  registration: 'registration'
+  registration: 'registration',
+  settings: 'settings'
 };

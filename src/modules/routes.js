@@ -29,6 +29,7 @@ export default (
       <Route path={urls.users} component={UserList}></Route>
       <Route path={urls.profile + `/:id`} component={Profile}></Route>
       <Route path={urls.test} component={Tree}></Route>
+      <Route path={urls.settings} component={Tree}></Route>
       <Route path='*' component={PageNotFound}/>
     </Route>
   </Route>

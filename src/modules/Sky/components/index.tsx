@@ -13,7 +13,7 @@ import ConfirmModal from "components/ConfirmModal/containers";
 import { urls } from "urls";
 import { MODAL_TYPES } from "constants/index";
 import SkyUserProfile from "../containers/skyUserProfile";
-import Settings from "../containers/settings";
+import SettingsModal from "../containers/settingsModal";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const GridLayout = ({
@@ -109,7 +109,7 @@ export const GridLayout = ({
         handleConfirm={ () => props[modal.callback](modal.itemId) }
         isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.confirm}
       />
-      <Settings/>
+      <SettingsModal/>
 
       {/*<ZoomPanel/>*/}
     </div>

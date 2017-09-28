@@ -2,6 +2,8 @@ import * as React from 'react';
 import { reduxForm } from 'redux-form'
 import { Toggle } from "components/Toggle";
 import '../../styles/settings-form.scss';
+import { urls } from "urls";
+import { Link } from 'react-router';
 
 let SettingsForm = ({ handleModalAction, handleSubmit, invalid, resetForm }) => (
   <form className="settings-form" onSubmit={ handleSubmit }>
@@ -22,6 +24,9 @@ let SettingsForm = ({ handleModalAction, handleSubmit, invalid, resetForm }) => 
         <label>Private: </label>
         <Toggle name="privateSky"/>
       </div>
+      <Link to={ urls.registration } className="all-settings-link">
+        <h4>Go to all settings</h4>
+      </Link>
     </div>
     <div className="modal-footer btn-actions">
       <button className="primary" type="submit" disabled={invalid}>Save</button>

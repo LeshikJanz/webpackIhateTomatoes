@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { handleModalAction } from "../../actions";
 import { IModal } from "interfaces";
-import { Settings } from "../components/Settings";
+import { SettingsModal } from "../components/SettingsModal";
 import { updateSettingsInit } from "../actions";
 
 const mapStateToProps: any = (state): any => ({
@@ -30,4 +30,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   null
-)(Settings);
+)(SettingsModal);

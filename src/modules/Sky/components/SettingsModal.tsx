@@ -3,7 +3,7 @@ import { CustomModal } from "components/CustomModal/components/index";
 import { MODAL_TYPES } from "constants/index";
 import SettingsForm from "./form/settingsForm";
 
-export const Settings = ({ modal, handleSettingsSubmit, handleModal }) => (
+export const SettingsModal = ({ modal, handleSettingsSubmit, handleModal }) => (
   <CustomModal
     title="Settings"
     handleModal={handleModal}
