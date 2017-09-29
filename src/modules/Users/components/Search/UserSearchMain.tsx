@@ -4,7 +4,9 @@ import UserSearchForm from "../../containers/UserSearchForm";
 
 export const UserSearchMain = (props) => (
   <div className="user-search-main-container">
-    <h1>User search main container</h1>
+    <div className="search-header">
+      <h1>Find people</h1>
+    </div>
     <UserSearchForm/>
   </div>
 );

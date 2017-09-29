@@ -25,7 +25,7 @@ export const uploadImage = (file: File) => {
  */
 export const fetchUsers = (filter: IUserSearchForm) =>
   request
-    .get("Accounts" + (filter ? `?filter={"where": {"and": [{"username": {"regexp": "/${filter.searchValue || ''}/i"}},
+    .get("Accounts" + (filter ? `?filter={"where": {"and": [{"username": {"regexp": "/${filter.name || ''}/i"}},
                                                             {"address": {"regexp": "/${filter.address || ''}/i"}}]}}` : ''), {})
     .then((users: IUser[]) => users);
 

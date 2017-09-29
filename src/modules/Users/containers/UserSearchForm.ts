@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import UserSearchForm from "../components/Search/UserSearchForm";
 import { getUsersInit } from "../actions";
+import { compose, withState } from 'recompose';
 
 const mapStateToProps: any = (state): any => ({
   userSearchForm: state.form && state.form.UserSearchForm && state.form.UserSearchForm.values
@@ -10,6 +11,8 @@ const mapDispatchToProps = (dispatch) => ({
   getUsers: () => dispatch(getUsersInit())
 });
 
-export default connect(
-  mapStateToProps, mapDispatchToProps
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withState('isNameOpened', 'handleName', false),
+  withState('isAddressOpened', 'handleAddress', false),
 )(UserSearchForm);

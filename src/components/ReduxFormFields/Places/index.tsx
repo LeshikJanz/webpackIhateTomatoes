@@ -23,11 +23,9 @@ export const Places = ({ input, cssClasses, placeholder, ...props }) => {
   };
 
   return (
-    <div>
-      <PlacesAutocomplete
-        classNames={placesCssClasses}
-        onSelect={handleSelect}
-        inputProps={inputProps}/>
-    </div>
+    <PlacesAutocomplete
+      classNames={placesCssClasses}
+      onSelect={handleSelect}
+      inputProps={inputProps}/>
   )
 };
