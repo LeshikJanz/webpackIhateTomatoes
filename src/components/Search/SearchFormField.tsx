@@ -3,7 +3,7 @@ import { withState } from 'recompose';
 import './style.scss';
 import { Field } from "redux-form";
 
-export const SearchFormField = ({ name, onChange, searchValue, setSearchValue, numberFounded }) => (
+export const SearchFormField = ({ name, onChange, searchValue, setSearchValue, numberFounded, styles }) => (
   <div className="search-bar">
     <Field component="input" type="text" name={name}/>
     {
