@@ -65,8 +65,7 @@ let RegistrationForm = ({ handleImageUpload, handleSubmit, avatar, loading, inva
       <div className="form-element">
         <label htmlFor="address">Address</label>
         <div>
-          <Field name="address"
-                 component={Places} label="address"/>
+          <Field name="address" component={Places} label="address"/>
         </div>
       </div>
       <div className="registration-actions">

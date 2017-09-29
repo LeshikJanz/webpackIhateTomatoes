@@ -155,5 +155,7 @@ declare interface IHighlight {
  */
 export
 declare interface IUserSearchForm {
-  searchValue: string
+  searchValue: string,
+  address: string,
+
 }

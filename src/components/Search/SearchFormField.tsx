@@ -3,9 +3,9 @@ import { withState } from 'recompose';
 import './style.scss';
 import { Field } from "redux-form";
 
-export const SearchFormField = ({ name, onChange, searchValue, setSearchValue, numberFounded, styles }) => (
+export const SearchFormField = ({ name, onChange, searchValue, setSearchValue, numberFounded, placeholder }) => (
   <div className="search-bar">
-    <Field component="input" type="text" name={name}/>
+    <Field component="input" type="text" name={name} placeholder={placeholder}/>
     {
       !numberFounded && searchValue &&
       <div className="search-hint-text">not found</div>

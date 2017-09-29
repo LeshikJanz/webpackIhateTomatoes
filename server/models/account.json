@@ -45,7 +45,7 @@
     },
     "layout": {
       "type": [
-        "object",
+        "Object",
         {
           "properties": {
             "h": {
@@ -80,7 +80,7 @@
       ]
     },
     "settings": {
-      "type": "object",
+      "type": "Object",
       "default": {
         "hintsEnabled": true,
         "verticalCompactEnabled": false,
