@@ -1,0 +1,2 @@
+export export const USERNAME_ADDRESS_QUERY = (filter) => `{"username": {"regexp": "/${filter.name || ''}/i"}},
+                                                            {"address": {"regexp": "/${filter.address || ''}/i"}}`;

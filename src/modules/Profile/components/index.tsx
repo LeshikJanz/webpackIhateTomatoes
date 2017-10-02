@@ -25,7 +25,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
                    accept="image/jpeg, image/jpg, image/png, image/gif"
                    onChange={({ target }) => handleImageUpload(target)}/>
             <label htmlFor="avatar" className="secondary">Upload new</label>
-            <label style={{ textAlign: 'center' }} hidden={!loading}>Uploading...</label>
+            <label style={{ textAlign: 'center' }} hidden={!user.loading}>Uploading...</label>
           </div>
         </div>
         <ProfileCategory name="PERSONAL">

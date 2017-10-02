@@ -12,5 +12,6 @@ export const urls = {
   test: 'test',
   profile: 'profile',
   registration: 'registration',
+  research: 'research',
   settings: 'settings'
 };

@@ -149,3 +149,13 @@ declare interface IHighlight {
   name: string,
   enabled?: boolean
 }
+
+/**
+ * User search form interface
+ */
+export
+declare interface IUserSearchForm {
+  searchValue: string,
+  address: string,
+
+}

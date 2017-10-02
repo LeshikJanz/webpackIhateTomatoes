@@ -1,5 +1,6 @@
 import * as React from "react";
 import '../styles/style.scss';
+import * as moment from 'moment';
 
 export const User = ({ user, handleProfileSidebar, goToUserBoard }) => (
   <div className="user-container">
@@ -13,8 +14,11 @@ export const User = ({ user, handleProfileSidebar, goToUserBoard }) => (
         <div className="user-name">
           { user.username }
         </div>
-        <div className="register-date">
-          1 Feb, 2017
+        <div className="address">
+          {user.address}
+        </div>
+        <div hidden={true} className="register-date">
+          {user.birthday && moment(user.birthday).format('MMMM Do YYYY')}
         </div>
       </div>
       <button className="gray small add"

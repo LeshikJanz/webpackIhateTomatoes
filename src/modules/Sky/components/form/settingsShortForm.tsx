@@ -24,7 +24,7 @@ let SettingsShortForm = ({ handleModalAction, handleSubmit, invalid, resetForm, 
         <Toggle name="privateSky"/>
       </div>
       <div className="all-settings-link" onClick={goToSettings}>
-        <h4>Go to all settings&nbsp;</h4>
+        <h4>All settings&nbsp;</h4>
       </div>
     </div>
     <div className="modal-footer btn-actions">

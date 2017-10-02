@@ -1,13 +1,14 @@
-.user-list {
+.user-list-container {
   display: flex;
-  flex-direction: column;
+  padding-left: 40px;
 
-  > .search-bar {
-    align-self: flex-start;
-    margin-left: 10%;
-    margin-top: 10px;
+  .user-list {
+    display: flex;
+    width: 65%;
+    flex-direction: column;
   }
 }
+
 
 .user-container {
   display: flex;
@@ -17,7 +18,7 @@
     display: flex;
     position: relative;
     cursor: pointer;
-    width: 80%;
+    width: 90%;
     border-radius: 6px;
     height: 120px;
     background-color: #ffffff;
@@ -52,6 +53,15 @@
   padding: 20px;
 
   > .user-name {
-    font-family: Raleway-Bold;
+    font-family: Raleway-Medium;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 1.6px;
   }
+}
+
+.register-date, .address {
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-family: Cooper-Medium;
 }

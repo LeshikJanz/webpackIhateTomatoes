@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { IUser } from "interfaces";
 
 const mapStateToProps: any = (state): any => ({
-  users: state.Users.filter((u: IUser) => u.id !== localStorage.getItem('UserId'))
+  users: state.Users.filter((u: IUser) => u.id !== localStorage.getItem('UserId')),
+  userSearchForm: state.form && state.form.UserSearchForm && state.form.UserSearchForm.values
 });
 
 export default compose(

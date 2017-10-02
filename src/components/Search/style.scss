@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .search-bar {
   position: relative;
   width: 300px;
@@ -12,27 +14,30 @@
 
   input {
     font-family: Cooper-Medium;
-    font-size: 18px;
-    padding: 10px 10px 10px 48px;
-    border: 0 solid #62aff7;
+    font-size: 15px;
+    padding: 7px 10px 7px 48px;
+    background-color: transparent;
+    border: 2px solid lightgray;
     border-radius: 15px;
     display: block;
     width: inherit;
-    border: none;
     float: right;
     outline: none;
-    background-color: transparent;
     color: #7a8693;
     transition: background-color .2s ease;
     background-image: url(~assets/icons/column-search.svg);
-    background-position: 10px 12px;
+    background-position: 10px 9px;
     background-repeat: no-repeat;
-    background-size: 18px;
+    background-size: 16px;
+  }
+
+  input:hover {
+    border: 2px solid $TERTIARY_COLOR;
   }
 
   input:focus {
     background-color: #FFFFFF;
-    border: 2px solid #62aff7;
+    border: 2px solid $TERTIARY_COLOR;
   }
 
   &:focus {
@@ -43,7 +48,7 @@
     position: absolute;
     font-family: Cooper;
     font-size: 16px;
-    top: 12px;
+    top: 9px;
     right: 10px;
     font-style: italic;
   }
