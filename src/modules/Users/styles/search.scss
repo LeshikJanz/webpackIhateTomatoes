@@ -1,3 +1,16 @@
+@keyframes expand-animation {
+  from {
+    transform: scaleY(0);
+    visibility: hidden;
+    height: 0;
+  }
+  to {
+    transform: scaleY(1);
+    visibility: visible;
+    height: 40px;
+  }
+}
+
 .user-search-main-container {
   position: fixed;
   border-radius: 5%;
@@ -40,10 +53,14 @@
 }
 
 .user-search-form {
+  margin-top: 30px;
+
   .search-group {
+    min-height: 40px;
+
     .hiddenField {
-      display: none;
       padding-bottom: 20px;
+      display: none;
     }
 
     .activeField {
@@ -57,7 +74,7 @@
 
   .search-bar {
     flex: 3;
-    height: 40px;
+    height: 50px;
     width: 100%;
   }
 }

@@ -11,7 +11,7 @@
     height: 50px;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
 
     > h4 {
       font-family: Raleway-Medium;
@@ -27,7 +27,7 @@
 
   .settings-actions {
     display: flex;
-    padding: 10px 20px;
+    padding: 10px 0;
     justify-content: flex-end;
   }
 }

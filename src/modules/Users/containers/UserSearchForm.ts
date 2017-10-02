@@ -13,6 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withState('isNameOpened', 'handleName', false),
-  withState('isAddressOpened', 'handleAddress', false),
+  withState('isNameOpened', 'handleName', true),
+  withState('isAddressOpened', 'handleAddress', true)
 )(UserSearchForm);

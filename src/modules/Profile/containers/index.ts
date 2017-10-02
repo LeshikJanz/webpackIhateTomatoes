@@ -17,8 +17,7 @@ import { avatarUploadInit } from "../../Registration/actions";
  */
 const mapStateToProps = (state) => ({
   user: (state.form.ProfileForm && state.form.ProfileForm.values) || state.Profile,
-  initialValues: state.Profile,
-  loading: state.Loading
+  initialValues: state.Profile
 });
 
 export default compose(

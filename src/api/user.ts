@@ -1,5 +1,6 @@
 import { request } from "./base";
 import { IUser, IUserSearchForm } from "../interfaces/index";
+import { USERNAME_ADDRESS_QUERY } from "../constants/requests";
 
 /**
  * Uploading image to cloudinary.com
@@ -25,8 +26,7 @@ export const uploadImage = (file: File) => {
  */
 export const fetchUsers = (filter: IUserSearchForm) =>
   request
-    .get("Accounts" + (filter ? `?filter={"where": {"and": [{"username": {"regexp": "/${filter.name || ''}/i"}},
-                                                            {"address": {"regexp": "/${filter.address || ''}/i"}}]}}` : ''), {})
+    .get("Accounts" + (filter ? `?filter={"where": {"and": [${USERNAME_ADDRESS_QUERY(filter)}]}}` : ''), {})
     .then((users: IUser[]) => users);
 
 /**
