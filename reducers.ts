@@ -8,6 +8,7 @@ import Loading from "components/Spinner/reducers/loadingReducer";
 import Sky from 'modules/Sky/reducers/skyReducer';
 import Highlight from 'components/Hint/reducers/highlightReducer';
 import Profile from 'modules/Profile/reducers/profileReducer';
+import Research from 'modules/Research/reducers/researchReducer';
 import { routerReducer } from "react-router-redux";
 import { reducer as formReducer } from 'redux-form';
 
@@ -22,5 +23,6 @@ export default combineReducers({
   Loading,
   Highlight,
   form: formReducer,
-  Profile
+  Profile,
+  Research
 });
