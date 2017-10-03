@@ -9,15 +9,19 @@ import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 
-const getHtmlTag = (elem, number = '') =>
-  `<li><a id="tag${number}" 
-          onclick="{ this.dispatchEvent(new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }})); return false; }"
-          >${elem.name}</a>
+// TODO: refactor and add this function to getHtmlTag
+const getTitle = (elem) =>
+'title=User: ' + elem.accountId;
+
+const getHtmlTag = (elem, number = '', isTooltipShown) =>
+  `<li id="tag${number}" 
+          onclick="{ this.dispatchEvent(new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }})); return false; }">
+          <a ${isTooltipShown && 'title=' + elem.accountId}>${elem.name}</a>
   </li>`;
 
-const generateTags = (tags: Array) => {
+const generateTags = (tags: Array, isTooltipShown) => {
   let tagCloud = `${TAG_CLOUD_INIT}`;
-  tags.forEach((elem, index) => tagCloud += getHtmlTag(elem));
+  tags.forEach((elem, index) => tagCloud += getHtmlTag(elem, 0, isTooltipShown));
 
   return tagCloud + TAG_CLOUD_END;
 };
@@ -37,9 +41,9 @@ const removeTagCloud = () => {
 const startCloud = () => TagCanvas.Resume('Canvas', `tags`);
 const stopCloud = () => TagCanvas.Pause('Canvas', `tags`);
 
-const tagCloudCreator = (parent, tags) => {
+const tagCloudCreator = (parent, tags, isTooltipShown) => {
   let $parent = $(parent);
-  let $editor = $(generateTags(tags));
+  let $editor = $(generateTags(tags, isTooltipShown));
   $parent.find('textarea').replaceWith($editor);
 };
 
@@ -79,13 +83,12 @@ export default compose(
   }),
   lifecycle({
     componentDidUpdate() {
-      console.log('componentDidUpdate');
       if ( this.props.tagNumber != (this.props.tags && this.props.tags.length) ) {
         if ( this.props.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
         this.props.handleTagNumber(this.props.tags.length);
       }
       removeTagCloud();
-      tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags);
+      tagCloudCreator(ReactDOM.findDOMNode(this), this.props.tags, this.props.isTooltipShown);
 
       this.props.tagCloudController();
     },
@@ -94,7 +97,6 @@ export default compose(
       this.componentDidUpdate();
     },
     componentWillUnmount() {
-      console.log('componentWillUnmount');
       removeTagCloud();
       document.removeEventListener('tagclick', this.props.handleTagClick);
     },
