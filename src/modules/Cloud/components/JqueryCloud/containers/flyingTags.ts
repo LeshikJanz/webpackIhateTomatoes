@@ -64,6 +64,16 @@ export default compose(
       props.openKnowledge(props.tags.find((elem: any) => elem.id === e.detail.tagId));
       props.openEditor();
       stopCloud();
+    },
+    tagCloudController: (props) => () => {
+      try {
+        TagCanvas.Start('Canvas', 'tags', props.tagCanvasSettings);
+      } catch (e) {
+        const canvasContainer = document.getElementById('CanvasContainer');
+        if ( canvasContainer ) {
+          canvasContainer.style.display = 'none';
+        }
+      }
     }
   }),
   lifecycle({

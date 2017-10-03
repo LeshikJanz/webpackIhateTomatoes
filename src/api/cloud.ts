@@ -22,12 +22,12 @@ export const updateCloudById = (id: string, cloud: ICloud) =>
  *
  * See: .../explorer/#!/Accounts/{id}:GET
  *
- * @returns
+ * @returns {IUser[]} user - user
  */
 export const fetchAccountWithClouds = (accountId: string) =>
   request
     .get(`Accounts/${accountId}?filter={"include": {"clouds": "views"}}`, {})
-    .then((a: IUser) => <IUser> a)
+    .then((a: IUser) => <IUser> a);
 
 /**
  * Fetching cloud by id including knowledge
