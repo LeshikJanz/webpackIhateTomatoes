@@ -18,20 +18,11 @@ const mapDispatchToProps: any = (dispatch: any) => ({
   updateCloudName: ({ target }) => dispatch(updateCloudName(target.value)),
   handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value })),
   updateCloud: () => dispatch(updateCloudInit()),
-
-  addTag: (tag: any) => dispatch(addTag(tag)),
-  openEditor: () => dispatch(handleModalAction({ type: MODAL_TYPES.editor })),
-  fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
-  openKnowledge: (knowledge: IKnowledge) => {
-    dispatch(clearKnowledge());
-    dispatch(openKnowledge(knowledge));
-  },
   enableHighlight: (hintName: string) => dispatch(enableHighlight(hintName)),
   disableHighlight: (hintName: string) => dispatch(disableHighlight(hintName))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  null
+  mapDispatchToProps
 )(CloudActions);

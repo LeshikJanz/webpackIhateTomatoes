@@ -11,7 +11,7 @@ import Tree from './Tree/components/reviewersTree';
 import GridLayout from './Sky/containers';
 import Login from './Login/containers';
 import Profile from './Profile/containers';
-import { Research } from './Research/components/index';
+import Research from './Research/containers';
 import Settings from './Settings/containers';
 
 /**

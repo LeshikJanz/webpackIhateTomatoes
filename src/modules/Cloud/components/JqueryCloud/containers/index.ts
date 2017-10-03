@@ -15,20 +15,11 @@ const mapStateToProps = (state: any) => ({
   locationPath: state.routing.locationBeforeTransitions.pathname,
   cloud: state.Cloud,
   highlight: state.Highlight,
-  loading: state.Loading,
-  disabledAnimation: state.Filter.disabledAnimation
+  loading: state.Loading
 });
 
 const mapDispatchToProps: any = (dispatch: any) => ({
-  addTag: (tag: any) => dispatch(addTag(tag)),
-  openEditor: () => dispatch(handleModalAction({ type: MODAL_TYPES.editor })),
   fetchCloudInit: (cloudId: string) => dispatch(fetchCloudInit(cloudId)),
-  openKnowledge: (knowledge: IKnowledge) => {
-    dispatch(clearKnowledge());
-    dispatch(openKnowledge(knowledge));
-  },
-  handleSearch: ({ target }) => dispatch(filterTags({ [target.name]: target.value })),
-  updateCloudName: ({ target }) => dispatch(updateCloudName(target.value)),
   updateCloud: () => dispatch(updateCloudInit()),
   enableHighlight: (hintName: string) => dispatch(enableHighlight(hintName)),
   disableHighlight: (hintName: string) => dispatch(disableHighlight(hintName))
