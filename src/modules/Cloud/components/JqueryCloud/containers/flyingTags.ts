@@ -45,6 +45,7 @@ const tagCloudCreator = (parent, tags) => {
 
 const mapStateToProps = (state: any) => ({
   highlight: state.Highlight,
+  isModalOpen: state.Modal.isOpen
 });
 
 const mapDispatchToProps: any = (dispatch: any) => ({
@@ -78,6 +79,7 @@ export default compose(
   }),
   lifecycle({
     componentDidUpdate() {
+      console.log('componentDidUpdate');
       if ( this.props.tagNumber != (this.props.tags && this.props.tags.length) ) {
         if ( this.props.tagNumber ) setNewTag(this.props.tags[this.props.tags.length - 1], this.props.tags.length - 1);
         this.props.handleTagNumber(this.props.tags.length);
@@ -92,8 +94,12 @@ export default compose(
       this.componentDidUpdate();
     },
     componentWillUnmount() {
+      console.log('componentWillUnmount');
       removeTagCloud();
       document.removeEventListener('tagclick', this.props.handleTagClick);
+    },
+    shouldComponentUpdate(nextProps, nextState) {
+      return !nextProps.isModalOpen;
     }
   })
 )(FlyingTags);

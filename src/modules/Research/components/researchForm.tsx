@@ -6,7 +6,6 @@ import { ResultsDropdown } from "./search/ResultsDropdown";
 let ResearchForm = ({ getKnowledges }) => (
   <form onChange={getKnowledges}>
     <GlobalSearch name="name" placeholder="Search by knowledge..."/>
-    <ResultsDropdown/>
   </form>
 );
 

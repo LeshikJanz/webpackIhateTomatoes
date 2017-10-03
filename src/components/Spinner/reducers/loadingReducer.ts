@@ -2,13 +2,13 @@ import { createReducer } from 'utils/createReducer';
 import { avatarUploadInit, avatarUploadDone, avatarUploadError } from "modules/Registration/actions";
 import { getCloudsDone, getCloudsError, getCloudsInit } from "modules/Sky/actions";
 import {
-  createNewKnowledgeDone, createNewKnowledgeError, createNewKnowledgeInit, fetchCloudDone, fetchCloudError,
-  fetchCloudInit,
-  updateCloudDone,
-  updateCloudError,
-  updateCloudInit, updateKnowledgeDone, updateKnowledgeError, updateKnowledgeInit
+  createNewKnowledgeDone, createNewKnowledgeError, createNewKnowledgeInit,
+  fetchCloudDone, fetchCloudError, fetchCloudInit,
+  updateCloudDone, updateCloudError, updateCloudInit,
+  updateKnowledgeDone, updateKnowledgeError, updateKnowledgeInit
 } from "modules/actions";
 import { getUserDone, getUserError, getUserInit } from "modules/Profile/actions";
+import { getKnowledgesDone, getKnowledgesError, getKnowledgesInit } from "modules/Research/actions";
 
 /**
  * Initial state for knowledge reducer
@@ -37,4 +37,7 @@ export default createReducer({
   [getUserInit]: (state: any) => true,
   [getUserDone]: (state: any) => false,
   [getUserError]: (state: any) => false,
+  [getKnowledgesInit]: (state: any) => true,
+  [getKnowledgesDone]: (state: any) => false,
+  [getKnowledgesError]: (state: any) => false,
 }, initialState);

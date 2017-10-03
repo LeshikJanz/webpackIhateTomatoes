@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../style.scss';
+import './style.scss';
 
 export const CloudLoading = (props) => (
   <div className="cloud-loading">

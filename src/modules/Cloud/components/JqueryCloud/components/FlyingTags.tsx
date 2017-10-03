@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "assets/js/tagcanvas.min.js";
-const styles = require("../style.scss");
+const styles = require("../styles/style.scss");
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 import { ReactIgnore } from "./ReactIgnore";

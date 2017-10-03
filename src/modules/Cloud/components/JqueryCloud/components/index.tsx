@@ -1,11 +1,11 @@
 import * as React from 'react';
 import "assets/js/tagcanvas.min.js";
-import "../style.scss";
+import "../styles/style.scss";
 import { urls } from "urls";
-import { CloudLoading } from "./CloudLoading";
 import CloudActions from "../containers/cloudActions";
 import FlyingTags from "../containers/flyingTags";
 import { DEFAULT_TAG_CLOUD_SETTINGS } from "constants/cloud";
+import { CloudLoading } from "components/CloudLoading";
 
 export const TagCloud = ({ locationPath, handleKeyPress, cloud, loading, tags }) => (
   <div>
@@ -23,7 +23,8 @@ export const TagCloud = ({ locationPath, handleKeyPress, cloud, loading, tags })
       </div>
     }
     {
-      loading ? <CloudLoading/> :
+      loading ?
+        <CloudLoading/> :
         <FlyingTags
           tagCanvasSettings={DEFAULT_TAG_CLOUD_SETTINGS}
           tags={tags}
