@@ -36,6 +36,14 @@
       font-size: 20px;
       padding-top: 15px;
 
+      &:first-child {
+        padding-bottom: 15px;
+      }
+
+      &:last-child {
+        padding-top: 30px;
+      }
+
       &.active {
         color: $PRIMARY_ACTIVE_COLOR;
 
@@ -86,7 +94,7 @@
   }
 
   &:hover {
-    width: 200px;
+    width: 250px;
     background-color: #f8f8f8;
 
     svg.nav-hamburger > g:last-child {

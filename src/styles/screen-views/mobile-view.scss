@@ -2,13 +2,50 @@
 
 @media screen and (max-width: $MOBILE_WIDTH) {
   :global {
-    .main-container {
-      margin: 0 10px;
+    #hello > h2 {
+      width: 60%;
+      font-size: 18px !important;
     }
 
-    #hello > h2 {
-      width: 50%;
-      font-size: 18px !important;
+    .navbar-lightning {
+      padding-left: 25px;
+    }
+
+    .navigation-container {
+      padding-top: $HEADER_HEIGHT + 10px;
+      width: 60px;
+
+      svg.nav-hamburger {
+        transform: scale(0.7);
+      }
+
+      &:hover {
+        width: 70%;
+      }
+
+      nav > a {
+        font-size: 16px;
+
+        &:first-child {
+          padding-bottom: 0;
+        }
+
+        &:last-child {
+          padding-top: 10px;
+        }
+      }
+    }
+
+    .global-search-container {
+      width: 100%;
+    }
+
+    .no-knowledge-label {
+      width: 100%;
+
+      > h1 {
+        font-size: 20px !important;
+      }
     }
   }
 }

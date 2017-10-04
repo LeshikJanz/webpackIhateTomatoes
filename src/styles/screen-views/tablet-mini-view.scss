@@ -2,12 +2,10 @@
 
 @media screen and (max-width: $TABLET_MINI_WIDTH) {
   :global {
-    #hello {
-      > h2 {
-        padding-right: 0;
-        font-size: 22px !important;
-        font-weight: bold;
-      }
+    #hello > h2 {
+      padding-right: 0;
+      font-size: 22px !important;
+      font-weight: bold;
     }
 
     .profile-bar {
@@ -23,6 +21,18 @@
 
     .profile-container {
       width: 100%;
+    }
+
+    .global-search-container {
+      width: 90%;
+    }
+
+    .no-knowledge-label {
+      width: 90%;
+
+      > h1 {
+        font-size: 26px !important;
+      }
     }
   }
 }
