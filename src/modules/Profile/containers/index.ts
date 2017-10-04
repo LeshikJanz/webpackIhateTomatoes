@@ -6,6 +6,7 @@ import '../styles/style.scss';
 import { IUser } from "interfaces";
 import onClickOutside from 'react-onclickoutside';
 import { avatarUploadInit } from "../../Registration/actions";
+import { logOutInit } from "../../Main/actions";
 
 /**
  * Function takes a single argument of the entire Redux store’s state
@@ -21,9 +22,10 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, null, null),
+  connect(mapStateToProps),
   withHandlers({
     handleProfileSidebar: ({ dispatch }) => () => dispatch(handleProfileSidebar()),
+    logOut: () => dispatch(logOutInit()),
     onSubmit: ({ dispatch }) => (user: IUser) => {
       dispatch(updateUserInit(user));
       dispatch(handleProfileSidebar());

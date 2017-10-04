@@ -13,7 +13,7 @@ const mapStateToProps = (state: any) => ({
   locationPath: state.routing.locationBeforeTransitions.pathname,
   cloud: state.Cloud,
   highlight: state.Highlight,
-  loading: state.Loading
+  // loading: state.Loading
 });
 
 const mapDispatchToProps: any = (dispatch: any) => ({

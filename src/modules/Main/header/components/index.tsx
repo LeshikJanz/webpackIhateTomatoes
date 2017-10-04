@@ -10,6 +10,7 @@ import ConfirmModal from "components/ConfirmModal/containers";
 import { MODAL_TYPES } from "constants/index";
 import Profile from 'modules/Profile/containers';
 import { HEADER_HEIGHT } from "modules/DraftEditor/components/plugins/imagePlugin/constants";
+import { TABLET_MINI_WIDTH } from "constants/variables";
 const styles = require('../styles/main.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
@@ -25,11 +26,14 @@ export const Header = (props) => {
   } = props;
 
   const handleSidebar = () => {
-    const profileContainer = document.querySelector('.profile-container');
+    const profileContainer = document.querySelector('.profile-container > form');
     if ( profileContainer && profileContainer.style.width !== '0px' ) {
       closeProfileSidebar();
     }
   };
+
+  const getProfileWidth = () =>
+    window.innerWidth || document.documentElement.clientWidth > TABLET_MINI_WIDTH ? '40%' : '100%';
 
   const createKnowledge = () => {
     if ( props.location.pathname !== `/${urls.board}` ) {
@@ -94,13 +98,15 @@ export const Header = (props) => {
           confirmLabel='OK'
           isModalOpen={modal.isOpen && modal.type === MODAL_TYPES.successfulRegistration}
         />
-        <Profile handleClickOutside={ handleSidebar }
-                 style={{
-                   position: 'fixed',
-                   top: `${HEADER_HEIGHT}px`,
-                   right: 0,
-                   width: isProfileSidebarOpened ? '40%' : 0
-                 }}/>
+        <div className="profile-container">
+          <Profile handleClickOutside={ handleSidebar }
+                   style={{
+                     position: 'fixed',
+                     top: `${HEADER_HEIGHT}px`,
+                     right: 0,
+                     width: isProfileSidebarOpened ? 'inherit' : 0
+                   }}/>
+        </div>
         {props.children}
       </div>
     </div>

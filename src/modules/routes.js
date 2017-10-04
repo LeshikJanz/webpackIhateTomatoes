@@ -21,7 +21,7 @@ import Settings from './Settings/containers';
  */
 export default (
   <Route component={Base}>
-    <IndexRoute component={Main}/>
+    <Route path={urls.index} component={Main}/>
     <Route path={urls.login} component={Login}></Route>
     <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
     <Route path={urls.user + `/:id/` + urls.board} component={GridLayout}></Route>
