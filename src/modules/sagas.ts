@@ -7,6 +7,7 @@ import { usersSaga } from "./Users/sagas";
 import { editorSaga } from "./DraftEditor/sagas";
 import { skySaga } from "./Sky/sagas";
 import { profileSaga } from "./Profile/sagas";
+import { researchSaga } from "./Research/sagas";
 
 /**
  * Function combines sagas
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     registrationSaga(),
     usersSaga(),
     editorSaga(),
-    profileSaga()
+    profileSaga(),
+    researchSaga()
   ]
 }

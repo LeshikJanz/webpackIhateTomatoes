@@ -38,6 +38,5 @@ const mapDispatchToProps: any = dispatch => ({
  */
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  null
+  mapDispatchToProps
 )(PopUpModal);

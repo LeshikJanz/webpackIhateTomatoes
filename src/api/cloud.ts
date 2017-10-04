@@ -1,5 +1,6 @@
 import { request } from "./base";
 import { ICloud, IKnowledge, IUser } from "interfaces";
+import { getLBQuery } from "../constants/requests";
 
 /**
  * Updating cloud by id
@@ -21,12 +22,12 @@ export const updateCloudById = (id: string, cloud: ICloud) =>
  *
  * See: .../explorer/#!/Accounts/{id}:GET
  *
- * @returns
+ * @returns {IUser[]} user - user
  */
 export const fetchAccountWithClouds = (accountId: string) =>
   request
     .get(`Accounts/${accountId}?filter={"include": {"clouds": "views"}}`, {})
-    .then((a: IUser) => <IUser> a)
+    .then((a: IUser) => <IUser> a);
 
 /**
  * Fetching cloud by id including knowledge
@@ -77,7 +78,20 @@ export const updateLayout = ({ layout, zoom }) =>
 export const deleteCloud = (id: string) =>
   request
     .delete(`Clouds/${id}`)
-    .then((c: string) => c)
+    .then((c: string) => c);
+
+/**
+ * Fetching knowledge by filter
+ *
+ * See: .../explorer/#!/Knowledges/:GET
+ * @param {IKnowledge} filter - cloud filter
+ *
+ * @returns {IKnowledge[]} knowledges - knowledges
+ */
+export const fetchKnowledges = (filter: IKnowledge) =>
+  request
+    .get(`Knowledges?filter={"where": ${getLBQuery(filter)}, "include": ["account", "relations"]}`, {})
+    .then((knowledge: IKnowledge[]) => <IKnowledge[]> knowledge);
 
 /**
  * Fetching knowledge by id
