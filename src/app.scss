@@ -39,7 +39,7 @@ label {
 .main-container {
   display: flex;
   flex-direction: column;
-  margin: 0 90px;
+  margin: 0 120px 0 90px;
 }
 
 .centered-container {
@@ -91,7 +91,8 @@ label {
   }
 }
 
-@import "styles/screen-views/laptop-view";
-@import "styles/screen-views/tablet-view";
-@import "styles/screen-views/tablet-mini-view";
-@import "styles/screen-views/mobile-view";
+@import "styles/screen-views/common/common-laptop-view";
+@import "styles/screen-views/common/common-tablet-view";
+@import "styles/screen-views/common/common-tablet-mini-view";
+@import "styles/screen-views/common/common-mobile-view";
+@import "styles/screen-views/modal/modal-mobile-view";

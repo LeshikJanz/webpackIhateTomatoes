@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
   modal: state.Modal,
   clouds: state.Sky.clouds,
+  location: state.routing.locationBeforeTransition,
   isProfileSidebarOpened: state.Profile.isOpened
 });
 

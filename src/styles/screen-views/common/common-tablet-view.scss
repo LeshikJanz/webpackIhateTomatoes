@@ -1,4 +1,4 @@
-@import "../variables";
+@import "../../variables";
 
 @media screen and (max-width: $TABLET_WIDTH) {
   :global {
@@ -20,6 +20,11 @@
       > h1 {
         font-size: 32px !important;
       }
+    }
+
+    .settings-wrapper .settings-container {
+      margin: 20px 0 0 20px;
+      width: 100%;
     }
   }
 }

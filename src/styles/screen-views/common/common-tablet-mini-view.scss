@@ -1,0 +1,75 @@
+@import "../../variables";
+
+$menu-items: 2;
+$gooey-menu-dimension: 60px;
+
+@media screen and (max-width: $TABLET_MINI_WIDTH) {
+  :global {
+    #hello > h2 {
+      padding-right: 0;
+      font-size: 22px !important;
+      font-weight: bold;
+    }
+
+    .profile-bar {
+      right: 15px;
+      .profile {
+        justify-content: flex-end;
+
+        .user-labels {
+          display: none;
+        }
+      }
+    }
+
+    .profile-container {
+      width: 100%;
+    }
+
+    .global-search-container {
+      width: 90%;
+    }
+
+    .no-knowledge-label {
+      width: 90%;
+
+      > h1 {
+        font-size: 26px !important;
+      }
+    }
+
+    .menu {
+      right: 55px;
+
+      .menu-item, .menu-open-button {
+        width: 60px;
+        height: 60px;
+        right: 60%;
+      }
+
+      .menu-item {
+        right: 60%;
+
+        &[title]:hover:after {
+          top: 85px;
+          right: -20px;
+        }
+        &[title=Settings]:hover:after {
+          top: 65px;
+          right: 0;
+        }
+      }
+
+      &-open:checked ~ .menu-item {
+        transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+        @for $i from 1 through $menu-items {
+
+          &:nth-child(#{$i+2}) {
+            transition-duration: 90ms+(80ms*$i);
+            transform: translate3d((65px*$i), 0, 0);
+          }
+        }
+      }
+    }
+  }
+}

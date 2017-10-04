@@ -81,7 +81,7 @@ $hamburger-spacing: 8px;
 .menu {
   @extend %goo;
   position: absolute;
-  right: 80px;
+  right: 63px;
   top: 60px;
   width: 100px;
   box-sizing: border-box;
@@ -91,6 +91,10 @@ $hamburger-spacing: 8px;
 }
 
 .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &:hover {
     background: white;
     color: $fg;

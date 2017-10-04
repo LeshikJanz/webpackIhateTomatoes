@@ -72,7 +72,7 @@ export function* updateSettingsSaga(): Iterator<Object | Task> {
   } catch (error) {
     console.error(error);
     NotificationManager.error('Error!', 'Settings has not been updated');
-    yield put(updateSettingsError())
+    yield put(updateSettingsError());
   }
 }
 
