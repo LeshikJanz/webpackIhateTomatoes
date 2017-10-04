@@ -90,7 +90,7 @@ export const deleteCloud = (id: string) =>
  */
 export const fetchKnowledges = (filter: IKnowledge) =>
   request
-    .get(`Knowledges?filter={"where": ${getLBQuery(filter)}, "include": ["account"]}`, {})
+    .get(`Knowledges?filter={"where": ${getLBQuery(filter)}, "include": ["account", "relations"]}`, {})
     .then((knowledge: IKnowledge[]) => <IKnowledge[]> knowledge);
 
 /**

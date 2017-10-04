@@ -9,14 +9,12 @@ import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
 
-// TODO: refactor and add this function to getHtmlTag
-const getTitle = (elem) =>
-'title=User: ' + elem.accountId;
+const getTitle = (elem) => `User:&nbsp;${(elem.account && elem.account.username) || 'No&nbsp;Name'},&nbsp;${(elem.relations && elem.relations.leading) || 0}&nbsp;renewers`;
 
 const getHtmlTag = (elem, number = '', isTooltipShown) =>
   `<li id="tag${number}" 
           onclick="{ this.dispatchEvent(new CustomEvent('tagclick', {bubbles: true, detail: { tagId: '${elem.id}' }})); return false; }">
-          <a ${isTooltipShown && 'title=' + elem.accountId}>${elem.name}</a>
+          <a ${isTooltipShown && 'title=' + getTitle(elem)}>${elem.name}</a>
   </li>`;
 
 const generateTags = (tags: Array, isTooltipShown) => {
