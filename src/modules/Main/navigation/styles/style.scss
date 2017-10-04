@@ -37,7 +37,7 @@
       padding-top: 15px;
 
       &.active {
-        color: #f57f17;
+        color: $PRIMARY_ACTIVE_COLOR;
 
         &:before {
           margin-right: 20px;
@@ -66,27 +66,27 @@
       }
 
       &:hover {
-        color: #f57f17;
+        color: $PRIMARY_ACTIVE_COLOR;
 
         &:before {
           margin-right: 20px;
           opacity: 1;
           transform: translateX(0);
-          transition: all .5s ease-in-out;
+          transition: margin-right .3s ease-in-out;
         }
 
         &:after {
           margin-left: 20px;
           opacity: 1;
           transform: translateX(0);
-          transition: all .5s ease-in-out;
+          transition: margin-left .3s ease-in-out;
         }
       }
     }
   }
 
   &:hover {
-    width: 250px;
+    width: 200px;
     background-color: #f8f8f8;
 
     svg.nav-hamburger > g:last-child {

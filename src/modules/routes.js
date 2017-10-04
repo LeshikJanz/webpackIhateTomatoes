@@ -20,20 +20,18 @@ import Settings from './Settings/containers';
  * See: https://github.com/reactjs/react-router-redux
  */
 export default (
-  <Route path={urls.index} component={Header}>
-    <Route component={Base}>
-      <IndexRoute component={Main}/>
-      <Route path={urls.login} component={Login}></Route>
-      <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
-      <Route path={urls.user + `/:id/` + urls.board} component={GridLayout}></Route>
-      <Route path={urls.board} component={GridLayout}></Route>
-      <Route path={urls.registration} component={Registration}></Route>
-      <Route path={urls.users} component={UserList}></Route>
-      <Route path={urls.profile + `/:id`} component={Profile}></Route>
-      <Route path={urls.test} component={Tree}></Route>
-      <Route path={urls.research} component={Research}></Route>
-      <Route path={urls.settings} component={Settings}></Route>
-      <Route path='*' component={PageNotFound}/>
-    </Route>
+  <Route component={Base}>
+    <IndexRoute component={Main}/>
+    <Route path={urls.login} component={Login}></Route>
+    <Route path={urls.cloud + `/:id`} component={Cloud}></Route>
+    <Route path={urls.user + `/:id/` + urls.board} component={GridLayout}></Route>
+    <Route path={urls.board} component={GridLayout}></Route>
+    <Route path={urls.registration} component={Registration}></Route>
+    <Route path={urls.users} component={UserList}></Route>
+    <Route path={urls.profile + `/:id`} component={Profile}></Route>
+    <Route path={urls.test} component={Tree}></Route>
+    <Route path={urls.research} component={Research}></Route>
+    <Route path={urls.settings} component={Settings}></Route>
+    <Route path='*' component={PageNotFound}/>
   </Route>
 );

@@ -1,0 +1,14 @@
+@import "../variables";
+
+@media screen and (max-width: $MOBILE_WIDTH) {
+  :global {
+    .main-container {
+      margin: 0 10px;
+    }
+
+    #hello > h2 {
+      width: 50%;
+      font-size: 18px !important;
+    }
+  }
+}

@@ -28,6 +28,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
             <label style={{ textAlign: 'center' }} hidden={!user.loading}>Uploading...</label>
           </div>
         </div>
+        <button className="tertiary small log-out" hidden={!isOwner()}>Log out</button>
         <ProfileCategory name="PERSONAL">
           <ProfileField name="Name" disabled={!isOwner()}/>
           <ProfileField name="Username" disabled={true}/>

@@ -90,3 +90,9 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .hint {
   letter-spacing: 1px;
 }
+
+.input-container + br + span {
+  border: none;
+  font-weight: bold;
+  color: #ff3328;
+}

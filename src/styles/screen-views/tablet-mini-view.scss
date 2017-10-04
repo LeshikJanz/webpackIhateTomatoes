@@ -1,0 +1,24 @@
+@import "../variables";
+
+@media screen and (max-width: $TABLET_MINI_WIDTH) {
+  :global {
+    #hello {
+      > h2 {
+        padding-right: 0;
+        font-size: 22px !important;
+        font-weight: bold;
+      }
+    }
+
+    .profile-bar {
+      right: 15px;
+      .profile {
+        justify-content: flex-end;
+
+        .user-labels {
+          display: none;
+        }
+      }
+    }
+  }
+}

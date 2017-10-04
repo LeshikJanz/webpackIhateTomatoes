@@ -1,0 +1,11 @@
+@import "../variables";
+
+@media screen and (max-width: $TABLET_WIDTH) {
+  #hello {
+    > h2 {
+      width: 70%;
+      padding-right: 50px;
+      font-size: 24px !important;
+    }
+  }
+}
