@@ -7,16 +7,15 @@
       font-size: 18px !important;
     }
 
-    .main-container {
+    .sky-container {
       margin: 0 95px 0 55px;
     }
 
-    .navbar-lightning {
-      padding-left: 25px;
+    .global-search-container {
+      width: 100%;
     }
 
     .navigation-container {
-      padding-top: $HEADER_HEIGHT + 10px;
       width: 60px;
 
       svg.nav-hamburger {
@@ -26,27 +25,11 @@
       &:hover {
         width: 70%;
       }
-
-      nav > a {
-        font-size: 16px;
-
-        &:first-child {
-          padding-bottom: 0;
-        }
-
-        &:last-child {
-          padding-top: 10px;
-        }
-      }
     }
 
     .menu {
       right: 15px;
       top: 30px;
-    }
-
-    .global-search-container {
-      width: 100%;
     }
 
     .no-knowledge-label {

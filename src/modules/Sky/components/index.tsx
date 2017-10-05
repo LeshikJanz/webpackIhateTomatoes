@@ -69,7 +69,7 @@ export const GridLayout = ({
   };
 
   return (
-    <div>
+    <div className="sky-container">
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
                                  verticalCompact={globalSettings.verticalCompactEnabled}

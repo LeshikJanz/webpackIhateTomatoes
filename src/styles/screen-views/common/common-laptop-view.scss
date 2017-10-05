@@ -1,5 +1,13 @@
 @import "../../variables";
 
 @media screen and (max-width: $LAPTOP_WIDTH) {
+  :global {
+    .global-search-container {
+      width: 70%;
+    }
 
+    .no-knowledge-label {
+      width: 90%;
+    }
+  }
 }

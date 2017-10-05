@@ -3,20 +3,17 @@ import { IUser } from "interfaces/index";
 import User from "../containers/User";
 import { UserSearchMain } from "./Search/UserSearchMain";
 
-export const UserList = ({ users, userSearchForm }) => {
-
-  return(
-    <div className="user-list-container">
-      <div className="user-list">
-        <div>
-          {
-            users.map((user: IUser) =>
-              <User key={user.id} user={user}/>
-            )
-          }
-        </div>
+export const UserList = ({ users }) => (
+  <div className="user-list-container">
+    <UserSearchMain/>
+    <div className="user-list">
+      <div>
+        {
+          users.map((user: IUser) =>
+            <User key={user.id} user={user}/>
+          )
+        }
       </div>
-      <UserSearchMain/>
     </div>
-  );
-}
+  </div>
+);

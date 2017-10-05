@@ -11,6 +11,47 @@ $gooey-menu-dimension: 60px;
       font-weight: bold;
     }
 
+    .main-container {
+      margin: 0;
+    }
+
+    .navbar-lightning {
+      display: none;
+    }
+
+    .sky-container {
+      margin: 0 95px;
+    }
+
+    .navigation-container nav > .navbar-lightning {
+      display: flex !important;
+    }
+
+    .navigation-container {
+      padding-top: 35px;
+      z-index: 101;
+
+      svg.nav-hamburger {
+        transform: scale(0.7);
+      }
+
+      &:hover {
+        width: 40%;
+      }
+
+      nav > a {
+        font-size: 16px;
+
+        &:first-child {
+          padding-bottom: 0;
+        }
+
+        &:last-child {
+          padding-top: 10px;
+        }
+      }
+    }
+
     .profile-bar {
       right: 15px;
       .profile {
@@ -69,6 +110,28 @@ $gooey-menu-dimension: 60px;
             transform: translate3d((65px*$i), 0, 0);
           }
         }
+      }
+    }
+
+    .user-search-main-container {
+      margin: 0;
+      padding: 0 20px;
+
+      .search-header > h1 {
+        font-size: 26px;
+      }
+
+      .user-search-form {
+        margin-top: 5px;
+      }
+    }
+
+    .user-list-container {
+      flex-direction: column;
+
+      .user-search-main-container {
+        position: relative;
+        width: 100%;
       }
     }
   }

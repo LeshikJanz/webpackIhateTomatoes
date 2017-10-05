@@ -36,7 +36,7 @@ export const Header = (props) => {
     window.innerWidth || document.documentElement.clientWidth > TABLET_MINI_WIDTH ? '40%' : '100%';
 
   const createKnowledge = () => {
-    if ( props.location && props.loaction.pathname !== `/${urls.board}` ) {
+    if ( props.location && props.location.pathname !== `/${urls.board}` ) {
       getClouds();
     }
     localStorage.getItem('UserId') ? handleKnowledgeCreateModal() : handleNotAuthorizedModal();
