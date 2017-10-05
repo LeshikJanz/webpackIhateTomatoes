@@ -29,6 +29,7 @@ $gooey-menu-dimension: 60px;
 
     .navigation-container {
       padding-top: 35px;
+      height: 100px;
       z-index: 101;
 
       svg.nav-hamburger {
@@ -36,6 +37,7 @@ $gooey-menu-dimension: 60px;
       }
 
       &:hover {
+        height: 100%;
         width: 40%;
       }
 
@@ -71,7 +73,7 @@ $gooey-menu-dimension: 60px;
       width: 90%;
     }
 
-    .no-knowledge-label {
+    .no-found-label {
       width: 90%;
 
       > h1 {
@@ -128,10 +130,24 @@ $gooey-menu-dimension: 60px;
 
     .user-list-container {
       flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+
+      .user-list {
+        width: 100%;
+        padding-left: 30px;
+      }
 
       .user-search-main-container {
         position: relative;
+        border: none;
+        border-radius: 0;
         width: 100%;
+
+        .user-search-form {
+          width: 70%;
+          padding-left: 20px;
+        }
       }
     }
   }

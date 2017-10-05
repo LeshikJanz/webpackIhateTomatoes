@@ -9,6 +9,7 @@ import {
 } from "modules/actions";
 import { getUserDone, getUserError, getUserInit } from "modules/Profile/actions";
 import { getKnowledgesDone, getKnowledgesError, getKnowledgesInit } from "modules/Research/actions";
+import { getUsersDone, getUsersError, getUsersInit } from "modules/Users/actions";
 
 /**
  * Initial state for knowledge reducer
@@ -37,6 +38,9 @@ export default createReducer({
   [getUserInit]: (state: any) => true,
   [getUserDone]: (state: any) => false,
   [getUserError]: (state: any) => false,
+  [getUsersInit]: (state: any) => true,
+  [getUsersDone]: (state: any) => false,
+  [getUsersError]: (state: any) => false,
   [getKnowledgesInit]: (state: any) => true,
   [getKnowledgesDone]: (state: any) => false,
   [getKnowledgesError]: (state: any) => false,

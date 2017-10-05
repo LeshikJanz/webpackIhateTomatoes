@@ -8,7 +8,11 @@ const mapStateToProps: any = (state): any => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getUsers: () => dispatch(getUsersInit())
+  getUsers: ({ target }) => {
+    if ( target && target.value ) {
+      dispatch(getUsersInit())
+    }
+  }
 });
 
 export default compose(
