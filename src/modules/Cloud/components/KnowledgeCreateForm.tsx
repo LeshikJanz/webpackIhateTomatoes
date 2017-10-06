@@ -50,7 +50,7 @@ let KnowledgeCreateForm = (props) => {
                    type="text"/>
           </div>
         </div>
-        <div className="form-element" style={{ height: '160px' }}>
+        <div className="form-element">
           <label className="input-label">Cloud</label>
           <div>
             <Field className="input-container input-modal" name="cloud"

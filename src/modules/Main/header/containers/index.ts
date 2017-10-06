@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
   modal: state.Modal,
   clouds: state.Sky.clouds,
+  location: state.routing.locationBeforeTransitions,
   isProfileSidebarOpened: state.Profile.isOpened
 });
 
@@ -35,7 +36,7 @@ const mapDispatchToProps: any = (dispatch): any => ({
   },
   handleModal: (tag) => dispatch(handleModalAction()),
   getClouds: () => dispatch(getCloudsInit()),
-  handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: 'KnowledgeCreate' })),
+  handleKnowledgeCreateModal: () => dispatch(handleModalAction({ type: MODAL_TYPES.knowledgeCreate })),
   handleNotAuthorizedModal: () => dispatch(handleModalAction(
     {
       type: MODAL_TYPES.notAuthorized,

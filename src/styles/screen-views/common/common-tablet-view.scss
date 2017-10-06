@@ -1,0 +1,56 @@
+@import "../../variables";
+
+@media screen and (max-width: $TABLET_WIDTH) {
+  :global {
+    #hello > h2 {
+      width: 70%;
+      padding-right: 50px;
+      font-size: 24px !important;
+    }
+
+    .profile-container {
+      width: 50%;
+    }
+
+    .global-search-container {
+      width: 100%;
+    }
+
+    .no-found-label {
+      width: 100%;
+
+      > h1 {
+        font-size: 32px !important;
+      }
+    }
+
+    .search-header > h1 {
+      font-size: 30px;
+    }
+
+    .settings-wrapper .settings-container {
+      margin: 20px 15px 0 20px;
+      width: 100%;
+    }
+
+    .user-search-main-container {
+      padding: 0 30px;
+    }
+
+    .user-list-container {
+      padding-left: 20px;
+
+      .user-container > .user {
+        width: 100%;
+        height: 90px;
+        padding: 0 15px 0 30px;
+
+        .user-avatar-small > img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+    }
+  }
+}

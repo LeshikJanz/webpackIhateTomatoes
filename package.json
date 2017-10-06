@@ -139,6 +139,7 @@
     "cross-env": "^5.0.5",
     "dante": "^1.0.2",
     "date-fns": "^1.28.5",
+    "deep-diff": "^0.3.8",
     "draft-convert": "^1.4.9",
     "draft-js": "^0.10.1",
     "draft-js-alignment-plugin": "2.0.0-rc2",

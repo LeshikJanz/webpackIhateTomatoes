@@ -14,7 +14,7 @@ const mapStateToProps: any = (state): any => ({
   route: state.routing.locationBeforeTransitions.pathname,
 
   // subscribing on the settings form for real time updating Hint component(without page reloading)
-  SettingsShortForm: state.form && state.form.SettingsForm
+  SettingsForm: state.form && state.form.SettingsShortForm ? state.form.SettingsShortForm : state.form.SettingsFullForm
 });
 
 const mapDispatchToProps = (dispatch) => ({

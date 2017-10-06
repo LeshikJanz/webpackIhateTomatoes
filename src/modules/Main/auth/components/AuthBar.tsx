@@ -1,25 +1,25 @@
 import * as React from "react";
 import CustomModal from "components/CustomModal/containers/index";
 import AuthForm from "./AuthForm";
+import '../styles/style.scss';
 
 /**
  * Header authorization menu bar
  */
-export const AuthBar = ( props ) => {
+export const AuthBar = (props) => {
   const { handleModal, modal, handleAuthFormSubmit, goRegistrationPage } = props;
 
   return (
     <div className="authContainer">
-      <button style={{ width: '90px', marginBottom: '10px' }}
+      <button style={{ marginBottom: '10px' }}
               onClick={ handleModal }
-              className="tertiary small add">
+              className="log-in-button tertiary">
         Log In
       </button>
       <button
         onClick={ goRegistrationPage }
-        style={{ width: '190px' }}
-        className="secondary small add">
-        Create new account
+        className="register-button secondary">
+        Create account
       </button>
 
       <CustomModal

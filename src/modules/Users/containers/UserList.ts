@@ -1,4 +1,4 @@
-import { compose, withState, withHandlers, lifecycle } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { UserList } from "../components/UserList";
 import { getUsersInit } from "../actions";
 import { connect } from 'react-redux';
@@ -10,15 +10,9 @@ const mapStateToProps: any = (state): any => ({
 });
 
 export default compose(
-  connect(mapStateToProps, null, null),
+  connect(mapStateToProps),
   withHandlers({
     getUsers: ({ dispatch }) => (event) =>
       dispatch(getUsersInit(event && event.target && event.target.value))
-  }),
-  lifecycle({
-    componentDidMount() {
-      const { getUsers } = this.props;
-      getUsers();
-    }
   })
 )(UserList);

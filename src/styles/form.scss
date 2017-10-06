@@ -1,4 +1,5 @@
 @import "mixins";
+@import "variables";
 
 .input-container {
   padding: 6px 22px;
@@ -53,6 +54,10 @@ label {
   }
 }
 
+.Select-value {
+  font-family: Cooper-Medium;
+}
+
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   font-family: WorkSans !important;
   font-size: 16px !important;
@@ -89,4 +94,27 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 .hint {
   letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.input-container + br + span {
+  border: none;
+  font-weight: bold;
+  color: #ff3328;
+}
+
+@media screen and (max-width: $MOBILE_WIDTH) {
+  :global {
+    .input-container, .Select-control {
+      height: 45px !important;
+
+      .Select-input, .Select-value {
+        padding: 5px 25px !important;
+      }
+    }
+
+    .Select-placeholder {
+      line-height: 2.5 !important;
+    }
+  }
 }

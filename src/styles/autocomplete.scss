@@ -1,4 +1,16 @@
+@import "variables";
+
 .my-autocomplete-container {
   max-width: 460px !important;
   font-family: Cooper-Medium !important;
+}
+
+#PlacesAutocomplete__root {
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: $TABLET_MINI_WIDTH) {
+  .my-autocomplete-container {
+    display: none;
+  }
 }

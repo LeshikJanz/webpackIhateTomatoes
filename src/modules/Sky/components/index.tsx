@@ -69,20 +69,20 @@ export const GridLayout = ({
   };
 
   return (
-    <div style={{ marginRight: '60px' }}>
+    <div className="sky-container">
       <ResponsiveReactGridLayout className="layout"
                                  autoSize={false}
                                  verticalCompact={globalSettings.verticalCompactEnabled}
                                  onLayoutChange={route === `/${urls.board}` ? updateLayout : () => null}
                                  onResize={(l, o, n, p, e, element) => handleSize(element.parentNode)}
-                                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                                 cols={{ lg: 50 / zoom, md: 45 / zoom, sm: 40 / zoom, xs: 25 / zoom, xxs: 5 / zoom }}
+                                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 600, xxs: 0 }}
+                                 cols={{ lg: 24 / zoom, md: 20 / zoom, sm: 12 / zoom, xs: 8 / zoom, xxs: 4 / zoom }}
                                  rowHeight={ 10 * zoom }
       >
         {
           sky.clouds.map((c: ICloud) =>
             <div key={c.id}
-                 data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 10, h: 10, minW: 5, minH: 5 } }
+                 data-grid={ sky.layout.find(l => l.i === c.id) || { x: 0, y: 0, w: 4, h: 5, minW: 2, minH: 5 } }
                  ref={handleSize}
                  onDoubleClick={() => openCloud(c.id)}
             >

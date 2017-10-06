@@ -1,4 +1,5 @@
-const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 220;
+import { HEADER_HEIGHT } from "modules/DraftEditor/components/plugins/imagePlugin/constants";
+const dimension = (window.innerHeight >= window.innerWidth ? window.innerWidth : window.innerHeight) - 2 * HEADER_HEIGHT;
 export const dimensionMultiplier = window.innerWidth / window.innerHeight;
 
 export const TAG_CLOUD_INIT = `

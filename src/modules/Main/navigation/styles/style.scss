@@ -36,8 +36,26 @@
       font-size: 20px;
       padding-top: 15px;
 
+      &.navbar-lightning {
+        display: none;
+        align-items: center;
+        white-space: nowrap;
+        padding-left: 0;
+      }
+
+      &:first-child {
+        padding-bottom: 15px;
+      }
+
+      &:last-child {
+        padding-top: 30px;
+      }
+
       &.active {
-        color: #f57f17;
+        color: $PRIMARY_ACTIVE_COLOR;
+        > i.fa-bolt {
+          color: $PRIMARY_ACTIVE_COLOR;
+        }
 
         &:before {
           margin-right: 20px;
@@ -66,20 +84,23 @@
       }
 
       &:hover {
-        color: #f57f17;
+        color: $PRIMARY_ACTIVE_COLOR;
+        > i.fa-bolt {
+          color: $PRIMARY_ACTIVE_COLOR;
+        }
 
         &:before {
           margin-right: 20px;
           opacity: 1;
           transform: translateX(0);
-          transition: all .5s ease-in-out;
+          transition: margin-right .3s ease-in-out;
         }
 
         &:after {
           margin-left: 20px;
           opacity: 1;
           transform: translateX(0);
-          transition: all .5s ease-in-out;
+          transition: margin-left .3s ease-in-out;
         }
       }
     }

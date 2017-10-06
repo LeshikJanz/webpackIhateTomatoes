@@ -1,0 +1,83 @@
+@import "../../variables";
+
+@media screen and (max-width: $MOBILE_WIDTH) {
+  :global {
+    #hello > h2 {
+      width: 60%;
+      font-size: 18px !important;
+    }
+
+    .sky-container {
+      margin: 0 95px 0 55px;
+    }
+
+    .global-search-container {
+      width: 100%;
+    }
+
+    .navigation-container {
+      width: 60px;
+
+      svg.nav-hamburger {
+        transform: scale(0.7);
+      }
+
+      &:hover {
+        width: 70%;
+      }
+    }
+
+    .menu {
+      right: 15px;
+      top: 30px;
+    }
+
+    .no-found-label > h1 {
+      font-size: 20px !important;
+    }
+
+    .user-list-container {
+      .user-search-main-container {
+        .user-search-form {
+          width: 90%;
+        }
+      }
+    }
+
+    .settings-wrapper .settings-container {
+      padding: 20px;
+      margin: 0;
+      border-radius: 0;
+
+      a.hvr-icon-wobble-horizontal {
+        display: none;
+      }
+    }
+
+    .ReactModal__Content {
+      max-width: 100% !important;
+      width: 100%;
+      padding: 20px !important;
+      overflow: auto !important;
+      height: 100%;
+      border-radius: 0 !important;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .modal-body {
+        padding: 15px 0;
+      }
+
+      button.close img {
+        display: none;
+        height: 25px;
+      }
+    }
+
+    button.add {
+      width: 80px;
+    }
+  }
+}

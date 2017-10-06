@@ -107,3 +107,46 @@ hr {
   width: 100%;
   padding-right: 10px;
 }
+
+.navbar-container {
+  background-color: white;
+  height: $HEADER_HEIGHT;
+
+  .header-container {
+    height: $HEADER_HEIGHT;
+    display: flex;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
+
+    > div:first-child {
+      z-index: 20;
+    }
+  }
+}
+
+.navbar {
+  z-index: 10 !important;
+}
+
+.navbar-lightning {
+  font-size: 55px;
+  padding-left: 40px;
+  outline: none !important;
+  cursor: default;
+
+  > i {
+    cursor: pointer;
+    color: gray;
+    opacity: 0.8;
+    transition: .2s opacity;
+
+    &:hover {
+      opacity: 1;
+      transition: .2s opacity;
+    }
+  }
+}

@@ -3,12 +3,17 @@ import { Cloud } from "../Cloud/components/Cloud";
 import { Link } from 'react-router';
 import { urls } from "urls";
 import Link from "../DraftEditor/components/LinkPicker";
+import Header from "./header/containers";
 require('./styles/style.scss');
 
 export const Base = (props) => (
-  <div className="main-container">
-    {props.children}
+  <div>
+    <Header/>
+    <div className="main-container">
+      {props.children}
+    </div>
   </div>
+
 );
 /**
  * Main page

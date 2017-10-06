@@ -8,6 +8,7 @@ import { FlyingTags } from "../components/FlyingTags";
 import * as ReactDOM from 'react-dom';
 import * as $ from "jquery";
 import { TAG_CLOUD_INIT, TAG_CLOUD_END } from "../constants/index";
+import diff from 'deep-diff';
 
 const getTitle = (elem) => `User:&nbsp;${(elem.account && elem.account.username) || 'No&nbsp;Name'},&nbsp;${(elem.relations && elem.relations.leading) || 0}&nbsp;renewers`;
 
@@ -99,7 +100,7 @@ export default compose(
       document.removeEventListener('tagclick', this.props.handleTagClick);
     },
     shouldComponentUpdate(nextProps, nextState) {
-      return !nextProps.isModalOpen;
+      return !nextProps.isModalOpen && !!diff(this.props, nextProps);
     }
   })
 )(FlyingTags);

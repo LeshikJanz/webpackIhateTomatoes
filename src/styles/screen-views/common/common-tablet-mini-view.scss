@@ -1,0 +1,176 @@
+@import "../../variables";
+
+$menu-items: 2;
+$gooey-menu-dimension: 60px;
+
+@media screen and (max-width: $TABLET_MINI_WIDTH) {
+  :global {
+    #hello > h2 {
+      padding-right: 0;
+      font-size: 22px !important;
+      font-weight: bold;
+      width: 55% !important;
+    }
+
+    .main-container {
+      margin: 0;
+    }
+
+    .navbar-lightning {
+      display: none;
+    }
+
+    .sky-container {
+      margin: 0 95px;
+    }
+
+    .navigation-container nav > .navbar-lightning {
+      display: flex !important;
+    }
+
+    .navigation-container {
+      padding-top: 35px;
+      height: 100px;
+      z-index: 101;
+
+      svg.nav-hamburger {
+        transform: scale(0.7);
+      }
+
+      &:hover {
+        height: 100%;
+        width: 40%;
+      }
+
+      nav > a {
+        font-size: 16px;
+
+        &:first-child {
+          padding-bottom: 0;
+        }
+
+        &:last-child {
+          padding-top: 10px;
+        }
+      }
+    }
+
+    .profile-bar {
+      right: 15px;
+      .profile {
+        justify-content: flex-end;
+
+        .user-labels {
+          display: none;
+        }
+      }
+    }
+
+    .profile-container {
+      width: 100%;
+    }
+
+    .global-search-container {
+      width: 90%;
+    }
+
+    .no-found-label {
+      width: 90%;
+
+      > h1 {
+        font-size: 26px !important;
+      }
+    }
+
+    .menu {
+      right: 55px;
+
+      .menu-item, .menu-open-button {
+        width: 60px;
+        height: 60px;
+        right: 60%;
+      }
+
+      .menu-item {
+        right: 60%;
+
+        &[title]:hover:after {
+          top: 85px;
+          right: -20px;
+        }
+        &[title=Settings]:hover:after {
+          top: 65px;
+          right: 0;
+        }
+      }
+
+      &-open:checked ~ .menu-item {
+        transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+        @for $i from 1 through $menu-items {
+
+          &:nth-child(#{$i+2}) {
+            transition-duration: 90ms+(80ms*$i);
+            transform: translate3d((65px*$i), 0, 0);
+          }
+        }
+      }
+    }
+
+    .user-search-main-container {
+      margin: 0;
+      padding: 0 20px;
+
+      .search-header > h1 {
+        font-size: 26px;
+      }
+
+      .user-search-form {
+        margin-top: 5px;
+      }
+    }
+
+    .user-list-container {
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+
+      .user-list {
+        width: 100%;
+        padding-left: 30px;
+      }
+
+      .user-search-main-container {
+        position: relative;
+        border: none;
+        border-radius: 0;
+        width: 100%;
+
+        .user-search-form {
+          width: 70%;
+          padding-left: 20px;
+        }
+      }
+    }
+
+    .profile-bar {
+      right: 10px;
+
+      button.log-in-button {
+        height: 26px;
+        width: 80px;
+      }
+
+      button.register-button {
+        width: 80px;
+      }
+    }
+
+    .ReactModal__Content {
+      max-width: 90% !important;
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  }
+}

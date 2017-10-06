@@ -16,7 +16,7 @@ export const TagCloud = ({ locationPath, handleKeyPress, cloud, loading, tags })
     }
     {
       (!cloud.knowledge.length && locationPath.indexOf('/cloud') === 0 && !loading) &&
-      <div className="no-knowledge-label">
+      <div className="no-found-label">
         <h1>There is no one knowledge right now! </h1>
         <h3>Click on the Lightning Bolt in the top left corner for creating
           first one.</h3>

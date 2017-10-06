@@ -7,11 +7,11 @@ import { ProfileCategory } from "./ProfileCategory";
 import { reduxForm } from "redux-form";
 import { ProfileAutocomplete } from "components/ReduxFormFields/ProfileAutocomplete";
 
-const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit, handleImageUpload, loading }) => {
+const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubmit, handleImageUpload, logOut }) => {
   const isOwner = () => user.id === localStorage.getItem('UserId');
 
   return (
-    <form className="profile-container" style={style} onSubmit={handleSubmit}>
+    <form style={style} onSubmit={handleSubmit}>
       <div className="short-info">
         <div className="user-avatar">
           <button type="button"
@@ -28,6 +28,7 @@ const Profile = ({ user, style, handleProfileSidebar, dirty, invalid, handleSubm
             <label style={{ textAlign: 'center' }} hidden={!user.loading}>Uploading...</label>
           </div>
         </div>
+        <button className="tertiary small log-out" hidden={!isOwner()} type="button" onClick={logOut}>Log out</button>
         <ProfileCategory name="PERSONAL">
           <ProfileField name="Name" disabled={!isOwner()}/>
           <ProfileField name="Username" disabled={true}/>

@@ -16,7 +16,7 @@ import { getUserInit, handleProfileSidebar } from "modules/Profile/actions";
 const mapStateToProps = (state) => ({
   cloudId: state.Cloud.id,
   isModalOpen: state.Modal.isModalOpen,
-  isProfileOpened: state.Profile.isOpened
+  profile: state.Profile
 });
 
 /**
@@ -30,9 +30,8 @@ const mapStateToProps = (state) => ({
 const mergeProps: any = (props, { dispatch }): any => ({
   ...props,
   logOut: () => dispatch(logOutInit()),
-  goToUserProfile: (userId: string) => dispatch(push(urls.profile + '/' + userId)),
   handleProfileSidebar: (userId: string) => {
-    if ( !props.isProfileOpened ) {
+    if ( !props.profile.isOpened ) {
       dispatch(getUserInit(userId));
     }
     dispatch(handleProfileSidebar(userId));

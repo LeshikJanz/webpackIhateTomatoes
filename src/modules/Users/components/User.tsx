@@ -21,7 +21,7 @@ export const User = ({ user, handleProfileSidebar, goToUserBoard }) => (
           {user.birthday && moment(user.birthday).format('MMMM Do YYYY')}
         </div>
       </div>
-      <button className="gray small add"
+      <button className="gray open-sky align-center nowrap"
               onClick={ () => goToUserBoard(user.id) }>
         View sky
       </button>

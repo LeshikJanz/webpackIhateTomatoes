@@ -5,7 +5,7 @@ require('../styles/style.scss');
 /**
  * Header's log out bar
  */
-export const LogOutBar = ({ logOut, handleProfileSidebar, isProfileOpened }) => {
+export const LogOutBar = ({ logOut, handleProfileSidebar }) => {
   const user = JSON.parse(localStorage.getItem('Account'));
 
   return (
