@@ -32,13 +32,10 @@
       top: 30px;
     }
 
-    .no-found-label {
-      width: 100%;
-
-      > h1 {
-        font-size: 20px !important;
-      }
+    .no-found-label > h1 {
+      font-size: 20px !important;
     }
+
     .user-list-container {
       .user-search-main-container {
         .user-search-form {
@@ -55,6 +52,32 @@
       a.hvr-icon-wobble-horizontal {
         display: none;
       }
+    }
+
+    .ReactModal__Content {
+      max-width: 100% !important;
+      width: 100%;
+      padding: 20px !important;
+      overflow: auto !important;
+      height: 100%;
+      border-radius: 0 !important;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .modal-body {
+        padding: 15px 0;
+      }
+
+      button.close img {
+        display: none;
+        height: 25px;
+      }
+    }
+
+    button.add {
+      width: 80px;
     }
   }
 }
