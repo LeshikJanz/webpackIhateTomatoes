@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { SettingsModal } from "../components/SettingsModal";
 import { Settings } from "../components/index";
 import { updateSettingsInit } from "../../Sky/actions";
 import { push } from "react-router-redux";

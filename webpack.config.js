@@ -67,10 +67,8 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true
-        }
+        loader: 'babel-loader!ts-loader',
+        exclude: [/node_modules/]
       },
       {
         test: /\.styl$/,

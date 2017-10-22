@@ -3,8 +3,8 @@ const styles = require('./../styles/style.scss');
 const classNames = require('classnames/bind');
 const cx = classNames.bind(styles);
 
-export const Hint = ({ children, highlight, name, text, style, disableAnimation, SettingsForm }) => {
-  const account = JSON.parse(localStorage.getItem('Account'));
+export const Hint = ({ children, highlight, name, text, disableAnimation }) => {
+  const account = JSON.parse(localStorage.getItem('Account') || "");
   const settings = account && account.settings;
   const isHintEnable = settings && settings.hintsEnabled;
 
@@ -12,7 +12,7 @@ export const Hint = ({ children, highlight, name, text, style, disableAnimation,
       <div className={cx(['hint-container', { 'disable-animation': disableAnimation },
         { 'highlight': (highlight.enabled && highlight.name == name) }])}>
         {children}
-        <img className="hint-image" style={...style} src="assets/icons/hints/hint-yellow.png"/>
+        <img className="hint-image" src="assets/icons/hints/hint-yellow.png"/>
         <div className="hint-block">
           <div className="hint-text">{text.split("\n").map((t, i) => <div key={i}>{t}</div>)}</div>
         </div>

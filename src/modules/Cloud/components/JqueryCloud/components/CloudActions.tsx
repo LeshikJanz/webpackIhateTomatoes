@@ -3,7 +3,7 @@ import Hint from "components/Hint/containers";
 import { Search } from "components/Search/Search";
 const SVG = require('react-svg');
 
-export const CloudActions = ({ cloud, handleSearch, updateCloudName, updateCloud, handleKeyPress, cloudNameInput, tags }) => (
+export const CloudActions: any = ({ cloud, handleSearch, updateCloudName, updateCloud, handleKeyPress, cloudNameInput, tags }: any) => (
   <div className="cloud-actions">
     <Hint text="You can search by knowledge name">
       <Search onChange={ handleSearch } name="name" numberFounded={tags.length}/>
