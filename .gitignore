@@ -16,6 +16,7 @@
 .project
 .awcache
 .strong-pm
+dist
 coverage
 node_modules
 npm-debug.log

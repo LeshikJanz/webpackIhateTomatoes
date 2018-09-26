@@ -3,14 +3,15 @@ import { dimensionMultiplier } from "modules/Cloud/components/JqueryCloud/consta
 export const DEFAULT_TAG_CLOUD_SETTINGS = {
   textFont: 'Raleway-Medium, Raleway, Cooper',
   textColour: '#337ab7',
-  textHeight: 25,
+  textHeight: 25, 
+  shape: "hcylinder",
+  lock: "x",
   outlineMethod: 'block',
   outlineColour: '#acf',
   maxSpeed: 0.02,
   minBrightness: 0.2,
   depth: 0,
   pulsateTo: 0.6,
-  initial: [0.2, -0.2],
   decel: 1,
   reverse: true,
   tooltip: 'div',
@@ -23,5 +24,6 @@ export const DEFAULT_TAG_CLOUD_SETTINGS = {
   radiusX: dimensionMultiplier,
   clickToFront: 600,
   noTagsMessage: false,
-  minSpeed: 0.015
+  minSpeed: 0.015,
+  zoomMax: 1,
 };
