@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-const xoauth2 = require('xoauth2');
 const fs = require('fs');
 const NAME_SELECTOR = 'emailer-name';
 const CONFIRAMTION_LINK_SELECTOR = 'confirmation-link';
